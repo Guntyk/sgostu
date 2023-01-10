@@ -161,6 +161,10 @@ a {
   cursor: pointer;
 }
 
+body::-webkit-scrollbar {
+  display: none;
+}
+
 .container {
   margin: 0 auto;
   width: 90%;

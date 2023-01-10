@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@react-spring/parallax": "^9.6.1",
     "@react-three/drei": "^9.51.20",
     "@react-three/fiber": "^8.10.0",
     "gsap": "^3.11.4",

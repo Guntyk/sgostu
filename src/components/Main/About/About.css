@@ -1,0 +1,55 @@
+.about {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 955px;
+  margin: 110px auto;
+}
+
+.about-text {
+  max-width: 580px;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  font-size: 38px;
+  font-weight: 700;
+  line-height: 40px;
+}
+
+.row > hr {
+  margin-left: 50px;
+  width: 155px;
+  height: 2px;
+  background-color: #000;
+}
+
+.circular {
+  position: relative;
+}
+
+.rounded-text {
+  animation: 15s rotation linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
+
+@keyframes borderRotation {
+  0% {
+    transform: translate(-50%, -50%) rotateZ(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotateZ(-360deg);
+  }
+}
