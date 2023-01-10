@@ -1,0 +1,27 @@
+.btn {
+  width: 170px;
+  height: 55px;
+  color: var(--primary-black);
+  font-size: 16px;
+  background: transparent;
+  border: 1px solid var(--primary-black);
+  border-radius: 50px;
+  backdrop-filter: blur(10px);
+  transition: 0.2s;
+}
+
+.btn:hover {
+  background: linear-gradient(
+    228.75deg,
+    hsla(calc(var(--hue) - 54), 0%, 81%, 0.3) 0%,
+    hsla(calc(var(--hue) - 54), 0%, 94%, 0.075) 101.36%
+  );
+}
+
+.btn:active {
+  background: linear-gradient(
+    228.75deg,
+    hsla(calc(var(--hue) - 54), 0%, 36%, 0.3) 0%,
+    hsla(calc(var(--hue) - 54), 0%, 43%, 0.075) 101.36%
+  );
+}

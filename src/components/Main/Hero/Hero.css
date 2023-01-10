@@ -1,0 +1,26 @@
+.hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: url(../../../materials/images/waves-right-hero.svg) no-repeat 100%
+      0%,
+    url(../../../materials/images/waves-left-hero.svg) no-repeat 0% 75%,
+    linear-gradient(#ebf6ff 0%, #ffffff 50%, #ebf6ff 100%);
+}
+
+.title {
+  max-width: 1025px;
+  font-size: 56px;
+  line-height: 60px;
+}
+
+.title > div {
+  min-height: 65px;
+  overflow: hidden;
+}
+
+.title > div > span {
+  display: block;
+  transform: translateY(100%);
+}
