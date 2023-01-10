@@ -43,10 +43,14 @@ export default function Loader() {
         },
         "+=1"
       );
-      loadingTimeline.to(".title-stroke", {
-        y: 0,
-        duration: .55,
-      }, "+=0.25");
+      loadingTimeline.to(
+        ".title-stroke",
+        {
+          y: 0,
+          duration: 0.55,
+        },
+        "+=0.25"
+      );
     }
   }, [loading]);
 
