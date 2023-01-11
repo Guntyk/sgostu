@@ -33,7 +33,3 @@
   height: 100%;
   background-color: var(--primary-black);
 }
-
-.bg {
-  filter: saturate(2);
-}

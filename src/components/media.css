@@ -1,3 +1,10 @@
+@media (max-width: 1150px) {
+  .cilcular svg {
+    width: 130px;
+    height: 130px;
+  }
+}
+
 @media (max-width: 840px) {
   .hero {
     background-size: 70%;
@@ -21,6 +28,23 @@
     font-size: 36px;
     line-height: 48px;
   }
+  .about-row {
+    font-size: 24px;
+  }
+  .about-row > hr {
+    width: 200px;
+  }
+  .about-text {
+    font-size: 12px;
+    max-width: 357px;
+  }
+  .about-text p {
+    max-width: 327px;
+  }
+  .cilcular svg {
+    width: 130px;
+    height: 130px;
+  }
 }
 
 @media (max-width: 550px) {
@@ -42,5 +66,25 @@
     max-width: 329px;
     text-align: center;
     margin: 0 auto;
+  }
+  .about {
+    flex-direction: column;
+    justify-content: center;
+  }
+  .about-row {
+    font-size: 20px;
+    max-width: 350px;
+  }
+  .about-row > hr {
+    width: 54.4vw;
+    margin-left: 30px;
+  }
+  .about-text p {
+    margin: 0 0 40px 0;
+    font-size: 10px;
+  }
+  .cilcular svg {
+    width: 80px !important;
+    height: 80px !important;
   }
 }
