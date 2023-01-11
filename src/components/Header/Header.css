@@ -1,9 +1,16 @@
 .header {
   position: fixed;
-  display: flex;
-  align-items: center;
+  /* display: flex; */
   padding: 8px 0;
   height: 58px;
+  z-index: 2;
+  width: 100%;
+}
+
+.header__wrapper {
+  /* width: 100%; */
+  display: flex;
+  align-items: center;
 }
 
 .name {
@@ -11,6 +18,10 @@
   align-items: center;
   height: 100%;
   font-size: 16px;
+}
+
+.header-logo {
+  width: 63px;
 }
 
 .hamburger {

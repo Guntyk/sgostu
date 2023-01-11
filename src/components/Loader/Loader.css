@@ -6,7 +6,7 @@
   height: 100vh;
   background: #fff;
   pointer-events: none;
-  z-index: 1;
+  z-index: 999;
 }
 
 .loading-info {
@@ -15,7 +15,7 @@
   left: 50%;
   opacity: 0;
   transform: translate(-50%, -50%);
-  transition: .7s;
+  transition: 0.7s;
 }
 
 .loading-background {
