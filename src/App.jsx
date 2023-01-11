@@ -1,8 +1,8 @@
+import Advantages from "./components/Main/Advantages/Advantages";
 import About from "./components/Main/About/About";
 import Header from "./components/Header/Header";
 import Loader from "./components/Loader/Loader";
 import Hero from "./components/Main/Hero/Hero";
-
 
 export default function App() {
   return (
@@ -12,6 +12,7 @@ export default function App() {
       <main>
         <Hero />
         <About />
+        <Advantages />
       </main>
     </>
   );
