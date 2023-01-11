@@ -1,0 +1,92 @@
+.nearest-events {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.nearest-events-title {
+  display: flex;
+  align-items: center;
+  font-size: 28px;
+  line-height: 32px;
+  overflow: hidden;
+}
+
+.marquee {
+  white-space: nowrap;
+  word-spacing: 50px;
+  animation: marquee 2s infinite linear;
+}
+
+.marquee:after {
+  content: "Найближчі заходи Найближчі заходи Найближчі заходи Найближчі заходи Найближчі заходи";
+  margin-left: 59px;
+  word-spacing: 50px;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-10.17%);
+  }
+}
+
+.nearest-events-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 56px auto 36px auto;
+  width: 50%;
+}
+
+.nearest-event-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px 13px;
+  width: 234px;
+  height: 220px;
+  border: 1px solid #0e0e0e59;
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.nearest-event-card:hover .event-arrow {
+  transform: translateX(10px);
+}
+
+.nearest-event-name {
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.nearest-event-info {
+  display: flex;
+  flex-direction: column;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+.nearest-event-card:nth-child(1) {
+  background: url(../../../materials/icons/nearest-events/start-1.svg) no-repeat
+    60% 60%;
+}
+.nearest-event-card:nth-child(2) {
+  background: url(../../../materials/icons/nearest-events/start-2.svg) no-repeat
+    60% 60%;
+}
+.nearest-event-card:nth-child(3) {
+  background: url(../../../materials/icons/nearest-events/start-3.svg) no-repeat
+    60% 60%;
+}
+
+.event-arrow {
+  position: absolute;
+  bottom: 23px;
+  right: 23px;
+  transition: 0.3s;
+}

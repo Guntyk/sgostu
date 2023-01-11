@@ -5,10 +5,7 @@
   height: 100vh;
   background: url(../../../materials/images/waves-right-hero.svg) no-repeat 100%
       0%,
-    url(../../../materials/images/waves-left-hero.svg) no-repeat 0% 100%,
-    linear-gradient(#ebf6ff 0%, #ffffff 50%, #ebf6ff 100%);
-  /* background: url(../../../materials/images/vector.svg) center center/cover
-    no-repeat; */
+    url(../../../materials/images/waves-left-hero.svg) no-repeat 0% 100%;
   background-size: 60%;
 }
 
@@ -40,6 +37,8 @@
 .blur {
   display: inline-block;
   position: absolute;
+  width: 100%;
+  height: 100vh;
   background: linear-gradient(
     180deg,
     rgba(235, 246, 255, 0.75) -1.82%,
@@ -48,6 +47,4 @@
   );
   backdrop-filter: blur(4px);
   z-index: 0;
-  width: 100%;
-  height: 100%;
 }
