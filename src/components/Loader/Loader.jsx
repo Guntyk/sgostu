@@ -2,7 +2,7 @@ import { angleToRadians } from "../../helpers/angleToRadians";
 import { OrbitControls, PerspectiveCamera } from "@react-three/drei";
 import { Suspense, useEffect, useState } from "react";
 import { Canvas } from "@react-three/fiber";
-import Logo from "./Logo";
+// import Logo from "./Logo";
 import gsap from "gsap";
 import "./Loader.css";
 
@@ -63,7 +63,7 @@ export default function Loader() {
           <ambientLight intensity={0.5} position={[0, 0, 3]} />
           <directionalLight position={[-2, 3, 2]} intensity={0.5} />
           <Suspense>
-            <Logo rotation={[0, angleToRadians(90), 0]} loading={loading} />
+            {/* <Logo rotation={[0, angleToRadians(90), 0]} loading={loading} /> */}
           </Suspense>
         </Canvas>
         <div

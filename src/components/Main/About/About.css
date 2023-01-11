@@ -1,9 +1,10 @@
 .about {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
-  margin: 110px auto 0 auto;
+  padding: 100px 30px;
   max-width: 955px;
+  overflow: hidden;
 }
 
 .about-text {
@@ -12,7 +13,7 @@
   line-height: 24px;
 }
 
-.row {
+.about-row {
   display: flex;
   align-items: center;
   margin-bottom: 15px;
@@ -21,7 +22,7 @@
   line-height: 40px;
 }
 
-.row > hr {
+.about-row > hr {
   margin-left: 50px;
   width: 155px;
   height: 2px;
