@@ -13,8 +13,8 @@ export default function App() {
       <main>
         <Hero />
         <About />
-        <Advantages />
-        <NearestEvents />
+        {/* <Advantages /> */}
+        {/* <NearestEvents /> */}
       </main>
     </>
   );

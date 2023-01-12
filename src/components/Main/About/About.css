@@ -1,31 +1,37 @@
 .about {
+  width: 100%;
+}
+
+.about-wrapper {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
-  padding: 100px 30px;
-  max-width: 955px;
+  margin: 0 auto;
+  padding: 100px;
+  max-width: 50vw;
   overflow: hidden;
 }
 
 .about-text {
-  max-width: 580px;
-  font-size: 16px;
-  line-height: 24px;
+  max-width: 36.25rem;
+  font-size: 1rem;
+  line-height: 1.5;
 }
 
 .about-row {
   display: flex;
   align-items: center;
-  margin-bottom: 15px;
-  font-size: 38px;
+  margin-bottom: 0.9375rem;
+  font-size: 2.375rem;
   font-weight: 700;
-  line-height: 40px;
+  line-height: 1.11;
 }
 
 .about-row > hr {
-  margin-left: 50px;
+  margin-left: 2.6vw;
   width: 155px;
-  height: 2px;
+  height: 3px;
+  border: none;
   background-color: #000;
 }
 

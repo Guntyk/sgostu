@@ -16,13 +16,13 @@ export default function Header() {
               }}
             >
               <span
-                className={`top-bun ${openSideMenu ? "active" : ""}`}
+                className={`ham-line top-bun ${openSideMenu ? "active" : ""}`}
               ></span>
               <span
-                className={`stuffing ${openSideMenu ? "active" : ""}`}
+                className={`ham-line stuffing ${openSideMenu ? "active" : ""}`}
               ></span>
               <span
-                className={`bottom-bun ${openSideMenu ? "active" : ""}`}
+                className={`ham-line bottom-bun ${openSideMenu ? "active" : ""}`}
               ></span>
             </div>
             <a href="/" className="name">

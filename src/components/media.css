@@ -1,11 +1,11 @@
 @media (max-width: 1150px) {
-  .cilcular svg {
-    width: 130px;
-    height: 130px;
+  .about-wrapper {
+    max-width: 100%;
   }
 }
 
 @media (max-width: 840px) {
+  /* Header */
   .hero {
     background-size: 70%;
   }
@@ -13,78 +13,85 @@
     width: 45px;
   }
   .company-name {
-    font-size: 14px;
+    font-size: 0.875rem;
   }
   .hamburger {
     display: inline-block;
     position: absolute;
-    right: 0;
+    margin: 0 !important;
     top: 50%;
+    right: 0;
     transform: translateY(-50%) rotate(180deg);
-    margin: 0;
   }
+  /* Hero */
   .title-stroke {
     max-width: 538px;
-    font-size: 36px;
-    line-height: 48px;
+    font-size: 2.25rem;
+  }
+  /* About */
+  .about-wrapper {
+    padding: 50px;
   }
   .about-row {
-    font-size: 24px;
-  }
-  .about-row > hr {
-    width: 200px;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
   }
   .about-text {
-    font-size: 12px;
+    font-size: 0.75rem;
     max-width: 357px;
   }
-  .about-text p {
-    max-width: 327px;
+  .circular {
+    margin-left: 40px;
   }
-  .cilcular svg {
-    width: 130px;
-    height: 130px;
+  .circular svg {
+    width: 120px;
+    height: 120px;
   }
 }
 
 @media (max-width: 550px) {
+  /* Hero */
   .company-name {
     display: none;
   }
   .header-logo {
-    width: 30px;
+    width: 50px !important;
     margin: 0;
   }
   .hamburger {
-    width: 25px;
+    width: 25px !important;
   }
-  .stuffing {
-    width: 13px !important;
+  .hamburger > .stuffing {
+    width: 13px;
     margin: 7px 0;
   }
+  /* Hero */
   .title-stroke {
     max-width: 329px;
     text-align: center;
     margin: 0 auto;
   }
-  .about {
+  /* About */
+  .about-wrapper {
     flex-direction: column;
-    justify-content: center;
   }
   .about-row {
-    font-size: 20px;
-    max-width: 350px;
+    margin-bottom: 0.625rem;
+    font-size: 1.25rem;
   }
   .about-row > hr {
     width: 54.4vw;
-    margin-left: 30px;
+    height: 2px;
   }
   .about-text p {
-    margin: 0 0 40px 0;
-    font-size: 10px;
+    margin: 0 0 70px 0;
+    font-size: 0.625rem;
   }
-  .cilcular svg {
-    width: 80px !important;
-    height: 80px !important;
+  .circular {
+    margin-left: 0;
+  }
+  .circular svg {
+    width: 110px;
+    height: 110px;
   }
 }

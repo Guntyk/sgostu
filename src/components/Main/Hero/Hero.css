@@ -20,8 +20,8 @@
 
 .title {
   max-width: 1025px;
-  font-size: 56px;
-  line-height: 60px;
+  font-size: 3.5rem;
+  line-height: 1.07;
 }
 
 .title > div {

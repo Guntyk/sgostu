@@ -7,15 +7,15 @@
 .nearest-events-title {
   display: flex;
   align-items: center;
-  font-size: 28px;
-  line-height: 32px;
+  font-size: 1.75rem;
+  line-height: 1.15;
   overflow: hidden;
 }
 
 .marquee {
   white-space: nowrap;
   word-spacing: 50px;
-  animation: marquee 2s infinite linear;
+  animation: marquee 3s infinite linear;
 }
 
 .marquee:after {
@@ -60,15 +60,15 @@
 }
 
 .nearest-event-name {
-  font-size: 18px;
-  line-height: 24px;
+  font-size: 1.125rem;
+  line-height: 1.34;
 }
 
 .nearest-event-info {
   display: flex;
   flex-direction: column;
-  font-size: 13px;
-  line-height: 18px;
+  font-size: 0.8125rem;
+  line-height: 1.35;
 }
 
 .nearest-event-card:nth-child(1) {
