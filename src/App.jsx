@@ -12,8 +12,8 @@ export default function App() {
       <Header />
       <main>
         <Hero />
-        <About />
-        {/* <Advantages /> */}
+        {/* <About /> */}
+        <Advantages />
         {/* <NearestEvents /> */}
       </main>
     </>
