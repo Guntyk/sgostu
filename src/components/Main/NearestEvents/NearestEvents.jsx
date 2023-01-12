@@ -1,45 +1,94 @@
+import { Swiper, SwiperSlide } from "swiper/react";
 import Button from "../../../common/Button/Button";
+import { EffectCoverflow } from "swiper";
+import "swiper/css/effect-coverflow";
 import "./NearestEvents.css";
+import "swiper/css";
 
 export default function NearestEvents() {
   return (
-    <article className="nearest-events">
-      <div className="nearest-events-title">
-        <p className="marquee">
-          Найближчі заходи Найближчі заходи Найближчі заходи Найближчі заходи
-          Найближчі заходи
-        </p>
-      </div>
-      <div className="nearest-events-wrapper">
-        <div className="nearest-event-card">
-          <span className="nearest-event-name">«Cryslal Cup 2023»</span>
-          <div className="nearest-event-info">
-            <span className="nearest-event-town">Київ</span>
-            <span className="nearest-event-date">28.01.2023</span>
-          </div>
-          <Arrow />
+    <>
+      <article className="nearest-events">
+        <div className="nearest-events-title">
+          <p className="marquee">
+            Найближчі заходи Найближчі заходи Найближчі заходи Найближчі заходи
+            Найближчі заходи
+          </p>
         </div>
-        <div className="nearest-event-card">
-          <span className="nearest-event-name">
-            Відкритий чемпіонат УАВТ (UDTA)
-          </span>
-          <div className="nearest-event-info">
-            <span className="nearest-event-town">Київ</span>
-            <span className="nearest-event-date">11.02.2023</span>
+        <div className="nearest-events-wrapper">
+          <div className="nearest-event-card">
+            <span className="nearest-event-name">«Cryslal Cup 2023»</span>
+            <div className="nearest-event-info">
+              <span className="nearest-event-town">Київ</span>
+              <span className="nearest-event-date">28.01.2023</span>
+            </div>
+            <Arrow />
           </div>
-          <Arrow />
-        </div>
-        <div className="nearest-event-card">
-          <span className="nearest-event-name">«Crystal Dance Cup 2023»</span>
-          <div className="nearest-event-info">
-            <span className="nearest-event-town">Черкаси</span>
-            <span className="nearest-event-date">18.02.2023</span>
+          <div className="nearest-event-card">
+            <span className="nearest-event-name">
+              Відкритий чемпіонат УАВТ (UDTA)
+            </span>
+            <div className="nearest-event-info">
+              <span className="nearest-event-town">Київ</span>
+              <span className="nearest-event-date">11.02.2023</span>
+            </div>
+            <Arrow />
           </div>
-          <Arrow />
+          <div className="nearest-event-card">
+            <span className="nearest-event-name">«Crystal Dance Cup 2023»</span>
+            <div className="nearest-event-info">
+              <span className="nearest-event-town">Черкаси</span>
+              <span className="nearest-event-date">18.02.2023</span>
+            </div>
+            <Arrow />
+          </div>
         </div>
-      </div>
-      <Button buttonText="Більше" />
-    </article>
+        <Button buttonText="Більше" />
+      </article>
+      <Swiper
+        className="slider"
+        spaceBetween={-80}
+        initialSlide={1}
+        grabCursor={true}
+        slideToClickedSlide={true}
+        effect={"coverflow"}
+        coverflowEffect={{rotate: 0, slideShadows: false, scale: 0.8}}
+        modules={[EffectCoverflow]}
+      >
+        <SwiperSlide className="swiper-slide">
+          <div className="nearest-event-card">
+            <span className="nearest-event-name">«Cryslal Cup 2023»</span>
+            <div className="nearest-event-info">
+              <span className="nearest-event-town">Київ</span>
+              <span className="nearest-event-date">28.01.2023</span>
+            </div>
+            <Arrow />
+          </div>
+        </SwiperSlide>
+        <SwiperSlide className="swiper-slide">
+          <div className="nearest-event-card">
+            <span className="nearest-event-name">
+              Відкритий чемпіонат УАВТ (UDTA)
+            </span>
+            <div className="nearest-event-info">
+              <span className="nearest-event-town">Київ</span>
+              <span className="nearest-event-date">11.02.2023</span>
+            </div>
+            <Arrow />
+          </div>
+        </SwiperSlide>
+        <SwiperSlide className="swiper-slide">
+          <div className="nearest-event-card">
+            <span className="nearest-event-name">«Crystal Dance Cup 2023»</span>
+            <div className="nearest-event-info">
+              <span className="nearest-event-town">Черкаси</span>
+              <span className="nearest-event-date">18.02.2023</span>
+            </div>
+            <Arrow />
+          </div>
+        </SwiperSlide>
+      </Swiper>
+    </>
   );
 }
 

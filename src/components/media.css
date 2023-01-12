@@ -2,6 +2,15 @@
   .about-wrapper {
     max-width: 100%;
   }
+  /* Nearest Events */
+  .nearest-events-wrapper {
+    gap: 35px;
+  }
+  .nearest-event-card {
+    width: 180px;
+    height: 180px;
+    font-size: 0.875rem;
+  }
 }
 
 @media (max-width: 840px) {
@@ -55,7 +64,7 @@
   .advantage-card {
     font-size: 0.825rem;
   }
-  .card-1 {
+  .advantage-card:first-child {
     font-size: 1.25rem;
   }
 }
@@ -123,38 +132,38 @@
     font-size: 0.75rem;
     background-position: 50% 125%;
   }
-  .card-1 {
+  .advantage-card:nth-child(1) {
     grid-area: 1 / 1 / 2 / 3;
     font-size: 1.125rem;
     text-align: left;
     padding: 0 40px;
   }
-  .card-2 {
+  .advantage-card:nth-child(2) {
     background: url(../materials/icons/advantages/mobile/star-5.svg) no-repeat
       50% 100%;
   }
-  .card-3 {
+  .advantage-card:nth-child(3) {
     grid-area: 2 / 1 / 2 / 1;
     background: url(../materials/icons/advantages/mobile/star-2.svg) no-repeat
       50% 100%;
   }
-  .card-4 {
+  .advantage-card:nth-child(4) {
     background: url(../materials/icons/advantages/mobile/star-3.svg) no-repeat
       50% 100%;
   }
-  .card-5 {
+  .advantage-card:nth-child(5) {
     background: url(../materials/icons/advantages/mobile/star-6.svg) no-repeat
       50% 100%;
   }
-  .card-6 {
+  .advantage-card:nth-child(6) {
     background: url(../materials/icons/advantages/mobile/star-1.svg) no-repeat
       50% 100%;
   }
-  .card-7 {
+  .advantage-card:nth-child(7) {
     background: url(../materials/icons/advantages/mobile/star-4.svg) no-repeat
       50% 100%;
   }
-  .card-8 {
+  .advantage-card:nth-child(8) {
     background: url(../materials/icons/advantages/mobile/star-7.svg) no-repeat
       50% 100%;
   }
