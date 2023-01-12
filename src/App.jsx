@@ -1,15 +1,14 @@
 import NearestEvents from "./components/Main/NearestEvents/NearestEvents";
 import Advantages from "./components/Main/Advantages/Advantages";
+import { eventsSelector } from "./redux/events/selectors";
+import { useDispatch, useSelector } from "react-redux";
 import { fetchEvents } from "./redux/events/thunk";
 import About from "./components/Main/About/About";
 import Header from "./components/Header/Header";
 import Loader from "./components/Loader/Loader";
 import Hero from "./components/Main/Hero/Hero";
-import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
-import { eventsSelector } from "./redux/events/selectors";
 import Button from "./common/Button/Button";
-import EventLi from "./EventLi";
+import { useEffect } from "react";
 
 export default function App() {
   const events = useSelector(eventsSelector);
