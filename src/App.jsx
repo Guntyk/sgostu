@@ -12,7 +12,7 @@ export default function App() {
       <Header />
       <main>
         <Hero />
-        {/* <About /> */}
+        <About />
         <Advantages />
         {/* <NearestEvents /> */}
       </main>
