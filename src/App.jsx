@@ -11,13 +11,6 @@ import Button from "./common/Button/Button";
 import { useEffect } from "react";
 
 export default function App() {
-  const events = useSelector(eventsSelector);
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    console.log(events);
-  }, [events]);
-
   return (
     <>
       {/* <Loader /> */}
@@ -26,9 +19,9 @@ export default function App() {
         {/* <Hero /> */}
         {/* <About /> */}
         {/* <Advantages /> */}
-        {/* <NearestEvents /> */}
+        <NearestEvents />
       </main>
-      <Button
+      {/* <Button
         buttonText="Забрать данные"
         onClick={() => {
           console.log("Запрос отправлен");
@@ -37,13 +30,15 @@ export default function App() {
       />
       <ul>
         {events.length !== 0 ? (
-          events.map(
-            (event) => <li key={event.id}>{event.attributes.title}</li>
-          )
+          events.map((event) => (
+            <li key={event.id}>
+              {event.attributes.title} {event.attributes.start}
+            </li>
+          ))
         ) : (
           <span>Мероприятий нет</span>
         )}
-      </ul>
+      </ul> */}
     </>
   );
 }
