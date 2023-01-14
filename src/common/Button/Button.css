@@ -1,0 +1,75 @@
+.btn {
+  width: 170px;
+  height: 55px;
+  color: var(--primary-black);
+  font-size: 1rem;
+  background: transparent;
+  border: 1px solid var(--primary-black);
+  border-radius: 50px;
+  backdrop-filter: blur(10px);
+  transition: 0.2s;
+}
+
+.btn:hover {
+  background: linear-gradient(
+    228.75deg,
+    hsla(calc(var(--hue) - 54), 0%, 81%, 0.3) 0%,
+    hsla(calc(var(--hue) - 54), 0%, 94%, 0.075) 101.36%
+  );
+}
+
+.btn:active {
+  background: linear-gradient(
+    228.75deg,
+    hsla(calc(var(--hue) - 54), 0%, 36%, 0.3) 0%,
+    hsla(calc(var(--hue) - 54), 0%, 43%, 0.075) 101.36%
+  );
+}
+
+.about-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: none;
+  backdrop-filter: none;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.about-btn:hover,
+.about-btn:active {
+  background: none;
+}
+
+.about-btn::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 150%;
+  height: 150%;
+  border: 3px solid;
+  border-color: transparent #000;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  animation: borderRotation 25s infinite linear;
+}
+
+.circular {
+  margin-left: 100px;
+}
+
+.circular > svg {
+  width: 10.75rem;
+  height: 10.75rem;
+  display: block;
+  overflow: visible;
+}
+
+.about-btn-text {
+  font-size: 0.5em;
+  line-height: 1.1875;
+}

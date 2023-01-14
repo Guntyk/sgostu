@@ -1,0 +1,179 @@
+@media (max-width: 1150px) {
+  .about-wrapper {
+    max-width: 100%;
+  }
+  /* Nearest Events */
+  .nearest-events-wrapper {
+    gap: 35px;
+  }
+  .nearest-event-card {
+    width: 180px;
+    height: 180px;
+    font-size: 0.875rem;
+  }
+}
+
+@media (max-width: 840px) {
+  /* Header */
+  .hero {
+    background-size: 70%;
+  }
+  .header-logo {
+    width: 45px;
+  }
+  .company-name {
+    font-size: 0.875rem;
+  }
+  .hamburger {
+    display: inline-block;
+    position: absolute;
+    margin: 0 !important;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%) rotate(180deg);
+  }
+  /* Hero */
+  .title-stroke {
+    max-width: 538px;
+    font-size: 2.25rem;
+  }
+  /* About */
+  .about-wrapper {
+    padding: 50px;
+  }
+  .about-row {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+  .about-text {
+    font-size: 0.75rem;
+    max-width: 357px;
+  }
+  .circular {
+    margin-left: 40px;
+  }
+  .circular svg {
+    width: 120px;
+    height: 120px;
+  }
+  /* Advantages */
+  .cards-wrapper {
+    max-width: 562px;
+    gap: 10px;
+  }
+  .advantage-card {
+    font-size: 0.825rem;
+  }
+  .advantage-card:first-child {
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 550px) {
+  /* Hero */
+  .company-name {
+    display: none;
+  }
+  .header-logo {
+    width: 50px !important;
+    margin: 0;
+  }
+  .hamburger {
+    width: 25px !important;
+  }
+  .hamburger > .stuffing {
+    width: 13px;
+    margin: 7px 0;
+  }
+  /* Hero */
+  .title-stroke {
+    max-width: 329px;
+    text-align: center;
+    margin: 0 auto;
+  }
+  /* About */
+  .about-wrapper {
+    flex-direction: column;
+  }
+  .about-row {
+    margin-bottom: 0.625rem;
+    font-size: 1.25rem;
+  }
+  .about-row > hr {
+    width: 54.4vw;
+    height: 2px;
+  }
+  .about-text p {
+    margin: 0 0 70px 0;
+    font-size: 0.625rem;
+  }
+  .circular {
+    margin-left: 0;
+  }
+  .circular svg {
+    width: 110px;
+    height: 110px;
+  }
+  /* Advantages */
+  .advantages {
+    background: url(../materials/backgrounds/mobile/waves-left.svg),
+    url(../materials/backgrounds/mobile/waves-right.svg);
+    background-size: 75% 131%;
+    background-repeat: no-repeat, no-repeat;
+    background-position: 0 0, 100% 120%;
+  }
+  .cards-wrapper {
+    max-width: 85%;
+  }
+  .advantage-card {
+    padding: 1.875rem 0.375rem 0 0.375rem;
+    min-height: 153px;
+    text-align: center;
+    font-size: 0.75rem;
+    background-position: 50% 125%;
+  }
+  .advantage-card:nth-child(1) {
+    grid-area: 1 / 1 / 2 / 3;
+    font-size: 1.125rem;
+    text-align: left;
+    padding: 0 40px;
+  }
+  .advantage-card:nth-child(2) {
+    background: url(../materials/icons/advantages/mobile/star-5.svg) no-repeat
+      50% 100%;
+  }
+  .advantage-card:nth-child(3) {
+    grid-area: 2 / 1 / 2 / 1;
+    background: url(../materials/icons/advantages/mobile/star-2.svg) no-repeat
+      50% 100%;
+  }
+  .advantage-card:nth-child(4) {
+    background: url(../materials/icons/advantages/mobile/star-3.svg) no-repeat
+      50% 100%;
+  }
+  .advantage-card:nth-child(5) {
+    background: url(../materials/icons/advantages/mobile/star-6.svg) no-repeat
+      50% 100%;
+  }
+  .advantage-card:nth-child(6) {
+    background: url(../materials/icons/advantages/mobile/star-1.svg) no-repeat
+      50% 100%;
+  }
+  .advantage-card:nth-child(7) {
+    background: url(../materials/icons/advantages/mobile/star-4.svg) no-repeat
+      50% 100%;
+  }
+  .advantage-card:nth-child(8) {
+    background: url(../materials/icons/advantages/mobile/star-7.svg) no-repeat
+      50% 100%;
+  }
+  /* Nearest Events */
+  .nearest-events-wrapper {
+    display: none;
+  }
+  .slider {
+    display: flex;
+    margin: 0;
+    padding: 50px 50% !important;
+  }
+}

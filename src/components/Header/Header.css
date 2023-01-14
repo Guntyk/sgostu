@@ -1,0 +1,58 @@
+.header {
+  position: fixed;
+  padding: 8px 0;
+  width: 100%;
+  height: 58px;
+  z-index: 10;
+}
+
+.header__wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.name {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  font-size: 1rem;
+}
+
+.hamburger.hide {
+  cursor: default;
+}
+
+.header-logo {
+  width: 63px;
+}
+
+.hamburger {
+  margin-right: 70px;
+  width: 37px;
+  cursor: pointer;
+}
+
+.ham-line {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: var(--primary-black);
+  transition: 0.6s ease-in-out;
+}
+
+.stuffing {
+  margin: 10px 0;
+  width: 20px;
+}
+
+.hamburger .top-bun.active,
+.hamburger .stuffing.active,
+.hamburger .bottom-bun.active {
+  width: 0;
+}
+.stuffing.active {
+  transition-delay: 0.2s;
+}
+.bottom-bun.active {
+  transition-delay: 0.4s;
+}
