@@ -1,0 +1,13 @@
+.feedback {
+  padding: 100px;
+}
+input {
+  background: linear-gradient(
+    228.75deg,
+    rgba(243, 251, 255, 0.3) 0%,
+    rgba(255, 255, 255, 0.075) 101.36%
+  );
+  backdrop-filter: blur(10px);
+  border: 1px solid #0e0e0e59;
+  border-radius: 10px;
+}
