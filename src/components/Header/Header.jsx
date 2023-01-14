@@ -1,7 +1,9 @@
 import { LogoSGOSTU } from "../../common/Logos/Logo-SGOSTU";
+import Navigation from "./Navigation/Navigation";
 import { useState } from "react";
-import "./Header.css";
 import "./header_media.css";
+import "./Header.css";
+
 export default function Header() {
   const [openSideMenu, setOpenSideMenu] = useState(false);
   return (
@@ -34,6 +36,7 @@ export default function Header() {
           </div>
         </div>
       </header>
+      <Navigation openSideMenu={openSideMenu} />
     </>
   );
 }
