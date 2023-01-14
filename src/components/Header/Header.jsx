@@ -12,9 +12,9 @@ export default function Header() {
         <div className="container">
           <div className="header__wrapper">
             <div
-              className="hamburger"
+              className={`hamburger ${openSideMenu ? "active" : ""}`}
               onClick={() => {
-                setOpenSideMenu(!openSideMenu);
+                setOpenSideMenu(true);
               }}
             >
               <span

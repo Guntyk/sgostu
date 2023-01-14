@@ -28,6 +28,10 @@
   cursor: pointer;
 }
 
+.hamburger.active {
+  cursor: default;
+}
+
 .ham-line {
   display: block;
   width: 100%;
