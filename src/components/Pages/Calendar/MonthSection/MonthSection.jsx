@@ -1,4 +1,3 @@
-import { FreeMode } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import EventCard from "./EventCard/EventCard";
 import "./MonthSection.css";
@@ -15,7 +14,7 @@ export default function MonthSection({ month, events }) {
   return (
     <section className="calendar-month">
       <span className="calendar-month-title">{month}:</span>
-      <Swiper className="events-slider" slidesPerView={3} grabCursor={true} freeMode={true} modules={[FreeMode]}>
+      <Swiper className="events-slider" slidesPerView={3} grabCursor={true}>
         {events.length !== 0 ? (
           events.map((event) => (
             <SwiperSlide key={event.id}>

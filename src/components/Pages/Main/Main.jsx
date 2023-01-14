@@ -6,10 +6,10 @@ import Hero from "./Hero/Hero";
 export default function Main() {
   return (
     <main>
-      {/* <Hero /> */}
-      {/* <About /> */}
+      <Hero />
+      <About />
       <Advantages />
-      {/* <NearestEvents /> */}
+      <NearestEvents />
     </main>
   );
 }

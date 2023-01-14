@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const backendApi = axios.create({
-  baseURL: "http://localhost:1337/api",
+  baseURL: "http://192.168.0.105:1337/api",
 });
 
 backendApi.interceptors.response.use(
@@ -10,4 +10,4 @@ backendApi.interceptors.response.use(
 );
 
 //* Courses
-export const getEventsFetch = () => backendApi.get("/events");
+export const getEventsFetch = () => backendApi.get("/events?pagination[pageSize]=50");
