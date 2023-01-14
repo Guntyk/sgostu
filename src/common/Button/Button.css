@@ -2,7 +2,7 @@
   width: 170px;
   height: 55px;
   color: var(--primary-black);
-  font-size: 16px;
+  font-size: 1rem;
   background: transparent;
   border: 1px solid var(--primary-black);
   border-radius: 50px;
@@ -58,14 +58,18 @@
   animation: borderRotation 25s infinite linear;
 }
 
-.circular svg {
-  width: 172px;
-  height: 172px;
+.circular {
+  margin-left: 100px;
+}
+
+.circular > svg {
+  width: 10.75rem;
+  height: 10.75rem;
   display: block;
   overflow: visible;
 }
 
 .about-btn-text {
-  font-size: 8px;
-  line-height: 19px;
+  font-size: 0.5em;
+  line-height: 1.1875;
 }

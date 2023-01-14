@@ -1,14 +1,12 @@
 .header {
   position: fixed;
-  /* display: flex; */
   padding: 8px 0;
-  height: 58px;
-  z-index: 2;
   width: 100%;
+  height: 58px;
+  z-index: 10;
 }
 
 .header__wrapper {
-  /* width: 100%; */
   display: flex;
   align-items: center;
 }
@@ -17,7 +15,11 @@
   display: flex;
   align-items: center;
   height: 100%;
-  font-size: 16px;
+  font-size: 1rem;
+}
+
+.hamburger.hide {
+  cursor: default;
 }
 
 .header-logo {
@@ -30,7 +32,7 @@
   cursor: pointer;
 }
 
-.hamburger > span {
+.ham-line {
   display: block;
   width: 100%;
   height: 2px;
@@ -40,13 +42,13 @@
 
 .stuffing {
   margin: 10px 0;
-  width: 20px !important;
+  width: 20px;
 }
 
-.top-bun.active,
-.stuffing.active,
-.bottom-bun.active {
-  width: 0 !important;
+.hamburger .top-bun.active,
+.hamburger .stuffing.active,
+.hamburger .bottom-bun.active {
+  width: 0;
 }
 .stuffing.active {
   transition-delay: 0.2s;

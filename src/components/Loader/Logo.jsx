@@ -27,22 +27,12 @@ export default function Logo({ rotation, loading }) {
       modelTimeline.to(
         logoModel.current.position,
         {
-          x: 2,
           y: 0,
           z: 2.5,
           duration: 2,
           ease: "Power2.easeInOut",
         },
         "+=4"
-      );
-      modelTimeline.to(
-        logoModel.current.rotation,
-        {
-          y: angleToRadians(600),
-          duration: 2,
-          ease: "Power2.easeInOut",
-        },
-        "-=2"
       );
     }
   }, [loading]);

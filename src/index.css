@@ -166,7 +166,6 @@ body::-webkit-scrollbar {
 }
 
 .container {
-  padding: 0 15px;
   margin: 0 auto;
   width: 90%;
   position: relative;
