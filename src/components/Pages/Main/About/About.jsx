@@ -1,6 +1,6 @@
 import Button from "../../../../common/Button/Button";
 import "./About.css";
-import "../../../media.css";
+import "./about_media.css";
 
 export default function About() {
   return (
