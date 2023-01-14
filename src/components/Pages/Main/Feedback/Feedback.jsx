@@ -1,5 +1,3 @@
-import "./Feedback.css";
-
 export default function Feedback() {
   return (
     <article className="feedback">
