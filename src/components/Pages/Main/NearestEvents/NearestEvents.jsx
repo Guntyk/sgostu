@@ -1,20 +1,22 @@
 import NearestEventSlide from "./NearestEventSlide/NearestEventSlide";
 import NearestEventCard from "./NearestEventCard/NearestEventCard";
-import { eventsSelector } from "../../../redux/events/selectors";
-import { fetchEvents } from "../../../redux/events/thunk";
+import { eventsSelector } from "../../../../redux/events/selectors";
+import { fetchEvents } from "../../../../redux/events/thunk";
 import { useDispatch, useSelector } from "react-redux";
+import Button from "../../../../common/Button/Button";
 import { Swiper, SwiperSlide } from "swiper/react";
-import Button from "../../../common/Button/Button";
+import { useHistory } from "react-router-dom";
 import { EffectCoverflow } from "swiper";
 import "swiper/css/effect-coverflow";
 import { useEffect } from "react";
 import "./NearestEvents.css";
+import "../../../media.css";
 import "swiper/css";
-import "../../media.css";
 
 export default function NearestEvents() {
   const events = useSelector(eventsSelector);
   const dispatch = useDispatch();
+  const history = useHistory();
 
   events.sort((a, b) => {
     const dateA = new Date(a.attributes.start),
@@ -72,7 +74,9 @@ export default function NearestEvents() {
             <span className="event-void">На жаль, заходів немає</span>
           )}
         </Swiper>
-        {nearestEvents.length !== 0 && <Button buttonText="Більше" />}
+        {nearestEvents.length !== 0 && (
+          <Button buttonText="Більше" onClick={() => {history.push("/calendar")}} />
+        )}
       </article>
     </>
   );

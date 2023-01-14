@@ -1,26 +1,24 @@
-import NearestEvents from "./components/Main/NearestEvents/NearestEvents";
-import Advantages from "./components/Main/Advantages/Advantages";
-import { eventsSelector } from "./redux/events/selectors";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchEvents } from "./redux/events/thunk";
-import About from "./components/Main/About/About";
+import Calendar from "./components/Pages/Calendar/Calendar";
+import { Route, Switch } from "react-router-dom";
 import Header from "./components/Header/Header";
 import Loader from "./components/Loader/Loader";
-import Hero from "./components/Main/Hero/Hero";
+import Main from "./components/Pages/Main/Main";
 import Button from "./common/Button/Button";
-import { useEffect } from "react";
+import "./components/media.css"
 
 export default function App() {
   return (
     <>
-      {/* <Loader /> */}
-      {/* <Header /> */}
-      <main>
-        {/* <Hero /> */}
-        {/* <About /> */}
-        {/* <Advantages /> */}
-        <NearestEvents />
-      </main>
+      <Header />
+      <Switch>
+        <Route exact path="/">
+          {/* <Loader /> */}
+          <Main />
+        </Route>
+        <Route exact path="/calendar">
+          <Calendar />
+        </Route>
+      </Switch>
       {/* <Button
         buttonText="Забрать данные"
         onClick={() => {

@@ -31,15 +31,15 @@
 }
 
 .nearest-event-card:nth-child(1) {
-  background: url(../../../../materials/icons/nearest-events/start-1.svg) no-repeat
+  background: url(../../../../../materials/icons/nearest-events/start-1.svg) no-repeat
     60% 60%;
 }
 .nearest-event-card:nth-child(2) {
-  background: url(../../../../materials/icons/nearest-events/start-2.svg) no-repeat
+  background: url(../../../../../materials/icons/nearest-events/start-2.svg) no-repeat
     60% 60%;
 }
 .nearest-event-card:nth-child(3) {
-  background: url(../../../../materials/icons/nearest-events/start-3.svg) no-repeat
+  background: url(../../../../../materials/icons/nearest-events/start-3.svg) no-repeat
     60% 60%;
 }
 

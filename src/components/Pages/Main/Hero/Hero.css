@@ -3,9 +3,9 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background: url(../../../materials/backgrounds/waves-right-hero.svg) no-repeat 100%
+  background: url(../../../../materials/backgrounds/waves-right-hero.svg) no-repeat 100%
       0%,
-    url(../../../materials/backgrounds/waves-left-hero.svg) no-repeat 0% 100%;
+    url(../../../../materials/backgrounds/waves-left-hero.svg) no-repeat 0% 100%;
   background-size: 60%;
 }
 
