@@ -10,7 +10,7 @@ import { EffectCoverflow } from "swiper";
 import "swiper/css/effect-coverflow";
 import { useEffect } from "react";
 import "./NearestEvents.css";
-import "../../../media.css";
+import "./NearestEvents_media.css";
 import "swiper/css";
 
 export default function NearestEvents() {
@@ -75,7 +75,12 @@ export default function NearestEvents() {
           )}
         </Swiper>
         {nearestEvents.length !== 0 && (
-          <Button buttonText="Більше" onClick={() => {history.push("/calendar")}} />
+          <Button
+            buttonText="Більше"
+            onClick={() => {
+              history.push("/calendar");
+            }}
+          />
         )}
       </article>
     </>
