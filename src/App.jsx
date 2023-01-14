@@ -3,7 +3,8 @@ import { Route, Switch } from "react-router-dom";
 import Header from "./components/Header/Header";
 import Loader from "./components/Loader/Loader";
 import Main from "./components/Pages/Main/Main";
-import "./components/media.css"
+import Button from "./common/Button/Button";
+// import "./components/media.css";
 
 export default function App() {
   return (
@@ -18,6 +19,24 @@ export default function App() {
           <Calendar />
         </Route>
       </Switch>
+      {/* <Button
+        buttonText="Забрать данные"
+        onClick={() => {
+          console.log("Запрос отправлен");
+          dispatch(fetchEvents());
+        }}
+      />
+      <ul>
+        {events.length !== 0 ? (
+          events.map((event) => (
+            <li key={event.id}>
+              {event.attributes.title} {event.attributes.start}
+            </li>
+          ))
+        ) : (
+          <span>Мероприятий нет</span>
+        )}
+      </ul> */}
     </>
   );
 }

@@ -10,4 +10,4 @@ backendApi.interceptors.response.use(
 );
 
 //* Courses
-export const getEventsFetch = () => backendApi.get("/events?pagination[pageSize]=50");
+export const getEventsFetch = () => backendApi.get("/events");

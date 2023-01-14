@@ -1,10 +1,7 @@
 import { LogoSGOSTU } from "../../common/Logos/Logo-SGOSTU";
-import Navigation from "./Navigation/Navigation";
-import { Link } from "react-router-dom";
 import { useState } from "react";
 import "./Header.css";
-import "../media.css";
-
+import "./header_media.css";
 export default function Header() {
   const [openSideMenu, setOpenSideMenu] = useState(false);
   return (
@@ -13,9 +10,9 @@ export default function Header() {
         <div className="container">
           <div className="header__wrapper">
             <div
-              className={`hamburger ${openSideMenu ? "hide" : ""}`}
+              className="hamburger"
               onClick={() => {
-                setOpenSideMenu(true);
+                setOpenSideMenu(!openSideMenu);
               }}
             >
               <span
@@ -30,14 +27,13 @@ export default function Header() {
                 }`}
               ></span>
             </div>
-            <Link to="/" className="name">
+            <a href="/" className="name">
               <LogoSGOSTU classname="header-logo" />
               <span className="company-name">СГОСТУ</span>
-            </Link>
+            </a>
           </div>
         </div>
       </header>
-      <Navigation openSideMenu={openSideMenu} />
     </>
   );
 }

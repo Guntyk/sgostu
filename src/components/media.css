@@ -1,7 +1,4 @@
 @media (max-width: 1150px) {
-  .about-wrapper {
-    max-width: 100%;
-  }
   /* Nearest Events */
   .nearest-events-wrapper {
     gap: 35px;
@@ -117,7 +114,7 @@
   /* Advantages */
   .advantages {
     background: url(../materials/backgrounds/mobile/waves-left.svg),
-    url(../materials/backgrounds/mobile/waves-right.svg);
+      url(../materials/backgrounds/mobile/waves-right.svg);
     background-size: 75% 131%;
     background-repeat: no-repeat, no-repeat;
     background-position: 0 0, 100% 120%;

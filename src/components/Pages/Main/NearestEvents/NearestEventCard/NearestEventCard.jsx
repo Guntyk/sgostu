@@ -1,4 +1,5 @@
 import "./NearestEventCard.css";
+import "./NearestEventCard_media.css";
 
 export default function NearestEventCard({ event }) {
   const localeDate = new Date(event.attributes.start).toLocaleDateString(

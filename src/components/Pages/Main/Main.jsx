@@ -2,6 +2,7 @@ import NearestEvents from "./NearestEvents/NearestEvents";
 import Advantages from "./Advantages/Advantages";
 import About from "./About/About";
 import Hero from "./Hero/Hero";
+import Feedback from "./Feedback/Feedback";
 
 export default function Main() {
   return (
@@ -10,6 +11,7 @@ export default function Main() {
       <About />
       <Advantages />
       <NearestEvents />
+      <Feedback />
     </main>
   );
 }

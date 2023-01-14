@@ -1,0 +1,27 @@
+@media (max-width: 1150px) {
+  .nearest-events-wrapper {
+    gap: 35px;
+  }
+  .nearest-event-card {
+    width: 180px;
+    height: 180px;
+    font-size: 0.875rem;
+  }
+}
+
+@media (max-width: 840px) {
+  .nearest-event-card {
+    width: 157px;
+  }
+}
+
+@media (max-width: 550px) {
+  .nearest-events-wrapper {
+    display: none;
+  }
+  .slider {
+    display: flex;
+    margin: 0;
+    padding: 50px 50% !important;
+  }
+}

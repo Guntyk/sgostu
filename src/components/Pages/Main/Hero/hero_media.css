@@ -1,0 +1,17 @@
+@media (max-width: 840px) {
+  .hero {
+    background-size: 70%;
+  }
+  .title-stroke {
+    max-width: 538px;
+    font-size: 2.25rem;
+  }
+}
+
+@media (max-width: 550px) {
+  .title-stroke {
+    max-width: 329px;
+    text-align: center;
+    margin: 0 auto;
+  }
+}
