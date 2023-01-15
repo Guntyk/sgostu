@@ -146,7 +146,8 @@ table {
   border-spacing: 0;
 }
 button,
-input {
+input,
+textarea {
   font-family: inherit;
   color: inherit;
   border: none;
