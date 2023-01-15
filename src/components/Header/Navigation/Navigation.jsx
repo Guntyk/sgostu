@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import "./Navigation.css";
-import "./NavigationMedia.css";
 import gsap from "gsap";
 
 export default function Navigation({ openSideMenu, setOpenSideMenu }) {
