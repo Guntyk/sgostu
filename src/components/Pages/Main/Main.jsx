@@ -1,8 +1,9 @@
 import NearestEvents from "./NearestEvents/NearestEvents";
 import Advantages from "./Advantages/Advantages";
+import Feedback from "./Feedback/Feedback";
+import Footer from "../../Footer/Footer";
 import About from "./About/About";
 import Hero from "./Hero/Hero";
-import Feedback from "./Feedback/Feedback";
 
 export default function Main() {
   return (
@@ -12,6 +13,7 @@ export default function Main() {
       <Advantages />
       <NearestEvents />
       <Feedback />
+      <Footer />
     </main>
   );
 }
