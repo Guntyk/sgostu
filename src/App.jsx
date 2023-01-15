@@ -3,7 +3,7 @@ import { Route, Switch } from "react-router-dom";
 import Header from "./components/Header/Header";
 import Loader from "./components/Loader/Loader";
 import Main from "./components/Pages/Main/Main";
-import "./components/media.css"
+// import "./components/media.css"
 
 export default function App() {
   return (

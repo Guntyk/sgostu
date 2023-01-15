@@ -1,15 +1,16 @@
 .about {
   width: 100%;
+  overflow: hidden;
 }
 
 .about-wrapper {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
-  margin: 0 auto;
-  padding: 100px;
-  max-width: 50vw;
-  overflow: hidden;
+  /* margin: 0 auto; */
+  padding: 100px 25px;
+  /* max-width: 50vw; */
+  /* overflow: hidden; */
 }
 
 .about-text {
