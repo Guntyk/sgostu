@@ -10,7 +10,7 @@ import { EffectCoverflow } from "swiper";
 import "swiper/css/effect-coverflow";
 import { useEffect } from "react";
 import "./NearestEvents.css";
-import "./NearestEvents_media.css";
+import "./NearestEventsMedia.css";
 import "swiper/css";
 
 export default function NearestEvents() {
