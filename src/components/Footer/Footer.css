@@ -1,0 +1,15 @@
+.footer {
+    height: 179px;
+    font-size: 1rem;
+}
+
+.footer-row {
+    display: flex;
+    justify-content: space-between;
+    height: 70px;
+}
+
+.footer-column {
+    display: flex;
+    flex-direction: column;
+}

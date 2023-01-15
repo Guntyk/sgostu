@@ -11,6 +11,7 @@
   border: 1px solid #0e0e0e59;
   border-radius: 10px;
   backdrop-filter: blur(10px);
+  user-select: none;
 }
 
 .event-title {
