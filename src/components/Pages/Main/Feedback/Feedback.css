@@ -1,13 +1,17 @@
 .feedback {
+  font-size: 1rem;
   padding: 100px;
 }
-input {
-  background: linear-gradient(
-    228.75deg,
-    rgba(243, 251, 255, 0.3) 0%,
-    rgba(255, 255, 255, 0.075) 101.36%
-  );
-  backdrop-filter: blur(10px);
-  border: 1px solid #0e0e0e59;
-  border-radius: 10px;
+
+.feedback-title {
+  font-size: 1.75em;
+  line-height: 2em;
+}
+
+.feedback-form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2em;
+  max-width: 26.25em;
+  gap: 1.25em;
 }

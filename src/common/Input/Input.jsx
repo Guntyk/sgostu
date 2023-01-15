@@ -10,17 +10,15 @@ export default function Input({
   ...props
 }) {
   const Tag = textarea ? "textarea" : "input";
-  const inputClassNames = "input " + inputClassName || "";
-  const labelClassNames = "label " + labelClassName || "";
   return (
-    <label className={labelClassNames}>
-      {labelText}
+    <div className="form-control">
       <Tag
         {...props}
-        className={inputClassNames}
+        className={`input ${inputClassName || ""}`}
         type={type || "text"}
         placeholder={placeholderText || ""}
       />
-    </label>
+      <label className={`label ${labelClassName || ""}`}>{labelText}</label>
+    </div>
   );
 }
