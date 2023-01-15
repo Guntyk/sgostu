@@ -43,7 +43,8 @@
   transition: 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
-.input:focus + .label span {  
+.input:focus + .label span,  
+.input:valid + .label span {  
   padding: 0 0.15625em;
   transform: translateY(-1.6em);
 }
