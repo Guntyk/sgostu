@@ -65,3 +65,12 @@
       no-repeat 50% 100%;
   }
 }
+
+@media (max-width: 400px) {
+  .cards-wrapper {
+    gap: 4px;
+  }
+  .advantage-card {
+    font-size: 0.6em;
+  }
+}
