@@ -1,56 +1,53 @@
-.input {
-  margin-top: 5px;
-  width: 20rem;
-  height: 3.5rem;
-  border: none;
-  border-radius: 1rem;
-  font-size: 1.4rem;
-  padding-left: 1.4rem;
-  box-shadow: var(--inner-shadow);
-  background: none;
-  font-family: inherit;
-  color: #000;
+.form-control {
+  position: relative;
+  font-size: 0.8125em;
 }
 
-.input::placeholder {
-  color: var(--greyLight-3);
+.input {
+  padding: 1em 1.5384em;
+  width: calc(100% - 1.5384em * 2);
+  font-size: 1em;
+  border: 1px solid #0e0e0e59;
+  border-radius: 10px;
+  background: transparent;
+  backdrop-filter: blur(10px);
 }
 
 .input:focus {
   outline: none;
-  box-shadow: var(--shadow);
-}
-
-.search-input {
-  margin-right: 15px;
-  min-width: 300px;
-}
-
-.label {
-  display: flex;
-  flex-direction: column;
-  color: var(--primary);
-  font-size: 20px;
-  font-weight: 500;
-  gap: 5px;
-}
-
-.create-description-label {
-  margin: 20px 0;
-}
-
-.create-description-input {
-  min-height: 150px;
 }
 
 .input::-webkit-scrollbar {
-  width: .7em;
+  width: 0.7em;
 }
 .input::-webkit-scrollbar-track {
-  background: var(--greyLight-1);
+  background: var(--primary-black);
 }
 .input::-webkit-scrollbar-thumb {
   margin-left: 30px;
   border-radius: 50px;
-  background-color: var(--primary);
+}
+
+.label {
+  position: absolute;
+  top: 1em;
+  left: 1.5384em;
+  pointer-events: none;
+}
+
+.label span {
+  display: inline-block;
+  min-width: 5px;
+  font-size: 1em;
+  backdrop-filter: blur(10px);
+  transition: 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.input:focus + .label span {  
+  padding: 0 0.15625em;
+  transform: translateY(-1.6em);
+}
+
+textarea {
+  resize: vertical;
 }

@@ -1,8 +1,8 @@
 .btn {
-  width: 170px;
-  height: 55px;
+  width: 10.625em;
+  height: 3.4375em;
   color: var(--primary-black);
-  font-size: 1rem;
+  font-size: 1em;
   background: transparent;
   border: 1px solid var(--primary-black);
   border-radius: 50px;
@@ -72,4 +72,8 @@
 .about-btn-text {
   font-size: 0.5em;
   line-height: 1.1875;
+}
+
+.feedback-btn {
+  align-self: flex-end;
 }
