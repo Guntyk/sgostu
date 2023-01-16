@@ -21,12 +21,13 @@
   }
   .cards-wrapper {
     max-width: 85%;
+    gap: 4px;
   }
   .advantage-card {
     padding: 1.875rem 0.375rem 0 0.375rem;
-    min-height: 153px;
+    min-height: 140px;
     text-align: center;
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     background-position: 50% 125%;
   }
   .advantage-card:nth-child(1) {

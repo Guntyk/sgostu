@@ -119,11 +119,17 @@
     top: 50%;
     right: 0;
     transform: translateY(-50%) rotate(180deg);
+    z-index: 3;
+  }
+
+  .hamburger.active {
+    visibility: hidden;
+    transition-delay: 1s;
   }
   .cross::before {
     width: 150%;
     height: 150%;
-  }
+   }
 }
 
 @media (max-width: 550px) {

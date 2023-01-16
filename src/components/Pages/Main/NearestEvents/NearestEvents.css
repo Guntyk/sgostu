@@ -36,7 +36,14 @@
 }
 
 .event-void {
+  position: absolute;
+  top: 50%;
+  left: 50%;
   font-size: 2rem;
+  width: 100%;
+  text-align: center;
+  color: var(--primary-black);
+  transform: translate(-50%, -50%);
 }
 
 .nearest-events-wrapper {
@@ -54,5 +61,37 @@
   width: 234px;
   min-height: 100px;
 }
+
+@media (max-width: 1150px) {
+  .nearest-events-wrapper {
+    gap: 35px;
+  }
+  .nearest-event-card {
+    width: 180px;
+    height: 180px;
+    font-size: 0.875rem;
+  }
+}
+
+@media (max-width: 840px) {
+  .nearest-event-card {
+    width: 157px;
+  }
+}
+
+@media (max-width: 550px) {
+  .nearest-events-wrapper {
+    display: none;
+  }
+  .slider {
+    display: flex;
+    margin: 0;
+    padding: 50px calc(100%/2 - 120px) !important;
+  }
+  .event-void {
+    font-size: 1.5rem;
+  }
+}
+
 
 

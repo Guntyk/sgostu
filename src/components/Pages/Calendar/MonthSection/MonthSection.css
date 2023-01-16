@@ -12,5 +12,50 @@
 .events-slider {
   margin-top: 2.375rem;
   width: 70%;
-  /* border: 2px solid red; */
+}
+
+.events-slider-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.arrow {
+  position: relative;
+  width: 33px;
+  height: 60px;
+  cursor: pointer;
+  transition: .2s;
+}
+
+.arrow-line {
+  display: block;
+  position: absolute;
+  left: 50%;
+  height: 50%;
+  width: 3px;
+  background-color: var(--primary-black);
+  transform: skew(-45deg) translateX(-50%);
+  transition: .2s;
+}
+
+.arrow-line:last-child {
+  bottom: 0;
+  transform: skew(45deg);
+}
+
+.arrow:hover .arrow-line {
+  width: 5px;
+  transform: skew(-55deg);
+}
+.arrow:hover .arrow-line:last-child {
+  transform: skew(55deg);
+}
+
+.arrow-right {
+  transform: rotateZ(180deg);
+}
+
+.arrow-disabled {
+  pointer-events: none;
+  opacity: .3;
 }

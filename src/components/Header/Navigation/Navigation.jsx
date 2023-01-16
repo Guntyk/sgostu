@@ -31,9 +31,7 @@ export default function Navigation({ openSideMenu, setOpenSideMenu }) {
         opacity: 1,
         rotate: 90,
         scale: 1,
-      },
-      "-=.3"
-    );
+    }, "-=2");
   } else {
     navTimeline.to(".cross", {
       opacity: 0,

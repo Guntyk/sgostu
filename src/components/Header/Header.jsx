@@ -1,7 +1,6 @@
 import { LogoSGOSTU } from "../../common/Logos/Logo-SGOSTU";
 import Navigation from "./Navigation/Navigation";
 import { useState } from "react";
-import "./HeaderMedia.css";
 import "./Header.css";
 
 export default function Header() {
