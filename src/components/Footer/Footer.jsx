@@ -11,8 +11,12 @@ export default function Footer() {
           <LogoSGOSTU />
           <div className="footer-column">
             <span className="footer-subtitle">Телефон:</span>
-            <a href="tel:+380674428268">+38 (067) 442 82 68</a>
-            <a href="tel:+380956329575">+38 (095) 632 95 75</a>
+            <a className="tel" href="tel:+380674428268">
+              +38 (067) 442 82 68
+            </a>
+            <a className="tel" href="tel:+380956329575">
+              +38 (095) 632 95 75
+            </a>
           </div>
           <div className="footer-column">
             <span className="footer-subtitle">E-mail:</span>
@@ -25,7 +29,8 @@ export default function Footer() {
             </a>
           </div>
           <div className="footer-social">
-            <Facebook /><Insta />
+            <Facebook />
+            <Insta />
           </div>
         </div>
         <div className="footer-row"></div>

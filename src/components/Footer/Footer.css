@@ -1,15 +1,30 @@
 .footer {
-    height: 179px;
-    font-size: 1rem;
+  height: 179px;
+  font-size: 1rem;
 }
 
 .footer-row {
-    display: flex;
-    justify-content: space-between;
-    height: 70px;
+  display: flex;
+  justify-content: space-between;
+  height: 70px;
 }
 
 .footer-column {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-subtitle {
+  margin-bottom: 15px;
+}
+
+.tel {
+  margin-bottom: 5px;
+  line-height: 18px;
+}
+
+.footer-social {
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }

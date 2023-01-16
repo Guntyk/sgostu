@@ -26,7 +26,7 @@ export default function App() {
           <Feedback />
         </Route>
       </Switch>
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 }
