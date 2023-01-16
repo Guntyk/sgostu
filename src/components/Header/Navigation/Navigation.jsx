@@ -21,8 +21,7 @@ export default function Navigation({ openSideMenu, setOpenSideMenu }) {
         opacity: 1,
         ease: "Power4.easeOut",
         stagger: 0.2,
-      },
-      "+=.5"
+      }
     );
     navTimeline.to(
       ".cross",
@@ -88,7 +87,7 @@ export default function Navigation({ openSideMenu, setOpenSideMenu }) {
           </span>
           <span className="nav-link">
             <Link
-              to="/"
+              to="/contacts"
               onClick={() => {
                 setOpenSideMenu(false);
               }}
@@ -98,7 +97,7 @@ export default function Navigation({ openSideMenu, setOpenSideMenu }) {
           </span>
           <span className="nav-link">
             <Link
-              to="/"
+              to="/feedback"
               onClick={() => {
                 setOpenSideMenu(false);
               }}

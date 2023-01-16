@@ -65,3 +65,46 @@
     transform: translate(-50%, -50%) rotateZ(-360deg);
   }
 }
+
+@media (max-width: 840px) {
+  .about-row {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+  .about-text {
+    font-size: 0.75rem;
+    max-width: 357px;
+  }
+  .circular {
+    margin-left: 40px;
+  }
+  .circular svg {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+@media (max-width: 550px) {
+  .about-wrapper {
+    flex-direction: column;
+  }
+  .about-row {
+    margin-bottom: 0.625rem;
+    font-size: 1.25rem;
+  }
+  .about-row > hr {
+    width: 54.4vw;
+    height: 2px;
+  }
+  .about-text p {
+    margin: 0 0 70px 0;
+    font-size: 0.625rem;
+  }
+  .circular {
+    margin-left: 0;
+  }
+  .circular svg {
+    width: 110px;
+    height: 110px;
+  }
+}

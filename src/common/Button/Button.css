@@ -77,3 +77,7 @@
 .feedback-btn {
   align-self: flex-end;
 }
+
+.feedback-main .feedback-btn {
+  align-self: center;
+}
