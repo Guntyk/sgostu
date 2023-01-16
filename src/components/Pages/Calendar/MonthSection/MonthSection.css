@@ -1,6 +1,6 @@
 .calendar-month {
   margin: 75px auto 0 auto;
-  max-width: 70%;
+  width: 84%;
   /* border: 2px solid blue; */
 }
 
@@ -11,12 +11,13 @@
 
 .events-slider {
   margin-top: 2.375rem;
-  width: 70%;
+  width: 80%;
 }
 
 .events-slider-wrapper {
   display: flex;
   align-items: center;
+  text-align: center;
 }
 
 .arrow {
@@ -24,7 +25,7 @@
   width: 33px;
   height: 60px;
   cursor: pointer;
-  transition: .2s;
+  transition: 0.2s;
 }
 
 .arrow-line {
@@ -35,7 +36,7 @@
   width: 3px;
   background-color: var(--primary-black);
   transform: skew(-45deg) translateX(-50%);
-  transition: .2s;
+  transition: 0.2s;
 }
 
 .arrow-right {
@@ -44,7 +45,7 @@
 
 .arrow-disabled {
   pointer-events: none;
-  opacity: .3;
+  opacity: 0.3;
 }
 
 .arrow-line:last-child {
@@ -59,4 +60,20 @@
 .arrow-right:hover {
   /* width: 5px; */
   transform: scale(1.2) rotateZ(180deg);
+}
+
+@media (max-width: 1150px) {
+  .calendar-month {
+    width: 95%;
+  }
+}
+
+@media (max-width: 840px) {
+  .arrow {
+    display: none;
+  }
+  .calendar-month,
+  .events-slider {
+    width: 100%;
+  }
 }

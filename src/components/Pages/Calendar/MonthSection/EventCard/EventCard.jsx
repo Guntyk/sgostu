@@ -9,7 +9,12 @@ export default function EventCard({ event }) {
   const localeDate = new Date(event.start).toLocaleDateString("uk-UA");
   const [empty, setEmpty] = useState("");
   useEffect(() => {
-    if (event.rating || event.foreign || event.organization.indexOf("СГОСТУ") >= 0) setEmpty("hide-categories");
+    if (
+      event.rating ||
+      event.foreign ||
+      event.organization.indexOf("СГОСТУ") >= 0
+    )
+      setEmpty("hide-categories");
   }, []);
 
   const cardClassName = `event-card ${empty}`;
@@ -23,7 +28,7 @@ export default function EventCard({ event }) {
         {event.foreign && <GlobeIcon />}
       </div>
       <span className="event-town">{event.town}</span>
-      <span className="event-title">{event.title}</span>
+      <p className="event-title">{event.title}</p>
       <span className="event-status">{event.status}</span>
       <Link to="/" className="event-more">
         Більше

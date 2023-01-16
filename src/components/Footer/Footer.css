@@ -3,15 +3,20 @@
   font-size: 1rem;
 }
 
-.footer-row {
+.footer-row:first-child {
   display: flex;
   justify-content: space-between;
   height: 70px;
+  margin-bottom: 15px;
 }
 
 .footer-column {
   display: flex;
   flex-direction: column;
+}
+
+.footer-column a {
+  font-size: 13px;
 }
 
 .footer-subtitle {
@@ -27,4 +32,25 @@
   display: flex;
   align-items: center;
   gap: 5px;
+}
+
+.footer-hr {
+  width: 100%;
+  border: none;
+  height: 2px;
+  background: #27250080;
+}
+
+.copyright {
+  font-weight: 300;
+  font-size: 13px;
+}
+
+@media (max-width: 840px) {
+  .footer-column span {
+    font-size: 14px;
+  }
+  .footer-column a {
+    font-size: 12px;
+  }
 }
