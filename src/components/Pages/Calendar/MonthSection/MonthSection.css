@@ -38,19 +38,6 @@
   transition: .2s;
 }
 
-.arrow-line:last-child {
-  bottom: 0;
-  transform: skew(45deg);
-}
-
-.arrow:hover .arrow-line {
-  width: 5px;
-  transform: skew(-55deg);
-}
-.arrow:hover .arrow-line:last-child {
-  transform: skew(55deg);
-}
-
 .arrow-right {
   transform: rotateZ(180deg);
 }
@@ -58,4 +45,18 @@
 .arrow-disabled {
   pointer-events: none;
   opacity: .3;
+}
+
+.arrow-line:last-child {
+  bottom: 0;
+  transform: skew(45deg);
+}
+
+.arrow:hover {
+  transform: scale(1.2);
+}
+
+.arrow-right:hover {
+  /* width: 5px; */
+  transform: scale(1.2) rotateZ(180deg);
 }

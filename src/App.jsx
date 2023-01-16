@@ -2,6 +2,7 @@ import Calendar from "./components/Pages/Calendar/Calendar";
 import { Route, Switch } from "react-router-dom";
 import Header from "./components/Header/Header";
 import Loader from "./components/Loader/Loader";
+import Footer from "./components/Footer/Footer";
 import Main from "./components/Pages/Main/Main";
 
 export default function App() {
@@ -17,6 +18,7 @@ export default function App() {
           <Calendar />
         </Route>
       </Switch>
+      {/* <Footer /> */}
     </>
   );
 }

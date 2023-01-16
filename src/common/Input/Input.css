@@ -20,11 +20,8 @@
 .input::-webkit-scrollbar {
   width: 0.7em;
 }
-.input::-webkit-scrollbar-track {
-  background: var(--primary-black);
-}
 .input::-webkit-scrollbar-thumb {
-  margin-left: 30px;
+  background: #0e0e0e59;
   border-radius: 50px;
 }
 
@@ -39,7 +36,7 @@
   display: inline-block;
   min-width: 5px;
   font-size: 1em;
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(3px);
   transition: 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
