@@ -1,4 +1,5 @@
 import Calendar from "./components/Pages/Calendar/Calendar";
+import Feedback from "./components/Pages/Feedback/Feedback";
 import { Route, Switch } from "react-router-dom";
 import Header from "./components/Header/Header";
 import Loader from "./components/Loader/Loader";
@@ -16,6 +17,9 @@ export default function App() {
         </Route>
         <Route exact path="/calendar">
           <Calendar />
+        </Route>
+        <Route exact path="/feedback">
+          <Feedback />
         </Route>
       </Switch>
       {/* <Footer /> */}

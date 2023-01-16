@@ -88,7 +88,7 @@ export default function Navigation({ openSideMenu, setOpenSideMenu }) {
           </span>
           <span className="nav-link">
             <Link
-              to="/"
+              to="/contacts"
               onClick={() => {
                 setOpenSideMenu(false);
               }}
@@ -98,7 +98,7 @@ export default function Navigation({ openSideMenu, setOpenSideMenu }) {
           </span>
           <span className="nav-link">
             <Link
-              to="/"
+              to="/feedback"
               onClick={() => {
                 setOpenSideMenu(false);
               }}
