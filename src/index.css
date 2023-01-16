@@ -18,6 +18,11 @@
   src: url(./materials/fonts/e-Ukraine-Regular.otf);
   font-weight: 400;
 }
+@font-face {
+  font-family: "e-Ukraine-Thin";
+  src: url(./materials/fonts/e-Ukraine-Thin.otf);
+  font-weight: 100;
+}
 
 html,
 body,
@@ -168,6 +173,7 @@ body::-webkit-scrollbar {
 
 .container {
   margin: 0 auto;
+  padding: 0 5px;
   width: 90%;
   position: relative;
 }
