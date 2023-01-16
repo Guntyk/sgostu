@@ -1,5 +1,4 @@
 import "./Advantages.css";
-import "./AdvantagesMedia.css";
 
 export default function Advantages() {
   return (

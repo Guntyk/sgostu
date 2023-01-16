@@ -21,8 +21,7 @@ export default function Navigation({ openSideMenu, setOpenSideMenu }) {
         opacity: 1,
         ease: "Power4.easeOut",
         stagger: 0.2,
-      },
-      "+=.5"
+      }
     );
     navTimeline.to(
       ".cross",

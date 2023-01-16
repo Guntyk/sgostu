@@ -31,16 +31,16 @@
 }
 
 .nearest-event-card:nth-child(1) {
-  background: url(../../../../../materials/icons/nearest-events/start-1.svg) no-repeat
-    60% 60%;
+  background: url(../../../../../materials/icons/nearest-events/start-1.svg)
+    no-repeat 60% 60%;
 }
 .nearest-event-card:nth-child(2) {
-  background: url(../../../../../materials/icons/nearest-events/start-2.svg) no-repeat
-    60% 60%;
+  background: url(../../../../../materials/icons/nearest-events/start-2.svg)
+    no-repeat 60% 60%;
 }
 .nearest-event-card:nth-child(3) {
-  background: url(../../../../../materials/icons/nearest-events/start-3.svg) no-repeat
-    60% 60%;
+  background: url(../../../../../materials/icons/nearest-events/start-3.svg)
+    no-repeat 60% 60%;
 }
 
 .event-arrow {
@@ -48,4 +48,17 @@
   bottom: 23px;
   right: 23px;
   transition: 0.3s;
+}
+
+@media (max-width: 1150px) {
+  .nearest-events-wrapper {
+    gap: 35px;
+  }
+}
+
+@media (max-width: 840px) {
+  .nearest-event-card {
+    width: 157px;
+    gap: 4.1vw;
+  }
 }
