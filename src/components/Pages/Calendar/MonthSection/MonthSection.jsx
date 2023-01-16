@@ -21,24 +21,37 @@ export default function MonthSection({ month, monthIdx }) {
     dispatch(fetchEvents());
   }, []);
 
+  useEffect(() => {
+    if (events.length !== 0) {
+      const parent = document.getElementById(`swiper${monthIdx}`);
+      if (parent.hasChildNodes()) {
+        const children = parent.childNodes;
+        if (children[0].childNodes.length < 1) {
+          parent.innerHTML = `<span className="event-void">На жаль, заходів немає</span>`;
+        }
+      }
+    }
+  }, [events]);
+
   return (
     <section className="calendar-month">
       <span className="calendar-month-title">{month}:</span>
       <div className="events-slider-wrapper">
-        <div className="arrow arrow-left">
+        <div className={`arrow arrow-left arrow-left${monthIdx}`}>
           <span className="arrow-line"></span>
           <span className="arrow-line"></span>
         </div>
         <Swiper
-          className="events-slider"
+          className={`events-slider events-slider${monthIdx}`}
           slidesPerView={3}
           grabCursor={true}
           navigation={{
-            nextEl: ".arrow-right",
-            prevEl: ".arrow-left",
-            disabledClass: "arrow-disabled",
+            nextEl: `.arrow-right${monthIdx}`,
+            prevEl: `.arrow-left${monthIdx}`,
+            disabledClass: `arrow-disabled`,
           }}
           modules={[Navigation]}
+          id={`swiper${monthIdx}`}
         >
           {events.length !== 0 ? (
             events.map(
@@ -50,10 +63,12 @@ export default function MonthSection({ month, monthIdx }) {
                 )
             )
           ) : (
-            <span className="event-void">На жаль, заходів немає</span>
+            <SwiperSlide>
+              <h1 className="event-void">На жаль, заходів немає</h1>
+            </SwiperSlide>
           )}
         </Swiper>
-        <div className="arrow arrow-right">
+        <div className={`arrow arrow-right arrow-right${monthIdx}`}>
           <span className="arrow-line"></span>
           <span className="arrow-line"></span>
         </div>

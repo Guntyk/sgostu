@@ -1,0 +1,52 @@
+.feedback-main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-size: 1.5rem;
+  background: url(../../../materials/backgrounds/waves-right.svg) no-repeat 100%
+      100%,
+    url(../../../materials/backgrounds/waves-left.svg) no-repeat 0% 20%;
+  background-size: 40% 150%;
+}
+
+.feedback-main .feedback-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  max-width: 100%;
+  width: 100%;
+}
+
+.feedback-main .feedback-form {
+  width: 100%;
+}
+
+/* Adaptation */
+@media (max-width: 840px) {
+  .feedback-main {
+    font-size: 1.3rem;
+    background-position: 100% 110%, 0 20%;
+    background-size: 90% 150%;
+  }
+  .feedback-wrapper {
+    max-width: 90%;
+  }
+  .form-control {
+    font-size: 0.8rem;
+  }
+}
+@media (max-width: 550px) {
+  .feedback-main {
+    font-size: 1rem;
+    background: url(../../../materials/backgrounds/mobile/waves-left.svg),
+      url(../../../materials/backgrounds/mobile/waves-right.svg);
+    background-repeat: no-repeat, no-repeat;
+    background-position: 0 0, 100% 100%;
+    background-size: 90% 150%;
+  }
+  .feedback-main .feedback-form {
+    max-width: 90%;
+  }
+}

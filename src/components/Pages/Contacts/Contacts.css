@@ -1,0 +1,130 @@
+.contacts {
+  font-size: 1rem;
+  height: 100vh;
+  background: url(../../../materials/backgrounds/waves-right.svg) no-repeat 100%
+      100%,
+    url(../../../materials/backgrounds/waves-left.svg) no-repeat 0% 20%;
+  background-size: 40% 150%;
+}
+
+.contacts > .container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
+  /* border: 3px solid green; */
+}
+
+.contacts-title {
+  margin-bottom: 2em;
+  font-size: 2.375em;
+  text-align: center;
+}
+
+.contacts-info {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-column-gap: 2.1em;
+}
+
+.contacts-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.6em 0.9375em 0.1em 0.9375em;
+  font-size: 1.5em;
+  line-height: 1.5;
+  border-radius: 10px;
+  border: 2px solid #0e0e0e59;
+  backdrop-filter: blur(10px);
+}
+
+.contacts hr {
+  width: 100%;
+  height: 2px;
+  border: none;
+  border-radius: 50px;
+  background-color: #0e0e0e59;
+}
+
+.contacts-block:nth-child(1),
+.contacts-block:nth-child(2),
+.contacts-block:nth-child(3) {
+  height: 7em;
+}
+
+.contacts-block:nth-child(1) {
+  grid-area: 1 / 1 / 2 / 2;
+}
+.contacts-block:nth-child(2) {
+  grid-area: 1 / 2 / 2 / 3;
+}
+.contacts-block:nth-child(3) {
+  grid-area: 1 / 3 / 2 / 4;
+}
+.contacts-block:nth-child(4) {
+  grid-area: 2 / 1 / 3 / 3;
+}
+.contacts-block:nth-child(5) {
+  grid-area: 2 / 3 / 3 / 4;
+}
+
+.contact {
+  margin: 0.21em 0;
+}
+
+.contact:hover a {
+  text-decoration: underline;
+}
+
+@media (max-width: 1150px) {
+  .contacts {
+    font-size: 0.7rem;
+  }
+}
+@media (max-width: 840px) {
+  .contacts {
+    font-size: 0.5rem;
+    background-size: 80% 150%;
+    background-position: 100% 110%, 0 15%;
+  }
+  .contacts-info {
+    grid-row-gap: 2.1em;
+  }
+  .contacts-block:nth-child(1),
+  .contacts-block:nth-child(2),
+  .contacts-block:nth-child(3) {
+    height: auto;
+  }
+}
+@media (max-width: 550px) {
+  .contacts {
+    background: url(../../../materials/backgrounds/mobile/waves-left.svg),
+      url(../../../materials/backgrounds/mobile/waves-right.svg);
+    background-repeat: no-repeat, no-repeat;
+    background-position: 0 0, 100% 100%;
+    background-size: 90% 150%;
+  }
+  .contacts-info {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 5px;
+  }
+  .contacts-block:nth-child(1) {
+    grid-area: 1 / 1 / 2 / 2;
+  }
+  .contacts-block:nth-child(2) {
+    grid-area: 1 / 2 / 2 / 3;
+  }
+  .contacts-block:nth-child(3) {
+    grid-area: 2 / 1 / 3 / 2;
+  }
+  .contacts-block:nth-child(4) {
+    grid-area: 3 / 1 / 4 / 3;
+  }
+  .contacts-block:nth-child(5) {
+    grid-area: 2 / 2 / 3 / 3;
+  }
+}
