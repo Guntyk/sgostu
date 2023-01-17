@@ -2,9 +2,9 @@
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr 0.5fr 2fr repeat(2, 1fr);
-  padding: 15px 1.384615em 32px 1.384615em;
-  width: 180px;
-  height: 267px;
+  padding: 15px 1.584615em 32px;
+  width: 216px;
+  height: 314px;
   font-size: 0.8125rem;
   line-height: 1.125rem;
   text-align: center;
@@ -12,6 +12,7 @@
   border-radius: 10px;
   backdrop-filter: blur(10px);
   user-select: none;
+  box-sizing: border-box;
 }
 
 .event-title {
@@ -40,7 +41,7 @@
 }
 
 .event-card > div,
-.event-card > span,
+/* .event-card > span, */
 .event-card > a {
   display: flex;
   justify-content: center;
@@ -76,4 +77,39 @@
   justify-content: space-around;
   margin: 0 auto;
   width: 70%;
+}
+
+.event-title {
+  display: inline-block;
+  /* width: 160px; */
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+/* .event-card-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+} */
+
+@media (max-width: 1150px) {
+  .event-card {
+    padding: 15px 1.184615em 32px;
+  }
+  .event-title {
+    font-size: 1.31846em;
+  }
+}
+
+@media (max-width: 840px) {
+  .event-card {
+    padding: 15px 0.484615em 32px;
+  }
+  .event-title {
+    font-size: 1.29em;
+  }
+  .event-status {
+    font-size: 12px;
+  }
 }

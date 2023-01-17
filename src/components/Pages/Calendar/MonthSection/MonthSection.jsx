@@ -1,25 +1,16 @@
-import { eventsSelector } from "../../../../redux/events/selectors";
-import { fetchEvents } from "../../../../redux/events/thunk";
-import { useDispatch, useSelector } from "react-redux";
 import { Swiper, SwiperSlide } from "swiper/react";
 import EventCard from "./EventCard/EventCard";
-import { Navigation } from "swiper";
 import { useEffect } from "react";
+import { Navigation } from "swiper";
 import "swiper/css/navigation";
 import "./MonthSection.css";
 
-export default function MonthSection({ month, monthIdx }) {
-  const events = useSelector(eventsSelector);
-  const dispatch = useDispatch();
+export default function MonthSection({ month, monthIdx, events }) {
   events.sort((a, b) => {
     const dateA = new Date(a.attributes.start),
       dateB = new Date(b.attributes.start);
     return dateA - dateB;
   });
-
-  useEffect(() => {
-    dispatch(fetchEvents());
-  }, []);
 
   useEffect(() => {
     if (events.length !== 0) {
@@ -52,6 +43,29 @@ export default function MonthSection({ month, monthIdx }) {
           }}
           modules={[Navigation]}
           id={`swiper${monthIdx}`}
+          spaceBetween={10}
+          // Responsive breakpoints
+          breakpoints={{
+            // when window width is >= 320px
+            220: {
+              slidesPerView: 2,
+              spaceBetween: 20,
+            },
+            // when window width is >= 480px
+            550: {
+              slidesPerView: 3,
+              spaceBetween: 10,
+            },
+            // when window width is >= 640px
+            840: {
+              slidesPerView: 3,
+              spaceBetween: 10,
+            },
+            1150: {
+              slidesPerView: 3,
+              spaceBetween: 20,
+            },
+          }}
         >
           {events.length !== 0 ? (
             events.map(
