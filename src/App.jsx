@@ -1,6 +1,7 @@
 import Calendar from "./components/Pages/Calendar/Calendar";
 import Contacts from "./components/Pages/Contacts/Contacts";
 import Feedback from "./components/Pages/Feedback/Feedback";
+import NotFound from "./components/Pages/NotFound/NotFound";
 import { Route, Switch } from "react-router-dom";
 import Header from "./components/Header/Header";
 import Loader from "./components/Loader/Loader";
@@ -24,6 +25,9 @@ export default function App() {
         </Route>
         <Route exact path="/feedback">
           <Feedback />
+        </Route>
+        <Route>
+          <NotFound />
         </Route>
       </Switch>
       {/* <Footer /> */}
