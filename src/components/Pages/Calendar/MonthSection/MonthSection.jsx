@@ -1,8 +1,9 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import EventCard from "./EventCard/EventCard";
 import { useEffect } from "react";
-import { Navigation } from "swiper";
+import { Navigation, Pagination } from "swiper";
 import "swiper/css/navigation";
+import "swiper/css/pagination";
 import "./MonthSection.css";
 
 export default function MonthSection({ month, monthIdx, events }) {
@@ -41,13 +42,21 @@ export default function MonthSection({ month, monthIdx, events }) {
             prevEl: `.arrow-left${monthIdx}`,
             disabledClass: `arrow-disabled`,
           }}
-          modules={[Navigation]}
+          modules={[Navigation, Pagination]}
           id={`swiper${monthIdx}`}
           spaceBetween={10}
+          pagination={{ clickable: true }}
           // Responsive breakpoints
           breakpoints={{
             // when window width is >= 320px
-            220: {
+            0: {
+              pagination: true,
+            },
+            50: {
+              slidesPerView: 1,
+              spaceBetween: 20,
+            },
+            400: {
               slidesPerView: 2,
               spaceBetween: 20,
             },
@@ -60,6 +69,7 @@ export default function MonthSection({ month, monthIdx, events }) {
             840: {
               slidesPerView: 3,
               spaceBetween: 10,
+              pagination: false,
             },
             1150: {
               slidesPerView: 3,
