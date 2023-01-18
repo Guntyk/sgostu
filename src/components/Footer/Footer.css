@@ -1,5 +1,4 @@
 .footer {
-  height: 179px;
   font-size: 1rem;
 }
 
@@ -17,6 +16,7 @@
 
 .footer-column a {
   font-size: 13px;
+  line-height: 18px;
 }
 
 .footer-wrapper {
@@ -24,7 +24,7 @@
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 15px;
   /* padding-bottom: 20px; */
 }
 
@@ -34,7 +34,6 @@
 
 .tel {
   margin-bottom: 5px;
-  line-height: 18px;
 }
 
 .footer-social {
@@ -58,11 +57,7 @@
   border: none;
   height: 2px;
   background: #27250080;
-}
-
-.copyright {
-  font-weight: 300;
-  font-size: 13px;
+  margin: 0;
 }
 
 .footer-mobile-head .logo {
@@ -73,9 +68,30 @@
   display: none;
 }
 
+.footer-bottom {
+  padding: 5px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer-bottom svg {
+  width: 63px;
+}
+.copyright,
+.authors {
+  display: block;
+  width: 100px;
+  font-weight: 300;
+  font-size: 13px;
+}
+.authors {
+  text-decoration: underline;
+  text-align: right;
+}
 @media (max-width: 840px) {
   .footer-column span {
     font-size: 14px;
+    margin-bottom: 5px;
   }
   .footer-column a {
     font-size: 12px;
@@ -92,8 +108,15 @@
   }
   @media (max-width: 637px) {
     .footer-hr {
-      margin-top: 65px;
+      margin-top: 45px;
     }
+  }
+  .footer-bottom svg {
+    width: 45px;
+  }
+  .copyright,
+  .authors {
+    font-size: 12px;
   }
 }
 
@@ -117,21 +140,47 @@
     /* align-items: center; */
   }
   .footer-hr {
-    margin-top: 95px;
+    margin-top: 20px;
   }
   .footer-column span {
     font-size: 13px;
+    text-align: center;
   }
   .footer-column a {
     font-size: 10px;
+  }
+  .footer-bottom svg {
+    width: 30px;
+  }
+  .copyright,
+  .authors {
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 534px) {
+  .footer-hr {
+    margin-top: 75px;
+  }
+  .footer-wrapper {
+    column-gap: 30px;
   }
 }
 
 @media (max-width: 400px) {
   .footer-wrapper {
-    flex-direction: column;
+    /* flex-direction: column; */
   }
   .footer-wrapper .footer-column {
-    padding: 0 100px;
+    /* padding: 0 100px; */
   }
+  .footer-column span {
+    font-size: 11px;
+  }
+  .footer-column a {
+    font-size: 9px;
+  }
+  /* .footer-hr {
+    margin-top: 95px;
+  } */
 }

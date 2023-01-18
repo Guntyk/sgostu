@@ -1,6 +1,8 @@
 import { LogoSGOSTU } from "../../common/Logos/Logo-SGOSTU";
 import Facebook from "../../materials/icons/Facebook";
 import Insta from "../../materials/icons/Insta";
+import SateLogo from "../../materials/icons/SateLogo";
+import "../../materials/icons/SateLogo.css";
 import "./Footer.css";
 
 export default function Footer() {
@@ -54,6 +56,10 @@ export default function Footer() {
           <hr className="footer-hr" />
           <div className="footer-bottom">
             <span className="copyright">© 2023 СГОСТУ</span>
+            <SateLogo />
+            <a href="#" className="authors">
+              By Sate
+            </a>
           </div>
         </div>
       </div>
