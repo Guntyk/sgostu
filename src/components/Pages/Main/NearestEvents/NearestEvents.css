@@ -40,13 +40,14 @@
   top: 50%;
   left: 50%;
   font-size: 2rem;
-  width: 100%;
+  width: 100px;
   text-align: center;
   color: var(--primary-black);
   transform: translate(-50%, -50%);
 }
 
 .nearest-events-wrapper {
+  position: relative;
   display: flex;
   gap: 70px;
   margin: 56px auto 36px auto;

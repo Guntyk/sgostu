@@ -1,7 +1,32 @@
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
+import { useHistory } from "react-router-dom";
 import Button from "../../../../common/Button/Button";
 import "./About.css";
 
+gsap.registerPlugin(ScrollTrigger);
+
 export default function About() {
+  const { push } = useHistory();
+  gsap.fromTo(
+    ".circular",
+    {
+      x: 600,
+    },
+    {
+      x: 0,
+      duration: 1,
+      scrollTrigger: {
+        trigger: ".circular",
+        scrub: 3,
+        // markers: true,
+        // start: "+=100px",
+        end: "+=500px",
+        toggleActions: "restart none none none"
+      },
+    }
+  );
+
   return (
     <article className="about">
       <div className="container">
@@ -29,7 +54,13 @@ export default function About() {
                 </textPath>
               </text>
             </svg>
-            <Button className="about-btn" buttonText="Більше" />
+            <Button
+              className="about-btn"
+              buttonText="Більше"
+              onClick={() => {
+                push("/404");
+              }}
+            />
           </div>
         </div>
       </div>

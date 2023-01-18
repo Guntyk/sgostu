@@ -43,7 +43,8 @@
 .input:focus + .label span,  
 .input:valid + .label span {  
   padding: 0 0.15625em;
-  transform: translateY(-1.6em);
+  font-size: .8em;
+  transform: translateY(-1.9em);
 }
 
 textarea {
