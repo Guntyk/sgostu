@@ -8,7 +8,6 @@ import Loader from "./components/Loader/Loader";
 import Footer from "./components/Footer/Footer";
 import Main from "./components/Pages/Main/Main";
 import { useEffect } from "react";
-import axios from "axios";
 
 export default function App() {
   // useEffect(() => {
@@ -25,10 +24,11 @@ export default function App() {
       <Header />
       <Switch>
         <Route exact path="/">
-          {/* <Loader /> */}
+          <Loader />
           <Main />
         </Route>
         <Route exact path="/calendar">
+          <Loader />
           <Calendar />
         </Route>
         <Route exact path="/contacts">

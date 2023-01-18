@@ -1,10 +1,12 @@
 import { angleToRadians } from "../../helpers/angleToRadians";
 import { OrbitControls, PerspectiveCamera } from "@react-three/drei";
 import { Suspense, useEffect, useState } from "react";
+import ScrollTrigger from "gsap/ScrollTrigger";
 import { Canvas } from "@react-three/fiber";
 import Logo from "./Logo";
 import gsap from "gsap";
 import "./Loader.css";
+gsap.registerPlugin(ScrollTrigger);
 
 export default function Loader() {
   const [loading, setLoading] = useState(false);
@@ -48,11 +50,25 @@ export default function Loader() {
         {
           y: 0,
           duration: 0.55,
+          onComplete: parallaxText(),
         },
         "+=0.25"
       );
     }
   }, [loading]);
+
+  function parallaxText() {
+    gsap.to(".title", {
+      y: -100,
+      ease: "linear",
+      scrollTrigger: {
+        trigger: ".about",
+        start: "top bottom",
+        end: "+=250px",
+        scrub: 1,
+      },
+    });
+  }
 
   return (
     <>
