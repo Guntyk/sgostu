@@ -9,7 +9,7 @@ backendApi.interceptors.response.use(
   (error) => [error, null]
 );
 
-const chatIds = [904054855]; // Kirill: 688334536
+const chatIds = [904054855, 1133429141]; // Kirill: 688334536
 
 //* Events
 export const getEventsFetch = () =>
