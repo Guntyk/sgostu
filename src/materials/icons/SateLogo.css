@@ -1,0 +1,46 @@
+.cls-1 {
+  fill: url(#radial-gradient);
+}
+.cls-2,
+.cls-4,
+.cls-5,
+.cls-8 {
+  fill: none;
+}
+.cls-2 {
+  stroke: #180aff;
+}
+.cls-2,
+.cls-3,
+.cls-4,
+.cls-5 {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.cls-2,
+.cls-3,
+.cls-4,
+.cls-8 {
+  stroke-width: 15px;
+}
+.cls-3 {
+  fill: #e30613;
+  stroke: red;
+}
+.cls-4 {
+  stroke: #00c919;
+}
+.cls-5 {
+  stroke: #000;
+  stroke-width: 10px;
+}
+.cls-6 {
+  fill: #571eba;
+}
+.cls-7 {
+  fill: #753fc4;
+}
+.cls-8 {
+  stroke: #1d1d1b;
+  stroke-miterlimit: 10;
+}
