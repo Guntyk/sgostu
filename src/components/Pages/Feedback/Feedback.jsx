@@ -1,14 +1,12 @@
+import { sendMessageToBot } from "../../../api/requests";
 import Button from "../../../common/Button/Button";
 import Input from "../../../common/Input/Input";
 import ReactInputMask from "react-input-mask";
 import { useEffect, useState } from "react";
-import axios from "axios";
-import gsap from "gsap";
 import "./Feedback.css";
 
 export default function Feedback() {
   const [submitText, setSubmitText] = useState("Відіслати");
-  const chatIds = [904054855, 688334536];
 
   useEffect(() => {
     const labels = document.querySelectorAll(".form-control .label");
@@ -26,15 +24,8 @@ export default function Feedback() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    chatIds.forEach((chatId) => {
-      axios.post(
-        "https://api.telegram.org/bot5603004166:AAFen05We0DnU5I5p5xcdENooDn-MRBYlxQ/sendMessage",
-        {
-          chat_id: chatId,
-          text: `👤Ім'я: ${e.target.name.value}\n📞Телефон: ${e.target.phone.value}\n💬Повідомлення: ${e.target.message.value}`,
-        }
-      );
-    });
+    const message = `👤Ім'я: ${e.target.name.value}\n📞Телефон: ${e.target.phone.value}\n💬Повідомлення: ${e.target.message.value}`;
+    sendMessageToBot(message)
 
     e.target.name.value = "";
     e.target.phone.value = "";
