@@ -38,7 +38,7 @@ export default function Feedback() {
     <article className="feedback-main">
       <div className="feedback-wrapper">
         <span className="feedback-title">Зворотній зв'язок</span>
-        <form onSubmit={handleSubmit} method="POST" className="feedback-form">
+        <form onSubmit={handleSubmit} className="feedback-form">
           <Input labelText="Ім'я" name="name" required />
           <div className="form-control">
             <ReactInputMask

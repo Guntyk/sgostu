@@ -9,7 +9,7 @@
   border: 1px solid #0e0e0e59;
   border-radius: 10px;
   backdrop-filter: blur(10px) !important;
-  background-color: #fff !important;
+  background-color: transparent !important;
   cursor: pointer;
   transition: 0.3s;
 }

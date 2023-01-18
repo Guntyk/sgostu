@@ -1,6 +1,7 @@
+import SpartakIcon from "../../../../../materials/icons/categories/Spartak";
 import SgostuIcon from "../../../../../materials/icons/categories/Sgostu";
-import StarIcon from "../../../../../materials/icons/categories/Star";
 import GlobeIcon from "../../../../../materials/icons/categories/Globe";
+import StarIcon from "../../../../../materials/icons/categories/Star";
 import { useEffect, useState } from "react";
 import "./EventCard.css";
 import { Link } from "react-router-dom";
@@ -10,6 +11,7 @@ export default function EventCard({ event }) {
   const [empty, setEmpty] = useState("");
   useEffect(() => {
     if (
+      event.spartak ||
       event.rating ||
       event.foreign ||
       event.organization.indexOf("СГОСТУ") >= 0
@@ -24,13 +26,14 @@ export default function EventCard({ event }) {
       <span className="event-date">{localeDate}</span>
       <div className="event-categories">
         {event.rating && <StarIcon />}
+        {event.spartak && <SpartakIcon />}
         {event.organization.indexOf("СГОСТУ") >= 0 && <SgostuIcon />}
         {event.foreign && <GlobeIcon />}
       </div>
       <span className="event-town">{event.town}</span>
       <p className="event-title">{event.title}</p>
       <span className="event-status">{event.status}</span>
-      <Link to="/" className="event-more">
+      <Link to="/404" className="event-more">
         Більше
       </Link>
     </div>
