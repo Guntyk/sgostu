@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const backendApi = axios.create({
-  baseURL: "https://sgostu-backend-v2.onrender.com/api",
+  baseURL: "http://185.233.117.105:1337/api",
 });
 
 backendApi.interceptors.response.use(
