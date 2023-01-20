@@ -25,7 +25,7 @@ export default function App() {
       <Header />
       <Switch>
         <Route exact path="/">
-          <Loader loading={loading} />
+          {/* <Loader loading={loading} /> */}
           <Main />
         </Route>
         <Route exact path="/calendar">
