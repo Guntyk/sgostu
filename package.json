@@ -21,7 +21,7 @@
     "three": "^0.148.0"
   },
   "scripts": {
-    "start": "set PORT=80 && react-scripts start",
+    "start": "set PORT=8080 && react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
