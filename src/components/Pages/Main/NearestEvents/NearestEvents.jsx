@@ -1,22 +1,19 @@
 import NearestEventSlide from "./NearestEventSlide/NearestEventSlide";
 import NearestEventCard from "./NearestEventCard/NearestEventCard";
-import { eventsSelector } from "../../../../redux/events/selectors";
-import { fetchEvents } from "../../../../redux/events/thunk";
-import { useDispatch, useSelector } from "react-redux";
 import Button from "../../../../common/Button/Button";
 import { EffectCoverflow, Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useHistory } from "react-router-dom";
+import { Context } from "../../../..";
 import "swiper/css/effect-coverflow";
-import { useEffect } from "react";
+import { useContext } from "react";
 import "swiper/css/pagination";
 import "./NearestEvents.css";
 import "swiper/css";
 
-
 export default function NearestEvents() {
-  const events = useSelector(eventsSelector);
-  const dispatch = useDispatch();
+  const { events } = useContext(Context);
+  // const events = useSelector(eventsSelector);
   const history = useHistory();
 
   events.sort((a, b) => {
@@ -32,10 +29,6 @@ export default function NearestEvents() {
     .filter((event) => {
       return event !== undefined;
     });
-
-  useEffect(() => {
-    dispatch(fetchEvents());
-  }, []);
 
   return (
     <>
