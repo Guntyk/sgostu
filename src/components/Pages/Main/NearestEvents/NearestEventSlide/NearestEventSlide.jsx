@@ -3,10 +3,10 @@ import "./NearestEventSlide.css";
 export default function NearestEventSlide({ event }) {
   return (
     <div className="nearest-event-card">
-      <span className="nearest-event-name">{event.attributes.title}</span>
+      <span className="nearest-event-name">{event.title}</span>
       <div className="nearest-event-info">
-        <span className="nearest-event-town">{event.attributes.town}</span>
-        <span className="nearest-event-date">{event.attributes.start}</span>
+        <span className="nearest-event-town">{event.town}</span>
+        <span className="nearest-event-date">{event.start}</span>
       </div>
       {/* <svg
         className="event-arrow"
