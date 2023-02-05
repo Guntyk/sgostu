@@ -17,14 +17,14 @@ export default function NearestEvents() {
   const history = useHistory();
 
   events.sort((a, b) => {
-    const dateA = new Date(a.attributes.start),
-      dateB = new Date(b.attributes.start);
+    const dateA = new Date(a.start),
+      dateB = new Date(b.start);
     return dateA - dateB; // sort by ascending date
   });
 
   const nearestEvents = events
     .map((event) => {
-      if (event.attributes.organization === "СГОСТУ") return event;
+      if (event.organization === "СГОСТУ") return event;
     })
     .filter((event) => {
       return event !== undefined;
