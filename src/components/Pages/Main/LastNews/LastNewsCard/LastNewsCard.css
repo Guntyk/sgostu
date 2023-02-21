@@ -1,0 +1,42 @@
+.last-news-card {
+  --padding: 1.53846em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: var(--padding);
+  width: calc(20em - var(--padding) * 2 - 2px);
+  height: calc(32.230769230em - var(--padding) * 2 - 2px);
+  border: 1px solid #0e0e0e59;
+  border-radius: 10px;
+  font-family: "e-Ukraine-Light", sans-serif;
+  line-height: 1.3846em;
+  backdrop-filter: blur(10px) !important;
+  background-color: transparent !important;
+  text-align: center;
+  transition: 0.3s;
+}
+
+.news-img-wrapper {
+  position: relative;
+  border-radius: 10px;
+  height: 12.846em;
+  overflow: hidden;
+}
+
+.news-img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  transform: translate(-50%, -50%);
+}
+
+.news-card-title {
+    font-family: "e-Ukraine-Regular", sans-serif;
+    font-size: 1.53846153em;
+    line-height: 1.2;
+}
+
+.news-link {
+    text-decoration: underline;
+}
