@@ -1,6 +1,9 @@
 .last-news {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   font-size: 13px;
-  margin-top: 7.9230em;
+  margin-top: 11.53846em;
   width: 100%;
   /* border: 3px solid red; */
 }
@@ -9,7 +12,7 @@
   position: relative;
   display: flex;
   justify-content: space-between;
-  margin: 2.923076em auto 0 auto;
+  margin: 2.923076em auto 2.8461538em auto;
   max-width: 941px;
 }
 
