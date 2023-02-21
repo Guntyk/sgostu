@@ -1,0 +1,23 @@
+.last-news {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 13px;
+  margin-top: 11.53846em;
+  width: 100%;
+  /* border: 3px solid red; */
+}
+
+.last-news-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  margin: 2.923076em auto 2.8461538em auto;
+  max-width: 941px;
+}
+
+.news-title {
+  display: block;
+  font-size: 2.923076em;
+  text-align: center;
+}
