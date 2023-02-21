@@ -1,3 +1,4 @@
+import Announcements from "./Announcements/Announcements";
 import NearestEvents from "./NearestEvents/NearestEvents";
 import Advantages from "./Advantages/Advantages";
 import Feedback from "./Feedback/Feedback";
@@ -13,6 +14,7 @@ export default function Main() {
       <Advantages />
       <NearestEvents />
       <LastNews />
+      <Announcements />
       <Feedback />
     </main>
   );
