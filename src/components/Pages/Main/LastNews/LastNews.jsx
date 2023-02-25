@@ -11,7 +11,7 @@ export default function LastNews() {
 
   return (
     <article className="last-news">
-      <span className="news-title">Останні новини</span>
+      <span className="last-news-title">Останні новини</span>
       <div className="container">
         <div className="last-news-wrapper">
           {news.length !== 0 ? (
