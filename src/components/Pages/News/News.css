@@ -1,0 +1,32 @@
+.news {
+  padding: 8em 0;
+  font-size: 1rem;
+}
+
+.news-title {
+  margin-bottom: 1.84210em;
+  font-size: 2.375em;
+  text-align: center;
+}
+
+.news-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  font-size: 0.8125em;
+  gap: 3.84615em;
+}
+
+@media (max-width: 840px) {
+  .news {
+    font-size: 0.8rem;
+  }
+}
+@media (max-width: 550px) {
+  .news {
+    font-size: 0.6rem;
+  }
+  .news-wrapper {
+    gap: 10px
+  }
+}

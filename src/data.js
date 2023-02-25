@@ -1,4 +1,4 @@
-export const data = `[
+export const eventsObj = `[
   {
     "id": 1,
     "title": "«Crystal Cup»",
@@ -95,8 +95,8 @@ export const data = `[
     "title": "«Чарівність»",
     "rating": false,
     "town": "Київ",
-    "start": "2023-02-25",
-    "end": "2023-02-25",
+    "start": "2023-04-02",
+    "end": "2023-04-02",
     "organization": "СГОСТУ",
     "foreign": false,
     "organizator": "Світлана Макода",
@@ -623,4 +623,100 @@ export const data = `[
     "status": "Відкриті міські класифікаційні",
     "spartak": null
   }
+]`;
+
+export const newsObj = `[
+  {
+    "id": 1,
+    "date": "0000-00-00",
+    "title": "Новина",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae culpa, recusandae excepturi."
+  },
+  {
+    "id": 2,
+    "date": "0000-00-00",
+    "title": "Новина",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae culpa, recusandae excepturi."
+  },
+  {
+    "id": 3,
+    "date": "0000-00-00",
+    "title": "Новина",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae culpa, recusandae excepturi."
+  },
+  {
+    "id": 4,
+    "date": "0000-00-00",
+    "title": "Новина",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae culpa, recusandae excepturi."
+  },
+  {
+    "id": 5,
+    "date": "0000-00-00",
+    "title": "Новина",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae culpa, recusandae excepturi."
+  }  ,
+  {
+    "id": 6,
+    "date": "0000-00-00",
+    "title": "Новина",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae culpa, recusandae excepturi."
+  },
+  {
+    "id": 7,
+    "date": "0000-00-00",
+    "title": "Новина",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae culpa, recusandae excepturi."
+  },
+  {
+    "id": 8,
+    "date": "0000-00-00",
+    "title": "Новина",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae culpa, recusandae excepturi."
+  },
+  {
+    "id": 9,
+    "date": "0000-00-00",
+    "title": "Новина",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae culpa, recusandae excepturi."
+  }, 
+  {
+    "id": 10,
+    "date": "0000-00-00",
+    "title": "Новина",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae culpa, recusandae excepturi."
+  },
+  {
+    "id": 11,
+    "date": "0000-00-00",
+    "title": "Новина",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae culpa, recusandae excepturi."
+  },
+  {
+    "id": 12,
+    "date": "0000-00-00",
+    "title": "Новина",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae culpa, recusandae excepturi."
+  }
+]`;
+
+export const announcementsObj = `[
+  {
+    "id": 1,
+    "date": "0000-00-00",
+    "title": "Анонс",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae culpa, recusandae excepturi."
+  },
+  {
+    "id": 2,
+    "date": "0000-00-00",
+    "title": "Анонс",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae culpa, recusandae excepturi."
+  },
+  {
+    "id": 3,
+    "date": "0000-00-00",
+    "title": "Анонс",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae culpa, recusandae excepturi."
+  }  
 ]`;

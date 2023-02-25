@@ -1,20 +1,22 @@
+import { newsObj, eventsObj, announcementsObj } from "./data";
 import { BrowserRouter } from "react-router-dom";
+import React, { createContext } from "react";
 import ReactDOM from "react-dom/client";
 import { Provider } from "react-redux";
 import { store } from "./redux/store";
-import React, { createContext } from "react";
 import App from "./App";
 import "./index.css";
-import { data } from "./data";
 
 export const Context = createContext(null);
 
-const events = JSON.parse(data);
+const announcements = JSON.parse(announcementsObj);
+const events = JSON.parse(eventsObj);
+const news = JSON.parse(newsObj);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <BrowserRouter>
-    <Context.Provider value={{ events }}>
+    <Context.Provider value={{ events, news, announcements }}>
       <Provider store={store}>
         <App />
       </Provider>

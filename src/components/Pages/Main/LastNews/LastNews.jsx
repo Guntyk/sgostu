@@ -1,37 +1,22 @@
 import LastNewsCard from "./LastNewsCard/LastNewsCard";
 import Button from "../../../../common/Button/Button";
+import { EffectCoverflow, Pagination } from "swiper";
+import { Swiper, SwiperSlide } from "swiper/react";
 import { useHistory } from "react-router-dom";
+import { Context } from "../../../..";
+import "swiper/css/effect-coverflow";
+import { useContext } from "react";
+import "swiper/css/pagination";
 import "./LastNews.css";
+import "swiper/css";
 
 export default function LastNews() {
   const history = useHistory();
-  const news = [
-    {
-      id: 1,
-      date: "2022-01-28",
-      title: "Вітаємо зі сріблом!",
-      description:
-        "Вероніка Мишко – Ерл Вільямсон Чемпіонат Світу дорослі 10 танців (Братислава) WDSF World Championship in Bratisla...",
-    },
-    {
-      id: 2,
-      date: "2022-02-12",
-      title: "Чемпіонат Світу серед команд...",
-      description:
-        "Команда формейшн з клубу танцювального спорту “Адажіо” м.Ірпінь посіла у фіналі 5 місце!",
-    },
-    {
-      id: 3,
-      date: "2022-03-31",
-      title: "Вітаємо Артема та Єлизавету!",
-      description:
-        "А також тренера Анну Кривенкоз першою Українською медаллю на GOC 2022!",
-    },
-  ];
+  const { news } = useContext(Context);
 
   return (
     <article className="last-news">
-      <span className="news-title">Останні новини</span>
+      <span className="last-news-title">Останні новини</span>
       <div className="container">
         <div className="last-news-wrapper">
           {news.length !== 0 ? (
@@ -45,6 +30,27 @@ export default function LastNews() {
           )}
         </div>
       </div>
+      <Swiper
+        className="news-slider"
+        spaceBetween={-80}
+        initialSlide={1}
+        grabCursor={true}
+        slideToClickedSlide={true}
+        effect={"coverflow"}
+        pagination={true}
+        coverflowEffect={{ rotate: 0, slideShadows: false, scale: 0.8 }}
+        modules={[EffectCoverflow, Pagination]}
+      >
+        {news.length !== 0 ? (
+          news.slice(0, 3).map((newspaper) => (
+            <SwiperSlide key={newspaper.id}>
+              <LastNewsCard newspaper={newspaper} />
+            </SwiperSlide>
+          ))
+        ) : (
+          <span className="event-void">Новин немає</span>
+        )}
+      </Swiper>
       {news.length !== 0 && (
         <Button
           buttonText="Більше"
