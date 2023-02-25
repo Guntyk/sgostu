@@ -79,9 +79,8 @@
 }
 .copyright,
 .authors {
-  display: block;
-  width: 100px;
-  font-weight: 300;
+  display: inline;
+  font-family: "e-Ukraine-Light";
   font-size: 13px;
 }
 .authors {
