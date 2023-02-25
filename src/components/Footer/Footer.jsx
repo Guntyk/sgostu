@@ -6,7 +6,7 @@ import "../../materials/icons/SateLogo.css";
 import "./Footer.css";
 
 export default function Footer() {
-  const date = new Date().getFullYear();
+  const year = new Date().getFullYear();
 
   return (
     <footer className="footer">
@@ -77,7 +77,7 @@ export default function Footer() {
         <div className="footer-second">
           <hr className="footer-hr" />
           <div className="footer-bottom">
-            <span className="copyright">© {date} СГОСТУ</span>
+            <span className="copyright">© {year} СГОСТУ</span>
             <SateLogo />
             <a
               href="https://www.instagram.com/sate.team/?theme=dark"
