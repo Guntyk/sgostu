@@ -1,9 +1,12 @@
-import { useEffect } from "react";
+import { sendMessageToBot } from "../../../../api/requests";
 import Button from "../../../../common/Button/Button";
 import Input from "../../../../common/Input/Input";
+import ReactInputMask from "react-input-mask";
+import { useEffect, useState } from "react";
 import "./Feedback.css";
 
 export default function Feedback() {
+  const [submitText, setSubmitText] = useState("Відіслати");
   useEffect(() => {
     const labels = document.querySelectorAll(".form-control .label");
 
@@ -18,17 +21,37 @@ export default function Feedback() {
     });
   }, []);
 
+  function handleSubmit(e) {
+    e.preventDefault();
+    const message = `👤Ім'я: ${e.target.name.value}\n📞Телефон: ${e.target.phone.value}\n💬Повідомлення: ${e.target.message.value}`;
+    sendMessageToBot(message);
+
+    e.target.name.value = "";
+    e.target.phone.value = "";
+    e.target.message.value = "";
+    e.target.button.disabled = "true";
+    setSubmitText("Дякуємо!");
+  }
+
   return (
     <article className="feedback">
       <div className="feedback-wrapper">
         <span className="feedback-title">Зворотній зв'язок</span>
-        <form className="feedback-form">
+        <form onSubmit={handleSubmit} className="feedback-form">
           <Input labelText="Ім'я" name="name" required />
-          <Input labelText="Номер телефону" type="tel" name="phone" required />
+          <div className="form-control">
+            <ReactInputMask
+              className="input"
+              mask="+38 (099) 999-99-99"
+              name="phone"
+              required
+            />
+            <label className="label">Номер телефону</label>
+          </div>
           <Input labelText="Ваше питання" name="message" textarea required />
           <Button
             className="feedback-btn"
-            buttonText="Відіслати"
+            buttonText={submitText}
             type="submit"
           />
         </form>

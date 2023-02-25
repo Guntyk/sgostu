@@ -80,4 +80,14 @@
 
 .feedback-main .feedback-btn {
   align-self: center;
+  z-index: 3;
+}
+
+.btn[disabled] {
+  cursor: default;
+  opacity: .5;
+}
+.btn[disabled]:hover,
+.btn[disabled]:active {
+  background: transparent;
 }

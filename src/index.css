@@ -177,3 +177,9 @@ body::-webkit-scrollbar {
   width: 90%;
   position: relative;
 }
+
+@media (max-width: 1150px) {
+  .loader {
+    display: none !important;
+  }
+}

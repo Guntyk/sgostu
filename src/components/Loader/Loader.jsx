@@ -1,21 +1,14 @@
 import { angleToRadians } from "../../helpers/angleToRadians";
-import { OrbitControls, PerspectiveCamera } from "@react-three/drei";
-import { Suspense, useEffect, useState } from "react";
+import { PerspectiveCamera } from "@react-three/drei";
+import { Suspense, useEffect } from "react";
+import ScrollTrigger from "gsap/ScrollTrigger";
 import { Canvas } from "@react-three/fiber";
 import Logo from "./Logo";
 import gsap from "gsap";
 import "./Loader.css";
+gsap.registerPlugin(ScrollTrigger);
 
-export default function Loader() {
-  const [loading, setLoading] = useState(false);
-
-  useEffect(() => {
-    setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-    }, 8000);
-  }, []);
-
+export default function Loader({ loading }) {
   useEffect(() => {
     if (loading) {
       const loadingTimeline = gsap.timeline({ repeat: 0, repeatDelay: 1 });
@@ -43,14 +36,6 @@ export default function Loader() {
         },
         "+=1"
       );
-      loadingTimeline.to(
-        ".title-stroke",
-        {
-          y: 0,
-          duration: 0.55,
-        },
-        "+=0.25"
-      );
     }
   }, [loading]);
 
@@ -59,7 +44,6 @@ export default function Loader() {
       <div className="loader">
         <Canvas className="canvas">
           <PerspectiveCamera position={[0, 0, 0]} />
-          {/* <OrbitControls /> */}
           <ambientLight intensity={0.5} position={[0, 0, 3]} />
           <directionalLight position={[-2, 3, 2]} intensity={0.5} />
           <Suspense>

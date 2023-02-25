@@ -16,7 +16,7 @@ export default function Advantages() {
           Рекомендації для тренерів, які виїжджають за кордон
         </div>
         <div className="advantage-card">
-          Безкоштовні сайти для великих клубів
+          Сайти для великих клубів
         </div>
       </div>
     </article>

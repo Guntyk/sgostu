@@ -3,30 +3,28 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background: url(../../../../materials/backgrounds/waves-right-hero.svg) no-repeat 100%
-      85%,
+  background: url(../../../../materials/backgrounds/waves-right-hero.svg)
+      no-repeat 100% 85%,
     url(../../../../materials/backgrounds/waves-left-hero.svg) no-repeat 0% 35%;
   background-size: 40% 150%;
 }
 
-.hero__wrapper {
-  position: relative;
-  z-index: 1;
-}
-
-.hero__wrapper::after {
-  position: absolute;
-}
-
 .title {
-  max-width: 1025px;
-  font-size: 3.5rem;
-  line-height: 1.07;
+  width: 100%;
+  font-family: "e-Ukraine-Head", sans-serif;
+  font-size: 4rem;
+  line-height: 1.2;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
 }
 
 .title > div {
   min-height: 65px;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 .title > div > span {
@@ -55,6 +53,7 @@
     background-size: 70% 150%;
   }
   .title-stroke {
+    margin: 0 auto;
     max-width: 538px;
     font-size: 2.25rem;
   }

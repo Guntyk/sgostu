@@ -1,0 +1,41 @@
+.not-found {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+    font-size: 2rem;
+}
+
+.not-found-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5em;
+}
+
+.not-found-title {
+    font-size: 7em;
+}
+
+
+
+@media (max-width: 840px) {
+    .not-found {
+        font-size: 1.5rem;
+    }
+    .not-found-text {
+        text-align: center;
+        width: 450px;
+        line-height: 1.4em;
+    }
+}
+
+@media (max-width: 550px) {
+    .not-found {
+        font-size: 1rem;
+    }
+    .not-found-text {
+        width: 70%;
+        line-height: 1.4em;
+    }
+}

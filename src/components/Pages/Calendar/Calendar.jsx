@@ -1,16 +1,11 @@
-import { eventsSelector } from "../../../redux/events/selectors";
-import { fetchEvents } from "../../../redux/events/thunk";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import MonthSection from "./MonthSection/MonthSection";
-import { useEffect } from "react";
+import { useContext } from "react";
+import { Context } from "../../..";
 import "./Calendar.css";
 
 export default function Calendar() {
-  useEffect(() => {
-    dispatch(fetchEvents());
-  }, []);
-  const events = useSelector(eventsSelector);
-  const dispatch = useDispatch();
+  const { events } = useContext(Context);
   const months = [
     "Січень",
     "Лютий",

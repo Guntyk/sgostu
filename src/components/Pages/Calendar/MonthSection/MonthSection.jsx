@@ -8,8 +8,8 @@ import "./MonthSection.css";
 
 export default function MonthSection({ month, monthIdx, events }) {
   events.sort((a, b) => {
-    const dateA = new Date(a.attributes.start),
-      dateB = new Date(b.attributes.start);
+    const dateA = new Date(a.start),
+      dateB = new Date(b.start);
     return dateA - dateB;
   });
 
@@ -80,9 +80,9 @@ export default function MonthSection({ month, monthIdx, events }) {
           {events.length !== 0 ? (
             events.map(
               (event) =>
-                new Date(event.attributes.start).getMonth() === monthIdx && (
+                new Date(event.start).getMonth() === monthIdx && (
                   <SwiperSlide key={event.id}>
-                    <EventCard event={event.attributes} />
+                    <EventCard event={event} />
                   </SwiperSlide>
                 )
             )

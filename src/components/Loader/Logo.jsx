@@ -1,12 +1,14 @@
 import { angleToRadians } from "../../helpers/angleToRadians";
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
+import ScrollTrigger from "gsap/ScrollTrigger";
 import { useGLTF } from "@react-three/drei";
 import gsap from "gsap";
+gsap.registerPlugin(ScrollTrigger);
 
 export default function Logo({ rotation, loading }) {
+  const modelTimeline = gsap.timeline({ repeat: 0, repeatDelay: 1 });
   const { nodes, materials } = useGLTF("/logo.gltf");
   const logoModel = useRef();
-  const modelTimeline = gsap.timeline({ repeat: 0, repeatDelay: 1 });
 
   useEffect(() => {
     if (loading) {
@@ -27,6 +29,7 @@ export default function Logo({ rotation, loading }) {
       modelTimeline.to(
         logoModel.current.position,
         {
+          x: 2,
           y: 0,
           z: 2.5,
           duration: 2,
@@ -34,8 +37,46 @@ export default function Logo({ rotation, loading }) {
         },
         "+=4"
       );
+      modelTimeline.to(
+        logoModel.current.rotation,
+        {
+          y: angleToRadians(-120),
+          duration: 2,
+          ease: "Power2.easeInOut",
+          onComplete: foo,
+        },
+        "-=2"
+      );
     }
   }, [loading]);
+
+  function foo() {
+    gsap.to(logoModel.current.position, {
+      x: 6,
+      y: 2,
+      scrollTrigger: {
+        trigger: ".about",
+        start: "top bottom",
+        end: "+=250px",
+        scrub: 1,
+      },
+    });
+    gsap.fromTo(
+      logoModel.current.position,
+      { x: 6, y: 2 },
+      {
+        x: 2,
+        y: 0,
+        z: 2.5,
+        scrollTrigger: {
+          trigger: ".feedback",
+          start: "bottom bottom",
+          end: "+=150px",
+          scrub: 1,
+        },
+      }
+    );
+  }
 
   return (
     <>

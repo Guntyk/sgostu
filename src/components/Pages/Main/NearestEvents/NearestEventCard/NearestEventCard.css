@@ -3,14 +3,12 @@
   flex-direction: column;
   justify-content: space-between;
   padding: 1.25em 0.8125em;
-  width: 234px;
-  font-size: 1rem;
-  height: 220px;
+  width: 14.625em;
+  height: 13.75em;
   border: 1px solid #0e0e0e59;
   border-radius: 10px;
   backdrop-filter: blur(10px) !important;
-  background-color: #fff !important;
-  cursor: pointer;
+  background-color: transparent !important;
   transition: 0.3s;
 }
 
@@ -48,17 +46,4 @@
   bottom: 23px;
   right: 23px;
   transition: 0.3s;
-}
-
-@media (max-width: 1150px) {
-  .nearest-events-wrapper {
-    gap: 35px;
-  }
-}
-
-@media (max-width: 840px) {
-  .nearest-event-card {
-    width: 157px;
-    gap: 4.1vw;
-  }
 }

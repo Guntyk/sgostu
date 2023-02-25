@@ -1,39 +1,34 @@
 import NearestEventSlide from "./NearestEventSlide/NearestEventSlide";
 import NearestEventCard from "./NearestEventCard/NearestEventCard";
-import { eventsSelector } from "../../../../redux/events/selectors";
-import { fetchEvents } from "../../../../redux/events/thunk";
-import { useDispatch, useSelector } from "react-redux";
 import Button from "../../../../common/Button/Button";
+import { EffectCoverflow, Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useHistory } from "react-router-dom";
-import { EffectCoverflow } from "swiper";
+import { Context } from "../../../..";
 import "swiper/css/effect-coverflow";
-import { useEffect } from "react";
+import { useContext } from "react";
+import "swiper/css/pagination";
 import "./NearestEvents.css";
 import "swiper/css";
 
 export default function NearestEvents() {
-  const events = useSelector(eventsSelector);
-  const dispatch = useDispatch();
+  const { events } = useContext(Context);
+  // const events = useSelector(eventsSelector);
   const history = useHistory();
 
   events.sort((a, b) => {
-    const dateA = new Date(a.attributes.start),
-      dateB = new Date(b.attributes.start);
+    const dateA = new Date(a.start),
+      dateB = new Date(b.start);
     return dateA - dateB; // sort by ascending date
   });
 
   const nearestEvents = events
     .map((event) => {
-      if (event.attributes.organization === "СГОСТУ") return event;
+      if (event.organization === "СГОСТУ") return event;
     })
     .filter((event) => {
       return event !== undefined;
     });
-
-  useEffect(() => {
-    dispatch(fetchEvents());
-  }, []);
 
   return (
     <>
@@ -60,8 +55,9 @@ export default function NearestEvents() {
           grabCursor={true}
           slideToClickedSlide={true}
           effect={"coverflow"}
+          pagination={true}
           coverflowEffect={{ rotate: 0, slideShadows: false, scale: 0.8 }}
-          modules={[EffectCoverflow]}
+          modules={[EffectCoverflow, Pagination]}
         >
           {nearestEvents.length !== 0 ? (
             nearestEvents.slice(0, 3).map((event) => (

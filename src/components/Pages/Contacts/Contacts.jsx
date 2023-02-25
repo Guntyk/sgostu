@@ -33,7 +33,7 @@ export default function Contacts() {
             </li>
             <hr />
             <li className="contact">
-              <a href="https://goo.gl/maps/odd6byYbjoo79Qpa9" target="_blank">
+              <a href="https://goo.gl/maps/odd6byYbjoo79Qpa9" target="_blank" rel="noreferrer">
                 м. Київ, Залізничне шосе 3
               </a>
             </li>
@@ -62,12 +62,12 @@ export default function Contacts() {
             </li>
             <hr />
             <li className="contact">
-              <a href="https://www.facebook.com/SGOSTU" target="_blank">
+              <a href="https://www.facebook.com/SGOSTU" target="_blank" rel="noreferrer">
                 Facebook
               </a>
             </li>
             <li className="contact">
-              <a href="https://www.instagram.com/sgostuu/" target="_blank">
+              <a href="https://www.instagram.com/sgostuu/" target="_blank" rel="noreferrer">
                 Instagram
               </a>
             </li>

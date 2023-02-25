@@ -6,6 +6,8 @@ import "../../materials/icons/SateLogo.css";
 import "./Footer.css";
 
 export default function Footer() {
+  const year = new Date().getFullYear();
+
   return (
     <footer className="footer">
       <div className="container">
@@ -13,10 +15,18 @@ export default function Footer() {
           <div className="footer-mobile-head">
             <LogoSGOSTU />
             <div className="footer-social-mobile">
-              <a href="https://www.facebook.com/SGOSTU" target="_blank">
+              <a
+                href="https://www.facebook.com/SGOSTU"
+                target="_blank"
+                rel="noreferrer"
+              >
                 <Facebook />
               </a>
-              <a href="https://www.instagram.com/sgostuu/" target="_blank">
+              <a
+                href="https://www.instagram.com/sgostuu/"
+                target="_blank"
+                rel="noreferrer"
+              >
                 <Insta />
               </a>
             </div>
@@ -38,16 +48,28 @@ export default function Footer() {
             </div>
             <div className="footer-column">
               <span className="footer-subtitle">Адреса:</span>
-              <a href="https://goo.gl/maps/odd6byYbjoo79Qpa9" target="_blank">
+              <a
+                href="https://goo.gl/maps/odd6byYbjoo79Qpa9"
+                target="_blank"
+                rel="noreferrer"
+              >
                 м. Київ, Залізничне шосе 3
               </a>
             </div>
           </div>
           <div className="footer-social">
-            <a href="https://www.facebook.com/SGOSTU" target="_blank">
+            <a
+              href="https://www.facebook.com/SGOSTU"
+              target="_blank"
+              rel="noreferrer"
+            >
               <Facebook />
             </a>
-            <a href="https://www.instagram.com/sgostuu/" target="_blank">
+            <a
+              href="https://www.instagram.com/sgostuu/"
+              target="_blank"
+              rel="noreferrer"
+            >
               <Insta />
             </a>
           </div>
@@ -55,9 +77,12 @@ export default function Footer() {
         <div className="footer-second">
           <hr className="footer-hr" />
           <div className="footer-bottom">
-            <span className="copyright">© 2023 СГОСТУ</span>
+            <span className="copyright">© {year} СГОСТУ</span>
             <SateLogo />
-            <a href="#" className="authors">
+            <a
+              href="https://www.instagram.com/sate.team/?theme=dark"
+              className="authors"
+            >
               By Sate
             </a>
           </div>
