@@ -8,6 +8,7 @@ import Header from "./components/Header/Header";
 import Loader from "./components/Loader/Loader";
 import Footer from "./components/Footer/Footer";
 import Main from "./components/Pages/Main/Main";
+import News from "./components/Pages/News/News";
 import { useEffect, useState } from "react";
 
 export default function App() {
@@ -36,6 +37,9 @@ export default function App() {
         </Route>
         <Route exact path="/feedback">
           <Feedback />
+        </Route>
+        <Route exact path="/news">
+          <News />
         </Route>
         <Route>
           <NotFound />

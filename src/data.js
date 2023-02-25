@@ -643,7 +643,61 @@ export const newsObj = `[
     "date": "0000-00-00",
     "title": "Новина",
     "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae culpa, recusandae excepturi."
-  }  
+  },
+  {
+    "id": 4,
+    "date": "0000-00-00",
+    "title": "Новина",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae culpa, recusandae excepturi."
+  },
+  {
+    "id": 5,
+    "date": "0000-00-00",
+    "title": "Новина",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae culpa, recusandae excepturi."
+  }  ,
+  {
+    "id": 6,
+    "date": "0000-00-00",
+    "title": "Новина",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae culpa, recusandae excepturi."
+  },
+  {
+    "id": 7,
+    "date": "0000-00-00",
+    "title": "Новина",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae culpa, recusandae excepturi."
+  },
+  {
+    "id": 8,
+    "date": "0000-00-00",
+    "title": "Новина",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae culpa, recusandae excepturi."
+  },
+  {
+    "id": 9,
+    "date": "0000-00-00",
+    "title": "Новина",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae culpa, recusandae excepturi."
+  }, 
+  {
+    "id": 10,
+    "date": "0000-00-00",
+    "title": "Новина",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae culpa, recusandae excepturi."
+  },
+  {
+    "id": 11,
+    "date": "0000-00-00",
+    "title": "Новина",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae culpa, recusandae excepturi."
+  },
+  {
+    "id": 12,
+    "date": "0000-00-00",
+    "title": "Новина",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae culpa, recusandae excepturi."
+  }
 ]`;
 
 export const announcementsObj = `[

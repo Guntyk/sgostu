@@ -77,12 +77,32 @@ export default function Navigation({ openSideMenu, setOpenSideMenu }) {
           </span>
           <span className="nav-link">
             <Link
+              to="/news"
+              onClick={() => {
+                setOpenSideMenu(false);
+              }}
+            >
+              Новини
+            </Link>
+          </span>
+          <span className="nav-link">
+            <Link
               to="/calendar"
               onClick={() => {
                 setOpenSideMenu(false);
               }}
             >
               Календар змагань
+            </Link>
+          </span>
+          <span className="nav-link">
+            <Link
+              to="/catalog"
+              onClick={() => {
+                setOpenSideMenu(false);
+              }}
+            >
+              Каталоги
             </Link>
           </span>
           <span className="nav-link">
