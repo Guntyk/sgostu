@@ -190,7 +190,7 @@ export const eventsObj = `[
     "end": "2023-04-01",
     "organization": "ВРСТ",
     "foreign": false,
-    "organizator": "Олек сій та Тетяна Балла",
+    "organizator": "Олексій та Тетяна Балла",
     "status": "Відкриті міські класифікаційні",
     "spartak": null
   },

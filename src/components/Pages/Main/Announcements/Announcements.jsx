@@ -1,7 +1,6 @@
 import AnnouncementsCard from "./AnnouncementsCard/AnnouncementsCard";
-import "./Announcements.css";
-import { useContext } from "react";
 import { Context } from "../../../..";
+import { useContext } from "react";
 
 export default function Announcements() {
   const { announcements } = useContext(Context);

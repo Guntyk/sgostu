@@ -1,6 +1,7 @@
 import Announcements from "./Announcements/Announcements";
 import NearestEvents from "./NearestEvents/NearestEvents";
 import Advantages from "./Advantages/Advantages";
+import Database from "./Database/Database";
 import Feedback from "./Feedback/Feedback";
 import LastNews from "./LastNews/LastNews";
 import About from "./About/About";
@@ -14,6 +15,7 @@ export default function Main() {
       <Advantages />
       <NearestEvents />
       <LastNews />
+      <Database />
       <Announcements />
       <Feedback />
     </main>

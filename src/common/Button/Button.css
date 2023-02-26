@@ -91,3 +91,34 @@
 .btn[disabled]:active {
   background: transparent;
 }
+
+.event-details-btn {
+  margin: 0 auto;
+  display: inline;
+  width: auto;
+  height: auto;
+  border: none;
+  text-align: center;
+  text-decoration: underline;
+}
+
+.event-details-btn:hover,
+.event-details-btn:active {
+  background: none;
+}
+
+.database-btn {
+  width: 15.6875em;
+  height: 3.5em;
+  color: #fff;
+  background-color: #E97485;
+}
+
+.event-info-btn {
+  width: calc(100% / 3 - var(--gap) * 2);
+}
+
+.event-info-btn.black {
+  color: #fff;
+  background-color: #252525;
+}

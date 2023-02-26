@@ -32,8 +32,8 @@
 .news-slider {
   --card-width: calc(20em - var(--padding) * 2 - 2px);
   display: none;
-  /* justify-content: center;
-  align-items: center; */
+  justify-content: center;
+  align-items: center;
   padding: 8.125em calc(50% - 14.625em) !important;
   width: 14.625em;
   min-height: 6.25em;
