@@ -55,7 +55,7 @@ export default function LastNews() {
         <Button
           buttonText="Більше"
           onClick={() => {
-            history.push("/");
+            history.push("/news");
           }}
         />
       )}
