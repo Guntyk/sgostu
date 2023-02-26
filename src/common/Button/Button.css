@@ -113,3 +113,12 @@
   color: #fff;
   background-color: #E97485;
 }
+
+.event-info-btn {
+  width: calc(100% / 3 - var(--gap) * 2);
+}
+
+.event-info-btn.black {
+  color: #fff;
+  background-color: #252525;
+}

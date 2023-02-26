@@ -1,13 +1,14 @@
+import { dateToLocalFormat } from "../../../../../helpers/dateToLocalFormat";
 import SpartakIcon from "../../../../../materials/icons/categories/Spartak";
 import SgostuIcon from "../../../../../materials/icons/categories/Sgostu";
 import GlobeIcon from "../../../../../materials/icons/categories/Globe";
 import StarIcon from "../../../../../materials/icons/categories/Star";
+import Button from "../../../../../common/Button/Button";
+import { useHistory } from "react-router-dom";
 import { useEffect, useState } from "react";
 import "./EventCard.css";
-import { Link } from "react-router-dom";
 
 export default function EventCard({ event }) {
-  const localeDate = new Date(event.start).toLocaleDateString("uk-UA");
   const [empty, setEmpty] = useState("");
   useEffect(() => {
     if (
@@ -20,10 +21,11 @@ export default function EventCard({ event }) {
   }, []);
 
   const cardClassName = `event-card ${empty}`;
+  const { push } = useHistory();
 
   return (
     <div className={cardClassName}>
-      <span className="event-date">{localeDate}</span>
+      <span className="event-date">{dateToLocalFormat(event.start)}</span>
       <div className="event-categories">
         {event.rating && <StarIcon />}
         {event.spartak && <SpartakIcon />}
@@ -33,9 +35,13 @@ export default function EventCard({ event }) {
       <span className="event-town">{event.town}</span>
       <p className="event-title">{event.title}</p>
       <span className="event-status">{event.status}</span>
-      <Link to="/404" className="event-more">
-        Більше
-      </Link>
+      <Button
+        className="event-details-btn"
+        buttonText="Більше"
+        onClick={() => {
+          push(`/calendar/${event.id}`);
+        }}
+      />
     </div>
   );
 }
