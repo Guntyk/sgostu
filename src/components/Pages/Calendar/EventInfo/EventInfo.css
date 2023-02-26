@@ -1,0 +1,128 @@
+.event-info {
+  padding-top: 100px;
+  font-family: "e-Ukraine-Light", sans-serif;
+  font-size: 1rem;
+}
+
+.back-link {
+  display: block;
+  margin-bottom: 21px;
+}
+
+.back-link:hover {
+  font-family: "e-Ukraine-Regular", sans-serif;
+  font-weight: 500;
+}
+
+.event-detail-info-row {
+  display: flex;
+}
+
+.event-detail-info-row > .img-wrapper {
+  position: relative;
+  width: 18.875em;
+  height: 26.75em;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.event-detail-info-row > .img-wrapper > img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.event-detail-info-row > .event-details {
+  margin: 2.8125em 0 0 2.8125em;
+}
+
+.event-details > li {
+  margin-bottom: 15px;
+}
+
+.event-detail-info-title {
+  font-family: "e-Ukraine-Regular", sans-serif;
+  font-size: 1.5em;
+}
+
+.event-detail-stroke-name {
+  font-family: "e-Ukraine-Regular", sans-serif;
+}
+
+.event-detail-info-row:nth-child(3) {
+  --gap: 3em;
+  display: flex;
+  justify-content: space-between;
+  gap: var(--gap);
+  margin: 60px 0;
+}
+
+.event-detail-buttons {
+  position: relative;
+  margin-bottom: 60px;
+  width: 100%;
+  display: flex;
+}
+
+.event-detail-buttons > li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: calc(100% / 3);
+  height: 56px;
+  border-bottom: 1px solid #000;
+  cursor: pointer;
+}
+
+.event-detail-buttons > .indicator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: calc(100% / 3);
+  height: 55px;
+  border: 1px solid #000;
+  border-bottom: 1px solid #fff;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  transition: 0.3s;
+}
+
+.event-detail-buttons > .indicator:before,
+.event-detail-buttons > .indicator:after {
+  content: "";
+  position: absolute;
+  top: 101.8%;
+  width: 30px;
+  height: 30px;
+  border-bottom: 1px solid #000;
+  background-color: transparent;
+  transform: translateY(-100%);
+}
+
+.event-detail-buttons > .indicator:before {
+  left: -31px;
+  border-right: 1px solid #000;
+  border-bottom-right-radius: 20px;
+  box-shadow: 8.5px 8.5px 0 0 #fff;
+}
+.event-detail-buttons > .indicator:after {
+  right: -31px;
+  border-left: 1px solid #000;
+  border-bottom-left-radius: 20px;
+  box-shadow: -8.5px 8.5px 0 0 #fff;
+}
+
+.event-detail-buttons .event-details-list:nth-child(1).active ~ .indicator {
+  transform: translateX(calc(100% * 0));
+}
+.event-detail-buttons .event-details-list:nth-child(2).active ~ .indicator {
+  transform: translateX(calc(100% * 1));
+}
+.event-detail-buttons .event-details-list:nth-child(3).active ~ .indicator {
+  transform: translateX(calc(100% * 2));
+}
+
+.event-details-container {
+    overflow: hidden;
+}

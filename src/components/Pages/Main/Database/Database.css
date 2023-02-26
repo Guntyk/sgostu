@@ -1,0 +1,26 @@
+.database {
+  font-family: "e-Ukraine-Light", sans-serif;
+  font-size: 1rem;
+  color: #fff;
+  background: #252525 url(../../../../materials/backgrounds/wave-database.svg) no-repeat 50%;
+}
+
+.database-wrapper {
+  margin: 6.25em auto 0 auto;
+  padding: 6.875em 0 5em 0;
+  display: flex;
+  justify-content: space-between;
+  max-width: 941px;
+}
+
+.database-title {
+  font-size: 1.75em;
+  line-height: 1.14285;
+}
+
+.database-description {
+  margin: 1.53846em 0 1.92307em 0;
+  font-family: "e-Ukraine-Thin", sans-serif;
+  font-size: 0.8125em;
+  line-height: 1.384615;
+}

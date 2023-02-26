@@ -1,0 +1,1 @@
+export const dateToLocalFormat = (date) => new Date(date).toLocaleDateString("uk-UA")
