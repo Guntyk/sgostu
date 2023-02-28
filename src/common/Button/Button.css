@@ -85,7 +85,7 @@
 
 .btn[disabled] {
   cursor: default;
-  opacity: .5;
+  opacity: 0.5;
 }
 .btn[disabled]:hover,
 .btn[disabled]:active {
@@ -108,10 +108,21 @@
 }
 
 .database-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 15.6875em;
   height: 3.5em;
   color: #fff;
-  background-color: #E97485;
+  background: #e97485;
+}
+
+.database-btn:hover {
+  background: #c95264;
+}
+
+.btn:active {
+  background: #b84b5b;
 }
 
 .event-info-btn {
