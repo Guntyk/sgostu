@@ -1,6 +1,5 @@
-import Button from "../../../../common/Button/Button";
 import ddb_logo from "../../../../materials/img/ddb_logo.png";
-import phone from "../../../../materials/img/phone.png";
+import phone from "../../../../materials/img/phone.svg";
 import "./Database.css";
 
 export default function Database() {
@@ -12,12 +11,23 @@ export default function Database() {
           <p className="database-description">
             Клуби, Тренери, Судді, Танцюристи
           </p>
-          <Button buttonText="Приєднатися" className="database-btn" />
+          <a
+            className="btn database-btn"
+            href="https://app.database.dance"
+            target="_blank"
+            rel="norefferer noopener"
+          >
+            Приєднатися
+          </a>
         </div>
-        {/* <div className="img-wrapper">
-          <img src={phone} alt="Phone" />
-          <img src={ddb_logo} alt="Dance Database Logo" />
-        </div> */}
+        <div className="img-wrapper">
+          <img src={phone} alt="Phone" className="database-phone" />
+          <img
+            src={ddb_logo}
+            alt="Dance Database Logo"
+            className="database-logo"
+          />
+        </div>
       </div>
     </article>
   );
