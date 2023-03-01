@@ -124,5 +124,29 @@
 }
 
 .event-details-container {
-    overflow: hidden;
+  overflow: hidden;
+}
+
+.event-detail-information {
+  margin-bottom: 70px;
+  padding: 0 15%;
+  height: 500px;
+  line-height: 1.5;
+  overflow-x: hidden;
+}
+
+.event-detail-information::-webkit-scrollbar {
+  width: 0.5em;
+  height: 20px;
+}
+
+.event-detail-information::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
+  border-radius: 10px;
+}
+
+.event-detail-information::-webkit-scrollbar-thumb {
+  background-color: #fff;
+  border: 1px solid var(--primary-black);
+  border-radius: 10px;
 }

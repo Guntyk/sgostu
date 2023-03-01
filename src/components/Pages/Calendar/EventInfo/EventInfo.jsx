@@ -9,9 +9,10 @@ import { useState } from "react";
 import "./EventInfo.css";
 
 export default function EventInfo() {
-  const { events } = useContext(Context);
-  const [event, setEvent] = useState({});
   const [loading, setLoading] = useState(true);
+  const { events } = useContext(Context);
+  const [info, setInfo] = useState("Про змагання");
+  const [event, setEvent] = useState({});
   const { eventId } = useParams();
 
   useEffect(() => {
@@ -30,6 +31,7 @@ export default function EventInfo() {
   function activeLink() {
     list.forEach((item) => item.classList.remove("active"));
     this.classList.add("active");
+    setInfo(this.innerText);
   }
   list.forEach((item) => item.addEventListener("click", activeLink));
 
@@ -87,6 +89,21 @@ export default function EventInfo() {
                 <li className="event-details-list">Адреса</li>
                 <div className="indicator"></div>
               </ul>
+            </div>
+            <div className="event-detail-information">
+              <p>
+                {info === "Про змагання" && event.about}
+                {info === "Відділення" && event.table}
+                {info === "Адреса" && (
+                  <iframe
+                    src={event.address}
+                    width="100%"
+                    height="490px"
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    />
+                )}
+              </p>
             </div>
           </div>
         </article>
