@@ -10,7 +10,8 @@ export const eventsObj = `[
     "foreign": false,
     "organizator": "Анна Владикіна",
     "status": "Відкриті всеукраїнські рейтингові",
-    "spartak": null
+    "spartak": null,
+    "about": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, minus eum, officia esse deserunt error excepturi fugit dolores quidem aliquam iure. Placeat nam velit at magnam, atque ipsa quod doloremque architecto aut id ab adipisci, rerum odit nobis labore, culpa fuga dicta autem. Dignissimos, voluptate esse tempore architecto aliquid dolorum praesentium eveniet accusamus ad similique odit atque maxime porro hic iste dolores. Facilis eligendi labore dolores cumque dolor quidem perspiciatis aperiam corrupti, veritatis voluptate rerum modi repellat saepe commodi ex error obcaecati necessitatibus earum dignissimos, id, quasi eveniet quod? Dolores nisi ipsam doloribus distinctio velit dolorem nam maxime est deserunt."
   },
   {
     "id": 2,
@@ -23,7 +24,8 @@ export const eventsObj = `[
     "foreign": false,
     "organizator": "Юрій та Яна Васютяк",
     "status": "Відкриті всеукраїнські рейтингові",
-    "spartak": null
+    "spartak": null,
+    "about": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, minus eum, officia esse deserunt error excepturi fugit dolores quidem aliquam iure. Placeat nam velit at magnam, atque ipsa quod doloremque architecto aut id ab adipisci, rerum odit nobis labore, culpa fuga dicta autem. Dignissimos, voluptate esse tempore architecto aliquid dolorum praesentium eveniet accusamus ad similique odit atque maxime porro hic iste dolores. Facilis eligendi labore dolores cumque dolor quidem perspiciatis aperiam corrupti, veritatis voluptate rerum modi repellat saepe commodi ex error obcaecati necessitatibus earum dignissimos, id, quasi eveniet quod? Dolores nisi ipsam doloribus distinctio velit dolorem nam maxime est deserunt."
   },
   {
     "id": 3,
@@ -36,7 +38,8 @@ export const eventsObj = `[
     "foreign": false,
     "organizator": "Євген Герасименко",
     "status": "Відкриті міські класифікаційні",
-    "spartak": null
+    "spartak": null,
+    "about": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, minus eum, officia esse deserunt error excepturi fugit dolores quidem aliquam iure. Placeat nam velit at magnam, atque ipsa quod doloremque architecto aut id ab adipisci, rerum odit nobis labore, culpa fuga dicta autem. Dignissimos, voluptate esse tempore architecto aliquid dolorum praesentium eveniet accusamus ad similique odit atque maxime porro hic iste dolores. Facilis eligendi labore dolores cumque dolor quidem perspiciatis aperiam corrupti, veritatis voluptate rerum modi repellat saepe commodi ex error obcaecati necessitatibus earum dignissimos, id, quasi eveniet quod? Dolores nisi ipsam doloribus distinctio velit dolorem nam maxime est deserunt."
   },
   {
     "id": 4,
@@ -49,7 +52,8 @@ export const eventsObj = `[
     "foreign": false,
     "organizator": "Ярослав та Олена Скоренко",
     "status": "Відкриті міські класифікаційні",
-    "spartak": null
+    "spartak": null,
+    "about": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, minus eum, officia esse deserunt error excepturi fugit dolores quidem aliquam iure. Placeat nam velit at magnam, atque ipsa quod doloremque architecto aut id ab adipisci, rerum odit nobis labore, culpa fuga dicta autem. Dignissimos, voluptate esse tempore architecto aliquid dolorum praesentium eveniet accusamus ad similique odit atque maxime porro hic iste dolores. Facilis eligendi labore dolores cumque dolor quidem perspiciatis aperiam corrupti, veritatis voluptate rerum modi repellat saepe commodi ex error obcaecati necessitatibus earum dignissimos, id, quasi eveniet quod? Dolores nisi ipsam doloribus distinctio velit dolorem nam maxime est deserunt."
   },
   {
     "id": 5,
@@ -62,7 +66,8 @@ export const eventsObj = `[
     "foreign": false,
     "organizator": "Андрій Мунтян",
     "status": "Відкриті міські класифікаційні",
-    "spartak": null
+    "spartak": null,
+    "about": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, minus eum, officia esse deserunt error excepturi fugit dolores quidem aliquam iure. Placeat nam velit at magnam, atque ipsa quod doloremque architecto aut id ab adipisci, rerum odit nobis labore, culpa fuga dicta autem. Dignissimos, voluptate esse tempore architecto aliquid dolorum praesentium eveniet accusamus ad similique odit atque maxime porro hic iste dolores. Facilis eligendi labore dolores cumque dolor quidem perspiciatis aperiam corrupti, veritatis voluptate rerum modi repellat saepe commodi ex error obcaecati necessitatibus earum dignissimos, id, quasi eveniet quod? Dolores nisi ipsam doloribus distinctio velit dolorem nam maxime est deserunt."
   },
   {
     "id": 6,
@@ -75,7 +80,8 @@ export const eventsObj = `[
     "foreign": false,
     "organizator": "Олег Гулій, Павло Яцик та Вадим Остапчук",
     "status": "Відкриті міські класифікаційні",
-    "spartak": null
+    "spartak": null,
+    "about": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, minus eum, officia esse deserunt error excepturi fugit dolores quidem aliquam iure. Placeat nam velit at magnam, atque ipsa quod doloremque architecto aut id ab adipisci, rerum odit nobis labore, culpa fuga dicta autem. Dignissimos, voluptate esse tempore architecto aliquid dolorum praesentium eveniet accusamus ad similique odit atque maxime porro hic iste dolores. Facilis eligendi labore dolores cumque dolor quidem perspiciatis aperiam corrupti, veritatis voluptate rerum modi repellat saepe commodi ex error obcaecati necessitatibus earum dignissimos, id, quasi eveniet quod? Dolores nisi ipsam doloribus distinctio velit dolorem nam maxime est deserunt."
   },
   {
     "id": 7,
@@ -88,7 +94,8 @@ export const eventsObj = `[
     "foreign": false,
     "organizator": "Ігор та Ольга Полигач",
     "status": "Відкриті міські класифікаційні",
-    "spartak": null
+    "spartak": null,
+    "about": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, minus eum, officia esse deserunt error excepturi fugit dolores quidem aliquam iure. Placeat nam velit at magnam, atque ipsa quod doloremque architecto aut id ab adipisci, rerum odit nobis labore, culpa fuga dicta autem. Dignissimos, voluptate esse tempore architecto aliquid dolorum praesentium eveniet accusamus ad similique odit atque maxime porro hic iste dolores. Facilis eligendi labore dolores cumque dolor quidem perspiciatis aperiam corrupti, veritatis voluptate rerum modi repellat saepe commodi ex error obcaecati necessitatibus earum dignissimos, id, quasi eveniet quod? Dolores nisi ipsam doloribus distinctio velit dolorem nam maxime est deserunt."
   },
   {
     "id": 8,
@@ -99,9 +106,11 @@ export const eventsObj = `[
     "end": "2023-04-02",
     "organization": "СГОСТУ",
     "foreign": false,
-    "organizator": "Світлана Макода",
+    "organizator": "Світлана Макода, Олена Пахомова",
     "status": "Відкриті міські класифікаційні",
-    "spartak": true
+    "spartak": true,
+    "about": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, minus eum, officia esse deserunt error excepturi fugit dolores quidem aliquam iure. Placeat nam velit at magnam, atque ipsa quod doloremque architecto aut id ab adipisci, rerum odit nobis labore, culpa fuga dicta autem. Dignissimos, voluptate esse tempore architecto aliquid dolorum praesentium eveniet accusamus ad similique odit atque maxime porro hic iste dolores. Facilis eligendi labore dolores cumque dolor quidem perspiciatis aperiam corrupti, veritatis voluptate rerum modi repellat saepe commodi ex error obcaecati necessitatibus earum dignissimos, id, quasi eveniet quod? Dolores nisi ipsam doloribus distinctio velit dolorem nam maxime est deserunt.",
+    "address": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5076.819307494724!2d30.494291764116188!3d50.489333048678844!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d4cdf953e66b81%3A0xa97983168ec0777e!2z0L_RgC3Rgi4g0KHRgtC10L_QsNC90LAg0JHQsNC90LTQtdGA0YssIDIzLCDQmtC40LXQsiwgMDQ2NTU!5e0!3m2!1sru!2sua!4v1677584501191!5m2!1sru!2sua"
   },
   {
     "id": 9,
@@ -114,7 +123,8 @@ export const eventsObj = `[
     "foreign": false,
     "organizator": "Роман Гриценюк та Максим Малютчик",
     "status": "Відкриті міські класифікаційні",
-    "spartak": null
+    "spartak": null,
+    "about": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, minus eum, officia esse deserunt error excepturi fugit dolores quidem aliquam iure. Placeat nam velit at magnam, atque ipsa quod doloremque architecto aut id ab adipisci, rerum odit nobis labore, culpa fuga dicta autem. Dignissimos, voluptate esse tempore architecto aliquid dolorum praesentium eveniet accusamus ad similique odit atque maxime porro hic iste dolores. Facilis eligendi labore dolores cumque dolor quidem perspiciatis aperiam corrupti, veritatis voluptate rerum modi repellat saepe commodi ex error obcaecati necessitatibus earum dignissimos, id, quasi eveniet quod? Dolores nisi ipsam doloribus distinctio velit dolorem nam maxime est deserunt."
   },
   {
     "id": 10,
@@ -127,7 +137,8 @@ export const eventsObj = `[
     "foreign": false,
     "organizator": "Максим Леонов та Дмитро Влох",
     "status": "Відкриті всеукраїнські рейтингові",
-    "spartak": null
+    "spartak": null,
+    "about": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, minus eum, officia esse deserunt error excepturi fugit dolores quidem aliquam iure. Placeat nam velit at magnam, atque ipsa quod doloremque architecto aut id ab adipisci, rerum odit nobis labore, culpa fuga dicta autem. Dignissimos, voluptate esse tempore architecto aliquid dolorum praesentium eveniet accusamus ad similique odit atque maxime porro hic iste dolores. Facilis eligendi labore dolores cumque dolor quidem perspiciatis aperiam corrupti, veritatis voluptate rerum modi repellat saepe commodi ex error obcaecati necessitatibus earum dignissimos, id, quasi eveniet quod? Dolores nisi ipsam doloribus distinctio velit dolorem nam maxime est deserunt."
   },
   {
     "id": 11,
@@ -140,7 +151,8 @@ export const eventsObj = `[
     "foreign": false,
     "organizator": "Максим Пелих та Андрій Городецький",
     "status": "Відкриті міські класифікаційні",
-    "spartak": true
+    "spartak": true,
+    "about": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, minus eum, officia esse deserunt error excepturi fugit dolores quidem aliquam iure. Placeat nam velit at magnam, atque ipsa quod doloremque architecto aut id ab adipisci, rerum odit nobis labore, culpa fuga dicta autem. Dignissimos, voluptate esse tempore architecto aliquid dolorum praesentium eveniet accusamus ad similique odit atque maxime porro hic iste dolores. Facilis eligendi labore dolores cumque dolor quidem perspiciatis aperiam corrupti, veritatis voluptate rerum modi repellat saepe commodi ex error obcaecati necessitatibus earum dignissimos, id, quasi eveniet quod? Dolores nisi ipsam doloribus distinctio velit dolorem nam maxime est deserunt."
   },
   {
     "id": 12,
@@ -153,7 +165,8 @@ export const eventsObj = `[
     "foreign": false,
     "organizator": "Віталій Савчук",
     "status": "Відкриті міські класифікаційні",
-    "spartak": null
+    "spartak": null,
+    "about": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, minus eum, officia esse deserunt error excepturi fugit dolores quidem aliquam iure. Placeat nam velit at magnam, atque ipsa quod doloremque architecto aut id ab adipisci, rerum odit nobis labore, culpa fuga dicta autem. Dignissimos, voluptate esse tempore architecto aliquid dolorum praesentium eveniet accusamus ad similique odit atque maxime porro hic iste dolores. Facilis eligendi labore dolores cumque dolor quidem perspiciatis aperiam corrupti, veritatis voluptate rerum modi repellat saepe commodi ex error obcaecati necessitatibus earum dignissimos, id, quasi eveniet quod? Dolores nisi ipsam doloribus distinctio velit dolorem nam maxime est deserunt."
   },
   {
     "id": 13,
@@ -166,7 +179,8 @@ export const eventsObj = `[
     "foreign": false,
     "organizator": "Сергій Дехтярьов",
     "status": "Відкриті міські класифікаційні",
-    "spartak": null
+    "spartak": null,
+    "about": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, minus eum, officia esse deserunt error excepturi fugit dolores quidem aliquam iure. Placeat nam velit at magnam, atque ipsa quod doloremque architecto aut id ab adipisci, rerum odit nobis labore, culpa fuga dicta autem. Dignissimos, voluptate esse tempore architecto aliquid dolorum praesentium eveniet accusamus ad similique odit atque maxime porro hic iste dolores. Facilis eligendi labore dolores cumque dolor quidem perspiciatis aperiam corrupti, veritatis voluptate rerum modi repellat saepe commodi ex error obcaecati necessitatibus earum dignissimos, id, quasi eveniet quod? Dolores nisi ipsam doloribus distinctio velit dolorem nam maxime est deserunt."
   },
   {
     "id": 14,
@@ -179,7 +193,8 @@ export const eventsObj = `[
     "foreign": false,
     "organizator": "Валентина Федорчук та Альона Лемішко",
     "status": "Відкриті всеукраїнські рейтингові",
-    "spartak": null
+    "spartak": null,
+    "about": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, minus eum, officia esse deserunt error excepturi fugit dolores quidem aliquam iure. Placeat nam velit at magnam, atque ipsa quod doloremque architecto aut id ab adipisci, rerum odit nobis labore, culpa fuga dicta autem. Dignissimos, voluptate esse tempore architecto aliquid dolorum praesentium eveniet accusamus ad similique odit atque maxime porro hic iste dolores. Facilis eligendi labore dolores cumque dolor quidem perspiciatis aperiam corrupti, veritatis voluptate rerum modi repellat saepe commodi ex error obcaecati necessitatibus earum dignissimos, id, quasi eveniet quod? Dolores nisi ipsam doloribus distinctio velit dolorem nam maxime est deserunt."
   },
   {
     "id": 15,
@@ -192,20 +207,8 @@ export const eventsObj = `[
     "foreign": false,
     "organizator": "Олексій та Тетяна Балла",
     "status": "Відкриті міські класифікаційні",
-    "spartak": null
-  },
-  {
-    "id": 16,
-    "title": "«Кубок Абсолюта»",
-    "rating": false,
-    "town": "Київ",
-    "start": "2023-04-02",
-    "end": "2023-04-04",
-    "organization": "СГОСТУ",
-    "foreign": false,
-    "organizator": "Олена Пахомова",
-    "status": "Відкриті міські класифікаційні",
-    "spartak": true
+    "spartak": null,
+    "about": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, minus eum, officia esse deserunt error excepturi fugit dolores quidem aliquam iure. Placeat nam velit at magnam, atque ipsa quod doloremque architecto aut id ab adipisci, rerum odit nobis labore, culpa fuga dicta autem. Dignissimos, voluptate esse tempore architecto aliquid dolorum praesentium eveniet accusamus ad similique odit atque maxime porro hic iste dolores. Facilis eligendi labore dolores cumque dolor quidem perspiciatis aperiam corrupti, veritatis voluptate rerum modi repellat saepe commodi ex error obcaecati necessitatibus earum dignissimos, id, quasi eveniet quod? Dolores nisi ipsam doloribus distinctio velit dolorem nam maxime est deserunt."
   },
   {
     "id": 17,
@@ -218,7 +221,8 @@ export const eventsObj = `[
     "foreign": false,
     "organizator": "Роман Гриценюк",
     "status": "Відкриті міські класифікаційні",
-    "spartak": null
+    "spartak": null,
+    "about": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, minus eum, officia esse deserunt error excepturi fugit dolores quidem aliquam iure. Placeat nam velit at magnam, atque ipsa quod doloremque architecto aut id ab adipisci, rerum odit nobis labore, culpa fuga dicta autem. Dignissimos, voluptate esse tempore architecto aliquid dolorum praesentium eveniet accusamus ad similique odit atque maxime porro hic iste dolores. Facilis eligendi labore dolores cumque dolor quidem perspiciatis aperiam corrupti, veritatis voluptate rerum modi repellat saepe commodi ex error obcaecati necessitatibus earum dignissimos, id, quasi eveniet quod? Dolores nisi ipsam doloribus distinctio velit dolorem nam maxime est deserunt."
   },
   {
     "id": 18,
@@ -231,7 +235,8 @@ export const eventsObj = `[
     "foreign": false,
     "organizator": "Ігор Огійчук",
     "status": "Відкриті міські класифікаційні",
-    "spartak": null
+    "spartak": null,
+    "about": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, minus eum, officia esse deserunt error excepturi fugit dolores quidem aliquam iure. Placeat nam velit at magnam, atque ipsa quod doloremque architecto aut id ab adipisci, rerum odit nobis labore, culpa fuga dicta autem. Dignissimos, voluptate esse tempore architecto aliquid dolorum praesentium eveniet accusamus ad similique odit atque maxime porro hic iste dolores. Facilis eligendi labore dolores cumque dolor quidem perspiciatis aperiam corrupti, veritatis voluptate rerum modi repellat saepe commodi ex error obcaecati necessitatibus earum dignissimos, id, quasi eveniet quod? Dolores nisi ipsam doloribus distinctio velit dolorem nam maxime est deserunt."
   },
   {
     "id": 19,
@@ -244,7 +249,8 @@ export const eventsObj = `[
     "foreign": false,
     "organizator": "Володимир Мачулка та Дмитро Белуха",
     "status": "Відкриті міські класифікаційні",
-    "spartak": true
+    "spartak": true,
+    "about": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, minus eum, officia esse deserunt error excepturi fugit dolores quidem aliquam iure. Placeat nam velit at magnam, atque ipsa quod doloremque architecto aut id ab adipisci, rerum odit nobis labore, culpa fuga dicta autem. Dignissimos, voluptate esse tempore architecto aliquid dolorum praesentium eveniet accusamus ad similique odit atque maxime porro hic iste dolores. Facilis eligendi labore dolores cumque dolor quidem perspiciatis aperiam corrupti, veritatis voluptate rerum modi repellat saepe commodi ex error obcaecati necessitatibus earum dignissimos, id, quasi eveniet quod? Dolores nisi ipsam doloribus distinctio velit dolorem nam maxime est deserunt."
   },
   {
     "id": 20,
@@ -257,7 +263,8 @@ export const eventsObj = `[
     "foreign": false,
     "organizator": "Олександр та Катерина Мулляр",
     "status": "Відкриті всеукраїнські рейтингові",
-    "spartak": null
+    "spartak": null,
+    "about": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, minus eum, officia esse deserunt error excepturi fugit dolores quidem aliquam iure. Placeat nam velit at magnam, atque ipsa quod doloremque architecto aut id ab adipisci, rerum odit nobis labore, culpa fuga dicta autem. Dignissimos, voluptate esse tempore architecto aliquid dolorum praesentium eveniet accusamus ad similique odit atque maxime porro hic iste dolores. Facilis eligendi labore dolores cumque dolor quidem perspiciatis aperiam corrupti, veritatis voluptate rerum modi repellat saepe commodi ex error obcaecati necessitatibus earum dignissimos, id, quasi eveniet quod? Dolores nisi ipsam doloribus distinctio velit dolorem nam maxime est deserunt."
   },
   {
     "id": 21,
@@ -270,7 +277,8 @@ export const eventsObj = `[
     "foreign": false,
     "organizator": "Ігор Соронович та Оксана Бойко",
     "status": "Відкриті всеукраїнські рейтингові",
-    "spartak": null
+    "spartak": null,
+    "about": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, minus eum, officia esse deserunt error excepturi fugit dolores quidem aliquam iure. Placeat nam velit at magnam, atque ipsa quod doloremque architecto aut id ab adipisci, rerum odit nobis labore, culpa fuga dicta autem. Dignissimos, voluptate esse tempore architecto aliquid dolorum praesentium eveniet accusamus ad similique odit atque maxime porro hic iste dolores. Facilis eligendi labore dolores cumque dolor quidem perspiciatis aperiam corrupti, veritatis voluptate rerum modi repellat saepe commodi ex error obcaecati necessitatibus earum dignissimos, id, quasi eveniet quod? Dolores nisi ipsam doloribus distinctio velit dolorem nam maxime est deserunt."
   },
   {
     "id": 22,
@@ -283,7 +291,8 @@ export const eventsObj = `[
     "foreign": false,
     "organizator": "УАВТ",
     "status": "Відкриті міські класифікаційні",
-    "spartak": null
+    "spartak": null,
+    "about": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, minus eum, officia esse deserunt error excepturi fugit dolores quidem aliquam iure. Placeat nam velit at magnam, atque ipsa quod doloremque architecto aut id ab adipisci, rerum odit nobis labore, culpa fuga dicta autem. Dignissimos, voluptate esse tempore architecto aliquid dolorum praesentium eveniet accusamus ad similique odit atque maxime porro hic iste dolores. Facilis eligendi labore dolores cumque dolor quidem perspiciatis aperiam corrupti, veritatis voluptate rerum modi repellat saepe commodi ex error obcaecati necessitatibus earum dignissimos, id, quasi eveniet quod? Dolores nisi ipsam doloribus distinctio velit dolorem nam maxime est deserunt."
   },
   {
     "id": 23,
@@ -296,7 +305,8 @@ export const eventsObj = `[
     "foreign": false,
     "organizator": "Сергій Тюткало",
     "status": "Відкриті міські класифікаційні",
-    "spartak": null
+    "spartak": null,
+    "about": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, minus eum, officia esse deserunt error excepturi fugit dolores quidem aliquam iure. Placeat nam velit at magnam, atque ipsa quod doloremque architecto aut id ab adipisci, rerum odit nobis labore, culpa fuga dicta autem. Dignissimos, voluptate esse tempore architecto aliquid dolorum praesentium eveniet accusamus ad similique odit atque maxime porro hic iste dolores. Facilis eligendi labore dolores cumque dolor quidem perspiciatis aperiam corrupti, veritatis voluptate rerum modi repellat saepe commodi ex error obcaecati necessitatibus earum dignissimos, id, quasi eveniet quod? Dolores nisi ipsam doloribus distinctio velit dolorem nam maxime est deserunt."
   },
   {
     "id": 24,
@@ -309,7 +319,8 @@ export const eventsObj = `[
     "foreign": false,
     "organizator": "Олексій Грабовський та Марина Андрусенко",
     "status": "Відкриті всеукраїнські рейтингові",
-    "spartak": null
+    "spartak": null,
+    "about": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, minus eum, officia esse deserunt error excepturi fugit dolores quidem aliquam iure. Placeat nam velit at magnam, atque ipsa quod doloremque architecto aut id ab adipisci, rerum odit nobis labore, culpa fuga dicta autem. Dignissimos, voluptate esse tempore architecto aliquid dolorum praesentium eveniet accusamus ad similique odit atque maxime porro hic iste dolores. Facilis eligendi labore dolores cumque dolor quidem perspiciatis aperiam corrupti, veritatis voluptate rerum modi repellat saepe commodi ex error obcaecati necessitatibus earum dignissimos, id, quasi eveniet quod? Dolores nisi ipsam doloribus distinctio velit dolorem nam maxime est deserunt."
   },
   {
     "id": 25,
@@ -322,7 +333,8 @@ export const eventsObj = `[
     "foreign": false,
     "organizator": "Алла Гордієнко",
     "status": "Відкриті міські класифікаційні",
-    "spartak": null
+    "spartak": null,
+    "about": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, minus eum, officia esse deserunt error excepturi fugit dolores quidem aliquam iure. Placeat nam velit at magnam, atque ipsa quod doloremque architecto aut id ab adipisci, rerum odit nobis labore, culpa fuga dicta autem. Dignissimos, voluptate esse tempore architecto aliquid dolorum praesentium eveniet accusamus ad similique odit atque maxime porro hic iste dolores. Facilis eligendi labore dolores cumque dolor quidem perspiciatis aperiam corrupti, veritatis voluptate rerum modi repellat saepe commodi ex error obcaecati necessitatibus earum dignissimos, id, quasi eveniet quod? Dolores nisi ipsam doloribus distinctio velit dolorem nam maxime est deserunt."
   },
   {
     "id": 26,
@@ -335,7 +347,8 @@ export const eventsObj = `[
     "foreign": false,
     "organizator": "Леонід Майстер",
     "status": "Відкриті міські класифікаційні",
-    "spartak": null
+    "spartak": null,
+    "about": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, minus eum, officia esse deserunt error excepturi fugit dolores quidem aliquam iure. Placeat nam velit at magnam, atque ipsa quod doloremque architecto aut id ab adipisci, rerum odit nobis labore, culpa fuga dicta autem. Dignissimos, voluptate esse tempore architecto aliquid dolorum praesentium eveniet accusamus ad similique odit atque maxime porro hic iste dolores. Facilis eligendi labore dolores cumque dolor quidem perspiciatis aperiam corrupti, veritatis voluptate rerum modi repellat saepe commodi ex error obcaecati necessitatibus earum dignissimos, id, quasi eveniet quod? Dolores nisi ipsam doloribus distinctio velit dolorem nam maxime est deserunt."
   },
   {
     "id": 27,
@@ -348,7 +361,8 @@ export const eventsObj = `[
     "foreign": false,
     "organizator": "Ігор Соронович та Оксана Бойко",
     "status": "Відкриті міські класифікаційні",
-    "spartak": null
+    "spartak": null,
+    "about": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, minus eum, officia esse deserunt error excepturi fugit dolores quidem aliquam iure. Placeat nam velit at magnam, atque ipsa quod doloremque architecto aut id ab adipisci, rerum odit nobis labore, culpa fuga dicta autem. Dignissimos, voluptate esse tempore architecto aliquid dolorum praesentium eveniet accusamus ad similique odit atque maxime porro hic iste dolores. Facilis eligendi labore dolores cumque dolor quidem perspiciatis aperiam corrupti, veritatis voluptate rerum modi repellat saepe commodi ex error obcaecati necessitatibus earum dignissimos, id, quasi eveniet quod? Dolores nisi ipsam doloribus distinctio velit dolorem nam maxime est deserunt."
   },
   {
     "id": 28,
@@ -361,7 +375,8 @@ export const eventsObj = `[
     "foreign": false,
     "organizator": "Віталія Алєксєєва",
     "status": "Відкриті міські класифікаційні",
-    "spartak": null
+    "spartak": null,
+    "about": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, minus eum, officia esse deserunt error excepturi fugit dolores quidem aliquam iure. Placeat nam velit at magnam, atque ipsa quod doloremque architecto aut id ab adipisci, rerum odit nobis labore, culpa fuga dicta autem. Dignissimos, voluptate esse tempore architecto aliquid dolorum praesentium eveniet accusamus ad similique odit atque maxime porro hic iste dolores. Facilis eligendi labore dolores cumque dolor quidem perspiciatis aperiam corrupti, veritatis voluptate rerum modi repellat saepe commodi ex error obcaecati necessitatibus earum dignissimos, id, quasi eveniet quod? Dolores nisi ipsam doloribus distinctio velit dolorem nam maxime est deserunt."
   },
   {
     "id": 29,
@@ -374,7 +389,8 @@ export const eventsObj = `[
     "foreign": false,
     "organizator": "Володимир Караченцев",
     "status": "Відкриті міські класифікаційні",
-    "spartak": true
+    "spartak": true,
+    "about": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, minus eum, officia esse deserunt error excepturi fugit dolores quidem aliquam iure. Placeat nam velit at magnam, atque ipsa quod doloremque architecto aut id ab adipisci, rerum odit nobis labore, culpa fuga dicta autem. Dignissimos, voluptate esse tempore architecto aliquid dolorum praesentium eveniet accusamus ad similique odit atque maxime porro hic iste dolores. Facilis eligendi labore dolores cumque dolor quidem perspiciatis aperiam corrupti, veritatis voluptate rerum modi repellat saepe commodi ex error obcaecati necessitatibus earum dignissimos, id, quasi eveniet quod? Dolores nisi ipsam doloribus distinctio velit dolorem nam maxime est deserunt."
   },
   {
     "id": 30,
@@ -387,7 +403,8 @@ export const eventsObj = `[
     "foreign": false,
     "organizator": "Євген Герасименко",
     "status": "Відкриті міські класифікаційні",
-    "spartak": null
+    "spartak": null,
+    "about": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, minus eum, officia esse deserunt error excepturi fugit dolores quidem aliquam iure. Placeat nam velit at magnam, atque ipsa quod doloremque architecto aut id ab adipisci, rerum odit nobis labore, culpa fuga dicta autem. Dignissimos, voluptate esse tempore architecto aliquid dolorum praesentium eveniet accusamus ad similique odit atque maxime porro hic iste dolores. Facilis eligendi labore dolores cumque dolor quidem perspiciatis aperiam corrupti, veritatis voluptate rerum modi repellat saepe commodi ex error obcaecati necessitatibus earum dignissimos, id, quasi eveniet quod? Dolores nisi ipsam doloribus distinctio velit dolorem nam maxime est deserunt."
   },
   {
     "id": 31,
@@ -400,7 +417,8 @@ export const eventsObj = `[
     "foreign": false,
     "organizator": "Андрій Євтєєв та Олександр Берьозін",
     "status": "Відкриті всеукраїнські рейтингові",
-    "spartak": true
+    "spartak": true,
+    "about": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, minus eum, officia esse deserunt error excepturi fugit dolores quidem aliquam iure. Placeat nam velit at magnam, atque ipsa quod doloremque architecto aut id ab adipisci, rerum odit nobis labore, culpa fuga dicta autem. Dignissimos, voluptate esse tempore architecto aliquid dolorum praesentium eveniet accusamus ad similique odit atque maxime porro hic iste dolores. Facilis eligendi labore dolores cumque dolor quidem perspiciatis aperiam corrupti, veritatis voluptate rerum modi repellat saepe commodi ex error obcaecati necessitatibus earum dignissimos, id, quasi eveniet quod? Dolores nisi ipsam doloribus distinctio velit dolorem nam maxime est deserunt."
   },
   {
     "id": 32,
@@ -413,7 +431,8 @@ export const eventsObj = `[
     "foreign": false,
     "organizator": "Євген Герасименко",
     "status": "Відкриті міські класифікаційні",
-    "spartak": null
+    "spartak": null,
+    "about": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, minus eum, officia esse deserunt error excepturi fugit dolores quidem aliquam iure. Placeat nam velit at magnam, atque ipsa quod doloremque architecto aut id ab adipisci, rerum odit nobis labore, culpa fuga dicta autem. Dignissimos, voluptate esse tempore architecto aliquid dolorum praesentium eveniet accusamus ad similique odit atque maxime porro hic iste dolores. Facilis eligendi labore dolores cumque dolor quidem perspiciatis aperiam corrupti, veritatis voluptate rerum modi repellat saepe commodi ex error obcaecati necessitatibus earum dignissimos, id, quasi eveniet quod? Dolores nisi ipsam doloribus distinctio velit dolorem nam maxime est deserunt."
   },
   {
     "id": 33,
@@ -426,7 +445,8 @@ export const eventsObj = `[
     "foreign": false,
     "organizator": "Ярослав Скоренко та Сергій Тюткало",
     "status": "Відкриті міські класифікаційні",
-    "spartak": null
+    "spartak": null,
+    "about": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, minus eum, officia esse deserunt error excepturi fugit dolores quidem aliquam iure. Placeat nam velit at magnam, atque ipsa quod doloremque architecto aut id ab adipisci, rerum odit nobis labore, culpa fuga dicta autem. Dignissimos, voluptate esse tempore architecto aliquid dolorum praesentium eveniet accusamus ad similique odit atque maxime porro hic iste dolores. Facilis eligendi labore dolores cumque dolor quidem perspiciatis aperiam corrupti, veritatis voluptate rerum modi repellat saepe commodi ex error obcaecati necessitatibus earum dignissimos, id, quasi eveniet quod? Dolores nisi ipsam doloribus distinctio velit dolorem nam maxime est deserunt."
   },
   {
     "id": 34,
@@ -439,7 +459,8 @@ export const eventsObj = `[
     "foreign": false,
     "organizator": "Анна Владикіна",
     "status": "Відкриті міські класифікаційні",
-    "spartak": null
+    "spartak": null,
+    "about": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, minus eum, officia esse deserunt error excepturi fugit dolores quidem aliquam iure. Placeat nam velit at magnam, atque ipsa quod doloremque architecto aut id ab adipisci, rerum odit nobis labore, culpa fuga dicta autem. Dignissimos, voluptate esse tempore architecto aliquid dolorum praesentium eveniet accusamus ad similique odit atque maxime porro hic iste dolores. Facilis eligendi labore dolores cumque dolor quidem perspiciatis aperiam corrupti, veritatis voluptate rerum modi repellat saepe commodi ex error obcaecati necessitatibus earum dignissimos, id, quasi eveniet quod? Dolores nisi ipsam doloribus distinctio velit dolorem nam maxime est deserunt."
   },
   {
     "id": 35,
@@ -452,7 +473,8 @@ export const eventsObj = `[
     "foreign": false,
     "organizator": "Демʼян Кулик",
     "status": "Відкриті міські класифікаційні",
-    "spartak": true
+    "spartak": true,
+    "about": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, minus eum, officia esse deserunt error excepturi fugit dolores quidem aliquam iure. Placeat nam velit at magnam, atque ipsa quod doloremque architecto aut id ab adipisci, rerum odit nobis labore, culpa fuga dicta autem. Dignissimos, voluptate esse tempore architecto aliquid dolorum praesentium eveniet accusamus ad similique odit atque maxime porro hic iste dolores. Facilis eligendi labore dolores cumque dolor quidem perspiciatis aperiam corrupti, veritatis voluptate rerum modi repellat saepe commodi ex error obcaecati necessitatibus earum dignissimos, id, quasi eveniet quod? Dolores nisi ipsam doloribus distinctio velit dolorem nam maxime est deserunt."
   },
   {
     "id": 36,
@@ -465,7 +487,8 @@ export const eventsObj = `[
     "foreign": false,
     "organizator": "Віталій Руденко та Ірина Левіт",
     "status": "Відкриті всеукраїнські рейтингові",
-    "spartak": null
+    "spartak": null,
+    "about": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, minus eum, officia esse deserunt error excepturi fugit dolores quidem aliquam iure. Placeat nam velit at magnam, atque ipsa quod doloremque architecto aut id ab adipisci, rerum odit nobis labore, culpa fuga dicta autem. Dignissimos, voluptate esse tempore architecto aliquid dolorum praesentium eveniet accusamus ad similique odit atque maxime porro hic iste dolores. Facilis eligendi labore dolores cumque dolor quidem perspiciatis aperiam corrupti, veritatis voluptate rerum modi repellat saepe commodi ex error obcaecati necessitatibus earum dignissimos, id, quasi eveniet quod? Dolores nisi ipsam doloribus distinctio velit dolorem nam maxime est deserunt."
   },
   {
     "id": 37,
@@ -478,7 +501,8 @@ export const eventsObj = `[
     "foreign": false,
     "organizator": "Леонід Майстер",
     "status": "Відкриті міські класифікаційні",
-    "spartak": null
+    "spartak": null,
+    "about": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, minus eum, officia esse deserunt error excepturi fugit dolores quidem aliquam iure. Placeat nam velit at magnam, atque ipsa quod doloremque architecto aut id ab adipisci, rerum odit nobis labore, culpa fuga dicta autem. Dignissimos, voluptate esse tempore architecto aliquid dolorum praesentium eveniet accusamus ad similique odit atque maxime porro hic iste dolores. Facilis eligendi labore dolores cumque dolor quidem perspiciatis aperiam corrupti, veritatis voluptate rerum modi repellat saepe commodi ex error obcaecati necessitatibus earum dignissimos, id, quasi eveniet quod? Dolores nisi ipsam doloribus distinctio velit dolorem nam maxime est deserunt."
   },
   {
     "id": 38,
@@ -491,7 +515,8 @@ export const eventsObj = `[
     "foreign": false,
     "organizator": "Юрій та Яна Васютяк",
     "status": "Відкриті міські класифікаційні",
-    "spartak": null
+    "spartak": null,
+    "about": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, minus eum, officia esse deserunt error excepturi fugit dolores quidem aliquam iure. Placeat nam velit at magnam, atque ipsa quod doloremque architecto aut id ab adipisci, rerum odit nobis labore, culpa fuga dicta autem. Dignissimos, voluptate esse tempore architecto aliquid dolorum praesentium eveniet accusamus ad similique odit atque maxime porro hic iste dolores. Facilis eligendi labore dolores cumque dolor quidem perspiciatis aperiam corrupti, veritatis voluptate rerum modi repellat saepe commodi ex error obcaecati necessitatibus earum dignissimos, id, quasi eveniet quod? Dolores nisi ipsam doloribus distinctio velit dolorem nam maxime est deserunt."
   },
   {
     "id": 39,
@@ -504,7 +529,8 @@ export const eventsObj = `[
     "foreign": false,
     "organizator": "Ігор та Ольга Полигач",
     "status": "Відкриті міські класифікаційні",
-    "spartak": null
+    "spartak": null,
+    "about": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, minus eum, officia esse deserunt error excepturi fugit dolores quidem aliquam iure. Placeat nam velit at magnam, atque ipsa quod doloremque architecto aut id ab adipisci, rerum odit nobis labore, culpa fuga dicta autem. Dignissimos, voluptate esse tempore architecto aliquid dolorum praesentium eveniet accusamus ad similique odit atque maxime porro hic iste dolores. Facilis eligendi labore dolores cumque dolor quidem perspiciatis aperiam corrupti, veritatis voluptate rerum modi repellat saepe commodi ex error obcaecati necessitatibus earum dignissimos, id, quasi eveniet quod? Dolores nisi ipsam doloribus distinctio velit dolorem nam maxime est deserunt."
   },
   {
     "id": 40,
@@ -517,7 +543,8 @@ export const eventsObj = `[
     "foreign": false,
     "organizator": "Алла Савчук",
     "status": "Відкриті міські класифікаційні",
-    "spartak": null
+    "spartak": null,
+    "about": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, minus eum, officia esse deserunt error excepturi fugit dolores quidem aliquam iure. Placeat nam velit at magnam, atque ipsa quod doloremque architecto aut id ab adipisci, rerum odit nobis labore, culpa fuga dicta autem. Dignissimos, voluptate esse tempore architecto aliquid dolorum praesentium eveniet accusamus ad similique odit atque maxime porro hic iste dolores. Facilis eligendi labore dolores cumque dolor quidem perspiciatis aperiam corrupti, veritatis voluptate rerum modi repellat saepe commodi ex error obcaecati necessitatibus earum dignissimos, id, quasi eveniet quod? Dolores nisi ipsam doloribus distinctio velit dolorem nam maxime est deserunt."
   },
   {
     "id": 41,
@@ -530,7 +557,8 @@ export const eventsObj = `[
     "foreign": false,
     "organizator": "Ольга Мальована та Кирило Мальований",
     "status": "Відкриті всеукраїнські рейтингові",
-    "spartak": null
+    "spartak": null,
+    "about": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, minus eum, officia esse deserunt error excepturi fugit dolores quidem aliquam iure. Placeat nam velit at magnam, atque ipsa quod doloremque architecto aut id ab adipisci, rerum odit nobis labore, culpa fuga dicta autem. Dignissimos, voluptate esse tempore architecto aliquid dolorum praesentium eveniet accusamus ad similique odit atque maxime porro hic iste dolores. Facilis eligendi labore dolores cumque dolor quidem perspiciatis aperiam corrupti, veritatis voluptate rerum modi repellat saepe commodi ex error obcaecati necessitatibus earum dignissimos, id, quasi eveniet quod? Dolores nisi ipsam doloribus distinctio velit dolorem nam maxime est deserunt."
   },
   {
     "id": 42,
@@ -543,7 +571,8 @@ export const eventsObj = `[
     "foreign": false,
     "organizator": "Володимир Мачулка та Дмитро Белуха",
     "status": "Відкриті міські класифікаційні",
-    "spartak": true
+    "spartak": true,
+    "about": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, minus eum, officia esse deserunt error excepturi fugit dolores quidem aliquam iure. Placeat nam velit at magnam, atque ipsa quod doloremque architecto aut id ab adipisci, rerum odit nobis labore, culpa fuga dicta autem. Dignissimos, voluptate esse tempore architecto aliquid dolorum praesentium eveniet accusamus ad similique odit atque maxime porro hic iste dolores. Facilis eligendi labore dolores cumque dolor quidem perspiciatis aperiam corrupti, veritatis voluptate rerum modi repellat saepe commodi ex error obcaecati necessitatibus earum dignissimos, id, quasi eveniet quod? Dolores nisi ipsam doloribus distinctio velit dolorem nam maxime est deserunt."
   },
   {
     "id": 43,
@@ -556,7 +585,8 @@ export const eventsObj = `[
     "foreign": false,
     "organizator": "Ігор Соронович та Оксана Бойко",
     "status": "Відкриті всеукраїнські рейтингові",
-    "spartak": null
+    "spartak": null,
+    "about": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, minus eum, officia esse deserunt error excepturi fugit dolores quidem aliquam iure. Placeat nam velit at magnam, atque ipsa quod doloremque architecto aut id ab adipisci, rerum odit nobis labore, culpa fuga dicta autem. Dignissimos, voluptate esse tempore architecto aliquid dolorum praesentium eveniet accusamus ad similique odit atque maxime porro hic iste dolores. Facilis eligendi labore dolores cumque dolor quidem perspiciatis aperiam corrupti, veritatis voluptate rerum modi repellat saepe commodi ex error obcaecati necessitatibus earum dignissimos, id, quasi eveniet quod? Dolores nisi ipsam doloribus distinctio velit dolorem nam maxime est deserunt."
   },
   {
     "id": 44,
@@ -569,7 +599,8 @@ export const eventsObj = `[
     "foreign": false,
     "organizator": "Віталій Савчук",
     "status": "Відкриті міські класифікаційні",
-    "spartak": null
+    "spartak": null,
+    "about": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, minus eum, officia esse deserunt error excepturi fugit dolores quidem aliquam iure. Placeat nam velit at magnam, atque ipsa quod doloremque architecto aut id ab adipisci, rerum odit nobis labore, culpa fuga dicta autem. Dignissimos, voluptate esse tempore architecto aliquid dolorum praesentium eveniet accusamus ad similique odit atque maxime porro hic iste dolores. Facilis eligendi labore dolores cumque dolor quidem perspiciatis aperiam corrupti, veritatis voluptate rerum modi repellat saepe commodi ex error obcaecati necessitatibus earum dignissimos, id, quasi eveniet quod? Dolores nisi ipsam doloribus distinctio velit dolorem nam maxime est deserunt."
   },
   {
     "id": 45,
@@ -582,7 +613,8 @@ export const eventsObj = `[
     "foreign": false,
     "organizator": "Сергій Застровськ ий",
     "status": "Відкриті міські класифікаційні",
-    "spartak": null
+    "spartak": null,
+    "about": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, minus eum, officia esse deserunt error excepturi fugit dolores quidem aliquam iure. Placeat nam velit at magnam, atque ipsa quod doloremque architecto aut id ab adipisci, rerum odit nobis labore, culpa fuga dicta autem. Dignissimos, voluptate esse tempore architecto aliquid dolorum praesentium eveniet accusamus ad similique odit atque maxime porro hic iste dolores. Facilis eligendi labore dolores cumque dolor quidem perspiciatis aperiam corrupti, veritatis voluptate rerum modi repellat saepe commodi ex error obcaecati necessitatibus earum dignissimos, id, quasi eveniet quod? Dolores nisi ipsam doloribus distinctio velit dolorem nam maxime est deserunt."
   },
   {
     "id": 46,
@@ -595,7 +627,8 @@ export const eventsObj = `[
     "foreign": false,
     "organizator": "Олексій та Тетяна Балла",
     "status": "Відкриті міські класифікаційні",
-    "spartak": null
+    "spartak": null,
+    "about": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, minus eum, officia esse deserunt error excepturi fugit dolores quidem aliquam iure. Placeat nam velit at magnam, atque ipsa quod doloremque architecto aut id ab adipisci, rerum odit nobis labore, culpa fuga dicta autem. Dignissimos, voluptate esse tempore architecto aliquid dolorum praesentium eveniet accusamus ad similique odit atque maxime porro hic iste dolores. Facilis eligendi labore dolores cumque dolor quidem perspiciatis aperiam corrupti, veritatis voluptate rerum modi repellat saepe commodi ex error obcaecati necessitatibus earum dignissimos, id, quasi eveniet quod? Dolores nisi ipsam doloribus distinctio velit dolorem nam maxime est deserunt."
   },
   {
     "id": 47,
@@ -608,7 +641,8 @@ export const eventsObj = `[
     "foreign": false,
     "organizator": "Роман Гриценюк",
     "status": "Відкриті всеукраїнські рейтингові",
-    "spartak": null
+    "spartak": null,
+    "about": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, minus eum, officia esse deserunt error excepturi fugit dolores quidem aliquam iure. Placeat nam velit at magnam, atque ipsa quod doloremque architecto aut id ab adipisci, rerum odit nobis labore, culpa fuga dicta autem. Dignissimos, voluptate esse tempore architecto aliquid dolorum praesentium eveniet accusamus ad similique odit atque maxime porro hic iste dolores. Facilis eligendi labore dolores cumque dolor quidem perspiciatis aperiam corrupti, veritatis voluptate rerum modi repellat saepe commodi ex error obcaecati necessitatibus earum dignissimos, id, quasi eveniet quod? Dolores nisi ipsam doloribus distinctio velit dolorem nam maxime est deserunt."
   },
   {
     "id": 48,
@@ -621,7 +655,8 @@ export const eventsObj = `[
     "foreign": false,
     "organizator": "Леонід Майстер",
     "status": "Відкриті міські класифікаційні",
-    "spartak": null
+    "spartak": null,
+    "about": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, minus eum, officia esse deserunt error excepturi fugit dolores quidem aliquam iure. Placeat nam velit at magnam, atque ipsa quod doloremque architecto aut id ab adipisci, rerum odit nobis labore, culpa fuga dicta autem. Dignissimos, voluptate esse tempore architecto aliquid dolorum praesentium eveniet accusamus ad similique odit atque maxime porro hic iste dolores. Facilis eligendi labore dolores cumque dolor quidem perspiciatis aperiam corrupti, veritatis voluptate rerum modi repellat saepe commodi ex error obcaecati necessitatibus earum dignissimos, id, quasi eveniet quod? Dolores nisi ipsam doloribus distinctio velit dolorem nam maxime est deserunt."
   }
 ]`;
 
