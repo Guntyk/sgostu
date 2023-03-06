@@ -11,6 +11,7 @@ import Loader from "../../Loader/Loader";
 import { useEffect } from "react";
 import About from "./About/About";
 import Hero from "./Hero/Hero";
+import ClubsCard from "../ClubsCard/ClubsCard";
 
 export default function Main() {
   const events = useSelector(eventsSelector);

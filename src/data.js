@@ -1,7 +1,7 @@
 export const eventsObj = `[
   {
     "id": 1,
-    "title": "«Crystal Cup»",
+    "title": "Crystal Cup",
     "rating": true,
     "town": "Київ",
     "start": "2023-01-28",
@@ -29,7 +29,7 @@ export const eventsObj = `[
   },
   {
     "id": 3,
-    "title": "«Odesa Winter Championship»",
+    "title": "Odesa Winter Championship",
     "rating": false,
     "town": "Одеса",
     "start": "2023-02-18",
@@ -43,7 +43,7 @@ export const eventsObj = `[
   },
   {
     "id": 4,
-    "title": "«ПроАрт»",
+    "title": "ПроАрт",
     "rating": false,
     "town": "Київ",
     "start": "2023-02-18",
@@ -57,7 +57,7 @@ export const eventsObj = `[
   },
   {
     "id": 5,
-    "title": "«Crystal Dance Cup»",
+    "title": "Crystal Dance Cup",
     "rating": false,
     "town": "Черкаси",
     "start": "2023-02-18",
@@ -71,7 +71,7 @@ export const eventsObj = `[
   },
   {
     "id": 6,
-    "title": "«Carpatian Dance Cup»",
+    "title": "Carpatian Dance Cup",
     "rating": false,
     "town": "Івано-Франківськ",
     "start": "2023-02-18",
@@ -85,7 +85,7 @@ export const eventsObj = `[
   },
   {
     "id": 7,
-    "title": "«Танцювальний марафон»",
+    "title": "Танцювальний марафон",
     "rating": false,
     "town": "Тернопіль",
     "start": "2023-02-25",
@@ -99,7 +99,7 @@ export const eventsObj = `[
   },
   {
     "id": 8,
-    "title": "«Чарівність»",
+    "title": "Чарівність",
     "rating": false,
     "town": "Київ",
     "start": "2023-04-02",
@@ -114,7 +114,7 @@ export const eventsObj = `[
   },
   {
     "id": 9,
-    "title": "«Star Trek»",
+    "title": "Star Trek",
     "rating": false,
     "town": "Рівне",
     "start": "2023-03-04",
@@ -128,7 +128,7 @@ export const eventsObj = `[
   },
   {
     "id": 10,
-    "title": "«Kyiv Ball»",
+    "title": "Kyiv Ball",
     "rating": true,
     "town": "Київ",
     "start": "2023-03-11",
@@ -142,7 +142,7 @@ export const eventsObj = `[
   },
   {
     "id": 11,
-    "title": "«Перлини Сезону»",
+    "title": "Перлини Сезону",
     "rating": false,
     "town": "Київ",
     "start": "2023-03-18",
@@ -156,7 +156,7 @@ export const eventsObj = `[
   },
   {
     "id": 12,
-    "title": "«Кубок Глорії»",
+    "title": "Кубок Глорії",
     "rating": false,
     "town": "Івано-Франківськ",
     "start": "2023-03-18",
@@ -170,7 +170,7 @@ export const eventsObj = `[
   },
   {
     "id": 13,
-    "title": "«Dnipro Super Cup»",
+    "title": "Dnipro Super Cup",
     "rating": false,
     "town": "Дніпро",
     "start": "2023-03-18",
@@ -184,7 +184,7 @@ export const eventsObj = `[
   },
   {
     "id": 14,
-    "title": "«Парад Надій»",
+    "title": "Парад Надій",
     "rating": true,
     "town": "Київ",
     "start": "2023-03-25",
@@ -198,7 +198,7 @@ export const eventsObj = `[
   },
   {
     "id": 15,
-    "title": "«Victory Smile Cup»",
+    "title": "Victory Smile Cup",
     "rating": false,
     "town": "Київ",
     "start": "2023-04-01",
@@ -212,7 +212,7 @@ export const eventsObj = `[
   },
   {
     "id": 17,
-    "title": "«Rivne Open»",
+    "title": "Rivne Open",
     "rating": false,
     "town": "Рівне",
     "start": "2023-04-08",
@@ -226,7 +226,7 @@ export const eventsObj = `[
   },
   {
     "id": 18,
-    "title": "«Танцювальна сімʼя»",
+    "title": "Танцювальна сімʼя",
     "rating": false,
     "town": "Київ",
     "start": "2023-04-08",
@@ -240,7 +240,7 @@ export const eventsObj = `[
   },
   {
     "id": 19,
-    "title": "«Танцювальний марафон»",
+    "title": "Танцювальний марафон",
     "rating": false,
     "town": "Київ",
     "start": "2023-04-09",
@@ -254,7 +254,7 @@ export const eventsObj = `[
   },
   {
     "id": 20,
-    "title": "«Ternopil Grande Cup»",
+    "title": "Ternopil Grande Cup",
     "rating": true,
     "town": "Тернопіль",
     "start": "2023-04-22",
@@ -282,7 +282,7 @@ export const eventsObj = `[
   },
   {
     "id": 22,
-    "title": "«Зірки Олімпу»",
+    "title": "Зірки Олімпу",
     "rating": false,
     "town": "Київ",
     "start": "2023-05-06",
@@ -296,7 +296,7 @@ export const eventsObj = `[
   },
   {
     "id": 23,
-    "title": "«Dance Star Festival»",
+    "title": "Dance Star Festival",
     "rating": false,
     "town": "Київ",
     "start": "2023-05-14",
@@ -310,7 +310,7 @@ export const eventsObj = `[
   },
   {
     "id": 24,
-    "title": "«Кубок Тренера»",
+    "title": "Кубок Тренера",
     "rating": true,
     "town": "Київ",
     "start": "2023-05-20",
@@ -324,7 +324,7 @@ export const eventsObj = `[
   },
   {
     "id": 25,
-    "title": "«Spring Fantasy»",
+    "title": "Spring Fantasy",
     "rating": false,
     "town": "Чернігів",
     "start": "2023-05-28",
@@ -338,7 +338,7 @@ export const eventsObj = `[
   },
   {
     "id": 26,
-    "title": "«Cherkassy Summer»",
+    "title": "Cherkassy Summer",
     "rating": false,
     "town": "Черкаси",
     "start": "2023-06-03",
@@ -352,7 +352,7 @@ export const eventsObj = `[
   },
   {
     "id": 27,
-    "title": "«Каштани Києва»",
+    "title": "Каштани Києва",
     "rating": false,
     "town": "Київ",
     "start": "2023-06-03",
@@ -366,7 +366,7 @@ export const eventsObj = `[
   },
   {
     "id": 28,
-    "title": "«Крок до зірок»",
+    "title": "Крок до зірок",
     "rating": false,
     "town": "Рівне",
     "start": "2023-06-03",
@@ -380,7 +380,7 @@ export const eventsObj = `[
   },
   {
     "id": 29,
-    "title": "«Перша столиця»",
+    "title": "Перша столиця",
     "rating": false,
     "town": "Харків",
     "start": "2023-06-04",
@@ -394,7 +394,7 @@ export const eventsObj = `[
   },
   {
     "id": 30,
-    "title": "«Black See Open Cup»",
+    "title": "Black See Open Cup",
     "rating": true,
     "town": "Одеса",
     "start": "2023-06-17",
@@ -408,7 +408,7 @@ export const eventsObj = `[
   },
   {
     "id": 31,
-    "title": "«Inspiration Cup»",
+    "title": "Inspiration Cup",
     "rating": true,
     "town": "Київ",
     "start": "2023-09-30",
@@ -422,7 +422,7 @@ export const eventsObj = `[
   },
   {
     "id": 32,
-    "title": "«Black See Ball»",
+    "title": "Black See Ball",
     "rating": false,
     "town": "Одеса",
     "start": "2023-10-07",
@@ -436,7 +436,7 @@ export const eventsObj = `[
   },
   {
     "id": 33,
-    "title": "«Black See Ball»",
+    "title": "Black See Ball",
     "rating": false,
     "town": "Київ",
     "start": "2023-10-07",
@@ -450,7 +450,7 @@ export const eventsObj = `[
   },
   {
     "id": 34,
-    "title": "«Золоті кроки Києва»",
+    "title": "Золоті кроки Києва",
     "rating": false,
     "town": "Київ",
     "start": "2023-10-14",
@@ -464,7 +464,7 @@ export const eventsObj = `[
   },
   {
     "id": 35,
-    "title": "«Зірки України»",
+    "title": "Зірки України",
     "rating": false,
     "town": "Житомир",
     "start": "2023-10-15",
@@ -478,7 +478,7 @@ export const eventsObj = `[
   },
   {
     "id": 36,
-    "title": "«Star Dance Festival»",
+    "title": "Star Dance Festival",
     "rating": true,
     "town": "Київ",
     "start": "2023-10-21",
@@ -492,7 +492,7 @@ export const eventsObj = `[
   },
   {
     "id": 37,
-    "title": "«Cherkasy Open»",
+    "title": "Cherkasy Open",
     "rating": false,
     "town": "Черкаси",
     "start": "2023-10-28",
@@ -506,7 +506,7 @@ export const eventsObj = `[
   },
   {
     "id": 38,
-    "title": "«Kyiv Grand Cup»",
+    "title": "Kyiv Grand Cup",
     "rating": false,
     "town": "Київ",
     "start": "2023-11-04",
@@ -520,7 +520,7 @@ export const eventsObj = `[
   },
   {
     "id": 39,
-    "title": "«Осіння Феєрія»",
+    "title": "Осіння Феєрія",
     "rating": false,
     "town": "Тернопіль",
     "start": "2023-11-11",
@@ -534,7 +534,7 @@ export const eventsObj = `[
   },
   {
     "id": 40,
-    "title": "«Star Up Dance»",
+    "title": "Star Up Dance",
     "rating": false,
     "town": "Чернігів",
     "start": "2023-11-12",
@@ -548,7 +548,7 @@ export const eventsObj = `[
   },
   {
     "id": 41,
-    "title": "«Renaissance Cup»",
+    "title": "Renaissance Cup",
     "rating": true,
     "town": "Дніпро",
     "start": "2023-11-18",
@@ -562,7 +562,7 @@ export const eventsObj = `[
   },
   {
     "id": 42,
-    "title": "«Dance Sport Life»",
+    "title": "Dance Sport Life",
     "rating": false,
     "town": "Київ",
     "start": "2023-11-18",
@@ -590,7 +590,7 @@ export const eventsObj = `[
   },
   {
     "id": 44,
-    "title": "«Золота осінь»",
+    "title": "Золота осінь",
     "rating": false,
     "town": "Івано-Франківськ",
     "start": "2023-11-26",
@@ -604,7 +604,7 @@ export const eventsObj = `[
   },
   {
     "id": 45,
-    "title": "«Luchesk Open Dance»",
+    "title": "Luchesk Open Dance",
     "rating": false,
     "town": "Луцьк",
     "start": "2023-12-02",
@@ -618,7 +618,7 @@ export const eventsObj = `[
   },
   {
     "id": 46,
-    "title": "«Київська Русь»",
+    "title": "Київська Русь",
     "rating": false,
     "town": "Київ",
     "start": "2023-12-09",
@@ -632,7 +632,7 @@ export const eventsObj = `[
   },
   {
     "id": 47,
-    "title": "«Різдвʼяний Бал»",
+    "title": "Різдвʼяний Бал",
     "rating": true,
     "town": "Рівне",
     "start": "2023-12-16",
@@ -646,7 +646,7 @@ export const eventsObj = `[
   },
   {
     "id": 48,
-    "title": "«Christmas Cup»",
+    "title": "Christmas Cup",
     "rating": false,
     "town": "Київ",
     "start": "2023-12-23",

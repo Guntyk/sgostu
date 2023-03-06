@@ -11,9 +11,9 @@ import { useState } from "react";
 import "./EventInfo.css";
 
 export default function EventInfo() {
-  const [info, setInfo] = useState("Про змагання");
   const events = useSelector(eventsSelector);
   const [event, setEvent] = useState(null);
+  const [info, setInfo] = useState("Спонсори та партнери");
   const { eventId } = useParams();
   const dispatch = useDispatch();
 
@@ -76,28 +76,28 @@ export default function EventInfo() {
               </ul>
             </div>
             <div className="event-detail-info-row">
+              <Button className="event-info-btn" buttonText="Інформація" />
+
+              <Button className="event-info-btn" buttonText="Судді" />
               <Button
                 className="event-info-btn black"
                 buttonText="Реєстрація учасників"
               />
-              <Button
-                className="event-info-btn black"
-                buttonText="Реєстрація суддів"
-              />
-              <Button className="event-info-btn" buttonText="Інформація" />
             </div>
             <div className="event-detail-info-row">
               <ul className="event-detail-buttons">
-                <li className="event-details-list">Про змагання</li>
-                <li className="event-details-list">Відділення</li>
+                <li className="event-details-list active">
+                  Спонсори та партнери
+                </li>
+                <li className="event-details-list">Готелі</li>
                 <li className="event-details-list">Адреса</li>
                 <div className="indicator"></div>
               </ul>
             </div>
             <div className="event-detail-information">
               <p>
-                {info === "Про змагання" && event.about}
-                {info === "Відділення" && event.table}
+                {info === "Спонсори та партнери" && event.sponsors}
+                {info === "Готелі" && event.hotels}
                 {info === "Адреса" && (
                   <iframe
                     src={event.address}
