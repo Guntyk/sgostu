@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import "./Catalog.css";
+import "./Catalogs.css";
 
-export default function Catalog() {
+export default function Catalogs() {
   return (
     <section className="catalogs">
       <div className="container">
