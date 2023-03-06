@@ -4,25 +4,20 @@ import Button from "../../../../common/Button/Button";
 import { EffectCoverflow, Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useHistory } from "react-router-dom";
-import { Context } from "../../../..";
 import "swiper/css/effect-coverflow";
-import { useContext } from "react";
 import "swiper/css/pagination";
 import "./NearestEvents.css";
 import "swiper/css";
 
-export default function NearestEvents() {
-  const { events } = useContext(Context);
-  // const events = useSelector(eventsSelector);
+export default function NearestEvents({ events }) {
   const history = useHistory();
 
-  events.sort((a, b) => {
-    const dateA = new Date(a.start),
-      dateB = new Date(b.start);
-    return dateA - dateB; // sort by ascending date
-  });
-
   const nearestEvents = events
+    .sort((a, b) => {
+      const dateA = new Date(a.start),
+        dateB = new Date(b.start);
+      return dateA - dateB;
+    })
     .map((event) => {
       if (event.organization === "СГОСТУ") return event;
     })
