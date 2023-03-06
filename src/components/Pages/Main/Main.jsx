@@ -6,6 +6,7 @@ import Feedback from "./Feedback/Feedback";
 import LastNews from "./LastNews/LastNews";
 import About from "./About/About";
 import Hero from "./Hero/Hero";
+import ClubsCard from "../ClubsCard/ClubsCard";
 
 export default function Main() {
   return (
@@ -18,6 +19,7 @@ export default function Main() {
       <Database />
       <Announcements />
       <Feedback />
+      <ClubsCard />
     </main>
   );
 }
