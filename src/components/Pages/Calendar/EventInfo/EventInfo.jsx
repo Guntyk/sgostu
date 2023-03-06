@@ -31,13 +31,17 @@ export default function EventInfo() {
     });
   }, [events]);
 
-  const list = document.querySelectorAll(".event-details-list");
-  function activeLink() {
-    list.forEach((item) => item.classList.remove("active"));
-    this.classList.add("active");
-    setInfo(this.innerText);
-  }
-  list.forEach((item) => item.addEventListener("click", activeLink));
+  useEffect(() => {
+    if (event) {
+      const list = document.querySelectorAll(".event-details-list");
+      function activeLink() {
+        list.forEach((item) => item.classList.remove("active"));
+        this.classList.add("active");
+        setInfo(this.innerText);
+      }
+      list.forEach((item) => item.addEventListener("click", activeLink));
+    }
+  }, [event]);
 
   return (
     <>
@@ -49,7 +53,11 @@ export default function EventInfo() {
             </Link>
             <div className="event-detail-info-row">
               <div className="img-wrapper">
-                <img src={eventImg} alt="Банер турніру" />
+                {event.banner?.url ? (
+                  <img src={event.banner?.url} alt="Банер турніру" />
+                ) : (
+                  <span>Не заповнено</span>
+                )}
               </div>
               <ul className="event-details">
                 <li className="event-detail-info-title">{event.title}</li>
