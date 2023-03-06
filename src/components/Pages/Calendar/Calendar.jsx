@@ -1,11 +1,20 @@
-import { useDispatch } from "react-redux";
+import { eventsSelector } from "../../../redux/events/selectors";
+import { getEvents } from "../../../redux/events/thunk";
 import MonthSection from "./MonthSection/MonthSection";
-import { useContext } from "react";
-import { Context } from "../../..";
+import { useDispatch, useSelector } from "react-redux";
+import Loader from "../../Loader/Loader";
+import { useEffect } from "react";
 import "./Calendar.css";
 
 export default function Calendar() {
-  const { events } = useContext(Context);
+  const dispatch = useDispatch();
+  const events = useSelector(eventsSelector);
+  useEffect(() => {
+    if (events.length === 0) {
+      dispatch(getEvents());
+    }
+  }, []);
+
   const months = [
     "Січень",
     "Лютий",
@@ -22,20 +31,26 @@ export default function Calendar() {
   ];
 
   return (
-    <article className="calendar">
-      <div className="container">
-        <h1 className="calendar-title">Календар заходів на 2023 рік</h1>
-        {months.map((month) => {
-          return (
-            <MonthSection
-              month={month}
-              monthIdx={months.indexOf(month)}
-              key={month}
-              events={events}
-            />
-          );
-        })}
-      </div>
-    </article>
+    <>
+      {events.length !== 0 ? (
+        <article className="calendar">
+          <div className="container">
+            <h1 className="calendar-title">Календар заходів на 2023 рік</h1>
+            {months.map((month) => {
+              return (
+                <MonthSection
+                  month={month}
+                  monthIdx={months.indexOf(month)}
+                  key={month}
+                  events={events}
+                />
+              );
+            })}
+          </div>
+        </article>
+      ) : (
+        <Loader />
+      )}
+    </>
   );
 }

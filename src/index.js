@@ -1,4 +1,4 @@
-import { newsObj, eventsObj, announcementsObj } from "./data";
+import { newsObj, announcementsObj, dancersData } from "./data";
 import { BrowserRouter } from "react-router-dom";
 import React, { createContext } from "react";
 import ReactDOM from "react-dom/client";
@@ -10,13 +10,13 @@ import "./index.css";
 export const Context = createContext(null);
 
 const announcements = JSON.parse(announcementsObj);
-const events = JSON.parse(eventsObj);
+const dancers = JSON.parse(dancersData);
 const news = JSON.parse(newsObj);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <BrowserRouter>
-    <Context.Provider value={{ events, news, announcements }}>
+    <Context.Provider value={{ news, announcements, dancers }}>
       <Provider store={store}>
         <App />
       </Provider>

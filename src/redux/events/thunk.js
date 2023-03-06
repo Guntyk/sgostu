@@ -1,13 +1,12 @@
-import { getEventsFetch } from "../../api/requests";
 import { getEventsAction } from "./actionCreators";
+import { getEventsFetch } from "../../api/requests";
 
-export function fetchEvents() {
+export function getEvents() {
   return (dispatch) => {
-    getEventsFetch().then(([eventsErr, events]) => {
-      if (events) {
-        dispatch(getEventsAction(events.data));
+    getEventsFetch().then((response) => {
+      if (response) {
+        dispatch(getEventsAction(response.at(1)));
       } else {
-        console.log(eventsErr);
         alert("Getting events error");
       }
     });

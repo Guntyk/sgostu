@@ -3,6 +3,7 @@ import Calendar from "./components/Pages/Calendar/Calendar";
 import Contacts from "./components/Pages/Contacts/Contacts";
 import Feedback from "./components/Pages/Feedback/Feedback";
 import NotFound from "./components/Pages/NotFound/NotFound";
+import Catalogs from "./components/Pages/Catalogs/Catalogs";
 import { sendMessageToBot } from "./api/requests";
 import { Route, Switch } from "react-router-dom";
 import Header from "./components/Header/Header";
@@ -27,7 +28,6 @@ export default function App() {
       <Header />
       <Switch>
         <Route exact path="/">
-          {/* <Loader loading={loading} /> */}
           <Main />
         </Route>
         <Route exact path="/calendar">
@@ -35,6 +35,9 @@ export default function App() {
         </Route>
         <Route exact path="/calendar/:eventId">
           <EventInfo />
+        </Route>
+        <Route exact path="/catalog">
+          <Catalogs />
         </Route>
         <Route exact path="/contacts">
           <Contacts />

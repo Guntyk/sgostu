@@ -1,35 +1,109 @@
-.loader {
-  position: fixed;
-  top: 0;
-  left: 0;
+.loader-sec {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   height: 100vh;
-  background: #fff;
   pointer-events: none;
-  z-index: 999;
+  user-select: none;
 }
 
-.loading-info {
+.loader-wrapper {
+  position: relative;
+  text-align: center;
+}
+
+.loader {
+  --path: #2f3545;
+  --dot: #5628ee;
+  --duration: 3s;
+  width: 44px;
+  height: 44px;
+  position: relative;
+}
+
+.loader:before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
   position: absolute;
-  top: 60%;
-  left: 50%;
-  opacity: 0;
-  transform: translate(-50%, -50%);
-  transition: 0.7s;
+  display: block;
+  background: var(--dot);
+  top: 37px;
+  left: 19px;
+  transform: translate(-18px, -18px);
+  animation: dotRect var(--duration) cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite;
 }
 
-.loading-background {
+.loader svg {
   display: block;
-  margin-top: 10px;
   width: 100%;
-  height: 5px;
-  background: #ccc;
-  overflow: hidden;
+  height: 100%;
 }
 
-.loading-thumb {
-  display: block;
-  width: 0;
-  height: 100%;
-  background-color: var(--primary-black);
+.loader svg circle {
+  fill: none;
+  stroke: var(--path);
+  stroke-width: 9px;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+
+.loader svg circle {
+  stroke-dasharray: 150 50 150 50;
+  stroke-dashoffset: 75;
+  animation: pathCircle var(--duration) cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite;
+}
+
+@keyframes dotRect {
+  25% {
+    transform: translate(0, 0);
+ }
+  50% {
+    transform: translate(18px, -18px);
+ }
+  75% {
+    transform: translate(0, -36px);
+ }
+  100% {
+    transform: translate(-18px, -18px);
+ }
+}
+
+@keyframes pathCircle {
+  25% {
+    stroke-dashoffset: 125;
+ }
+  50% {
+    stroke-dashoffset: 175;
+ }
+  75% {
+    stroke-dashoffset: 225;
+ }
+  100% {
+    stroke-dashoffset: 275;
+ }
+}
+
+.loader {
+  position: absolute;
+  display: inline-block;
+  top: 50%;
+  left: 40%;
+  transform: translate(-50%, -50%);
+}
+
+.text {
+  display: inline;
+  font-family: 'Montserrat', sans-serif;
+  color: #2f3545;
+  font-size: 56px;
+  font-weight: 500;
+  line-height: auto;
+  letter-spacing: 10px;
+}
+
+.text:first-child {
+  margin-right: 45px;
 }
