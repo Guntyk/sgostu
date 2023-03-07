@@ -1,9 +1,20 @@
+.catalog {
+  padding: 150px 0;
+  background: url(../../../../materials/backgrounds/waves-right.svg) no-repeat 100%
+      100%,
+    url(../../../../materials/backgrounds/waves-left.svg) no-repeat 0% 20%;
+  background-size: 40% 150%;
+  min-height: 100vh;
+}
+
 .catalog-title {
-    
+  font-size: 38px;
+  text-align: center;
 }
 
 .catalog-wrapper {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 50px;
 }

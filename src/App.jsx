@@ -1,4 +1,5 @@
 import EventInfo from "./components/Pages/Calendar/EventInfo/EventInfo";
+import Catalog from "./components/Pages/Catalogs/Catalog/Catalog";
 import Calendar from "./components/Pages/Calendar/Calendar";
 import Contacts from "./components/Pages/Contacts/Contacts";
 import Feedback from "./components/Pages/Feedback/Feedback";
@@ -38,6 +39,9 @@ export default function App() {
         </Route>
         <Route exact path="/catalog">
           <Catalogs />
+        </Route>
+        <Route path="/catalog/:catalogs">
+          <Catalog />
         </Route>
         <Route exact path="/contacts">
           <Contacts />
