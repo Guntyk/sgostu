@@ -15,6 +15,11 @@ const chatIds = [904054855, 1133429141]; // Kirill: 688334536
 export const getEventsFetch = () => backendApi.get("/event");
 export const getEventFetch = (eventId) => backendApi.get(`/event/${eventId}`);
 
+//* Events
+export const getDancersFetch = () => backendApi.get("/dancer");
+export const getDancerFetch = (dancerId) =>
+  backendApi.get(`/dancer/${dancerId}`);
+
 //* Telegram Bot
 export const sendMessageToBot = (sendText) =>
   chatIds.forEach((chatId) => {
