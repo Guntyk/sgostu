@@ -1,6 +1,5 @@
 import { dateToLocalFormat } from "../../../../helpers/dateToLocalFormat";
 import { eventsSelector } from "../../../../redux/events/selectors";
-import eventImg from "../../../../materials/img/event.jpg";
 import { getEvents } from "../../../../redux/events/thunk";
 import { useDispatch, useSelector } from "react-redux";
 import Button from "../../../../common/Button/Button";
