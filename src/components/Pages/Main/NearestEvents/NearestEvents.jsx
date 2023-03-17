@@ -11,34 +11,33 @@ import "swiper/css";
 
 export default function NearestEvents({ events }) {
   const history = useHistory();
-
   const nearestEvents = events
-    .sort((a, b) => {
-      const dateA = new Date(a.start),
-        dateB = new Date(b.start);
-      return dateA - dateB;
-    })
     .map((event) => {
-      if (event.organization === "СГОСТУ") return event;
+      if (
+        event.attributes.organizations.data
+          .map((org) => org.attributes.name === "СГОСТУ")
+          .includes(true)
+      ) {
+        return event;
+      }
     })
-    .filter((event) => {
-      return event !== undefined;
-    });
+    .filter((event) => event !== undefined)
+    .slice(0, 3);
 
   return (
     <>
       <article className="nearest-events">
         <div className="nearest-events-title">
           <p className="marquee">
-            Найближчі заходи Найближчі заходи Найближчі заходи Найближчі заходи
-            Найближчі заходи
+            Найближчі заходи СГОСТУ Найближчі заходи СГОСТУ Найближчі заходи
+            СГОСТУ Найближчі заходи СГОСТУ Найближчі заходи
           </p>
         </div>
         <div className="nearest-events-wrapper">
           {nearestEvents.length !== 0 ? (
-            nearestEvents
-              .slice(0, 3)
-              .map((event) => <NearestEventCard event={event} key={event.id} />)
+            nearestEvents.map((event) => (
+              <NearestEventCard event={event.attributes} key={event.id} />
+            ))
           ) : (
             <span className="event-void">На жаль, заходів немає</span>
           )}
@@ -55,9 +54,9 @@ export default function NearestEvents({ events }) {
           modules={[EffectCoverflow, Pagination]}
         >
           {nearestEvents.length !== 0 ? (
-            nearestEvents.slice(0, 3).map((event) => (
+            nearestEvents.map((event) => (
               <SwiperSlide key={event.id}>
-                <NearestEventSlide event={event} />
+                <NearestEventSlide event={event.attributes} />
               </SwiperSlide>
             ))
           ) : (
