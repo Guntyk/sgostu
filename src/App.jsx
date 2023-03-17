@@ -10,6 +10,7 @@ import Loader from "./components/Loader/Loader";
 import Footer from "./components/Footer/Footer";
 import Main from "./components/Pages/Main/Main";
 import News from "./components/Pages/News/News";
+import About from "./components/Pages/About/About";
 import { useEffect, useState } from "react";
 
 export default function App() {
@@ -44,6 +45,9 @@ export default function App() {
         </Route>
         <Route exact path="/news">
           <News />
+        </Route>
+        <Route exact path="/about">
+          <About />
         </Route>
         <Route>
           <NotFound />

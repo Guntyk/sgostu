@@ -19,7 +19,6 @@ export default function Main() {
       <Database />
       <Announcements />
       <Feedback />
-      <ClubsCard />
     </main>
   );
 }
