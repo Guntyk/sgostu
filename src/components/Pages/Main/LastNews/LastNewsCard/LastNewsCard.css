@@ -2,36 +2,48 @@
   --padding: 1.53846em;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   padding: var(--padding);
   width: calc(20em - var(--padding) * 2 - 2px);
-  height: calc(32.23076923em - var(--padding) * 2 - 2px);
+  height: calc(32.5em - var(--padding) * 2 - 2px);
   border: 1px solid #0e0e0e59;
   border-radius: 10px;
   font-family: "e-Ukraine-Light", sans-serif;
   line-height: 1.3846em;
+  overflow: hidden;
   backdrop-filter: blur(10px) !important;
   background-color: transparent !important;
   text-align: center;
   transition: 0.3s;
+  padding-bottom: 25px;
+}
+
+.last-news-card:hover {
+  box-shadow: 0 10px 15px 0 #9c9c9c8a;
+}
+
+.last-news-card:hover .news-img-wrapper {
+  min-height: 60%;
 }
 
 .news-img-wrapper {
-  position: relative;
-  border-radius: 10px;
-  height: 12.846em;
   overflow: hidden;
+  min-height: 100%;
+  transition: 0.5s;
 }
 
 .news-img {
-  position: absolute;
-  top: 50%;
-  left: 50%;
   width: 100%;
-  transform: translate(-50%, -50%);
+  height: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.news-card-date {
+  margin-top: 5px;
 }
 
 .news-card-title {
+  margin: 5px 0 10px 0;
   font-family: "e-Ukraine-Regular", sans-serif;
   font-size: 1.53846153em;
   line-height: 1.2;

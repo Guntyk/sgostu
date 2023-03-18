@@ -1,12 +1,18 @@
-import { useDispatch } from "react-redux";
+import { getOrganizations } from "../../../redux/organizations/thunk";
+import { orgsSelector } from "../../../redux/organizations/selectors";
+import { eventsSelector } from "../../../redux/events/selectors";
+import { getEvents } from "../../../redux/events/thunk";
 import MonthSection from "./MonthSection/MonthSection";
-import { useContext } from "react";
-import { Context } from "../../..";
+import { useDispatch, useSelector } from "react-redux";
+import Loader from "../../Loader/Loader";
+import { useEffect } from "react";
 import "./Calendar.css";
 
 export default function Calendar() {
-  const { events } = useContext(Context);
-  const months = [
+  const organizations = useSelector(orgsSelector);
+  const events = useSelector(eventsSelector);
+  const dispatch = useDispatch();
+  const monthsData = [
     "Січень",
     "Лютий",
     "Березень",
@@ -20,22 +26,39 @@ export default function Calendar() {
     "Листопад",
     "Грудень",
   ];
+  const months = monthsData.filter(
+    (month) => monthsData.indexOf(month) >= new Date().getMonth()
+  );
+
+  useEffect(() => {
+    if (events.length === 0) {
+      dispatch(getEvents());
+    }
+    if (organizations.length === 0) {
+      dispatch(getOrganizations());
+    }
+  }, []);
 
   return (
-    <article className="calendar">
-      <div className="container">
-        <h1 className="calendar-title">Календар заходів на 2023 рік</h1>
-        {months.map((month) => {
-          return (
-            <MonthSection
-              month={month}
-              monthIdx={months.indexOf(month)}
-              key={month}
-              events={events}
-            />
-          );
-        })}
-      </div>
-    </article>
+    <>
+      {events.length !== 0 && months.length !== 0 ? (
+        <article className="calendar">
+          <div className="container">
+            <h1 className="calendar-title">Календар заходів на 2023 рік</h1>
+            {months.map((month) => (
+              <MonthSection
+                month={month}
+                monthIdx={months.indexOf(month) + new Date().getMonth()}
+                key={month}
+                events={events}
+                organizations={organizations}
+              />
+            ))}
+          </div>
+        </article>
+      ) : (
+        <Loader />
+      )}
+    </>
   );
 }

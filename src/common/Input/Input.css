@@ -4,6 +4,7 @@
 }
 
 .input {
+  font-family: "e-Ukraine-Light", sans-serif;
   padding: 1em 1.5384em;
   width: calc(100% - 1.5384em * 2);
   font-size: 1em;
@@ -49,4 +50,9 @@
 
 textarea {
   resize: vertical;
+}
+
+.catalog-search {
+  margin: 70px 0 40px 0;
+  max-width: 420px;
 }

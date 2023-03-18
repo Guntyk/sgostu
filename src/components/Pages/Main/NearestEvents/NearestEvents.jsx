@@ -1,49 +1,44 @@
 import NearestEventSlide from "./NearestEventSlide/NearestEventSlide";
+import { eventsSelector } from "../../../../redux/events/selectors";
 import NearestEventCard from "./NearestEventCard/NearestEventCard";
 import Button from "../../../../common/Button/Button";
 import { EffectCoverflow, Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useHistory } from "react-router-dom";
-import { Context } from "../../../..";
 import "swiper/css/effect-coverflow";
-import { useContext } from "react";
 import "swiper/css/pagination";
 import "./NearestEvents.css";
 import "swiper/css";
 
-export default function NearestEvents() {
-  const { events } = useContext(Context);
-  // const events = useSelector(eventsSelector);
+export default function NearestEvents({ events }) {
   const history = useHistory();
-
-  events.sort((a, b) => {
-    const dateA = new Date(a.start),
-      dateB = new Date(b.start);
-    return dateA - dateB; // sort by ascending date
-  });
-
   const nearestEvents = events
     .map((event) => {
-      if (event.organization === "СГОСТУ") return event;
+      if (
+        event.attributes.organizations.data
+          .map((org) => org.attributes.name === "СГОСТУ")
+          .includes(true)
+      ) {
+        return event;
+      }
     })
-    .filter((event) => {
-      return event !== undefined;
-    });
+    .filter((event) => event !== undefined)
+    .slice(0, 3);
 
   return (
     <>
       <article className="nearest-events">
         <div className="nearest-events-title">
           <p className="marquee">
-            Найближчі заходи Найближчі заходи Найближчі заходи Найближчі заходи
-            Найближчі заходи
+            Найближчі заходи СГОСТУ Найближчі заходи СГОСТУ Найближчі заходи
+            СГОСТУ Найближчі заходи СГОСТУ Найближчі заходи
           </p>
         </div>
         <div className="nearest-events-wrapper">
           {nearestEvents.length !== 0 ? (
-            nearestEvents
-              .slice(0, 3)
-              .map((event) => <NearestEventCard event={event} key={event.id} />)
+            nearestEvents.map((event) => (
+              <NearestEventCard event={event.attributes} key={event.id} />
+            ))
           ) : (
             <span className="event-void">На жаль, заходів немає</span>
           )}
@@ -60,9 +55,9 @@ export default function NearestEvents() {
           modules={[EffectCoverflow, Pagination]}
         >
           {nearestEvents.length !== 0 ? (
-            nearestEvents.slice(0, 3).map((event) => (
+            nearestEvents.map((event) => (
               <SwiperSlide key={event.id}>
-                <NearestEventSlide event={event} />
+                <NearestEventSlide event={event.attributes} />
               </SwiperSlide>
             ))
           ) : (

@@ -121,12 +121,14 @@
   background: #c95264;
 }
 
-.btn:active {
+.database-btn:active {
   background: #b84b5b;
 }
 
 .event-info-btn {
   width: calc(100% / 3 - var(--gap) * 2);
+  min-width: 130px;
+  flex-grow: 1;
 }
 
 .event-info-btn.black {

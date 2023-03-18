@@ -1,19 +1,26 @@
 import { dateToLocalFormat } from "../../../../helpers/dateToLocalFormat";
-import eventImg from "../../../../materials/img/event.jpg";
+import { eventsSelector } from "../../../../redux/events/selectors";
+import { getEvents } from "../../../../redux/events/thunk";
+import { useDispatch, useSelector } from "react-redux";
 import Button from "../../../../common/Button/Button";
 import { Link, useParams } from "react-router-dom";
-import { Context } from "../../../..";
-import { useContext } from "react";
+import Loader from "../../../Loader/Loader";
 import { useEffect } from "react";
 import { useState } from "react";
 import "./EventInfo.css";
 
 export default function EventInfo() {
-  const [loading, setLoading] = useState(true);
-  const { events } = useContext(Context);
+  const events = useSelector(eventsSelector);
+  const [event, setEvent] = useState(null);
   const [info, setInfo] = useState("Спонсори та партнери");
-  const [event, setEvent] = useState({});
   const { eventId } = useParams();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (events.length === 0) {
+      dispatch(getEvents());
+    }
+  }, []);
 
   useEffect(() => {
     [...events].map((eventObj) => {
@@ -21,23 +28,23 @@ export default function EventInfo() {
         setEvent(eventObj);
       }
     });
-  }, []);
+  }, [events]);
 
   useEffect(() => {
-    setLoading(false);
+    if (event) {
+      const list = document.querySelectorAll(".event-details-list");
+      function activeLink() {
+        list.forEach((item) => item.classList.remove("active"));
+        this.classList.add("active");
+        setInfo(this.innerText);
+      }
+      list.forEach((item) => item.addEventListener("click", activeLink));
+    }
   }, [event]);
-
-  const list = document.querySelectorAll(".event-details-list");
-  function activeLink() {
-    list.forEach((item) => item.classList.remove("active"));
-    this.classList.add("active");
-    setInfo(this.innerText);
-  }
-  list.forEach((item) => item.addEventListener("click", activeLink));
 
   return (
     <>
-      {!loading ? (
+      {event ? (
         <article className="event-info">
           <div className="container event-details-container">
             <Link className="back-link" to="/calendar">
@@ -45,7 +52,11 @@ export default function EventInfo() {
             </Link>
             <div className="event-detail-info-row">
               <div className="img-wrapper">
-                <img src={eventImg} alt="Банер турніру" />
+                {event.banner?.url ? (
+                  <img src={event.banner?.url} alt="Банер турніру" />
+                ) : (
+                  <span>Не заповнено</span>
+                )}
               </div>
               <ul className="event-details">
                 <li className="event-detail-info-title">{event.title}</li>
@@ -108,7 +119,7 @@ export default function EventInfo() {
           </div>
         </article>
       ) : (
-        <h1>Loading...</h1>
+        <Loader />
       )}
     </>
   );

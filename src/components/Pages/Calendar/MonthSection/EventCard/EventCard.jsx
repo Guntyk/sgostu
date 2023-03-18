@@ -8,15 +8,10 @@ import { useHistory } from "react-router-dom";
 import { useEffect, useState } from "react";
 import "./EventCard.css";
 
-export default function EventCard({ event }) {
+export default function EventCard({ event, eventId }) {
   const [empty, setEmpty] = useState("");
   useEffect(() => {
-    if (
-      event.spartak ||
-      event.rating ||
-      event.foreign ||
-      event.organization.indexOf("СГОСТУ") >= 0
-    )
+    if (event.spartak || event.rating || event.foreign)
       setEmpty("hide-categories");
   }, []);
 
@@ -25,21 +20,22 @@ export default function EventCard({ event }) {
 
   return (
     <div className={cardClassName}>
-      <span className="event-date">{dateToLocalFormat(event.start)}</span>
+      <span className="event-date">
+        {dateToLocalFormat(event.start).slice(0, 5)}
+      </span>
       <div className="event-categories">
         {event.rating && <StarIcon />}
         {event.spartak && <SpartakIcon />}
-        {event.organization.indexOf("СГОСТУ") >= 0 && <SgostuIcon />}
+        {/* {event.organization.indexOf("СГОСТУ") >= 0 && <SgostuIcon />} */}
         {event.foreign && <GlobeIcon />}
       </div>
       <span className="event-town">{event.town}</span>
       <p className="event-title">{event.title}</p>
-      <span className="event-status">{event.status}</span>
       <Button
         className="event-details-btn"
         buttonText="Більше"
         onClick={() => {
-          push(`/calendar/${event.id}`);
+          push(`/calendar/${eventId}`);
         }}
       />
     </div>
