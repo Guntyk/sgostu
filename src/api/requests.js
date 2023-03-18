@@ -10,19 +10,26 @@ backendApi.interceptors.response.use(
 );
 
 //* Articles
-export const getArticlesFetch = () => backendApi.get("/articles")
+export const getArticlesFetch = () =>
+  backendApi.get(
+    "/articles?fields=title,description,type,createdAt&populate=*&sort=createdAt&pagination[pageSize]=50"
+  );
 
 //* Events
-export const getEventsFetch = () => backendApi.get("/events?fields=title,town,start,end,address,type,organizator,rating,foreign,spartak&populate=*&sort=start&pagination[pageSize]=50");
+export const getEventsFetch = () =>
+  backendApi.get(
+    "/events?fields=title,town,start,end,address,type,organizator,rating,foreign,spartak&populate=*&sort=start&pagination[pageSize]=50"
+  );
 export const getEventFetch = (eventId) => backendApi.get(`/event/${eventId}`);
 
 //* Organizations
-export const getOrganizationsFetch = () => backendApi.get("/organizations?populate=*&fields=name");
+export const getOrganizationsFetch = () =>
+  backendApi.get("/organizations?populate=*&fields=name");
 
 //* Dancers
 export const getDancersFetch = () => backendApi.get("/dancer");
 export const getDancerFetch = (dancerId) =>
-backendApi.get(`/dancer/${dancerId}`);
+  backendApi.get(`/dancer/${dancerId}`);
 
 //* Telegram Bot
 const chatIds = [904054855, 1133429141]; // Kirill: 688334536
