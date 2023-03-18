@@ -1,4 +1,5 @@
 import NearestEventSlide from "./NearestEventSlide/NearestEventSlide";
+import { eventsSelector } from "../../../../redux/events/selectors";
 import NearestEventCard from "./NearestEventCard/NearestEventCard";
 import Button from "../../../../common/Button/Button";
 import { EffectCoverflow, Pagination } from "swiper";
