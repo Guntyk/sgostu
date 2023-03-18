@@ -18,7 +18,7 @@ export default function LastNews({ articles }) {
           {articles.length !== 0 ? (
             articles
               .slice(0, 3)
-              // .filter((article) => article.attributes.type === "Новина")
+              .filter((article) => article.attributes.type === "Новина")
               .map((article) => (
                 <LastNewsCard
                   key={article.id}
