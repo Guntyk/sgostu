@@ -3,27 +3,28 @@ import Button from "../../../../common/Button/Button";
 import { EffectCoverflow, Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useHistory } from "react-router-dom";
-import { Context } from "../../../..";
 import "swiper/css/effect-coverflow";
-import { useContext } from "react";
 import "swiper/css/pagination";
 import "./LastNews.css";
 import "swiper/css";
 
-export default function LastNews() {
+export default function LastNews({ articles }) {
   const history = useHistory();
-  const { news } = useContext(Context);
-
   return (
     <article className="last-news">
       <span className="last-news-title">Останні новини</span>
       <div className="container">
         <div className="last-news-wrapper">
-          {news.length !== 0 ? (
-            news
+          {articles.length !== 0 ? (
+            articles
               .slice(0, 3)
-              .map((newspaper) => (
-                <LastNewsCard key={newspaper.id} newspaper={newspaper} />
+              // .filter((article) => article.attributes.type === "Новина")
+              .map((article) => (
+                <LastNewsCard
+                  key={article.id}
+                  article={article.attributes}
+                  articleId={article.id}
+                />
               ))
           ) : (
             <span className="event-void">Новин немає</span>
@@ -41,17 +42,24 @@ export default function LastNews() {
         coverflowEffect={{ rotate: 0, slideShadows: false, scale: 0.8 }}
         modules={[EffectCoverflow, Pagination]}
       >
-        {news.length !== 0 ? (
-          news.slice(0, 3).map((newspaper) => (
-            <SwiperSlide key={newspaper.id}>
-              <LastNewsCard newspaper={newspaper} />
-            </SwiperSlide>
-          ))
+        {articles.length !== 0 ? (
+          articles
+            .slice(0, 3)
+            .filter((article) => article.attributes.type === "Новина")
+            .map((article) => (
+              <SwiperSlide key={article.id}>
+                <LastNewsCard
+                  key={article.id}
+                  article={article.attributes}
+                  articleId={article.id}
+                />
+              </SwiperSlide>
+            ))
         ) : (
           <span className="event-void">Новин немає</span>
         )}
       </Swiper>
-      {news.length !== 0 && (
+      {articles.length !== 0 && (
         <Button
           buttonText="Більше"
           onClick={() => {
