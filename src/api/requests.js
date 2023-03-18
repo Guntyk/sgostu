@@ -9,6 +9,9 @@ backendApi.interceptors.response.use(
   (error) => [error, null]
 );
 
+//* Articles
+export const getArticlesFetch = () => backendApi.get("/articles")
+
 //* Events
 export const getEventsFetch = () => backendApi.get("/events?fields=title,town,start,end,address,type,organizator,rating,foreign,spartak&populate=*&sort=start&pagination[pageSize]=50");
 export const getEventFetch = (eventId) => backendApi.get(`/event/${eventId}`);
