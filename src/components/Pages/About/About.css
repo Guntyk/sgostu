@@ -43,7 +43,7 @@
   height: 634px;
 }
 
-@media (max-width: 840px) {
+@media (max-width: 940px) {
   .about-page-title,
   .about-content-title {
     font-size: 24px;

@@ -22,7 +22,7 @@ export default function About() {
         // markers: true,
         // start: "+=100px",
         end: "+=500px",
-        toggleActions: "restart none none none"
+        toggleActions: "restart none none none",
       },
     }
   );
@@ -58,7 +58,7 @@ export default function About() {
               className="about-btn"
               buttonText="Більше"
               onClick={() => {
-                push("/404");
+                push("/about");
               }}
             />
           </div>
