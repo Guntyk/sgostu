@@ -1,17 +1,41 @@
+import { dateToLocalFormat } from "../../../../../helpers/dateToLocalFormat";
+import Button from "../../../../../common/Button/Button";
+import { useHistory } from "react-router-dom";
 import "./LastNewsCard.css";
 
-export default function LastNewsCard({ newspaper }) {
+export default function LastNewsCard({ article, articleId }) {
+  const { push } = useHistory();
   return (
-    <div className="last-news-card">
-      <div className="news-img-wrapper">
-        <img className="news-img" src="https://via.placeholder.com/500.png/09f/fff" alt="" />
-      </div>
-      <span className="news-card-date">{newspaper.date}</span>
-      <span className="news-card-title">{newspaper.title}</span>
-      <p className="news-card-description">{newspaper.description}</p>
-      <a href="#" className="news-link">
-        Детальніше
-      </a>
-    </div>
+    <>
+      {article !== undefined ? (
+        <div className="last-news-card">
+          <div className="news-img-wrapper">
+            <img
+              className="news-img"
+              src={[
+                ...article.media.data.map(
+                  (photo) =>
+                    `https://backend-tbpix.ondigitalocean.app${photo.attributes.formats.large.url}`
+                ),
+              ]}
+              alt="Фотографія новини"
+            />
+          </div>
+          <span className="news-card-date">
+            {dateToLocalFormat(article.createdAt)}
+          </span>
+          <span className="news-card-title">{article.title}</span>
+          <Button
+            className="event-details-btn news-link"
+            buttonText="Детальніше"
+            onClick={() => {
+              push(`/news/${articleId}`);
+            }}
+          />
+        </div>
+      ) : (
+        <span>Помилка</span>
+      )}
+    </>
   );
 }

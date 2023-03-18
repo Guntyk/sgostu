@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const backendApi = axios.create({
-  baseURL: "https://x8ki-letl-twmt.n7.xano.io/api:ZB-X0ffC:v1",
+  baseURL: "https://backend-tbpix.ondigitalocean.app/api",
 });
 
 backendApi.interceptors.response.use(
@@ -9,13 +9,30 @@ backendApi.interceptors.response.use(
   (error) => [error, null]
 );
 
-const chatIds = [904054855, 1133429141]; // Kirill: 688334536
+//* Articles
+export const getArticlesFetch = () =>
+  backendApi.get(
+    "/articles?fields=title,description,type,createdAt&populate=*&sort=createdAt&pagination[pageSize]=50"
+  );
 
 //* Events
-export const getEventsFetch = () => backendApi.get("/event");
+export const getEventsFetch = () =>
+  backendApi.get(
+    "/events?fields=title,town,start,end,address,type,organizator,rating,foreign,spartak&populate=*&sort=start&pagination[pageSize]=50"
+  );
 export const getEventFetch = (eventId) => backendApi.get(`/event/${eventId}`);
 
+//* Organizations
+export const getOrganizationsFetch = () =>
+  backendApi.get("/organizations?populate=*&fields=name");
+
+//* Dancers
+export const getDancersFetch = () => backendApi.get("/dancer");
+export const getDancerFetch = (dancerId) =>
+  backendApi.get(`/dancer/${dancerId}`);
+
 //* Telegram Bot
+const chatIds = [904054855, 1133429141]; // Kirill: 688334536
 export const sendMessageToBot = (sendText) =>
   chatIds.forEach((chatId) => {
     // axios.post(

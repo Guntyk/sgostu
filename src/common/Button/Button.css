@@ -127,6 +127,8 @@
 
 .event-info-btn {
   width: calc(100% / 3 - var(--gap) * 2);
+  min-width: 130px;
+  flex-grow: 1;
 }
 
 .event-info-btn.black {

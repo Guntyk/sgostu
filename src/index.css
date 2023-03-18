@@ -23,6 +23,11 @@
   src: url(./materials/fonts/e-Ukraine-Thin.otf);
   font-weight: 100;
 }
+@font-face {
+  font-family: "Montserrat";
+  src: url(./materials/fonts/Montserrat-Medium.ttf);
+  font-weight: 500;
+}
 
 html,
 body,
@@ -176,10 +181,4 @@ body::-webkit-scrollbar {
   padding: 0 5px;
   width: 90%;
   position: relative;
-}
-
-@media (max-width: 1150px) {
-  .loader {
-    display: none !important;
-  }
 }

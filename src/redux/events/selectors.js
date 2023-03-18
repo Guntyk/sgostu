@@ -1,3 +1,3 @@
 export function eventsSelector(state) {
-  return state;
+  return state.events;
 }

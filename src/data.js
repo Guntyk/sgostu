@@ -664,7 +664,7 @@ export const newsObj = `[
   {
     "id": 1,
     "date": "0000-00-00",
-    "title": "Новина",
+    "title": "Lorem ipsum dolor sit amet consectetur",
     "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae culpa, recusandae excepturi."
   },
   {

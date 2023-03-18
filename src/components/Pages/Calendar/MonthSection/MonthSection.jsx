@@ -1,18 +1,12 @@
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination } from "swiper";
 import EventCard from "./EventCard/EventCard";
 import { useEffect } from "react";
-import { Navigation, Pagination } from "swiper";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "./MonthSection.css";
 
 export default function MonthSection({ month, monthIdx, events }) {
-  events.sort((a, b) => {
-    const dateA = new Date(a.start),
-      dateB = new Date(b.start);
-    return dateA - dateB;
-  });
-
   useEffect(() => {
     if (events.length !== 0) {
       const parent = document.getElementById(`swiper${monthIdx}`);
@@ -80,9 +74,9 @@ export default function MonthSection({ month, monthIdx, events }) {
           {events.length !== 0 ? (
             events.map(
               (event) =>
-                new Date(event.start).getMonth() === monthIdx && (
+                new Date(event.attributes.start).getMonth() === monthIdx && (
                   <SwiperSlide key={event.id}>
-                    <EventCard event={event} />
+                    <EventCard event={event.attributes} eventId={event.id} />
                   </SwiperSlide>
                 )
             )

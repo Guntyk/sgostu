@@ -1,29 +1,23 @@
-import { useContext } from "react";
-import { Context } from "../../../..";
+import LastNewsCard from "../LastNews/LastNewsCard/LastNewsCard";
 import { EffectCoverflow, Pagination } from "swiper";
+import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css/pagination";
 import "swiper/css";
-import LastNewsCard from "../LastNews/LastNewsCard/LastNewsCard";
-import { Swiper, SwiperSlide } from "swiper/react";
 
-export default function Announcements() {
-  const { announcements } = useContext(Context);
-
+export default function Announcements({ articles }) {
   return (
     <article className="last-news announcements">
       <span className="news-title">Анонси</span>
       <div className="container">
         <div className="last-news-wrapper">
-          {announcements.length !== 0
-            ? announcements
+          {articles.length !== 0
+            ? articles
                 .slice(0, 3)
-                .map((announcement) => (
-                  <LastNewsCard
-                    key={announcement.id}
-                    newspaper={announcement}
-                  />
+                .filter((article) => article.attributes.type === "Анонс")
+                .map((article) => (
+                  <LastNewsCard key={article.id} article={article.attributes} />
                 ))
-            : alert("No news")}
+            : console.log("Новин немає")}
         </div>
       </div>
       <Swiper
@@ -37,10 +31,10 @@ export default function Announcements() {
         coverflowEffect={{ rotate: 0, slideShadows: false, scale: 0.8 }}
         modules={[EffectCoverflow, Pagination]}
       >
-        {announcements.length !== 0 ? (
-          announcements.slice(0, 3).map((newspaper) => (
-            <SwiperSlide key={newspaper.id}>
-              <LastNewsCard newspaper={newspaper} />
+        {articles.length !== 0 ? (
+          articles.slice(0, 3).map((article) => (
+            <SwiperSlide key={article.id}>
+              <LastNewsCard article={article.attributes} />
             </SwiperSlide>
           ))
         ) : (

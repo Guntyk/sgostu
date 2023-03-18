@@ -80,7 +80,9 @@ export default function Footer() {
             <span className="copyright">© {year} СГОСТУ</span>
             <SateLogo />
             <a
-              href="https://www.instagram.com/sate.team/?theme=dark"
+              href="https://tapmybio.com/sate"
+              target="_blank"
+              rel="noreferrer"
               className="authors"
             >
               By Sate
