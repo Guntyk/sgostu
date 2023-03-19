@@ -3,6 +3,7 @@ import { eventsSelector } from "../../../../redux/events/selectors";
 import { getEvents } from "../../../../redux/events/thunk";
 import { useDispatch, useSelector } from "react-redux";
 import Button from "../../../../common/Button/Button";
+import PartnerCard from "./PartnerCard/PartnerCard";
 import { Link, useParams } from "react-router-dom";
 import Loader from "../../../Loader/Loader";
 import { useEffect } from "react";
@@ -41,6 +42,7 @@ export default function EventInfo() {
       }
       list.forEach((item) => item.addEventListener("click", activeLink));
     }
+    console.log(event);
   }, [event]);
 
   return (
@@ -120,21 +122,37 @@ export default function EventInfo() {
                 <div className="indicator"></div>
               </ul>
             </div>
-            <div className="event-detail-information">
-              <p>
-                {info === "Спонсори та партнери" &&
-                  event.partners.data.map((partner) => partner.attributes.name).join(", ")}
-                {info === "Готелі" && event.hotels}
-                {info === "Адреса" && (
-                  <iframe
-                    src={event.address}
-                    width="100%"
-                    height="490px"
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                  />
-                )}
-              </p>
+            <div
+              className={`event-detail-information ${
+                info === "Спонсори та партнери" && "partners"
+              }`}
+            >
+              {info === "Спонсори та партнери" && (
+                <div className="partners-wrapper">
+                  {event.organizations.data.map((organization) => (
+                    <PartnerCard
+                      key={organization.id}
+                      partner={organization.attributes}
+                    />
+                  ))}
+                  {event.partners.data.map((partner) => (
+                    <PartnerCard
+                      key={partner.id}
+                      partner={partner.attributes}
+                    />
+                  ))}
+                </div>
+              )}
+              {info === "Готелі" && event.hotels}
+              {info === "Адреса" && (
+                <iframe
+                  src={event.address}
+                  width="100%"
+                  height="490px"
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                />
+              )}
             </div>
           </div>
         </article>

@@ -1,0 +1,37 @@
+.partners-wrapper {
+  padding: 15px 15px 30px 15px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.partner-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 10px;
+  height: calc(90vw / 5 - 8px);
+  text-align: center;
+  border: 1px solid #0e0e0e59;
+  border-collapse: collapse;
+  background: #fff;
+  transition: 0.25s;
+  cursor: default;
+  overflow: hidden;
+}
+
+.partner-card.linked {
+  cursor: pointer;
+}
+
+.partner-card.linked:hover {
+  box-shadow: 0 15px 25px 0 #9c9c9c8a;
+  transform: translateY(-15px);
+}
+
+.partner-img {
+  margin-bottom: 10px;
+  width: 100%;
+  height: 60%;
+  object-fit: contain;
+}
