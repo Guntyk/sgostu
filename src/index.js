@@ -1,5 +1,5 @@
-import { BrowserRouter } from "react-router-dom";
 import { newsObj, dancersData } from "./data";
+import { BrowserRouter } from "react-router-dom";
 import React, { createContext } from "react";
 import ReactDOM from "react-dom/client";
 import { Provider } from "react-redux";

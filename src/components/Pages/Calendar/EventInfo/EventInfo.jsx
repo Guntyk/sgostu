@@ -42,7 +42,6 @@ export default function EventInfo() {
       }
       list.forEach((item) => item.addEventListener("click", activeLink));
     }
-    console.log(event);
   }, [event]);
 
   return (
@@ -96,21 +95,34 @@ export default function EventInfo() {
               </ul>
             </div>
             <div className="event-detail-info-row">
-              <Button
-                className="event-info-btn"
-                buttonText="Інформація"
-                disabled={!event.entry.data ? true : false}
-              />
-              <Button
-                className="event-info-btn"
-                buttonText="Судді"
-                disabled={!event.judges ? true : false}
-              />
-              <Button
-                className="event-info-btn black"
-                buttonText="Реєстрація учасників"
-                disabled={!event.registration ? true : false}
-              />
+              <a
+                target="_blank"
+                rel="noreferrer"
+                href={url + event.entry.data?.attributes.url || ""}
+                className={`btn event-info-btn ${
+                  !event.entry.data && "disabled"
+                }`}
+              >
+                Інформація
+              </a>
+              <a
+                target="_blank"
+                rel="noreferrer"
+                href={event.judges}
+                className={`btn event-info-btn ${!event.judges && "disabled"}`}
+              >
+                Судді
+              </a>
+              <a
+                target="_blank"
+                rel="noreferrer"
+                href={event.registration}
+                className={`btn event-info-btn black ${
+                  !event.registration && "disabled"
+                }`}
+              >
+                Реєстрація учасників
+              </a>
             </div>
             <div className="event-detail-info-row">
               <ul className="event-detail-buttons">
