@@ -10,9 +10,10 @@ import { useState } from "react";
 import "./EventInfo.css";
 
 export default function EventInfo() {
+  const [info, setInfo] = useState("Спонсори та партнери");
+  const url = "https://backend-tbpix.ondigitalocean.app";
   const events = useSelector(eventsSelector);
   const [event, setEvent] = useState(null);
-  const [info, setInfo] = useState("Спонсори та партнери");
   const { eventId } = useParams();
   const dispatch = useDispatch();
 
@@ -25,7 +26,7 @@ export default function EventInfo() {
   useEffect(() => {
     [...events].map((eventObj) => {
       if (Number(eventObj.id) === Number(eventId)) {
-        setEvent(eventObj);
+        setEvent(eventObj.attributes);
       }
     });
   }, [events]);
@@ -52,8 +53,11 @@ export default function EventInfo() {
             </Link>
             <div className="event-detail-info-row">
               <div className="img-wrapper">
-                {event.banner?.url ? (
-                  <img src={event.banner?.url} alt="Банер турніру" />
+                {event.banner?.data ? (
+                  <img
+                    src={url + event.banner.data?.attributes.url}
+                    alt="Банер турніру"
+                  />
                 ) : (
                   <span>Не заповнено</span>
                 )}
@@ -64,7 +68,9 @@ export default function EventInfo() {
                   <span className="event-detail-stroke-name">
                     Організація:{" "}
                   </span>
-                  {event.organization}
+                  {event.organizations?.data
+                    .map((organization) => organization.attributes.name)
+                    .join(", ")}
                 </li>
                 <li>
                   <span className="event-detail-stroke-name">
@@ -78,17 +84,30 @@ export default function EventInfo() {
                 </li>
                 <li>
                   <span className="event-detail-stroke-name">Дата: </span>
-                  {dateToLocalFormat(event.start)}
+                  {event.end
+                    ? `${dateToLocalFormat(event.start).slice(
+                        0,
+                        5
+                      )} — ${dateToLocalFormat(event.end).slice(0, 5)}`
+                    : dateToLocalFormat(event.start).slice(0, 5)}
                 </li>
               </ul>
             </div>
             <div className="event-detail-info-row">
-              <Button className="event-info-btn" buttonText="Інформація" />
-
-              <Button className="event-info-btn" buttonText="Судді" />
+              <Button
+                className="event-info-btn"
+                buttonText="Інформація"
+                disabled={!event.entry.data ? true : false}
+              />
+              <Button
+                className="event-info-btn"
+                buttonText="Судді"
+                disabled={!event.judges ? true : false}
+              />
               <Button
                 className="event-info-btn black"
                 buttonText="Реєстрація учасників"
+                disabled={!event.registration ? true : false}
               />
             </div>
             <div className="event-detail-info-row">
@@ -103,7 +122,8 @@ export default function EventInfo() {
             </div>
             <div className="event-detail-information">
               <p>
-                {info === "Спонсори та партнери" && event.sponsors}
+                {info === "Спонсори та партнери" &&
+                  event.partners.data.map((partner) => partner.attributes.name).join(", ")}
                 {info === "Готелі" && event.hotels}
                 {info === "Адреса" && (
                   <iframe

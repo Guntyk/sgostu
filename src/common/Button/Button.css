@@ -84,6 +84,7 @@
 }
 
 .btn[disabled] {
+  pointer-events: none;
   cursor: default;
   opacity: 0.5;
 }
@@ -126,6 +127,8 @@
 }
 
 .event-info-btn {
+  display: grid;
+  place-items: center;
   width: calc(100% / 3 - var(--gap) * 2);
   min-width: 130px;
   flex-grow: 1;
