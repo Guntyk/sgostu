@@ -22,6 +22,7 @@
   display: block;
   font-size: 2.923076em;
   text-align: center;
+  /* margin-bottom: 1.8421em; */
 }
 
 /* @media (max-width: 1150px) {
@@ -53,12 +54,20 @@
 @media (max-width: 840px) {
   .last-news {
     font-size: 0.8rem;
+    --padding: 0;
   }
   .last-news-wrapper {
     display: none;
   }
   .news-slider {
     display: block;
+  }
+  .last-news-card:active {
+    box-shadow: 0 10px 15px 0 #9c9c9c8a;
+  }
+
+  .last-news-card .news-img-wrapper:active {
+    min-height: 60%;
   }
 }
 

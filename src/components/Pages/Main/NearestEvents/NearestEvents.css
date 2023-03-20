@@ -4,9 +4,12 @@
   align-items: center;
   font-size: 1rem;
   overflow: hidden;
+  padding: 5px 0;
 }
 
-.nearest-events-title {
+/*!old marquee
+
+/* .nearest-events-title {
   display: flex;
   align-items: center;
   width: 100%;
@@ -22,17 +25,41 @@
 }
 
 .marquee:after {
-  content: "Найближчі заходи Найближчі заходи Найближчі заходи Найближчі заходи Найближчі заходи";
-  margin-left: 59px;
-  word-spacing: 50px;
+  content: "Найближчі заходи СГОСТУ Найближчі заходи СГОСТУ Найближчі заходи СГОСТУ Найближчі заходи СГОСТУ Найближчі заходи СГОСТУ ";
+  /* margin-left: 59px; */
+/* word-spacing: 50px; */
+
+/* @keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-15.17%);
+  }
+} */
+
+.nearest-events-title {
+  display: flex;
+  justify-content: flex-start;
+
+  overflow: hidden;
+  width: 100%;
 }
 
-@keyframes marquee {
+.nearest-events-title h2 {
+  font-size: 1.75em;
+  white-space: nowrap;
+  padding: 0 1rem;
+  animation: move-rtl 3s linear infinite;
+  /* margin-left: 59px; */
+}
+
+@keyframes move-rtl {
   0% {
     transform: translateX(0);
   }
   100% {
-    transform: translateX(-10.17%);
+    transform: translateX(-100%);
   }
 }
 
@@ -67,15 +94,15 @@
 .swiper-pagination-bullet {
   width: 10px;
   height: 10px;
-  background-color: #D9D9D978;
+  background-color: #d9d9d978;
   opacity: 1;
   border-radius: 50px;
-  transition: .3s;
+  transition: 0.3s;
 }
 
 .swiper-pagination-bullet-active {
   width: 20px;
-  background-color: #D9D9D9;
+  background-color: #d9d9d9;
   border-radius: 50px;
 }
 
@@ -101,6 +128,10 @@
   .nearest-events-title {
     font-size: 3em;
   }
+  .nearest-events-title h2 {
+    font-size: 28px;
+  }
+
   .nearest-events-wrapper {
     display: none;
   }
