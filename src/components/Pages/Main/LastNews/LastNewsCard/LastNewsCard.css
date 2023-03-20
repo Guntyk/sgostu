@@ -52,3 +52,9 @@
 .news-link {
   text-decoration: underline;
 }
+
+@media (max-width: 840px) {
+  .last-news-card {
+    width: calc(25em - var(--padding) * 2 - 2px);
+  }
+}
