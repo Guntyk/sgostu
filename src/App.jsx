@@ -37,12 +37,12 @@ export default function App() {
         <Route exact path="/calendar/:eventId">
           <EventInfo />
         </Route>
-        <Route exact path="/catalog">
+        {/* <Route exact path="/catalog">
           <Catalogs />
         </Route>
         <Route path="/catalog/:catalogs">
           <Catalog />
-        </Route>
+        </Route> */}
         <Route exact path="/contacts">
           <Contacts />
         </Route>
