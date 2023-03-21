@@ -7,7 +7,7 @@ export default function LastNewsCard({ article, articleId }) {
   const { push } = useHistory();
   return (
     <>
-      {article !== undefined ? (
+      {article ? (
         <div className="last-news-card">
           <div className="news-img-wrapper">
             <img
