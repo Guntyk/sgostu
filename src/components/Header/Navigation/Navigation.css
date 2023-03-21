@@ -12,7 +12,7 @@
 .nav-wrapper {
   display: flex;
   justify-content: space-between;
-  margin: 70px auto 0 auto;
+  margin: 10px auto 0 auto;
   width: 80%;
   backdrop-filter: blur(1px);
   height: calc(100% - 100px);
@@ -27,7 +27,7 @@
 .nav-link {
   display: flex;
   align-items: center;
-  height: calc(100% / 4);
+  height: calc(100% / 5);
   font-size: 4rem;
   letter-spacing: 5px;
   -webkit-text-stroke: 2px var(--primary-black);

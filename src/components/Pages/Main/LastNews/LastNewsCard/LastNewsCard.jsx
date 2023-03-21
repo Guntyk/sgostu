@@ -7,17 +7,12 @@ export default function LastNewsCard({ article, articleId }) {
   const { push } = useHistory();
   return (
     <>
-      {article !== undefined ? (
+      {article ? (
         <div className="last-news-card">
           <div className="news-img-wrapper">
             <img
               className="news-img"
-              src={[
-                ...article.media.data.map(
-                  (photo) =>
-                    `https://backend-tbpix.ondigitalocean.app${photo.attributes.formats.large.url}`
-                ),
-              ]}
+              src={`https://backend-tbpix.ondigitalocean.app${article.front.data.attributes.url}`}
               alt="Фотографія новини"
             />
           </div>

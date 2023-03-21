@@ -12,13 +12,13 @@ export default function Header() {
           <div className="header__wrapper">
             <div className="header__row">
               <div
-                className={`hamburger ${openSideMenu ? "active" : ""}`}
+                className={`hamburger ${openSideMenu && "active"}`}
                 onClick={() => {
                   setOpenSideMenu(true);
                 }}
               >
                 <span
-                  className={`ham-line top-bun ${openSideMenu ? "active" : ""}`}
+                  className={`ham-line top-bun ${openSideMenu && "active"}`}
                 ></span>
                 <span
                   className={`ham-line stuffing ${

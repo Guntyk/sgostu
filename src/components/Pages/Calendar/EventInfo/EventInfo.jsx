@@ -2,7 +2,6 @@ import { dateToLocalFormat } from "../../../../helpers/dateToLocalFormat";
 import { eventsSelector } from "../../../../redux/events/selectors";
 import { getEvents } from "../../../../redux/events/thunk";
 import { useDispatch, useSelector } from "react-redux";
-import Button from "../../../../common/Button/Button";
 import PartnerCard from "./PartnerCard/PartnerCard";
 import { Link, useParams } from "react-router-dom";
 import Loader from "../../../Loader/Loader";
