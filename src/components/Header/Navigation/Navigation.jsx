@@ -16,11 +16,11 @@ export default function Navigation({ openSideMenu, setOpenSideMenu }) {
     navTimeline.to(
       ".nav-link",
       {
-        translateY: 0,
+        translateX: 0,
         duration: 0.6,
         opacity: 1,
         ease: "Power4.easeOut",
-        stagger: 0.2,
+        stagger: 0.1,
       }
     );
     navTimeline.to(
@@ -41,7 +41,7 @@ export default function Navigation({ openSideMenu, setOpenSideMenu }) {
     navTimeline.to(
       ".nav-link",
       {
-        translateY: 50,
+        translateX: -50,
         duration: 0.5,
         opacity: 0,
         ease: "Power1.easeIn",
@@ -95,7 +95,7 @@ export default function Navigation({ openSideMenu, setOpenSideMenu }) {
               Календар змагань
             </Link>
           </span>
-          <span className="nav-link">
+          {/* <span className="nav-link">
             <Link
               to="/catalog"
               onClick={() => {
@@ -104,7 +104,7 @@ export default function Navigation({ openSideMenu, setOpenSideMenu }) {
             >
               Каталоги
             </Link>
-          </span>
+          </span> */}
           <span className="nav-link">
             <Link
               to="/contacts"
