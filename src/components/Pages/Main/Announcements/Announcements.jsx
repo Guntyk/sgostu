@@ -7,7 +7,7 @@ import "swiper/css";
 export default function Announcements({ articles }) {
   return (
     <article className="last-news announcements">
-      <span className="news-title">Анонси</span>
+      <span className="last-news-title">Анонси</span>
       <div className="container">
         <div className="last-news-wrapper">
           {articles.length !== 0
@@ -32,11 +32,14 @@ export default function Announcements({ articles }) {
         modules={[EffectCoverflow, Pagination]}
       >
         {articles.length !== 0 ? (
-          articles.slice(0, 3).map((article) => (
-            <SwiperSlide key={article.id}>
-              <LastNewsCard article={article.attributes} />
-            </SwiperSlide>
-          ))
+          articles
+            .slice(0, 3)
+            .filter((article) => article.attributes.type === "Анонс")
+            .map((article) => (
+              <SwiperSlide key={article.id}>
+                <LastNewsCard article={article.attributes} />
+              </SwiperSlide>
+            ))
         ) : (
           <span className="event-void">Новин немає</span>
         )}

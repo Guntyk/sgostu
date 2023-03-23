@@ -4,7 +4,7 @@
 }
 
 .news-title {
-  margin-bottom: 1.84210em;
+  margin-bottom: 1.8421em;
   font-size: 2.375em;
   text-align: center;
 }
@@ -21,12 +21,20 @@
   .news {
     font-size: 0.8rem;
   }
+  .news-slider {
+    /* padding: 8.125em calc(48% - 10em) !important; */
+    width: 25em;
+    padding: 30px calc(36% - 7.625em) !important;
+  }
 }
 @media (max-width: 550px) {
   .news {
     font-size: 0.6rem;
   }
   .news-wrapper {
-    gap: 10px
+    gap: 30px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 }

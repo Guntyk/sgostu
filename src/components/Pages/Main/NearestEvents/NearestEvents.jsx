@@ -28,11 +28,18 @@ export default function NearestEvents({ events }) {
   return (
     <>
       <article className="nearest-events">
-        <div className="nearest-events-title">
-          <p className="marquee">
-            Найближчі заходи СГОСТУ Найближчі заходи СГОСТУ Найближчі заходи
-            СГОСТУ Найближчі заходи СГОСТУ Найближчі заходи
-          </p>
+        {/* <div className="nearest-events-title">
+          <p className="marquee">Найближчі заходи СГОСТУ</p>
+          <p className="marquee">Найближчі заходи СГОСТУ</p>
+        </div> */}
+
+        <div class="nearest-events-title">
+          <h2>Найближчі заходи СГОСТУ</h2>
+          <h2>Найближчі заходи СГОСТУ</h2>
+          <h2>Найближчі заходи СГОСТУ</h2>
+          <h2>Найближчі заходи СГОСТУ</h2>
+          <h2>Найближчі заходи СГОСТУ</h2>
+          <h2>Найближчі заходи СГОСТУ</h2>
         </div>
         <div className="nearest-events-wrapper">
           {nearestEvents.length !== 0 ? (
