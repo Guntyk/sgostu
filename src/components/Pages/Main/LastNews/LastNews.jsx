@@ -17,8 +17,8 @@ export default function LastNews({ articles }) {
         <div className="last-news-wrapper">
           {articles.length !== 0 ? (
             articles
-              .slice(0, 3)
               .filter((article) => article.attributes.type === "Новина")
+              .slice(0, 3)
               .map((article) => (
                 <LastNewsCard
                   key={article.id}
@@ -44,8 +44,8 @@ export default function LastNews({ articles }) {
       >
         {articles.length !== 0 ? (
           articles
-            .slice(0, 3)
             .filter((article) => article.attributes.type === "Новина")
+            .slice(0, 3)
             .map((article) => (
               <SwiperSlide key={article.id}>
                 <LastNewsCard
