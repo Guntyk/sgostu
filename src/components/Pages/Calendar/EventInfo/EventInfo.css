@@ -29,10 +29,14 @@
   overflow: hidden;
 }
 
-.event-detail-info-row .img-wrapper > img {
+.event-banner {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.banner-placeholder {
+  width: 80%;
 }
 
 .event-detail-info-row > .event-details {
