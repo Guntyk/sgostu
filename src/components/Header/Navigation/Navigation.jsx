@@ -13,16 +13,13 @@ export default function Navigation({ openSideMenu, setOpenSideMenu }) {
       duration: 0.5,
       opacity: 1,
     });
-    navTimeline.to(
-      ".nav-link",
-      {
-        translateY: 0,
-        duration: 0.6,
-        opacity: 1,
-        ease: "Power4.easeOut",
-        stagger: 0.2,
-      }
-    );
+    navTimeline.to(".nav-link", {
+      translateX: 0,
+      duration: 0.6,
+      opacity: 1,
+      ease: "Power4.easeOut",
+      stagger: 0.1,
+    });
     navTimeline.to(
       ".cross",
       {
@@ -30,7 +27,9 @@ export default function Navigation({ openSideMenu, setOpenSideMenu }) {
         opacity: 1,
         rotate: 90,
         scale: 1,
-    }, "-=2");
+      },
+      "-=2"
+    );
   } else {
     navTimeline.to(".cross", {
       opacity: 0,
@@ -41,7 +40,7 @@ export default function Navigation({ openSideMenu, setOpenSideMenu }) {
     navTimeline.to(
       ".nav-link",
       {
-        translateY: 50,
+        translateX: -50,
         duration: 0.5,
         opacity: 0,
         ease: "Power1.easeIn",
@@ -62,7 +61,7 @@ export default function Navigation({ openSideMenu, setOpenSideMenu }) {
     });
   }
   return (
-    <section className={`navigation ${openSideMenu ? "active" : ""}`}>
+    <section className={`navigation ${openSideMenu && "active"}`}>
       <div className="nav-wrapper">
         <div className="nav-column">
           <span className="nav-link">
@@ -93,16 +92,6 @@ export default function Navigation({ openSideMenu, setOpenSideMenu }) {
               }}
             >
               Календар змагань
-            </Link>
-          </span>
-          <span className="nav-link">
-            <Link
-              to="/catalog"
-              onClick={() => {
-                setOpenSideMenu(false);
-              }}
-            >
-              Каталоги
             </Link>
           </span>
           <span className="nav-link">

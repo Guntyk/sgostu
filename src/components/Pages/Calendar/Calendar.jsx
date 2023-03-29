@@ -26,8 +26,22 @@ export default function Calendar() {
     "Листопад",
     "Грудень",
   ];
-  const months = monthsData.filter(
-    (month) => monthsData.indexOf(month) >= new Date().getMonth()
+  const months = monthsData
+    .filter((month) =>
+      events
+        .map((event) => new Date(event.attributes.start).getMonth())
+        .includes(monthsData.indexOf(month))
+    )
+    .filter((month) => monthsData.indexOf(month) >= new Date().getMonth());
+
+  console.log(
+    monthsData
+      .filter((month) =>
+        events
+          .map((event) => new Date(event.attributes.start).getMonth())
+          .includes(monthsData.indexOf(month))
+      )
+      .filter((month) => monthsData.indexOf(month) >= new Date().getMonth())
   );
 
   useEffect(() => {
@@ -48,7 +62,7 @@ export default function Calendar() {
             {months.map((month) => (
               <MonthSection
                 month={month}
-                monthIdx={months.indexOf(month) + new Date().getMonth()}
+                monthIdx={monthsData.indexOf(month)}
                 key={month}
                 events={events}
                 organizations={organizations}

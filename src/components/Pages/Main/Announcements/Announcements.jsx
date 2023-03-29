@@ -12,12 +12,13 @@ export default function Announcements({ articles }) {
         <div className="last-news-wrapper">
           {articles.length !== 0
             ? articles
-                .slice(0, 3)
                 .filter((article) => article.attributes.type === "Анонс")
+                .slice(-3)
+                .reverse()
                 .map((article) => (
                   <LastNewsCard key={article.id} article={article.attributes} />
                 ))
-            : console.log("Новин немає")}
+            : console.log("Анонсів немає")}
         </div>
       </div>
       <Swiper
@@ -33,8 +34,9 @@ export default function Announcements({ articles }) {
       >
         {articles.length !== 0 ? (
           articles
-            .slice(0, 3)
             .filter((article) => article.attributes.type === "Анонс")
+            .slice(-3)
+            .reverse()
             .map((article) => (
               <SwiperSlide key={article.id}>
                 <LastNewsCard article={article.attributes} />

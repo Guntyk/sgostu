@@ -1,29 +1,29 @@
 import EventInfo from "./components/Pages/Calendar/EventInfo/EventInfo";
 import Catalog from "./components/Pages/Catalogs/Catalog/Catalog";
+import NewsInfo from "./components/Pages/News/NewsInfo/NewsInfo";
 import Calendar from "./components/Pages/Calendar/Calendar";
 import Contacts from "./components/Pages/Contacts/Contacts";
 import Feedback from "./components/Pages/Feedback/Feedback";
 import NotFound from "./components/Pages/NotFound/NotFound";
 import Catalogs from "./components/Pages/Catalogs/Catalogs";
+import About from "./components/Pages/About/About";
 import { sendMessageToBot } from "./api/requests";
 import { Route, Switch } from "react-router-dom";
 import Header from "./components/Header/Header";
-import Loader from "./components/Loader/Loader";
 import Footer from "./components/Footer/Footer";
 import Main from "./components/Pages/Main/Main";
 import News from "./components/Pages/News/News";
-import About from "./components/Pages/About/About";
 import { useEffect, useState } from "react";
 
 export default function App() {
-  const [loading, setLoading] = useState(false);
-  useEffect(() => {
-    sendMessageToBot("Здійснено вхід на сайт");
-    setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-    }, 8000);
-  }, []);
+  // const [loading, setLoading] = useState(false);
+  // useEffect(() => {
+  //   sendMessageToBot("Здійснено вхід на сайт");
+  //   setLoading(true);
+  //   setTimeout(() => {
+  //     setLoading(false);
+  //   }, 8000);
+  // }, []);
 
   return (
     <>
@@ -38,12 +38,12 @@ export default function App() {
         <Route exact path="/calendar/:eventId">
           <EventInfo />
         </Route>
-        <Route exact path="/catalog">
+        {/* <Route exact path="/catalog">
           <Catalogs />
         </Route>
         <Route path="/catalog/:catalogs">
           <Catalog />
-        </Route>
+        </Route> */}
         <Route exact path="/contacts">
           <Contacts />
         </Route>
@@ -52,6 +52,9 @@ export default function App() {
         </Route>
         <Route exact path="/news">
           <News />
+        </Route>
+        <Route exact path="/news/:articleId">
+          <NewsInfo />
         </Route>
         <Route exact path="/about">
           <About />
