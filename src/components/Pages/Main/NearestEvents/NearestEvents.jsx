@@ -1,5 +1,4 @@
 import NearestEventSlide from "./NearestEventSlide/NearestEventSlide";
-import { eventsSelector } from "../../../../redux/events/selectors";
 import NearestEventCard from "./NearestEventCard/NearestEventCard";
 import Button from "../../../../common/Button/Button";
 import { EffectCoverflow, Pagination } from "swiper";
@@ -28,18 +27,13 @@ export default function NearestEvents({ events }) {
   return (
     <>
       <article className="nearest-events">
-        {/* <div className="nearest-events-title">
-          <p className="marquee">Найближчі заходи СГОСТУ</p>
-          <p className="marquee">Найближчі заходи СГОСТУ</p>
-        </div> */}
-
         <div class="nearest-events-title">
-          <h2>Найближчі заходи СГОСТУ</h2>
-          <h2>Найближчі заходи СГОСТУ</h2>
-          <h2>Найближчі заходи СГОСТУ</h2>
-          <h2>Найближчі заходи СГОСТУ</h2>
-          <h2>Найближчі заходи СГОСТУ</h2>
-          <h2>Найближчі заходи СГОСТУ</h2>
+          <p>Найближчі заходи СГОСТУ</p>
+          <p>Найближчі заходи СГОСТУ</p>
+          <p>Найближчі заходи СГОСТУ</p>
+          <p>Найближчі заходи СГОСТУ</p>
+          <p>Найближчі заходи СГОСТУ</p>
+          <p>Найближчі заходи СГОСТУ</p>
         </div>
         <div className="nearest-events-wrapper">
           {nearestEvents.length !== 0 ? (
