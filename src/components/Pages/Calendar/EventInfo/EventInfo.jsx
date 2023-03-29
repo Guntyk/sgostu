@@ -154,7 +154,15 @@ export default function EventInfo() {
                   ))}
                 </div>
               )}
-              {info === "Готелі" && event.hotels}
+              {info === "Готелі" && (
+                <iframe
+                  src={event.hotels}
+                  width="100%"
+                  height="490px"
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                />
+              )}
               {info === "Адреса" && (
                 <iframe
                   src={event.address}
