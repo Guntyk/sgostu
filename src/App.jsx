@@ -6,13 +6,13 @@ import Contacts from "./components/Pages/Contacts/Contacts";
 import Feedback from "./components/Pages/Feedback/Feedback";
 import NotFound from "./components/Pages/NotFound/NotFound";
 import Catalogs from "./components/Pages/Catalogs/Catalogs";
+import About from "./components/Pages/About/About";
 import { sendMessageToBot } from "./api/requests";
 import { Route, Switch } from "react-router-dom";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import Main from "./components/Pages/Main/Main";
 import News from "./components/Pages/News/News";
-import About from "./components/Pages/About/About";
 import { useEffect, useState } from "react";
 
 export default function App() {

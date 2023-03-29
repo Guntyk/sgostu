@@ -46,7 +46,7 @@
   width: 100%;
 }
 
-.nearest-events-title h2 {
+.nearest-events-title p {
   font-size: 1.75em;
   white-space: nowrap;
   padding: 0 1rem;

@@ -12,7 +12,7 @@ import { useState } from "react";
 import "./NewsInfo.css";
 
 export default function NewsInfo() {
-  const url = "https://backend-tbpix.ondigitalocean.app";
+  const url = "https://sgostu-backend.download";
   const articles = useSelector(articlesSelector);
   const [article, setArticle] = useState(null);
   const { articleId } = useParams();

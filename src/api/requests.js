@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const backendApi = axios.create({
-  baseURL: "https://backend-tbpix.ondigitalocean.app/api",
+  baseURL: "https://sgostu-backend.download/api",
 });
 
 backendApi.interceptors.response.use(

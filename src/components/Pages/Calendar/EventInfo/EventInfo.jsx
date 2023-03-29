@@ -1,4 +1,5 @@
 import { dateToLocalFormat } from "../../../../helpers/dateToLocalFormat";
+import couple from "../../../../materials/icons/calendar-card/couple.png";
 import { eventsSelector } from "../../../../redux/events/selectors";
 import { getEvents } from "../../../../redux/events/thunk";
 import { useDispatch, useSelector } from "react-redux";
@@ -11,7 +12,7 @@ import "./EventInfo.css";
 
 export default function EventInfo() {
   const [info, setInfo] = useState("Спонсори та партнери");
-  const url = "https://backend-tbpix.ondigitalocean.app";
+  const url = "https://sgostu-backend.download";
   const events = useSelector(eventsSelector);
   const [event, setEvent] = useState(null);
   const { eventId } = useParams();
@@ -55,11 +56,12 @@ export default function EventInfo() {
               <div className="img-wrapper">
                 {event.banner?.data ? (
                   <img
+                    className="event-banner"
                     src={url + event.banner.data?.attributes.url}
                     alt="Банер турніру"
                   />
                 ) : (
-                  <span>Не заповнено</span>
+                  <img className="banner-placeholder" src={couple} />
                 )}
               </div>
               <ul className="event-details">
@@ -70,7 +72,7 @@ export default function EventInfo() {
                   </span>
                   {event.organizations?.data
                     .map((organization) => organization.attributes.name)
-                    .join(", ")}
+                    .join(", ") || "Не вказано"}
                 </li>
                 <li>
                   <span className="event-detail-stroke-name">
@@ -97,9 +99,9 @@ export default function EventInfo() {
               <a
                 target="_blank"
                 rel="noreferrer"
-                href={url + event.entry.data?.attributes.url || ""}
+                href={event.link || url + event.entry.data?.attributes.url}
                 className={`btn event-info-btn ${
-                  !event.entry.data && "disabled"
+                  !event.entry.data && !event.link && "disabled"
                 }`}
               >
                 Інформація
@@ -154,7 +156,15 @@ export default function EventInfo() {
                   ))}
                 </div>
               )}
-              {info === "Готелі" && event.hotels}
+              {info === "Готелі" && (
+                <iframe
+                  src={event.hotels}
+                  width="100%"
+                  height="490px"
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                />
+              )}
               {info === "Адреса" && (
                 <iframe
                   src={event.address}

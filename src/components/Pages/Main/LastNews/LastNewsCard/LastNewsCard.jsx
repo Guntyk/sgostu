@@ -12,7 +12,7 @@ export default function LastNewsCard({ article, articleId }) {
           <div className="news-img-wrapper">
             <img
               className="news-img"
-              src={`https://backend-tbpix.ondigitalocean.app${article.front.data.attributes.url}`}
+              src={`https://sgostu-backend.download${article.front.data.attributes.url}`}
               alt="Фотографія новини"
             />
           </div>

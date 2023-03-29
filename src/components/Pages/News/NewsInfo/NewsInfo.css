@@ -10,13 +10,13 @@
 
 .article-img-wrapper {
   width: 35%;
-  columns: 2;
+  columns: 1;
   column-gap: 10px;
 }
 
 .article-img-wrapper.single {
   width: 30%;
-  columns: 1;
+  /* columns: 1; */
 }
 
 .article-img-wrapper .box {
@@ -55,14 +55,14 @@
   transform: translate(-50%, -50%) scale(4);
 }
 
-.article-img-wrapper .box:hover .hover {
+/* .article-img-wrapper .box:hover .hover {
   opacity: 1;
-}
+} */
 
-.article-img-wrapper.single .box:hover .hover {
+/* .article-img-wrapper.single .box:hover .hover {
   opacity: 0;
   pointer-events: none;
-}
+} */
 
 .article-text-wrapper {
   margin: 50px 0 0 40px;

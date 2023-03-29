@@ -18,7 +18,8 @@ export default function LastNews({ articles }) {
           {articles.length !== 0 ? (
             articles
               .filter((article) => article.attributes.type === "Новина")
-              .slice(0, 3)
+              .slice(-3)
+              .reverse()
               .map((article) => (
                 <LastNewsCard
                   key={article.id}
@@ -45,7 +46,8 @@ export default function LastNews({ articles }) {
         {articles.length !== 0 ? (
           articles
             .filter((article) => article.attributes.type === "Новина")
-            .slice(0, 3)
+            .slice(-3)
+            .reverse()
             .map((article) => (
               <SwiperSlide key={article.id}>
                 <LastNewsCard
