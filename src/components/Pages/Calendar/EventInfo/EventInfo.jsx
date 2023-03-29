@@ -11,7 +11,7 @@ import "./EventInfo.css";
 
 export default function EventInfo() {
   const [info, setInfo] = useState("Спонсори та партнери");
-  const url = "https://backend-tbpix.ondigitalocean.app";
+  const url = "https://sgostu-backend.download";
   const events = useSelector(eventsSelector);
   const [event, setEvent] = useState(null);
   const { eventId } = useParams();

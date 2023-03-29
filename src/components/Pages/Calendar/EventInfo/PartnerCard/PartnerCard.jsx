@@ -11,7 +11,7 @@ export default function PartnerCard({ partner }) {
       <img
         className="partner-img"
         src={
-          "https://backend-tbpix.ondigitalocean.app" +
+          "https://sgostu-backend.download" +
           partner.logo.data.attributes.url
         }
         alt="Логотип спонсора/партнера заходу"
