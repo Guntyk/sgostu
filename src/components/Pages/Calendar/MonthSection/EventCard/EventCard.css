@@ -95,21 +95,26 @@
 
 @media (max-width: 1150px) {
   .event-card {
-    padding: 15px 1.184615em 32px;
+    padding: 15px 1.2em 15px;
   }
   .event-title {
-    font-size: 1.31846em;
+    font-size: 1.5em;
+  }
+  .event-organizer {
+    font-size: 0.9em;
+    line-height: 1.2;
   }
 }
-
 @media (max-width: 840px) {
   .event-card {
-    padding: 15px 0.484615em 32px;
+    padding: 15px 0.5em 15px;
   }
   .event-title {
-    font-size: 1.29em;
+    font-size: 1.5em;
   }
-  .event-status {
-    font-size: 12px;
+}
+@media (max-width: 550px) {
+  .event-title {
+    font-size: 1.8em;
   }
 }
