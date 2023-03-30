@@ -16,7 +16,11 @@ export default function Announcements({ articles }) {
                 .slice(-3)
                 .reverse()
                 .map((article) => (
-                  <LastNewsCard key={article.id} article={article.attributes} />
+                  <LastNewsCard
+                    key={article.id}
+                    article={article.attributes}
+                    articleId={article.id}
+                  />
                 ))
             : console.log("Анонсів немає")}
         </div>
@@ -39,7 +43,10 @@ export default function Announcements({ articles }) {
             .reverse()
             .map((article) => (
               <SwiperSlide key={article.id}>
-                <LastNewsCard article={article.attributes} />
+                <LastNewsCard
+                  article={article.attributes}
+                  articleId={article.id}
+                />
               </SwiperSlide>
             ))
         ) : (

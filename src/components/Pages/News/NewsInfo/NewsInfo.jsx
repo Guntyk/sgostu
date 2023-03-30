@@ -35,7 +35,7 @@ export default function NewsInfo() {
   return (
     <>
       {article ? (
-        article.type === "Новина" ? (
+        article.type === "Новина" || article.type === "Анонс" ? (
           <div className="article-info">
             <div className="container">
               <div className="article-wrapper">
