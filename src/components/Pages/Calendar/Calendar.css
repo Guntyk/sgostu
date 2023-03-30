@@ -16,8 +16,20 @@
   justify-content: center;
 }
 
+@media (max-width: 840px) {
+  .calendar {
+    background-size: 80% 170%;
+    background-position: 0% 0%, 100% 113%;
+  }
+}
+
 @media (max-width: 550px) {
   .calendar {
     font-size: 0.7rem;
+    background: url(../../../materials/backgrounds/mobile/waves-left.svg),
+      url(../../../materials/backgrounds/mobile/waves-right.svg);
+    background-repeat: no-repeat, no-repeat;
+    background-position: 0 -20%, 100% 135%;
+    background-size: 90% 150%;
   }
 }
