@@ -8,8 +8,8 @@ import gsap, { Power2 } from "gsap";
 import "./News.css";
 
 export default function News() {
-  const articles = useSelector(articlesSelector);
   const newsTL = gsap.timeline({ repeat: 0, ease: Power2.easeOut });
+  const articles = useSelector(articlesSelector);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -24,12 +24,16 @@ export default function News() {
       duration: 0.5,
       y: -100,
     });
-    newsTL.from(".last-news-card", {
-      duration: 0.7,
-      y: 50,
-      opacity: 0,
-      stagger: 0.15,
-    }, "-=0.1");
+    newsTL.from(
+      ".last-news-card",
+      {
+        duration: 0.7,
+        y: 50,
+        opacity: 0,
+        stagger: 0.15,
+      },
+      "-=0.1"
+    );
   }, [articles]);
 
   return (
