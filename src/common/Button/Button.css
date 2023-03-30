@@ -139,3 +139,14 @@
   color: #fff;
   background-color: #252525;
 }
+
+.back-link {
+  display: inline;
+  width: auto;
+  height: auto;
+  border: none;
+}
+
+.back-link:hover {
+  background: none;
+}
