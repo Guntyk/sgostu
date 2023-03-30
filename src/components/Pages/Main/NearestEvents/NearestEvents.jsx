@@ -1,5 +1,4 @@
-import NearestEventSlide from "./NearestEventSlide/NearestEventSlide";
-import NearestEventCard from "./NearestEventCard/NearestEventCard";
+import EventCard from "../../Calendar/MonthSection/EventCard/EventCard";
 import Button from "../../../../common/Button/Button";
 import { EffectCoverflow, Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -38,7 +37,12 @@ export default function NearestEvents({ events }) {
         <div className="nearest-events-wrapper">
           {nearestEvents.length !== 0 ? (
             nearestEvents.map((event) => (
-              <NearestEventCard event={event.attributes} key={event.id} />
+              <EventCard
+                className="nearest-event-card"
+                event={event.attributes}
+                eventId={event.id}
+                key={event.id}
+              />
             ))
           ) : (
             <span className="event-void">На жаль, заходів немає</span>
@@ -58,7 +62,12 @@ export default function NearestEvents({ events }) {
           {nearestEvents.length !== 0 ? (
             nearestEvents.map((event) => (
               <SwiperSlide key={event.id}>
-                <NearestEventSlide event={event.attributes} />
+                <EventCard
+                  className="nearest-event-card"
+                  event={event.attributes}
+                  eventId={event.id}
+                  key={event.id}
+                />
               </SwiperSlide>
             ))
           ) : (

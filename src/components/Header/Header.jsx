@@ -21,14 +21,10 @@ export default function Header() {
                   className={`ham-line top-bun ${openSideMenu && "active"}`}
                 ></span>
                 <span
-                  className={`ham-line stuffing ${
-                    openSideMenu ? "active" : ""
-                  }`}
+                  className={`ham-line stuffing ${openSideMenu && "active"}`}
                 ></span>
                 <span
-                  className={`ham-line bottom-bun ${
-                    openSideMenu ? "active" : ""
-                  }`}
+                  className={`ham-line bottom-bun ${openSideMenu && "active"}`}
                 ></span>
               </div>
               <a href="/" className="name">
@@ -39,7 +35,10 @@ export default function Header() {
           </div>
         </div>
       </header>
-      <Navigation openSideMenu={openSideMenu} setOpenSideMenu={setOpenSideMenu}/>
+      <Navigation
+        openSideMenu={openSideMenu}
+        setOpenSideMenu={setOpenSideMenu}
+      />
     </>
   );
 }

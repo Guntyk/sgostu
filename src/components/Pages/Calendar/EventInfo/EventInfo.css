@@ -192,6 +192,9 @@
 }
 
 @media (max-width: 840px) {
+  .event-info {
+    padding-top: 80px;
+  }
   .event-detail-info-row .img-wrapper {
     min-width: 230px;
     max-width: 230px;
@@ -204,6 +207,8 @@
 
 @media (max-width: 550px) {
   .event-detail-info-row:nth-child(3) {
+    font-size: 0.75rem;
+    --gap: 1em;
     margin: 40px 0;
   }
   .event-detail-info-row > .event-details {

@@ -3,25 +3,14 @@ import trofey from "../../../../../materials/icons/calendar-card/trofey.png";
 import master from "../../../../../materials/icons/calendar-card/master.png";
 import SpartakIcon from "../../../../../materials/icons/categories/Spartak";
 import crowd from "../../../../../materials/icons/calendar-card/crowd.png";
-import SgostuIcon from "../../../../../materials/icons/categories/Sgostu";
 import GlobeIcon from "../../../../../materials/icons/categories/Globe";
 import StarIcon from "../../../../../materials/icons/categories/Star";
 import Button from "../../../../../common/Button/Button";
 import { useHistory } from "react-router-dom";
-import { useEffect, useState } from "react";
 import "./EventCard.css";
 
-export default function EventCard({ event, eventId }) {
-  // console.log(
-  //   ...event.organizations.data.map(
-  //     (organization) => organization.attributes.name === "СГОСТУ"
-  //   )
-  // );
-  const [empty, setEmpty] = useState("");
-  // useEffect(() => {
-  //   if (event.spartak || event.rating || event.foreign)
-  //     setEmpty("hide-categories");
-  // }, []);
+export default function EventCard({ event, eventId, className }) {
+  const { push } = useHistory();
 
   function Category({ type }) {
     if (type === "Змагання") {
@@ -35,11 +24,8 @@ export default function EventCard({ event, eventId }) {
     }
   }
 
-  const cardClassName = `event-card ${empty}`;
-  const { push } = useHistory();
-
   return (
-    <div className={cardClassName}>
+    <div className={`event-card ${className}`}>
       <span className="event-date">
         {dateToLocalFormat(event.start).slice(0, 5)}
       </span>

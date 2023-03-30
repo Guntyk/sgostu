@@ -1,7 +1,7 @@
 .calendar-month {
-  margin: 75px auto 0 auto;
+  margin: 4.7em auto 0 auto;
   width: 84%;
-  /* border: 2px solid blue; */
+  font-size: 1rem;
 }
 
 .calendar-month-title {
@@ -75,5 +75,11 @@
   .calendar-month,
   .events-slider {
     width: 100%;
+  }
+}
+
+@media (max-width: 550px) {
+  .calendar-month {
+    font-size: 0.5rem;
   }
 }
