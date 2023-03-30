@@ -1,5 +1,5 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination } from "swiper";
+import { Navigation, Pagination, FreeMode } from "swiper";
 import EventCard from "./EventCard/EventCard";
 import { useEffect } from "react";
 import "swiper/css/navigation";
@@ -21,7 +21,9 @@ export default function MonthSection({ month, monthIdx, events }) {
 
   return (
     <section className="calendar-month">
-      <span className="calendar-month-title">{month}:</span>
+      <div className="container">
+        <span className="calendar-month-title">{month}:</span>
+      </div>
       <div className="events-slider-wrapper">
         <div className={`arrow arrow-left arrow-left${monthIdx}`}>
           <span className="arrow-line"></span>
@@ -36,10 +38,11 @@ export default function MonthSection({ month, monthIdx, events }) {
             prevEl: `.arrow-left${monthIdx}`,
             disabledClass: `arrow-disabled`,
           }}
-          modules={[Navigation, Pagination]}
+          modules={[Navigation, Pagination, FreeMode]}
           id={`swiper${monthIdx}`}
           spaceBetween={10}
           pagination={{ clickable: true }}
+          // freeMode={{ enabled: true, momentumBounce: false, momentumVelocityRatio: 0.5 }}
           // Responsive breakpoints
           breakpoints={{
             // when window width is >= 320px
@@ -51,7 +54,7 @@ export default function MonthSection({ month, monthIdx, events }) {
               spaceBetween: 20,
             },
             360: {
-              slidesPerView: 2,
+              slidesPerView: 2.2,
               spaceBetween: 20,
             },
             // when window width is >= 480px

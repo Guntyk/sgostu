@@ -91,7 +91,7 @@ export default function Navigation({ openSideMenu, setOpenSideMenu }) {
     navTimeline.to(
       ".nav-link",
       {
-        width: "200%",
+        width: "300%",
         translateX: "-20%",
         duration: 0.5,
         opacity: 0,

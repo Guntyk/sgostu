@@ -1,14 +1,21 @@
 import { dateToLocalFormat } from "../../../../../helpers/dateToLocalFormat";
 import Button from "../../../../../common/Button/Button";
 import { useHistory } from "react-router-dom";
+import { useState } from "react";
 import "./LastNewsCard.css";
 
 export default function LastNewsCard({ article, articleId }) {
+  const [openCard, setOpenCard] = useState(false);
   const { push } = useHistory();
   return (
     <>
       {article ? (
-        <div className="last-news-card">
+        <div
+          className={`last-news-card ${openCard ? "active" : ""}`}
+          onClick={() => {
+            setOpenCard(!openCard);
+          }}
+        >
           <div className="news-img-wrapper">
             <img
               className="news-img"

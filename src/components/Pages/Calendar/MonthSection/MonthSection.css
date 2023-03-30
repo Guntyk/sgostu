@@ -10,6 +10,7 @@
 }
 
 .events-slider {
+  padding: 0 10px !important;
   margin-top: 2.375rem;
   width: 80%;
 }
