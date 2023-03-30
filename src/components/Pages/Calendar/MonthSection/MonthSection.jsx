@@ -50,7 +50,7 @@ export default function MonthSection({ month, monthIdx, events }) {
               slidesPerView: 1,
               spaceBetween: 20,
             },
-            400: {
+            360: {
               slidesPerView: 2,
               spaceBetween: 20,
             },
