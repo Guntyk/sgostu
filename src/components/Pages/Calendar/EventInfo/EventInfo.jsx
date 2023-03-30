@@ -3,8 +3,9 @@ import couple from "../../../../materials/icons/calendar-card/couple.png";
 import { eventsSelector } from "../../../../redux/events/selectors";
 import { getEvents } from "../../../../redux/events/thunk";
 import { useDispatch, useSelector } from "react-redux";
+import Button from "../../../../common/Button/Button";
 import PartnerCard from "./PartnerCard/PartnerCard";
-import { Link, useParams } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import Loader from "../../../Loader/Loader";
 import { useEffect } from "react";
 import { useState } from "react";
@@ -17,6 +18,7 @@ export default function EventInfo() {
   const [event, setEvent] = useState(null);
   const { eventId } = useParams();
   const dispatch = useDispatch();
+  const { goBack } = useHistory();
 
   useEffect(() => {
     if (events.length === 0) {
@@ -49,9 +51,11 @@ export default function EventInfo() {
       {event ? (
         <article className="event-info">
           <div className="container event-details-container">
-            <Link className="back-link" to="/calendar">
-              ˂ Назад
-            </Link>
+            <Button
+              buttonText="˂ Назад"
+              className="back-link"
+              onClick={goBack}
+            />
             <div className="event-detail-info-row">
               <div className="img-wrapper">
                 {event.banner?.data ? (
