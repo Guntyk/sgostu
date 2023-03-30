@@ -1,3 +1,5 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowDown } from "@fortawesome/free-solid-svg-icons";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { useEffect } from "react";
 import gsap from "gsap";
@@ -48,6 +50,7 @@ export default function Hero() {
           <span className="title-stroke"> спортивного танцю України</span>
         </div>
       </h1>
+      <FontAwesomeIcon className="hero-arrow-down" icon={faArrowDown} fade />
       <span className="blur"></span>
     </div>
   );

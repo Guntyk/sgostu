@@ -41,6 +41,16 @@
   transition: 0.1s;
 }
 
+.hero-arrow-down {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  font-size: 3em;
+  font-weight: 200;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
 .blur {
   display: inline-block;
   position: absolute;
