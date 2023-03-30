@@ -40,6 +40,7 @@ export default function LastNews({ articles }) {
         slideToClickedSlide={true}
         effect={"coverflow"}
         pagination={true}
+        centeredSlides={true}
         coverflowEffect={{ rotate: 0, slideShadows: false, scale: 0.8 }}
         modules={[EffectCoverflow, Pagination]}
       >

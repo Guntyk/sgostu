@@ -25,11 +25,17 @@
     font-size: 0.8rem;
   }
   .news-slider {
-    /* padding: 8.125em calc(48% - 10em) !important; */
-    width: 20em;
-    padding: 30px calc(36% - 7.625em) !important;
+    width: 25em;
+    padding: 30px calc(40% - 7.625em) !important;
   }
 }
+
+@media (max-width: 650px) {
+  .news-slider {
+    width: 21em;
+  }
+}
+
 @media (max-width: 550px) {
   .news {
     padding: 5em 0;
@@ -41,5 +47,8 @@
   .news .last-news-card {
     padding: 5px;
     width: calc(100% / 2 - 17px);
+  }
+  .news-slider {
+    width: 21em;
   }
 }
