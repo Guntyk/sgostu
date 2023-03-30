@@ -45,20 +45,20 @@ export default function Calendar() {
     }
   }, []);
 
-  useEffect(() => {
-    calendarTL.from(".calendar-title", {
-      delay: 0.5,
-      y: -250,
-      duration: 0.5,
-      ease: Power2.easeOut,
-    });
-    calendarTL.from(".calendar-month", {
-      duration: 1,
-      scale: 0,
-      stagger: 0.3,
-      ease: Back.easeOut.config(1.3),
-    });
-  }, [events, months]);
+  // useEffect(() => {
+  //   calendarTL.from(".calendar-title", {
+  //     delay: 1,
+  //     y: -250,
+  //     duration: 0.5,
+  //     ease: Power2.easeOut,
+  //   });
+  //   calendarTL.from(".calendar-month", {
+  //     duration: 1,
+  //     scale: 0,
+  //     stagger: 0.3,
+  //     ease: Back.easeOut.config(1.3),
+  //   });
+  // }, [events, months]);
 
   return (
     <>
