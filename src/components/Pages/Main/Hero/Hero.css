@@ -11,25 +11,35 @@
 
 .title {
   width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
   font-family: "e-Ukraine-Head", sans-serif;
   font-size: 4rem;
   line-height: 1.2;
   text-align: center;
-  position: absolute;
-  top: 50%;
-  left: 50%;
+  cursor: default;
   transform: translate(-50%, -50%);
   z-index: 1;
+  border: 2px solid red;
 }
 
 .title > div {
   min-height: 65px;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 .title > div > span {
   display: block;
   transform: translateY(100%);
+}
+
+.hero-cursor {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: 0.1s;
 }
 
 .blur {

@@ -7,11 +7,18 @@ gsap.registerPlugin(ScrollTrigger);
 export default function Hero() {
   useEffect(() => {
     setTimeout(() => {
+      // const cursor = document.querySelector(".hero-cursor");
+
       gsap.to(".title-stroke", {
         y: 0,
         duration: 0.55,
         onComplete: parallaxText(),
       });
+
+      // document.addEventListener("mousemove", (e) => {
+      //   const y = e.clientY - 400;
+      //   cursor.style.cssText = "left: " + e.clientX + "px; top: " + y + "px; transform: translate(-50%, -50%) scale(1)";
+      // });
     }, 500);
   }, []);
 
@@ -31,6 +38,9 @@ export default function Hero() {
   return (
     <div className="hero">
       <h1 className="title">
+        {/* <svg width="300" height="300" className="hero-cursor">
+          <circle fill="#0ff" r="100" cx="50%" cy="50%"></circle>
+        </svg> */}
         <div>
           <span className="title-stroke">Спілка громадських організацій</span>
         </div>
