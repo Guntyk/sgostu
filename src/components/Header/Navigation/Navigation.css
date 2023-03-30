@@ -45,12 +45,12 @@
   color: #fff;
 }
 
-.nav-link-name {
+.nav-link-number {
   position: relative;
   z-index: 5;
 }
 
-.nav-link-name::before {
+.nav-link-number::before {
   content: "";
   position: absolute;
   top: 50%;
@@ -63,7 +63,7 @@
   z-index: 3;
 }
 
-.nav-link:hover .nav-link-name::before {
+.nav-link:hover .nav-link-number::before {
   width: 150%;
 }
 
@@ -158,18 +158,27 @@
   .nav-link {
     font-size: 2.18rem;
   }
+  .nav-link:hover {
+    width: 80% !important;
+    color: var(--primary-black);
+  }
+  .nav-link:hover .nav-link-number::before {
+    width: 0;
+  }
 }
 
 @media (max-width: 550px) {
   .nav-wrapper {
     margin: 0 auto;
+    height: 80%;
   }
   .nav-link {
+    width: 500%;
     font-family: "e-Ukraine-Thin";
     letter-spacing: 2px;
     line-height: 1.2;
   }
-  .nav-link:not(:first-child) {
-    border-top: 1.5px solid var(--primary-black);
+  .nav-link-name {
+    max-width: 10%;
   }
 }

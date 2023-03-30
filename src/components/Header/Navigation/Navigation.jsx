@@ -145,8 +145,8 @@ export default function Navigation({ openSideMenu, setOpenSideMenu }) {
             setOpenSideMenu(false);
           }}
         >
-          Головна
-          <span className="nav-link-name">01</span>
+          <span className="nav-link-name">Головна</span>
+          <span className="nav-link-number">01</span>
         </Link>
         <hr className="nav-line" />
         <Link
@@ -156,8 +156,8 @@ export default function Navigation({ openSideMenu, setOpenSideMenu }) {
             setOpenSideMenu(false);
           }}
         >
-          Новини
-          <span className="nav-link-name">02</span>
+          <span className="nav-link-name">Новини</span>
+          <span className="nav-link-number">02</span>
         </Link>
         <hr className="nav-line" />
         <Link
@@ -167,8 +167,8 @@ export default function Navigation({ openSideMenu, setOpenSideMenu }) {
             setOpenSideMenu(false);
           }}
         >
-          Календар змагань
-          <span className="nav-link-name">03</span>
+          <span className="nav-link-name">Календар змагань</span>
+          <span className="nav-link-number">03</span>
         </Link>
         <hr className="nav-line" />
         <Link
@@ -178,8 +178,8 @@ export default function Navigation({ openSideMenu, setOpenSideMenu }) {
             setOpenSideMenu(false);
           }}
         >
-          Контакти
-          <span className="nav-link-name">04</span>
+          <span className="nav-link-name">Контакти</span>
+          <span className="nav-link-number">04</span>
         </Link>
         <hr className="nav-line" />
         <Link
@@ -189,8 +189,8 @@ export default function Navigation({ openSideMenu, setOpenSideMenu }) {
             setOpenSideMenu(false);
           }}
         >
-          Зворотній зв'язок
-          <span className="nav-link-name">05</span>
+          <span className="nav-link-name">Зворотній зв'язок</span>
+          <span className="nav-link-number">05</span>
         </Link>
       </div>
     </section>
