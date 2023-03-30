@@ -53,8 +53,6 @@ export default function Calendar() {
       ease: Back.easeOut.config(1.3),
     });
   }
-  // useEffect(() => {
-  // }, [events, months]);
 
   return (
     <>

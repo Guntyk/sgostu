@@ -13,7 +13,6 @@
   backdrop-filter: blur(10px) !important;
   background-color: transparent !important;
   text-align: center;
-  transition: 0.3s;
   padding-bottom: 25px;
 }
 
