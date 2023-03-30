@@ -1,7 +1,8 @@
 .partners-wrapper {
+  --columns-count: 5;
   padding: 15px 15px 30px 15px;
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(var(--columns-count), 1fr);
 }
 
 .partner-card {
@@ -10,7 +11,8 @@
   justify-content: center;
   align-items: center;
   padding: 0 10px;
-  height: calc(90vw / 5 - 8px);
+  height: calc(90vw / var(--columns-count) - 8px);
+  line-height: 1.2;
   text-align: center;
   border: 1px solid #0e0e0e59;
   border-collapse: collapse;
@@ -34,4 +36,16 @@
   width: 100%;
   height: 60%;
   object-fit: contain;
+}
+
+@media (max-width: 1150px) {
+  .partners-wrapper {
+    --columns-count: 4;
+  }
+}
+@media (max-width: 840px) {
+  .partners-wrapper {
+    --columns-count: 3;
+    font-size: 70%;
+  }
 }

@@ -21,14 +21,10 @@ export default function Header() {
                   className={`ham-line top-bun ${openSideMenu && "active"}`}
                 ></span>
                 <span
-                  className={`ham-line stuffing ${
-                    openSideMenu ? "active" : ""
-                  }`}
+                  className={`ham-line stuffing ${openSideMenu && "active"}`}
                 ></span>
                 <span
-                  className={`ham-line bottom-bun ${
-                    openSideMenu ? "active" : ""
-                  }`}
+                  className={`ham-line bottom-bun ${openSideMenu && "active"}`}
                 ></span>
               </div>
               <a href="/" className="name">
@@ -36,19 +32,13 @@ export default function Header() {
                 <span className="company-name">СГОСТУ</span>
               </a>
             </div>
-            <div
-              className={`cross ${openSideMenu ? "active" : ""}`}
-              onClick={() => {
-                setOpenSideMenu(false);
-              }}
-            >
-              <span className="cross-line"></span>
-              <span className="cross-line"></span>
-            </div>
           </div>
         </div>
       </header>
-      <Navigation openSideMenu={openSideMenu} setOpenSideMenu={setOpenSideMenu}/>
+      <Navigation
+        openSideMenu={openSideMenu}
+        setOpenSideMenu={setOpenSideMenu}
+      />
     </>
   );
 }

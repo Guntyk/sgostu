@@ -1,8 +1,23 @@
 .calendar {
-    padding: 154px 0;
+  padding: 10em 0;
+  font-size: 1rem;
+  background: url(../../../materials/backgrounds/waves-left.svg) 0% 95%
+      no-repeat,
+    url(../../../materials/backgrounds/waves-right.svg) top right no-repeat;
 }
 
 .calendar-title {
-    font-size: 2.375rem;
-    line-height: 2.5rem;
+  font-size: 2.375rem;
+  line-height: 2.5rem;
+}
+
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 550px) {
+  .calendar {
+    font-size: 0.7rem;
+  }
 }
