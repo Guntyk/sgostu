@@ -40,9 +40,6 @@ export default function Hero() {
   return (
     <div className="hero">
       <h1 className="title">
-        {/* <svg width="300" height="300" className="hero-cursor">
-          <circle fill="#0ff" r="100" cx="50%" cy="50%"></circle>
-        </svg> */}
         <div>
           <span className="title-stroke">Спілка громадських організацій</span>
         </div>
