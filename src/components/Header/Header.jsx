@@ -36,15 +36,6 @@ export default function Header() {
                 <span className="company-name">СГОСТУ</span>
               </a>
             </div>
-            <div
-              className={`cross ${openSideMenu ? "active" : ""}`}
-              onClick={() => {
-                setOpenSideMenu(false);
-              }}
-            >
-              <span className="cross-line"></span>
-              <span className="cross-line"></span>
-            </div>
           </div>
         </div>
       </header>

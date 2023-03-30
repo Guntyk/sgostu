@@ -27,7 +27,7 @@ export default function NearestEvents({ events }) {
   return (
     <>
       <article className="nearest-events">
-        <div class="nearest-events-title">
+        <div className="nearest-events-title">
           <p>Найближчі заходи СГОСТУ</p>
           <p>Найближчі заходи СГОСТУ</p>
           <p>Найближчі заходи СГОСТУ</p>

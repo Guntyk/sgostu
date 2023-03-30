@@ -34,16 +34,6 @@ export default function Calendar() {
     )
     .filter((month) => monthsData.indexOf(month) >= new Date().getMonth());
 
-  console.log(
-    monthsData
-      .filter((month) =>
-        events
-          .map((event) => new Date(event.attributes.start).getMonth())
-          .includes(monthsData.indexOf(month))
-      )
-      .filter((month) => monthsData.indexOf(month) >= new Date().getMonth())
-  );
-
   useEffect(() => {
     if (events.length === 0) {
       dispatch(getEvents());
