@@ -63,13 +63,6 @@
   .news-slider {
     display: block;
   }
-  .last-news-card:active {
-    box-shadow: 0 10px 15px 0 #9c9c9c8a;
-  }
-
-  .last-news-card .news-img-wrapper:active {
-    min-height: 60%;
-  }
 }
 
 @media (max-width: 550px) {

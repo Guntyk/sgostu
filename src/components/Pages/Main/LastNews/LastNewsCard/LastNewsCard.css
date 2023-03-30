@@ -15,12 +15,7 @@
   backdrop-filter: blur(10px) !important;
   background-color: transparent !important;
   text-align: center;
-  transition: 0.3s;
   padding-bottom: 25px;
-}
-
-.last-news-card:hover {
-  box-shadow: 0 10px 15px 0 #9c9c9c8a;
 }
 
 .last-news-card:hover .news-img-wrapper {
@@ -58,6 +53,12 @@
 @media (max-width: 840px) {
   .last-news-card {
     width: calc(25em - var(--padding) * 2 - 2px);
+  }
+  .last-news-card:hover .news-img-wrapper {
+    min-height: 100%;
+  }
+  .last-news-card.active .news-img-wrapper {
+    min-height: 60%;
   }
 }
 

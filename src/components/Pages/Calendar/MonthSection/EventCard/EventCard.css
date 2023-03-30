@@ -26,7 +26,6 @@
   border-radius: 50%;
   border: 1px solid #0e0e0e59;
   box-shadow: 0 0 20px 0 #9c9c9c8a;
-  background: #fff;
   transform: translateX(-50%);
   z-index: 0;
 }
