@@ -106,6 +106,11 @@
   border-radius: 50px;
 }
 
+.nearest-event-card {
+  width: 17em;
+  height: 27em;
+}
+
 @media (max-width: 1150px) {
   .nearest-events {
     font-size: 0.9rem;
@@ -113,25 +118,18 @@
 }
 
 @media (max-width: 840px) {
-  .nearest-events {
-    font-size: 0.65rem;
+  .nearest-event-card {
+    font-size: 0.7em;
   }
   .nearest-events-wrapper {
     gap: 15px;
-  }
-  .nearest-event-card {
-    background-size: 65% !important;
   }
 }
 
 @media (max-width: 550px) {
   .nearest-events-title {
-    font-size: 3em;
+    font-size: 1.25em !important; 
   }
-  .nearest-events-title h2 {
-    font-size: 28px;
-  }
-
   .nearest-events-wrapper {
     display: none;
   }
@@ -143,5 +141,8 @@
   }
   .event-void {
     font-size: 1.5rem;
+  }
+  .nearest-event-card {
+    font-size: 0.9em;
   }
 }

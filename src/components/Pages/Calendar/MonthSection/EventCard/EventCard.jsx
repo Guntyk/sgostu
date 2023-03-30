@@ -9,7 +9,7 @@ import Button from "../../../../../common/Button/Button";
 import { useHistory } from "react-router-dom";
 import "./EventCard.css";
 
-export default function EventCard({ event, eventId }) {
+export default function EventCard({ event, eventId, className }) {
   const { push } = useHistory();
 
   function Category({ type }) {
@@ -25,7 +25,7 @@ export default function EventCard({ event, eventId }) {
   }
 
   return (
-    <div className="event-card">
+    <div className={`event-card ${className}`}>
       <span className="event-date">
         {dateToLocalFormat(event.start).slice(0, 5)}
       </span>
