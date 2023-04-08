@@ -28,6 +28,7 @@ export default function EventCard({ event, eventId, className }) {
     <div className={`event-card ${className}`}>
       <span className="event-date">
         {dateToLocalFormat(event.start).slice(0, 5)}
+        {event.end && " — " + dateToLocalFormat(event.end).slice(0, 5)}
       </span>
       <span className="event-town">{event.town}</span>
       <p className="event-title">{event.title}</p>
