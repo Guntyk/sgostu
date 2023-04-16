@@ -33,15 +33,20 @@ export default function About() {
         <div className="about-wrapper">
           <div className="about-text">
             <div className="about-row">
-              <span>СГОСТУ</span>
+              <span>{language === "ua" ? "СГОСТУ" : "SGOSTU"}</span>
               <hr />
             </div>
             <p>
-              Це одна з наймасовіших громадських організацій спортивного танцю
-              України. Існує понад 20 років, має представництва у більшості
+              {language === "ua"
+                ? `Це одна з наймасовіших громадських організацій спортивного танцю України. Існує понад 20 років, має представництва у більшості
               регіонів та областей. Пріоритети - це автоматизація процесів,
               командна робота, сучасний підхід. Наша організація - частина
-              танцювального світу, який ми робимо кращим!
+              танцювального світу, який ми робимо кращим!`
+                : `It is one of the largest public organizations of sports dance
+               of Ukraine. It has existed for more than 20 years and has representation in the majority
+               regions and regions. Priorities are process automation,
+               teamwork, modern approach. Our organization is a part
+               of the dance world, which we make better!`}
             </p>
           </div>
           <div className="circular">
@@ -49,14 +54,15 @@ export default function About() {
               <path d="M 0,50 a 50,50 0 1,1 0,1 z" fill="none" id="circle" />
               <text className="about-btn-text">
                 <textPath href="#circle">
-                  Про нас Про нас Про нас Про нас Про нас Про нас Про нас Про
-                  нас
+                  {language === "ua"
+                    ? "Про нас Про нас Про нас Про нас Про нас Про нас Про нас Про нас"
+                    : "About us About us About us"}
                 </textPath>
               </text>
             </svg>
             <Button
               className="about-btn"
-              buttonText="Більше"
+              buttonText={language === "ua" ? "Більше" : "More"}
               onClick={() => {
                 push("/about");
               }}

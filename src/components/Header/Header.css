@@ -92,7 +92,7 @@
   .cross::before {
     width: 150%;
     height: 150%;
-   }
+  }
 }
 
 @media (max-width: 550px) {
