@@ -7,12 +7,9 @@ import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
 import "./NearestEvents.css";
 import "swiper/css";
-import { useContext } from "react";
-import { LanguageContext } from "../../../../App";
 
 export default function NearestEvents({ events }) {
-  const { language } = useContext(LanguageContext);
-
+  const language = window.localStorage.getItem("language");
   const history = useHistory();
   const nearestEvents = events
     .map((event) => {

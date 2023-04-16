@@ -1,10 +1,7 @@
-import { useContext } from "react";
 import "./Contacts.css";
-import { LanguageContext } from "../../../App";
 
 export default function Contacts() {
-  const { language } = useContext(LanguageContext);
-
+  const language = window.localStorage.getItem("language");
   return (
     <article className="contacts">
       <div className="container">
