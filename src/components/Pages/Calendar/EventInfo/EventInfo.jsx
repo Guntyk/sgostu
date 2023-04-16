@@ -6,15 +6,13 @@ import { useHistory, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import Button from "../../../../common/Button/Button";
 import PartnerCard from "./PartnerCard/PartnerCard";
-import { LanguageContext } from "../../../../App";
 import Loader from "../../../Loader/Loader";
-import { useContext } from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import "./EventInfo.css";
 
 export default function EventInfo() {
-  const { language } = useContext(LanguageContext);
+  const language = window.localStorage.getItem("language");
   const [info, setInfo] = useState("Спонсори та партнери");
   const url = "https://sgostu-backend.download";
   const events = useSelector(eventsSelector);

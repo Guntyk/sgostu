@@ -7,9 +7,8 @@ import "./Feedback.css";
 import { LanguageContext } from "../../../../App";
 
 export default function Feedback() {
-  const { language } = useContext(LanguageContext);
-
-  const [submitText, setSubmitText] = useState("Відіслати");
+  const language = window.localStorage.getItem("language");
+  const [submitText, setSubmitText] = useState();
   useEffect(() => {
     const labels = document.querySelectorAll(".form-control .label");
 
@@ -22,7 +21,9 @@ export default function Feedback() {
         )
         .join("");
     });
-  }, []);
+
+    setSubmitText(language === "ua" ? "Відіслати" : "Send");
+  }, [language]);
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -33,7 +34,7 @@ export default function Feedback() {
     e.target.phone.value = "";
     e.target.message.value = "";
     e.target.button.disabled = "true";
-    setSubmitText("Дякуємо!");
+    setSubmitText(language === "ua" ? "Дякуємо!" : "Thanks!");
   }
 
   return (
@@ -43,7 +44,11 @@ export default function Feedback() {
           {language === "ua" ? "Зворотній зв'язок" : "Feedback"}
         </span>
         <form onSubmit={handleSubmit} className="feedback-form">
-          <Input labelText="Ім'я" name="name" required />
+          <Input
+            labelText={language === "ua" ? "Ім'я" : "Name"}
+            name="name"
+            required
+          />
           <div className="form-control">
             <ReactInputMask
               className="input"
@@ -63,6 +68,7 @@ export default function Feedback() {
           />
           <Button
             className="feedback-btn"
+            name="button"
             buttonText={submitText}
             type="submit"
           />

@@ -1,15 +1,13 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, FreeMode } from "swiper";
-import { LanguageContext } from "../../../../App";
 import EventCard from "./EventCard/EventCard";
-import { useContext } from "react";
 import { useEffect } from "react";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "./MonthSection.css";
 
 export default function MonthSection({ month, monthIdx, events }) {
-  const { language } = useContext(LanguageContext);
+  const language = window.localStorage.getItem("language");
 
   useEffect(() => {
     if (events.length !== 0) {

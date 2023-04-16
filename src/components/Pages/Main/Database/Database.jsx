@@ -1,12 +1,9 @@
-import { useContext } from "react";
 import ddb_logo from "../../../../materials/img/ddb_logo.png";
 import phone from "../../../../materials/img/phone.svg";
 import "./Database.css";
-import { LanguageContext } from "../../../../App";
 
 export default function Database() {
-  const { language } = useContext(LanguageContext);
-
+  const language = window.localStorage.getItem("language");
   return (
     <article className="database">
       <div className="database-wrapper">

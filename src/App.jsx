@@ -12,15 +12,10 @@ import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import Main from "./components/Pages/Main/Main";
 import News from "./components/Pages/News/News";
-import { createContext } from "react";
-import { useState } from "react";
-
-export const LanguageContext = createContext(null);
 
 export default function App() {
-  const [language, setLanguage] = useState("ua");
   return (
-    <LanguageContext.Provider value={{ language, setLanguage }}>
+    <>
       <Header />
       <Switch>
         <Route exact path="/">
@@ -33,11 +28,11 @@ export default function App() {
           <EventInfo />
         </Route>
         {/* <Route exact path="/catalog">
-          <Catalogs />
-        </Route>
-        <Route path="/catalog/:catalogs">
-          <Catalog />
-        </Route> */}
+      <Catalogs />
+    </Route>
+    <Route path="/catalog/:catalogs">
+      <Catalog />
+    </Route> */}
         <Route exact path="/contacts">
           <Contacts />
         </Route>
@@ -58,6 +53,6 @@ export default function App() {
         </Route>
       </Switch>
       <Footer />
-    </LanguageContext.Provider>
+    </>
   );
 }

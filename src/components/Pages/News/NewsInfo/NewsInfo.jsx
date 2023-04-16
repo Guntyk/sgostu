@@ -4,17 +4,14 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { getArticles } from "../../../../redux/articles/thunk";
 import { faExpand } from "@fortawesome/free-solid-svg-icons";
 import { useDispatch, useSelector } from "react-redux";
-import { LanguageContext } from "../../../../App";
 import NotFound from "../../NotFound/NotFound";
 import { useParams } from "react-router-dom";
 import Loader from "../../../Loader/Loader";
-import { useContext } from "react";
-import { useEffect } from "react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./NewsInfo.css";
 
 export default function NewsInfo() {
-  const { language } = useContext(LanguageContext);
+  const language = window.localStorage.getItem("language");
   const url = "https://sgostu-backend.download";
   const articles = useSelector(articlesSelector);
   const [article, setArticle] = useState(null);

@@ -1,9 +1,7 @@
-import { useContext } from "react";
-import { LanguageContext } from "../../App";
 import "./Loader.css";
 
 export default function Loader() {
-  const { language } = useContext(LanguageContext);
+  const language = window.localStorage.getItem("language");
   return (
     <div className="loader-sec">
       <div className="loader-wrapper">

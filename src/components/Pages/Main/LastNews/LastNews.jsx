@@ -7,12 +7,9 @@ import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
 import "./LastNews.css";
 import "swiper/css";
-import { useContext } from "react";
-import { LanguageContext } from "../../../../App";
 
 export default function LastNews({ articles }) {
-  const { language } = useContext(LanguageContext);
-
+  const language = window.localStorage.getItem("language");
   const history = useHistory();
   return (
     <article className="last-news">

@@ -3,13 +3,11 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 import { useHistory } from "react-router-dom";
 import Button from "../../../../common/Button/Button";
 import "./About.css";
-import { useContext } from "react";
-import { LanguageContext } from "../../../../App";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function About() {
-  const { language } = useContext(LanguageContext);
+  const language = window.localStorage.getItem("language");
   const { push } = useHistory();
   gsap.fromTo(
     ".circular",
