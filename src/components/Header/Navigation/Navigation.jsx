@@ -145,7 +145,9 @@ export default function Navigation({ openSideMenu, setOpenSideMenu }) {
             setOpenSideMenu(false);
           }}
         >
-          <span className="nav-link-name">Головна</span>
+          <span className="nav-link-name">
+            {language === "ua" ? "Головна" : "Home Page"}
+          </span>
           <span className="nav-link-number">01</span>
         </Link>
         <hr className="nav-line" />
@@ -156,7 +158,9 @@ export default function Navigation({ openSideMenu, setOpenSideMenu }) {
             setOpenSideMenu(false);
           }}
         >
-          <span className="nav-link-name">Новини</span>
+          <span className="nav-link-name">
+            {language === "ua" ? "Новини" : "News"}
+          </span>
           <span className="nav-link-number">02</span>
         </Link>
         <hr className="nav-line" />
@@ -167,7 +171,11 @@ export default function Navigation({ openSideMenu, setOpenSideMenu }) {
             setOpenSideMenu(false);
           }}
         >
-          <span className="nav-link-name">Календар змагань</span>
+          <span className="nav-link-name">
+            {language === "ua"
+              ? "Календар змагань"
+              : "Calendar of competitions"}
+          </span>
           <span className="nav-link-number">03</span>
         </Link>
         <hr className="nav-line" />
@@ -178,7 +186,9 @@ export default function Navigation({ openSideMenu, setOpenSideMenu }) {
             setOpenSideMenu(false);
           }}
         >
-          <span className="nav-link-name">Контакти</span>
+          <span className="nav-link-name">
+            {language === "ua" ? "Контакти" : "Contacts"}
+          </span>
           <span className="nav-link-number">04</span>
         </Link>
         <hr className="nav-line" />
@@ -189,7 +199,9 @@ export default function Navigation({ openSideMenu, setOpenSideMenu }) {
             setOpenSideMenu(false);
           }}
         >
-          <span className="nav-link-name">Зворотній зв'язок</span>
+          <span className="nav-link-name">
+            {language === "ua" ? "Зворотній зв'язок" : "Feedback"}
+          </span>
           <span className="nav-link-number">05</span>
         </Link>
       </div>

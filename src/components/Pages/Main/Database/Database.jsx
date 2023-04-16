@@ -7,9 +7,13 @@ export default function Database() {
     <article className="database">
       <div className="database-wrapper">
         <div className="database-text">
-          <h3 className="database-title">База даних СГОСТУ</h3>
+          <h3 className="database-title">
+            {language === "ua" ? "База даних СГОСТУ" : "SGOSTU database"}
+          </h3>
           <p className="database-description">
-            Клуби, Тренери, Судді, Танцюристи
+            {language === "ua"
+              ? "Клуби, Тренери, Судді, Танцюристи"
+              : "Clubs, Trainers, Judges, Dancers"}
           </p>
           <a
             className="btn database-btn"

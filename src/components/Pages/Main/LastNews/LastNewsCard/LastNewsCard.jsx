@@ -36,7 +36,7 @@ export default function LastNewsCard({ article, articleId }) {
           />
         </div>
       ) : (
-        <span>Помилка</span>
+        <span>{language === "ua" ? "Помилка" : "Error"}</span>
       )}
     </>
   );

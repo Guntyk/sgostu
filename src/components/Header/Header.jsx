@@ -5,6 +5,8 @@ import "./Header.css";
 
 export default function Header() {
   const [openSideMenu, setOpenSideMenu] = useState(false);
+  const [language, setLanguage] = useState("ua");
+
   return (
     <>
       <header className="header">
@@ -29,7 +31,28 @@ export default function Header() {
               </div>
               <a href="/" className="name">
                 <LogoSGOSTU classname="header-logo" />
-                <span className="company-name">СГОСТУ</span>
+                <span className="company-name">
+                  {language === "ua" ? "СГОСТУ" : "SGOSTU"}
+                </span>
+              </a>
+            </div>
+            <div className="language">
+              <a
+                className="ua"
+                onClick={() => {
+                  setLanguage("ua");
+                }}
+              >
+                UA
+              </a>
+              <span className="hr"></span>
+              <a
+                className="en"
+                onClick={() => {
+                  setLanguage("en");
+                }}
+              >
+                EN
               </a>
             </div>
           </div>

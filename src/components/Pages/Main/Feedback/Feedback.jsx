@@ -36,7 +36,9 @@ export default function Feedback() {
   return (
     <article className="feedback">
       <div className="feedback-wrapper">
-        <span className="feedback-title">Зворотній зв'язок</span>
+        <span className="feedback-title">
+          {language === "ua" ? "Зворотній зв'язок" : "Feedback"}
+        </span>
         <form onSubmit={handleSubmit} className="feedback-form">
           <Input labelText="Ім'я" name="name" required />
           <div className="form-control">
@@ -46,9 +48,16 @@ export default function Feedback() {
               name="phone"
               required
             />
-            <label className="label">Номер телефону</label>
+            <label className="label">
+              {language === "ua" ? "Номер телефону" : "Phone number"}
+            </label>
           </div>
-          <Input labelText="Ваше питання" name="message" textarea required />
+          <Input
+            labelText={language === "ua" ? "Ваше питання" : "Your question"}
+            name="message"
+            textarea
+            required
+          />
           <Button
             className="feedback-btn"
             buttonText={submitText}
