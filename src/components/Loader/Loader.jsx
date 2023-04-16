@@ -1,6 +1,7 @@
 import "./Loader.css";
 
 export default function Loader() {
+  const language = window.localStorage.getItem("language");
   return (
     <div className="loader-sec">
       <div className="loader-wrapper">

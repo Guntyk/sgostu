@@ -4,14 +4,12 @@ import { eventsSelector } from "../../../redux/events/selectors";
 import { getEvents } from "../../../redux/events/thunk";
 import MonthSection from "./MonthSection/MonthSection";
 import { useDispatch, useSelector } from "react-redux";
-import { LanguageContext } from "../../../App";
 import Loader from "../../Loader/Loader";
-import { useContext } from "react";
 import { useEffect } from "react";
 import "./Calendar.css";
 
 export default function Calendar() {
-  const { language } = useContext(LanguageContext);
+  const language = window.localStorage.getItem("language");
   const organizations = useSelector(orgsSelector);
   const events = useSelector(eventsSelector);
   const dispatch = useDispatch();

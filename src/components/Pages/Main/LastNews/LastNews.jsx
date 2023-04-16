@@ -9,6 +9,7 @@ import "./LastNews.css";
 import "swiper/css";
 
 export default function LastNews({ articles }) {
+  const language = window.localStorage.getItem("language");
   const history = useHistory();
   return (
     <article className="last-news">

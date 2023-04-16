@@ -5,6 +5,7 @@ import "swiper/css/pagination";
 import "swiper/css";
 
 export default function Announcements({ articles }) {
+  const language = window.localStorage.getItem("language");
   return (
     <article className="last-news announcements">
       <span className="last-news-title">

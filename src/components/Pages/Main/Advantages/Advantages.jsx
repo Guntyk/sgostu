@@ -1,6 +1,7 @@
 import "./Advantages.css";
 
 export default function Advantages() {
+  const language = window.localStorage.getItem("language");
   return (
     <article className="advantages">
       <div className="cards-wrapper">

@@ -7,6 +7,7 @@ import "./About.css";
 gsap.registerPlugin(ScrollTrigger);
 
 export default function About() {
+  const language = window.localStorage.getItem("language");
   const { push } = useHistory();
   gsap.fromTo(
     ".circular",

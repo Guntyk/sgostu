@@ -1,13 +1,11 @@
 import { dateToLocalFormat } from "../../../../../helpers/dateToLocalFormat";
 import Button from "../../../../../common/Button/Button";
-import { LanguageContext } from "../../../../../App";
 import { useHistory } from "react-router-dom";
-import { useContext } from "react";
 import { useState } from "react";
 import "./LastNewsCard.css";
 
 export default function LastNewsCard({ article, articleId }) {
-  const { language } = useContext(LanguageContext);
+  const language = window.localStorage.getItem("language");
   const [openCard, setOpenCard] = useState(false);
   const { push } = useHistory();
 

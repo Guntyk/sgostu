@@ -6,13 +6,11 @@ import crowd from "../../../../../materials/icons/calendar-card/crowd.png";
 import GlobeIcon from "../../../../../materials/icons/categories/Globe";
 import StarIcon from "../../../../../materials/icons/categories/Star";
 import Button from "../../../../../common/Button/Button";
-import { LanguageContext } from "../../../../../App";
 import { useHistory } from "react-router-dom";
-import { useContext } from "react";
 import "./EventCard.css";
 
 export default function EventCard({ event, eventId, className }) {
-  const { language } = useContext(LanguageContext);
+  const language = window.localStorage.getItem("language");
   const { push } = useHistory();
 
   function Category({ type }) {

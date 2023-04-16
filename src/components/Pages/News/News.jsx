@@ -2,15 +2,13 @@ import LastNewsCard from "../Main/LastNews/LastNewsCard/LastNewsCard";
 import { articlesSelector } from "../../../redux/articles/selectors";
 import { getArticles } from "../../../redux/articles/thunk";
 import { useDispatch, useSelector } from "react-redux";
-import { LanguageContext } from "../../../App";
 import Loader from "../../Loader/Loader";
 import gsap, { Power2 } from "gsap";
-import { useContext } from "react";
 import { useEffect } from "react";
 import "./News.css";
 
 export default function News() {
-  const { language } = useContext(LanguageContext);
+  const language = window.localStorage.getItem("language");
   const newsTL = gsap.timeline({ repeat: 0, ease: Power2.easeOut });
   const articles = useSelector(articlesSelector);
   const dispatch = useDispatch();

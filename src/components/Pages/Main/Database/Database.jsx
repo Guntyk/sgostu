@@ -3,6 +3,7 @@ import phone from "../../../../materials/img/phone.svg";
 import "./Database.css";
 
 export default function Database() {
+  const language = window.localStorage.getItem("language");
   return (
     <article className="database">
       <div className="database-wrapper">

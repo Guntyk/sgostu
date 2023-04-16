@@ -2,14 +2,12 @@ import { LogoSGOSTU } from "../../common/Logos/Logo-SGOSTU";
 import Facebook from "../../materials/icons/Facebook";
 import SateLogo from "../../materials/icons/SateLogo";
 import Insta from "../../materials/icons/Insta";
-import { LanguageContext } from "../../App";
 import "../../materials/icons/SateLogo.css";
-import { useContext } from "react";
 import "./Footer.css";
 
 export default function Footer() {
   const year = new Date().getFullYear();
-  const { language } = useContext(LanguageContext);
+  const language = window.localStorage.getItem("language");
 
   return (
     <footer className="footer">
