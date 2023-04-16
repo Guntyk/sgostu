@@ -22,7 +22,7 @@ export default function Database() {
             target="_blank"
             rel="norefferer noopener"
           >
-            Приєднатися
+            {language === "ua" ? "Приєднатися" : "Join"}
           </a>
         </div>
         <div className="img-wrapper">

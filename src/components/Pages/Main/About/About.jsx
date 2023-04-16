@@ -57,7 +57,7 @@ export default function About() {
                 <textPath href="#circle">
                   {language === "ua"
                     ? "Про нас Про нас Про нас Про нас Про нас Про нас Про нас Про нас"
-                    : "About us About us About us"}
+                    : "About us About us About us About us About us About us About us"}
                 </textPath>
               </text>
             </svg>

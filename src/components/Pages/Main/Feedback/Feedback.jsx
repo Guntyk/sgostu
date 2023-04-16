@@ -2,8 +2,9 @@ import { sendMessageToBot } from "../../../../api/requests";
 import Button from "../../../../common/Button/Button";
 import Input from "../../../../common/Input/Input";
 import ReactInputMask from "react-input-mask";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import "./Feedback.css";
+import { LanguageContext } from "../../../../App";
 
 export default function Feedback() {
   const language = window.localStorage.getItem("language");
