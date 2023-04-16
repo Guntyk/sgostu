@@ -63,6 +63,11 @@
   transition-delay: 0.4s;
 }
 
+.hr {
+  border: 1px solid black;
+  margin: 0 5px;
+}
+
 @media (max-width: 840px) {
   .header-logo {
     width: 45px;

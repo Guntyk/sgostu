@@ -1,8 +1,11 @@
+import { LanguageContext } from "../../../App";
 import { Link } from "react-router-dom";
-import "./Navigation.css";
+import { useContext } from "react";
 import gsap, { Back } from "gsap";
+import "./Navigation.css";
 
 export default function Navigation({ openSideMenu, setOpenSideMenu }) {
+  const { language } = useContext(LanguageContext);
   const navTimeline = gsap.timeline({ repeat: 0, repeatDelay: 1 });
   if (openSideMenu) {
     navTimeline.to(".navigation", {
@@ -145,7 +148,7 @@ export default function Navigation({ openSideMenu, setOpenSideMenu }) {
             setOpenSideMenu(false);
           }}
         >
-          <span className="nav-link-name">Головна</span>
+          <span className="nav-link-name">{language === "ua" ? "Головна" : "Home"}</span>
           <span className="nav-link-number">01</span>
         </Link>
         <hr className="nav-line" />
@@ -156,7 +159,7 @@ export default function Navigation({ openSideMenu, setOpenSideMenu }) {
             setOpenSideMenu(false);
           }}
         >
-          <span className="nav-link-name">Новини</span>
+          <span className="nav-link-name">{language === "ua" ? "Новини" : "News"}</span>
           <span className="nav-link-number">02</span>
         </Link>
         <hr className="nav-line" />
@@ -167,7 +170,7 @@ export default function Navigation({ openSideMenu, setOpenSideMenu }) {
             setOpenSideMenu(false);
           }}
         >
-          <span className="nav-link-name">Календар змагань</span>
+          <span className="nav-link-name">{language === "ua" ? "Календар заходів" : "Events calendar"}</span>
           <span className="nav-link-number">03</span>
         </Link>
         <hr className="nav-line" />
@@ -178,7 +181,7 @@ export default function Navigation({ openSideMenu, setOpenSideMenu }) {
             setOpenSideMenu(false);
           }}
         >
-          <span className="nav-link-name">Контакти</span>
+          <span className="nav-link-name">{language === "ua" ? "Контакти" : "Contacts"}</span>
           <span className="nav-link-number">04</span>
         </Link>
         <hr className="nav-line" />
@@ -189,7 +192,7 @@ export default function Navigation({ openSideMenu, setOpenSideMenu }) {
             setOpenSideMenu(false);
           }}
         >
-          <span className="nav-link-name">Зворотній зв'язок</span>
+          <span className="nav-link-name">{language === "ua" ? "Зворотній зв'язок" : "Feedback"}</span>
           <span className="nav-link-number">05</span>
         </Link>
       </div>
