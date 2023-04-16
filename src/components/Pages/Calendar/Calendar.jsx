@@ -4,17 +4,18 @@ import { eventsSelector } from "../../../redux/events/selectors";
 import { getEvents } from "../../../redux/events/thunk";
 import MonthSection from "./MonthSection/MonthSection";
 import { useDispatch, useSelector } from "react-redux";
-import gsap, { Back, Power2 } from "gsap";
+import { LanguageContext } from "../../../App";
 import Loader from "../../Loader/Loader";
+import { useContext } from "react";
 import { useEffect } from "react";
 import "./Calendar.css";
 
 export default function Calendar() {
-  const calendarTL = gsap.timeline({ repeat: 0, repeatDelay: 1 });
+  const { language } = useContext(LanguageContext);
   const organizations = useSelector(orgsSelector);
   const events = useSelector(eventsSelector);
   const dispatch = useDispatch();
-  const monthsData = [
+  const monthsDataUA = [
     "Січень",
     "Лютий",
     "Березень",
@@ -28,13 +29,20 @@ export default function Calendar() {
     "Листопад",
     "Грудень",
   ];
-  const months = monthsData
-    .filter((month) =>
-      events
-        .map((event) => new Date(event.attributes.start).getMonth())
-        .includes(monthsData.indexOf(month))
-    )
-    .filter((month) => monthsData.indexOf(month) >= new Date().getMonth());
+  const monthsDataEN = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
 
   useEffect(() => {
     if (events.length === 0) {
@@ -45,32 +53,46 @@ export default function Calendar() {
     }
   }, []);
 
-  // useEffect(() => {
-  //   calendarTL.from(".calendar-title", {
-  //     delay: 1,
-  //     y: -250,
-  //     duration: 0.5,
-  //     ease: Power2.easeOut,
-  //   });
-  //   calendarTL.from(".calendar-month", {
-  //     duration: 1,
-  //     scale: 0,
-  //     stagger: 0.3,
-  //     ease: Back.easeOut.config(1.3),
-  //   });
-  // }, [events, months]);
+  const months =
+    language === "ua"
+      ? monthsDataUA
+          .filter((month) =>
+            events
+              .map((event) => new Date(event.attributes.start).getMonth())
+              .includes(monthsDataUA.indexOf(month))
+          )
+          .filter(
+            (month) => monthsDataUA.indexOf(month) >= new Date().getMonth()
+          )
+      : monthsDataEN
+          .filter((month) =>
+            events
+              .map((event) => new Date(event.attributes.start).getMonth())
+              .includes(monthsDataEN.indexOf(month))
+          )
+          .filter(
+            (month) => monthsDataEN.indexOf(month) >= new Date().getMonth()
+          );
 
   return (
     <>
       {events.length !== 0 && months.length !== 0 ? (
         <article className="calendar">
           <div className="container">
-            <h1 className="calendar-title">Календар заходів на 2023 рік</h1>
+            <h1 className="calendar-title">
+              {language === "ua"
+                ? "Календар заходів на 2023 рік"
+                : "Calendar of events for 2023"}
+            </h1>
           </div>
           {months.map((month) => (
             <MonthSection
               month={month}
-              monthIdx={monthsData.indexOf(month)}
+              monthIdx={
+                language === "ua"
+                  ? monthsDataUA.indexOf(month)
+                  : monthsDataEN.indexOf(month)
+              }
               key={month}
               events={events}
               organizations={organizations}
