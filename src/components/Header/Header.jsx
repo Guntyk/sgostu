@@ -6,9 +6,8 @@ import { useState } from "react";
 import "./Header.css";
 
 export default function Header() {
-  const {language, setLanguage} = useContext(LanguageContext);
+  const { language, setLanguage } = useContext(LanguageContext);
   const [openSideMenu, setOpenSideMenu] = useState(false);
-  const [language, setLanguage] = useState("ua");
 
   return (
     <>
