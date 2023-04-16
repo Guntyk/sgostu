@@ -9,10 +9,13 @@ import "./LastNews.css";
 import "swiper/css";
 
 export default function LastNews({ articles }) {
+  const language = window.localStorage.getItem("language");
   const history = useHistory();
   return (
     <article className="last-news">
-      <span className="last-news-title">Останні новини</span>
+      <span className="last-news-title">
+        {language === "ua" ? "Останні новини" : "Latest news"}
+      </span>
       <div className="container">
         <div className="last-news-wrapper">
           {articles.length !== 0 ? (
@@ -28,7 +31,9 @@ export default function LastNews({ articles }) {
                 />
               ))
           ) : (
-            <span className="event-void">Новин немає</span>
+            <span className="event-void">
+              {language === "ua" ? "Новин немає" : "No news"}
+            </span>
           )}
         </div>
       </div>
@@ -59,12 +64,14 @@ export default function LastNews({ articles }) {
               </SwiperSlide>
             ))
         ) : (
-          <span className="event-void">Новин немає</span>
+          <span className="event-void">
+            {language === "ua" ? "Новин немає" : "No news"}
+          </span>
         )}
       </Swiper>
       {articles.length !== 0 && (
         <Button
-          buttonText="Більше"
+          buttonText={language === "ua" ? "Більше" : "More"}
           onClick={() => {
             history.push("/news");
           }}

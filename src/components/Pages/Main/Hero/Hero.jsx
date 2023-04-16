@@ -7,6 +7,8 @@ import "./Hero.css";
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Hero() {
+  const language = window.localStorage.getItem("language");
+  console.log(language);
   useEffect(() => {
     setTimeout(() => {
       // const cursor = document.querySelector(".hero-cursor");
@@ -41,10 +43,18 @@ export default function Hero() {
     <div className="hero">
       <h1 className="title">
         <div>
-          <span className="title-stroke">Спілка громадських організацій</span>
+          <span className="title-stroke">
+            {language === "ua"
+              ? "Спілка громадських організацій"
+              : "Union of public organizations"}
+          </span>
         </div>
         <div>
-          <span className="title-stroke"> спортивного танцю України</span>
+          <span className="title-stroke">
+            {language === "ua"
+              ? "спортивного танцю України"
+              : "of sports dance of Ukraine"}
+          </span>
         </div>
       </h1>
       <FontAwesomeIcon className="hero-arrow-down" icon={faArrowDown} fade />

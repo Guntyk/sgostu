@@ -1,12 +1,13 @@
 import { LogoSGOSTU } from "../../common/Logos/Logo-SGOSTU";
 import Facebook from "../../materials/icons/Facebook";
-import Insta from "../../materials/icons/Insta";
 import SateLogo from "../../materials/icons/SateLogo";
+import Insta from "../../materials/icons/Insta";
 import "../../materials/icons/SateLogo.css";
 import "./Footer.css";
 
 export default function Footer() {
   const year = new Date().getFullYear();
+  const language = window.localStorage.getItem("language");
 
   return (
     <footer className="footer">
@@ -34,7 +35,9 @@ export default function Footer() {
           <LogoSGOSTU classname="main-logo" />
           <div className="footer-wrapper">
             <div className="footer-column">
-              <span className="footer-subtitle">Телефон:</span>
+              <span className="footer-subtitle">
+                {language === "ua" ? "Телефон:" : "Phone:"}
+              </span>
               <a className="tel" href="tel:+380674428268">
                 +38 (067) 442 82 68
               </a>
@@ -47,13 +50,17 @@ export default function Footer() {
               <a href="mailto:sgostu.org@gmail.com">sgostu.org@gmail.com</a>
             </div>
             <div className="footer-column">
-              <span className="footer-subtitle">Адреса:</span>
+              <span className="footer-subtitle">
+                {language === "ua" ? "Адреса:" : "Address:"}
+              </span>
               <a
                 href="https://goo.gl/maps/odd6byYbjoo79Qpa9"
                 target="_blank"
                 rel="noreferrer"
               >
-                м. Київ, Залізничне шосе 3
+                {language === "ua"
+                  ? "м. Київ, Залізничне шосе 3"
+                  : "Kyiv, Zaliznychne shose 3"}
               </a>
             </div>
           </div>
@@ -77,7 +84,9 @@ export default function Footer() {
         <div className="footer-second">
           <hr className="footer-hr" />
           <div className="footer-bottom">
-            <span className="copyright">© {year} СГОСТУ</span>
+            <span className="copyright">
+              © {year} {language === "ua" ? "СГОСТУ" : "SGOSTU"}
+            </span>
             <SateLogo />
             <a
               href="https://tapmybio.com/sate"

@@ -1,8 +1,9 @@
-import { useHistory } from "react-router-dom";
 import Button from "../../../common/Button/Button";
+import { useHistory } from "react-router-dom";
 import "./NotFound.css";
 
 export default function NotFound() {
+  const language = window.localStorage.getItem("language");
   const { goBack } = useHistory();
   return (
     <article className="not-found">
@@ -10,12 +11,13 @@ export default function NotFound() {
         <h1 className="not-found-title">404</h1>
         <p className="not-found-text">
           <span>
-            Ой! Ви потрапили на сторінку, яка знаходиться в розробці, або не
-            існує 😔
+            {language === "ua"
+              ? "Ой! Ви потрапили на сторінку, яка знаходиться в розробці, або не існує 😔"
+              : "Oh! You have reached a page that is under development or does not exist 😔"}
           </span>
         </p>
         <Button
-          buttonText="Повернутися"
+          buttonText={language === "ua" ? "Повернутися" : "Back"}
           onClick={() => {
             goBack();
           }}

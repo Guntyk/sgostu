@@ -7,24 +7,13 @@ import Feedback from "./components/Pages/Feedback/Feedback";
 import NotFound from "./components/Pages/NotFound/NotFound";
 import Catalogs from "./components/Pages/Catalogs/Catalogs";
 import About from "./components/Pages/About/About";
-import { sendMessageToBot } from "./api/requests";
 import { Route, Switch } from "react-router-dom";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import Main from "./components/Pages/Main/Main";
 import News from "./components/Pages/News/News";
-import { useEffect, useState } from "react";
 
 export default function App() {
-  // const [loading, setLoading] = useState(false);
-  // useEffect(() => {
-  //   sendMessageToBot("Здійснено вхід на сайт");
-  //   setLoading(true);
-  //   setTimeout(() => {
-  //     setLoading(false);
-  //   }, 8000);
-  // }, []);
-
   return (
     <>
       <Header />
@@ -39,11 +28,11 @@ export default function App() {
           <EventInfo />
         </Route>
         {/* <Route exact path="/catalog">
-          <Catalogs />
-        </Route>
-        <Route path="/catalog/:catalogs">
-          <Catalog />
-        </Route> */}
+      <Catalogs />
+    </Route>
+    <Route path="/catalog/:catalogs">
+      <Catalog />
+    </Route> */}
         <Route exact path="/contacts">
           <Contacts />
         </Route>

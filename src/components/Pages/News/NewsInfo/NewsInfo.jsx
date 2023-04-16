@@ -7,11 +7,11 @@ import { useDispatch, useSelector } from "react-redux";
 import NotFound from "../../NotFound/NotFound";
 import { useParams } from "react-router-dom";
 import Loader from "../../../Loader/Loader";
-import { useEffect } from "react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./NewsInfo.css";
 
 export default function NewsInfo() {
+  const language = window.localStorage.getItem("language");
   const url = "https://sgostu-backend.download";
   const articles = useSelector(articlesSelector);
   const [article, setArticle] = useState(null);
@@ -47,7 +47,11 @@ export default function NewsInfo() {
                   <div className="box">
                     <img
                       src={url + article.front.data.attributes.url}
-                      alt="Головна фотографія новини"
+                      alt={
+                        language === "ua"
+                          ? "Головна фотографія новини"
+                          : "The main photo of the news"
+                      }
                     />
                     <div className="hover">
                       <FontAwesomeIcon className="icon" icon={faExpand} />
@@ -58,7 +62,11 @@ export default function NewsInfo() {
                       <div className="box" key={photo.id}>
                         <img
                           src={url + photo.attributes.url}
-                          alt="Фотографія новини"
+                          alt={
+                            language === "ua"
+                              ? "Фотографія новини"
+                              : "News photo"
+                          }
                         />
                         <div className="hover">
                           <FontAwesomeIcon className="icon" icon={faExpand} />
@@ -67,11 +75,17 @@ export default function NewsInfo() {
                     ))}
                 </div>
                 <div className="article-text-wrapper">
-                  <h1 className="article-title">{article.title}</h1>
+                  <h1 className="article-title">
+                    {language === "ua" ? article.title : article.title_en}
+                  </h1>
                   <span className="article-date">
                     {dateToLocalFormat(article.createdAt)}
                   </span>
-                  <p className="article-description">{article.description}</p>
+                  <p className="article-description">
+                    {language === "ua"
+                      ? article.description
+                      : article.description_en}
+                  </p>
                 </div>
               </div>
             </div>

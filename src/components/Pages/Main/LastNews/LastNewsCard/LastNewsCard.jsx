@@ -5,8 +5,10 @@ import { useState } from "react";
 import "./LastNewsCard.css";
 
 export default function LastNewsCard({ article, articleId }) {
+  const language = window.localStorage.getItem("language");
   const [openCard, setOpenCard] = useState(false);
   const { push } = useHistory();
+
   return (
     <>
       {article ? (
@@ -20,23 +22,25 @@ export default function LastNewsCard({ article, articleId }) {
             <img
               className="news-img"
               src={`https://sgostu-backend.download${article.front.data.attributes.url}`}
-              alt="Фотографія новини"
+              alt={language === "ua" ? "Фотографія новини" : "News photo"}
             />
           </div>
           <span className="news-card-date">
             {dateToLocalFormat(article.createdAt)}
           </span>
-          <span className="news-card-title">{article.title}</span>
+          <span className="news-card-title">
+            {language === "ua" ? article.title : article.title_en}
+          </span>
           <Button
             className="event-details-btn news-link"
-            buttonText="Детальніше"
+            buttonText={language === "ua" ? "Детальніше" : "More"}
             onClick={() => {
               push(`/news/${articleId}`);
             }}
           />
         </div>
       ) : (
-        <span>Помилка</span>
+        <span>{language === "ua" ? "Помилка" : "Error"}</span>
       )}
     </>
   );

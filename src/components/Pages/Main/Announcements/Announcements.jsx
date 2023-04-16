@@ -5,9 +5,12 @@ import "swiper/css/pagination";
 import "swiper/css";
 
 export default function Announcements({ articles }) {
+  const language = window.localStorage.getItem("language");
   return (
     <article className="last-news announcements">
-      <span className="last-news-title">Анонси</span>
+      <span className="last-news-title">
+        {language === "ua" ? "Анонси" : "Announcements"}
+      </span>
       <div className="container">
         <div className="last-news-wrapper">
           {articles.length !== 0
@@ -50,7 +53,9 @@ export default function Announcements({ articles }) {
               </SwiperSlide>
             ))
         ) : (
-          <span className="event-void">Новин немає</span>
+          <span className="event-void">
+            {language === "ua" ? "Новин немає" : "There is no news"}
+          </span>
         )}
       </Swiper>
     </article>

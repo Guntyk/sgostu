@@ -9,6 +9,7 @@ import "./NearestEvents.css";
 import "swiper/css";
 
 export default function NearestEvents({ events }) {
+  const language = window.localStorage.getItem("language");
   const history = useHistory();
   const nearestEvents = events
     .map((event) => {
@@ -27,12 +28,36 @@ export default function NearestEvents({ events }) {
     <>
       <article className="nearest-events">
         <div className="nearest-events-title">
-          <p>Найближчі заходи СГОСТУ</p>
-          <p>Найближчі заходи СГОСТУ</p>
-          <p>Найближчі заходи СГОСТУ</p>
-          <p>Найближчі заходи СГОСТУ</p>
-          <p>Найближчі заходи СГОСТУ</p>
-          <p>Найближчі заходи СГОСТУ</p>
+          <p>
+            {language === "ua"
+              ? "Найближчі заходи СГОСТУ"
+              : "The nearest events of SGOSTU"}
+          </p>
+          <p>
+            {language === "ua"
+              ? "Найближчі заходи СГОСТУ"
+              : "The nearest events of SGOSTU"}
+          </p>
+          <p>
+            {language === "ua"
+              ? "Найближчі заходи СГОСТУ"
+              : "The nearest events of SGOSTU"}
+          </p>
+          <p>
+            {language === "ua"
+              ? "Найближчі заходи СГОСТУ"
+              : "The nearest events of SGOSTU"}
+          </p>
+          <p>
+            {language === "ua"
+              ? "Найближчі заходи СГОСТУ"
+              : "The nearest events of SGOSTU"}
+          </p>
+          <p>
+            {language === "ua"
+              ? "Найближчі заходи СГОСТУ"
+              : "The nearest events of SGOSTU"}
+          </p>
         </div>
         <div className="nearest-events-wrapper">
           {nearestEvents.length !== 0 ? (
@@ -45,7 +70,12 @@ export default function NearestEvents({ events }) {
               />
             ))
           ) : (
-            <span className="event-void">На жаль, заходів немає</span>
+            <span className="event-void">
+              {" "}
+              {language === "ua"
+                ? "На жаль, заходів немає"
+                : "Unfortunately, there are no events"}
+            </span>
           )}
         </div>
         <Swiper
@@ -71,7 +101,12 @@ export default function NearestEvents({ events }) {
               </SwiperSlide>
             ))
           ) : (
-            <span className="event-void">На жаль, заходів немає</span>
+            <span className="event-void">
+              {" "}
+              {language === "ua"
+                ? "На жаль, заходів немає"
+                : "Unfortunately, there are no events"}
+            </span>
           )}
         </Swiper>
         {nearestEvents.length !== 0 && (

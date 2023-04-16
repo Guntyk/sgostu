@@ -10,6 +10,7 @@ import { useHistory } from "react-router-dom";
 import "./EventCard.css";
 
 export default function EventCard({ event, eventId, className }) {
+  const language = window.localStorage.getItem("language");
   const { push } = useHistory();
 
   function Category({ type }) {
@@ -28,8 +29,11 @@ export default function EventCard({ event, eventId, className }) {
     <div className={`event-card ${className}`}>
       <span className="event-date">
         {dateToLocalFormat(event.start).slice(0, 5)}
+        {event.end && " — " + dateToLocalFormat(event.end).slice(0, 5)}
       </span>
-      <span className="event-town">{event.town}</span>
+      <span className="event-town">
+        {language === "ua" ? event.town : event.town_en}
+      </span>
       <p className="event-title">{event.title}</p>
       <div className="event-categories">
         <Category type={event.type} />
@@ -37,10 +41,12 @@ export default function EventCard({ event, eventId, className }) {
         {event.rating && <StarIcon />}
         {event.spartak && <SpartakIcon />}
       </div>
-      <p className="event-organizer">{event.organizator}</p>
+      <p className="event-organizer">
+        {language === "ua" ? event.organizator : event.organizator_en}
+      </p>
       <Button
         className="event-more event-details-btn"
-        buttonText="Більше"
+        buttonText={language === "ua" ? "Більше" : "More"}
         onClick={() => {
           push(`/calendar/${eventId}`);
         }}

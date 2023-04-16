@@ -2,16 +2,17 @@ import { dateToLocalFormat } from "../../../../helpers/dateToLocalFormat";
 import couple from "../../../../materials/icons/calendar-card/couple.png";
 import { eventsSelector } from "../../../../redux/events/selectors";
 import { getEvents } from "../../../../redux/events/thunk";
+import { useHistory, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import Button from "../../../../common/Button/Button";
 import PartnerCard from "./PartnerCard/PartnerCard";
-import { useHistory, useParams } from "react-router-dom";
 import Loader from "../../../Loader/Loader";
 import { useEffect } from "react";
 import { useState } from "react";
 import "./EventInfo.css";
 
 export default function EventInfo() {
+  const language = window.localStorage.getItem("language");
   const [info, setInfo] = useState("Спонсори та партнери");
   const url = "https://sgostu-backend.download";
   const events = useSelector(eventsSelector);
@@ -52,7 +53,18 @@ export default function EventInfo() {
         <article className="event-info">
           <div className="container event-details-container">
             <Button
-              buttonText="˂ Назад"
+              buttonText={
+                <svg
+                  cursor="pointer"
+                  width="30px"
+                  height="30px"
+                  fill="#000"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 512 512"
+                >
+                  <path d="M7 239c-9.4 9.4-9.4 24.6 0 33.9L143 409c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-95-95L488 280c13.3 0 24-10.7 24-24s-10.7-24-24-24L81.9 232l95-95c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0L7 239z" />
+                </svg>
+              }
               className="back-link"
               onClick={goBack}
             />
@@ -62,7 +74,7 @@ export default function EventInfo() {
                   <img
                     className="event-banner"
                     src={url + event.banner.data?.attributes.url}
-                    alt="Банер турніру"
+                    alt={language === "ua" ? "Банер турніру" : "Event banner"}
                   />
                 ) : (
                   <img className="banner-placeholder" src={couple} />
@@ -72,24 +84,32 @@ export default function EventInfo() {
                 <li className="event-detail-info-title">{event.title}</li>
                 <li>
                   <span className="event-detail-stroke-name">
-                    Організація:{" "}
+                    {language === "ua" ? "Організація: " : "Organization: "}
                   </span>
                   {event.organizations?.data
-                    .map((organization) => organization.attributes.name)
-                    .join(", ") || "Не вказано"}
+                    ? event.organizations?.data
+                        .map((organization) => organization.attributes.name)
+                        .join(", ")
+                    : language === "ua"
+                    ? "Not specified"
+                    : "Не вказано"}
                 </li>
                 <li>
                   <span className="event-detail-stroke-name">
-                    Організатор:{" "}
+                    {language === "ua" ? "Організатор: " : "Organizer: "}
                   </span>
-                  {event.organizator}
+                  {language === "ua" ? event.organizator : event.organizator_en}
                 </li>
                 <li>
-                  <span className="event-detail-stroke-name">Місто: </span>
-                  {event.town}
+                  <span className="event-detail-stroke-name">
+                    {language === "ua" ? "Місто: " : "City: "}
+                  </span>
+                  {language === "ua" ? event.town : event.town_en}
                 </li>
                 <li>
-                  <span className="event-detail-stroke-name">Дата: </span>
+                  <span className="event-detail-stroke-name">
+                    {language === "ua" ? "Дата: " : "Data: "}
+                  </span>
                   {event.end
                     ? `${dateToLocalFormat(event.start).slice(
                         0,
@@ -108,7 +128,7 @@ export default function EventInfo() {
                   !event.entry.data && !event.link && "disabled"
                 }`}
               >
-                Інформація
+                {language === "ua" ? "Інформація" : "Information"}
               </a>
               <a
                 target="_blank"
@@ -116,7 +136,7 @@ export default function EventInfo() {
                 href={event.judges}
                 className={`btn event-info-btn ${!event.judges && "disabled"}`}
               >
-                Судді
+                {language === "ua" ? "Судді" : "Judges"}
               </a>
               <a
                 target="_blank"
@@ -126,25 +146,34 @@ export default function EventInfo() {
                   !event.registration && "disabled"
                 }`}
               >
-                Реєстрація учасників
+                {language === "ua" ? "Реєстрація учасників" : "Registration"}
               </a>
             </div>
             <div className="event-detail-info-row">
               <ul className="event-detail-buttons">
                 <li className="event-details-list active">
-                  Спонсори та партнери
+                  {language === "ua"
+                    ? "Спонсори та партнери"
+                    : "Sponsors and partners"}
                 </li>
-                <li className="event-details-list">Готелі</li>
-                <li className="event-details-list">Адреса</li>
+                <li className="event-details-list">
+                  {language === "ua" ? "Готелі" : "Hotels"}
+                </li>
+                <li className="event-details-list">
+                  {language === "ua" ? "Адреса" : "Address"}
+                </li>
                 <div className="indicator"></div>
               </ul>
             </div>
             <div
               className={`event-detail-information ${
-                info === "Спонсори та партнери" && "partners"
+                (info === "Спонсори та партнери" ||
+                  info === "Sponsors and partners") &&
+                "partners"
               }`}
             >
-              {info === "Спонсори та партнери" && (
+              {(info === "Спонсори та партнери" ||
+                info === "Sponsors and partners") && (
                 <div className="partners-wrapper">
                   {event.organizations.data.map((organization) => (
                     <PartnerCard
@@ -160,7 +189,7 @@ export default function EventInfo() {
                   ))}
                 </div>
               )}
-              {info === "Готелі" && (
+              {(info === "Готелі" || info === "Hotels") && (
                 <iframe
                   src={event.hotels}
                   width="100%"
@@ -169,7 +198,7 @@ export default function EventInfo() {
                   referrerPolicy="no-referrer-when-downgrade"
                 />
               )}
-              {info === "Адреса" && (
+              {(info === "Адреса" || info === "Address") && (
                 <iframe
                   src={event.address}
                   width="100%"
