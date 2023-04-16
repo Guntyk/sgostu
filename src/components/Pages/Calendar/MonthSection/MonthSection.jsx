@@ -1,12 +1,16 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, FreeMode } from "swiper";
+import { LanguageContext } from "../../../../App";
 import EventCard from "./EventCard/EventCard";
+import { useContext } from "react";
 import { useEffect } from "react";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "./MonthSection.css";
 
 export default function MonthSection({ month, monthIdx, events }) {
+  const { language } = useContext(LanguageContext);
+
   useEffect(() => {
     if (events.length !== 0) {
       const parent = document.getElementById(`swiper${monthIdx}`);
@@ -42,8 +46,6 @@ export default function MonthSection({ month, monthIdx, events }) {
           id={`swiper${monthIdx}`}
           spaceBetween={10}
           pagination={{ clickable: true }}
-          // freeMode={{ enabled: true, momentumBounce: false, momentumVelocityRatio: 0.5 }}
-          // Responsive breakpoints
           breakpoints={{
             // when window width is >= 320px
             0: {
@@ -85,7 +87,11 @@ export default function MonthSection({ month, monthIdx, events }) {
             )
           ) : (
             <SwiperSlide>
-              <h1 className="event-void">На жаль, заходів немає</h1>
+              <h1 className="event-void">
+                {language === "ua"
+                  ? "На жаль, заходів немає"
+                  : "Unfortunately, there are no events"}
+              </h1>
             </SwiperSlide>
           )}
         </Swiper>

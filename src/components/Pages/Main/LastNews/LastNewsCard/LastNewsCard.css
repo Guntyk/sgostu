@@ -19,7 +19,7 @@
 }
 
 .last-news-card:hover .news-img-wrapper {
-  min-height: 60%;
+  min-height: 50%;
 }
 
 .news-img-wrapper {
@@ -58,7 +58,7 @@
     min-height: 100%;
   }
   .last-news-card.active .news-img-wrapper {
-    min-height: 60%;
+    min-height: 50%;
   }
 }
 

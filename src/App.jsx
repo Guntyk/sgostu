@@ -7,26 +7,20 @@ import Feedback from "./components/Pages/Feedback/Feedback";
 import NotFound from "./components/Pages/NotFound/NotFound";
 import Catalogs from "./components/Pages/Catalogs/Catalogs";
 import About from "./components/Pages/About/About";
-import { sendMessageToBot } from "./api/requests";
 import { Route, Switch } from "react-router-dom";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import Main from "./components/Pages/Main/Main";
 import News from "./components/Pages/News/News";
-import { useEffect, useState } from "react";
+import { createContext } from "react";
+import { useState } from "react";
+
+export const LanguageContext = createContext(null);
 
 export default function App() {
-  // const [loading, setLoading] = useState(false);
-  // useEffect(() => {
-  //   sendMessageToBot("Здійснено вхід на сайт");
-  //   setLoading(true);
-  //   setTimeout(() => {
-  //     setLoading(false);
-  //   }, 8000);
-  // }, []);
-
+  const [language, setLanguage] = useState("ua");
   return (
-    <>
+    <LanguageContext.Provider value={{ language, setLanguage }}>
       <Header />
       <Switch>
         <Route exact path="/">
@@ -64,6 +58,6 @@ export default function App() {
         </Route>
       </Switch>
       <Footer />
-    </>
+    </LanguageContext.Provider>
   );
 }

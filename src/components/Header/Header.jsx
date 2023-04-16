@@ -1,9 +1,12 @@
 import { LogoSGOSTU } from "../../common/Logos/Logo-SGOSTU";
 import Navigation from "./Navigation/Navigation";
+import { LanguageContext } from "../../App";
+import { useContext } from "react";
 import { useState } from "react";
 import "./Header.css";
 
 export default function Header() {
+  const {language, setLanguage} = useContext(LanguageContext);
   const [openSideMenu, setOpenSideMenu] = useState(false);
   const [language, setLanguage] = useState("ua");
 

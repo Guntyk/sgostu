@@ -2,12 +2,15 @@ import LastNewsCard from "../Main/LastNews/LastNewsCard/LastNewsCard";
 import { articlesSelector } from "../../../redux/articles/selectors";
 import { getArticles } from "../../../redux/articles/thunk";
 import { useDispatch, useSelector } from "react-redux";
+import { LanguageContext } from "../../../App";
 import Loader from "../../Loader/Loader";
-import { useEffect } from "react";
 import gsap, { Power2 } from "gsap";
+import { useContext } from "react";
+import { useEffect } from "react";
 import "./News.css";
 
 export default function News() {
+  const { language } = useContext(LanguageContext);
   const newsTL = gsap.timeline({ repeat: 0, ease: Power2.easeOut });
   const articles = useSelector(articlesSelector);
   const dispatch = useDispatch();
@@ -40,7 +43,9 @@ export default function News() {
     <>
       {articles.length !== 0 ? (
         <article className="news">
-          <h1 className="news-title">Усі новини</h1>
+          <h1 className="news-title">
+            {language === "ua" ? "Усі новини" : "All news"}
+          </h1>
           <div className="container news-wrapper">
             {articles.length !== 0 ? (
               articles
@@ -53,7 +58,9 @@ export default function News() {
                   />
                 ))
             ) : (
-              <span className="void">Новин немає</span>
+              <span className="void">
+                {language === "ua" ? "Новин немає" : "There is no news"}
+              </span>
             )}
           </div>
         </article>
