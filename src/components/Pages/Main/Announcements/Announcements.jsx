@@ -3,8 +3,12 @@ import { EffectCoverflow, Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css/pagination";
 import "swiper/css";
+import { useContext } from "react";
+import { LanguageContext } from "../../../../App";
 
 export default function Announcements({ articles }) {
+  const { language } = useContext(LanguageContext);
+
   return (
     <article className="last-news announcements">
       <span className="last-news-title">

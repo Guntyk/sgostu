@@ -1,14 +1,23 @@
+import { useContext } from "react";
 import "./Contacts.css";
+import { LanguageContext } from "../../../App";
 
 export default function Contacts() {
+  const { language } = useContext(LanguageContext);
+
   return (
     <article className="contacts">
       <div className="container">
-        <h1 className="contacts-title">Контактна інформація</h1>
+        <h1 className="contacts-title">
+          {" "}
+          {language === "ua" ? "Контактна інформація" : "Contact information"}
+        </h1>
         <div className="contacts-info">
           <ul className="contacts-block">
             <li>
-              <span className="contacts-subtitle">Номера телефонів:</span>
+              <span className="contacts-subtitle">
+                {language === "ua" ? "Номера телефонів:" : "Phoone numbers"}
+              </span>
             </li>
             <hr />
             <li className="contact">
@@ -20,7 +29,9 @@ export default function Contacts() {
           </ul>
           <ul className="contacts-block">
             <li>
-              <span className="contacts-subtitle">Електронна адреса:</span>
+              <span className="contacts-subtitle">
+                {language === "ua" ? "Електронна адреса:" : "Email addresses"}
+              </span>
             </li>
             <hr />
             <li className="contact">
@@ -29,7 +40,9 @@ export default function Contacts() {
           </ul>
           <ul className="contacts-block">
             <li>
-              <span className="contacts-subtitle">Адреса:</span>
+              <span className="contacts-subtitle">
+                {language === "ua" ? "Адреса:" : "Address"}
+              </span>
             </li>
             <hr />
             <li className="contact">
@@ -38,31 +51,49 @@ export default function Contacts() {
                 target="_blank"
                 rel="noreferrer"
               >
-                м. Київ, Залізничне шосе 3
+                {language === "ua"
+                  ? "м. Київ, Залізничне шосе 3"
+                  : "Kyiv, Zaliznychne shose 3"}
               </a>
             </li>
           </ul>
           <ul className="contacts-block">
             <li>
-              <span className="contacts-subtitle">Банківські реквізити:</span>
+              <span className="contacts-subtitle">
+                {language === "ua" ? "Банківські реквізити:" : "Bank details:"}
+              </span>
             </li>
             <hr />
             <li className="contact">
-              <span>Найменування отримувача: ГО СГОСТУ</span>
+              <span>
+                {" "}
+                {language === "ua"
+                  ? "Найменування отримувача: ГО"
+                  : "Name of recipient: NGO"}
+              </span>
             </li>
             <li className="contact">
-              <span>Код одержувача: 30386538</span>
+              <span>
+                {language === "ua" ? "Код одержувача: " : "Recipient code: "}
+                30386538
+              </span>
             </li>
             <li className="contact">
               <span>IBAN: UA543052990000026004046223088</span>
             </li>
             <li className="contact">
-              <span>Назва банку: АТ КБ «ПриватБанк»</span>
+              <span>
+                {language === "ua"
+                  ? "Назва банку: АТ КБ «ПриватБанк»"
+                  : "Name of the bank: JSC CB «PrivatBank»"}
+              </span>
             </li>
           </ul>
           <ul className="contacts-block">
             <li>
-              <span className="contacts-subtitle">Соціальні мережі:</span>
+              <span className="contacts-subtitle">
+                {language === "ua" ? "Соціальні мережі:" : "Social networks:"}
+              </span>
             </li>
             <hr />
             <li className="contact">

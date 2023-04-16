@@ -1,8 +1,12 @@
+import { useContext } from "react";
 import ddb_logo from "../../../../materials/img/ddb_logo.png";
 import phone from "../../../../materials/img/phone.svg";
 import "./Database.css";
+import { LanguageContext } from "../../../../App";
 
 export default function Database() {
+  const { language } = useContext(LanguageContext);
+
   return (
     <article className="database">
       <div className="database-wrapper">
@@ -21,7 +25,7 @@ export default function Database() {
             target="_blank"
             rel="norefferer noopener"
           >
-            Приєднатися
+            {language === "ua" ? "Приєднатися" : "Join"}
           </a>
         </div>
         <div className="img-wrapper">

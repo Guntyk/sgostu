@@ -3,10 +3,13 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 import { useHistory } from "react-router-dom";
 import Button from "../../../../common/Button/Button";
 import "./About.css";
+import { useContext } from "react";
+import { LanguageContext } from "../../../../App";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function About() {
+  const { language } = useContext(LanguageContext);
   const { push } = useHistory();
   gsap.fromTo(
     ".circular",
@@ -56,7 +59,7 @@ export default function About() {
                 <textPath href="#circle">
                   {language === "ua"
                     ? "Про нас Про нас Про нас Про нас Про нас Про нас Про нас Про нас"
-                    : "About us About us About us"}
+                    : "About us About us About us About us About us About us About us"}
                 </textPath>
               </text>
             </svg>

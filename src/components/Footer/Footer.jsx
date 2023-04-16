@@ -60,7 +60,9 @@ export default function Footer() {
                 target="_blank"
                 rel="noreferrer"
               >
-                {language === "ua" ? "м. Київ, Залізничне шосе 3" : "Kyiv city, Railway Highway 3"}
+                {language === "ua"
+                  ? "м. Київ, Залізничне шосе 3"
+                  : "Kyiv, Zaliznychne shose 3"}
               </a>
             </div>
           </div>

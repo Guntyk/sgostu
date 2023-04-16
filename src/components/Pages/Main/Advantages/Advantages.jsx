@@ -1,6 +1,10 @@
+import { useContext } from "react";
 import "./Advantages.css";
+import { LanguageContext } from "../../../../App";
 
 export default function Advantages() {
+  const { language } = useContext(LanguageContext);
+
   return (
     <article className="advantages">
       <div className="cards-wrapper">
