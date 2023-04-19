@@ -3,6 +3,7 @@ import { organizationsReducer } from "./organizations/reducer";
 import { composeWithDevTools } from "redux-devtools-extension";
 import { articlesReducer } from "./articles/reducer";
 import { statusesReducer } from "./statuses/reducer";
+import { coachesReducer } from "./coaches/reducer";
 import { dancersReducer } from "./dancers/reducer";
 import { eventsReducer } from "./events/reducer";
 import { clubsReducer } from "./clubs/reducer";
@@ -12,6 +13,7 @@ const rootReducer = combineReducers({
   organizations: organizationsReducer,
   articles: articlesReducer,
   statuses: statusesReducer,
+  coaches: coachesReducer,
   dancers: dancersReducer,
   events: eventsReducer,
   clubs: clubsReducer,

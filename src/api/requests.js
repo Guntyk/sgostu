@@ -50,19 +50,30 @@ export const getDancersFetch = () =>
   adaloApi.get(`/t_1ucotahrksc4tgelc0d9q54i2`, {
     headers: headers,
   });
-export const getDancerFetch = (dancerId) => adaloApi.get(`/dancer/${dancerId}`);
+export const getDancerFetch = (dancerId) =>
+  adaloApi.get(`/t_1ucotahrksc4tgelc0d9q54i2/${dancerId}`, {
+    headers: headers,
+  });
 
 //* Clubs
 export const getClubsFetch = () =>
   adaloApi.get("/t_3ly38xw8f3j66xxqjnpseal9x", {
     headers: headers,
   });
-export const getClubFetch = (clubId) => adaloApi.get(`/dancer/${clubId}`);
+export const getClubFetch = (clubId) =>
+  adaloApi.get(`/t_3ly38xw8f3j66xxqjnpseal9x/${clubId}`, {
+    headers: headers,
+  });
 
 //* Coaches
-// export const getDancersFetch = () => adaloApi.get("/dancer");
-// export const getDancerFetch = (dancerId) =>
-//   adaloApi.get(`/dancer/${dancerId}`);
+export const getCoachesFetch = () =>
+  adaloApi.get("/t_0krimgt2jojxj54w8kaqyc676", {
+    headers: headers,
+  });
+export const getCoachFetch = (coachId) =>
+  adaloApi.get(`/t_0krimgt2jojxj54w8kaqyc676/${coachId}`, {
+    headers: headers,
+  });
 
 //* Telegram Bot
 const chatIds = [904054855, 1133429141]; // Kirill: 688334536
