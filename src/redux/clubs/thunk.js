@@ -1,11 +1,12 @@
-import { getDancersAction, getMoreDancersAction } from "./actionCreators";
-import { getDancersFetch } from "../../api/requests";
+import { getClubsAction, getMoreClubsAction } from "./actionCreators";
+import { getClubsFetch } from "../../api/requests";
 
-export function getDancers(offset) {
+export function getClubs(offset) {
   return (dispatch) => {
-    getDancersFetch(`?offset=${offset}`).then((response) => {
+    getClubsFetch(`?offset=${offset}`).then((response) => {
       if (response) {
-        dispatch(getDancersAction(response.at(-1).records));
+        console.log(response.at(-1).records);
+        dispatch(getClubsAction(response.at(-1).records));
       } else {
         alert("Getting dancers error");
       }
