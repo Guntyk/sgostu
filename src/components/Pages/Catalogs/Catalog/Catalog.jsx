@@ -17,10 +17,13 @@ import ClubCard from "./ClubCard/ClubCard";
 import { getCoaches } from "../../../../redux/coaches/thunk";
 import { coachesSelector } from "../../../../redux/coaches/selectors";
 import CoachCard from "./CoachCard/CoachCard";
+import { getClasses } from "../../../../redux/classes/thunk";
+import { classesSelector } from "../../../../redux/classes/selectors";
 
 export default function Dancers() {
   const [catalogTheme, setCatalogTheme] = useState(false);
   const statuses = useSelector(statusesSelector);
+  const classes = useSelector(classesSelector);
   const coaches = useSelector(coachesSelector);
   const dancers = useSelector(dancersSelector);
   const clubs = useSelector(clubsSelector);
@@ -42,6 +45,7 @@ export default function Dancers() {
       setCatalogTheme(true);
       if (catalogs === "dancers" && dancers.length === 0) {
         dispatch(getDancers());
+        dispatch(getClasses());
         dispatch(getClubs());
       }
       if (catalogs === "coaches" && coaches.length === 0) {
@@ -95,10 +99,12 @@ export default function Dancers() {
                           .flat()
                           .includes(dancer.id)
                       )
+                      .filter((dancer) => dancer.Dancer_Verify)
                       .map((dancer) => (
                         <DancerCard
-                          clubs={clubs}
+                          classes={classes}
                           dancer={dancer}
+                          clubs={clubs}
                           key={dancer.id}
                         />
                       ))
