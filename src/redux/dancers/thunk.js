@@ -1,10 +1,6 @@
 import { getDancersAction, getMoreDancersAction } from "./actionCreators";
 import { getDancersFetch } from "../../api/requests";
 
-// const filteredStatuses = statuses.filter(
-//   (status) => status.Name === ("Активний" || "Обмежений")
-// );
-
 export function getDancers(offset) {
   return (dispatch) => {
     getDancersFetch(`?offset=${offset}`).then((response) => {
