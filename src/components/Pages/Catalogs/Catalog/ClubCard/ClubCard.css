@@ -1,26 +1,10 @@
-.club-card {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border: 1px solid;
-  max-width: 260px;
-  border-radius: 10px;
-  padding: 18px 0 36px;
-  background: linear-gradient(
-    228.75deg,
-    rgba(243, 251, 255, 0.3) 0%,
-    rgba(255, 255, 255, 0.075) 101.36%
-  );
-  backdrop-filter: blur(20px);
-}
-
 .club-card-img {
   width: 141px;
   height: 141px;
-  object-fit: cover;
+  object-fit: contain;
   border-radius: 50%;
   margin-bottom: 30px;
+  border: 1px solid rgba(0, 0, 0, 0.5);
 }
 
 .club-card-city,
@@ -66,13 +50,19 @@
 }
 
 .coaches-quantity::before {
-  background: url(../../../materials/icons/clubcard/coaches.svg);
+  background: url(../../../../../materials/icons/clubcard/coaches.svg);
 }
 
 .dancers-quantity::before {
-  background: url(../../../materials/icons/clubcard/dancers.svg);
+  background: url(../../../../../materials/icons/clubcard/dancers.svg);
 }
 
 .club-cards-details-link {
   text-decoration: underline;
+}
+
+@media (max-width: 840px) {
+  .card-wrapper {
+    width: 100%;
+  }
 }

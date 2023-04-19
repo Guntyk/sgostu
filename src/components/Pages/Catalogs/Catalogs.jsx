@@ -7,16 +7,16 @@ export default function Catalogs() {
       <div className="container">
         <h1 className="catalogs-title">Каталоги</h1>
         <div className="catalogs-wrapper">
-          <Link to="/catalog/dancers" className="catalogs-card">
+          <Link to="/catalogs/dancers" className="catalogs-card">
             Танцюристи
           </Link>
-          <Link to="/catalog/coaches" className="catalogs-card">
+          <Link to="/catalogs/coaches" className="catalogs-card">
             Тренера
           </Link>
-          <Link to="/catalog/clubs" className="catalogs-card">
+          <Link to="/catalogs/clubs" className="catalogs-card">
             Клуби
           </Link>
-          <Link to="/catalog/judges" className="catalogs-card">
+          <Link to="/catalogs/judges" className="catalogs-card">
             Судді
           </Link>
         </div>

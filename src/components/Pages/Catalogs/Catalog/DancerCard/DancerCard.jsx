@@ -7,19 +7,19 @@ export default function DancerCard({ dancer }) {
   return (
     <div className="card-wrapper">
       <div className="img-wrapper">
-        {dancer.avatar?.url ? (
-          <img src={dancer.avatar?.url} alt="Аватар" />
+        {dancer.Dancer_Foto?.url ? (
+          <img src={dancer.Dancer_Foto?.url} alt="Аватар" />
         ) : (
           <AvatarPlaceholder />
         )}
       </div>
-      <span className="dancer-class">Категорія: {dancer.class}</span>
+      <span className="dancer-class">Категорія: </span>
       <h5 className="dancer-name">
-        {dancer.surname.trim()} {dancer.name.trim()} {dancer.thirdname.trim()}
+        {dancer.D_Surname.trim()} {dancer.D_Name.trim()}
       </h5>
       <span className="dancer-club">{dancer.club}</span>
       <span className="dancer-birthday">
-        {dancer.birthday && dateToLocalFormat(dancer.birthday)}
+        {dancer.Birthday && dateToLocalFormat(dancer.Birthday)}
       </span>
       <Link className="dancer-details" to={`./dancers/${dancer.id}`}>
         Детальніше
