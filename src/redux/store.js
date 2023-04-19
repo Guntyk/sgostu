@@ -5,6 +5,7 @@ import { articlesReducer } from "./articles/reducer";
 import { statusesReducer } from "./statuses/reducer";
 import { dancersReducer } from "./dancers/reducer";
 import { eventsReducer } from "./events/reducer";
+import { clubsReducer } from "./clubs/reducer";
 import thunk from "redux-thunk";
 
 const rootReducer = combineReducers({
@@ -13,6 +14,7 @@ const rootReducer = combineReducers({
   statuses: statusesReducer,
   dancers: dancersReducer,
   events: eventsReducer,
+  clubs: clubsReducer,
 });
 
 export const store = createStore(

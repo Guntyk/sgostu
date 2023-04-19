@@ -53,9 +53,11 @@ export const getDancersFetch = () =>
 export const getDancerFetch = (dancerId) => adaloApi.get(`/dancer/${dancerId}`);
 
 //* Clubs
-// export const getDancersFetch = () => adaloApi.get("/dancer");
-// export const getDancerFetch = (dancerId) =>
-//   adaloApi.get(`/dancer/${dancerId}`);
+export const getClubsFetch = () =>
+  adaloApi.get("/t_3ly38xw8f3j66xxqjnpseal9x", {
+    headers: headers,
+  });
+export const getClubFetch = (clubId) => adaloApi.get(`/dancer/${clubId}`);
 
 //* Coaches
 // export const getDancersFetch = () => adaloApi.get("/dancer");
