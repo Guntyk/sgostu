@@ -15,17 +15,19 @@ import { getClubs } from "../../../../redux/clubs/thunk";
 import { clubsSelector } from "../../../../redux/clubs/selectors";
 import ClubCard from "./ClubCard/ClubCard";
 import { getCoaches } from "../../../../redux/coaches/thunk";
+import { coachesSelector } from "../../../../redux/coaches/selectors";
+import CoachCard from "./CoachCard/CoachCard";
 
 export default function Dancers() {
   const [catalogTheme, setCatalogTheme] = useState(false);
   const statuses = useSelector(statusesSelector);
+  const coaches = useSelector(coachesSelector);
   const dancers = useSelector(dancersSelector);
   const clubs = useSelector(clubsSelector);
-  const coaches = [];
   const judges = [];
   const { catalogs } = useParams();
-  const dispatch = useDispatch();
   const { goBack } = useHistory();
+  const dispatch = useDispatch();
 
   useEffect(() => {
     if (statuses.length === 0) {
@@ -40,9 +42,11 @@ export default function Dancers() {
       setCatalogTheme(true);
       if (catalogs === "dancers" && dancers.length === 0) {
         dispatch(getDancers());
+        dispatch(getClubs());
       }
       if (catalogs === "coaches" && coaches.length === 0) {
         dispatch(getCoaches());
+        dispatch(getClubs());
       }
       if (catalogs === "clubs" && clubs.length === 0) {
         dispatch(getClubs());
@@ -92,7 +96,11 @@ export default function Dancers() {
                           .includes(dancer.id)
                       )
                       .map((dancer) => (
-                        <DancerCard dancer={dancer} key={dancer.id} />
+                        <DancerCard
+                          clubs={clubs}
+                          dancer={dancer}
+                          key={dancer.id}
+                        />
                       ))
                   ) : (
                     <Loader />
@@ -107,11 +115,17 @@ export default function Dancers() {
                   inputClassName="catalog-search"
                   placeholderText="Пошук"
                 />
-                {/* <div className="catalog-wrapper">
-              {dancers.map((dancer) => (
-                <DancerCard dancer={dancer} />
-              ))}
-            </div> */}
+                <div className="catalog-wrapper">
+                  {coaches.length !== 0 ? (
+                    coaches
+                      .slice(1)
+                      .map((coach) => (
+                        <CoachCard clubs={clubs} coach={coach} key={coach.id} />
+                      ))
+                  ) : (
+                    <Loader />
+                  )}
+                </div>
               </>
             )}
             {catalogs === "clubs" && (

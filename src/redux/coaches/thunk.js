@@ -5,7 +5,7 @@ export function getCoaches(offset) {
   return (dispatch) => {
     getCoachesFetch(`?offset=${offset}`).then((response) => {
       if (response) {
-        console.log(response);
+        console.log(response.at(-1).records);
         dispatch(getCoachesAction(response.at(-1).records));
       } else {
         alert("Getting coaches error");

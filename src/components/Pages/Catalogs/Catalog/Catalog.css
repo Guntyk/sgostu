@@ -1,7 +1,7 @@
 .catalog {
   padding: 100px 0;
-  background: url(../../../../materials/backgrounds/waves-right.svg) no-repeat 100%
-      100%,
+  background: url(../../../../materials/backgrounds/waves-right.svg) no-repeat
+      100% 100%,
     url(../../../../materials/backgrounds/waves-left.svg) no-repeat 0% 20%;
   background-size: 40% 150%;
   min-height: 100vh;
@@ -17,4 +17,12 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: 50px;
+}
+
+@media (max-width: 840px) {
+  .catalog-wrapper {
+    gap: 0;
+    flex-wrap: nowrap;
+    flex-direction: column;
+  }
 }
