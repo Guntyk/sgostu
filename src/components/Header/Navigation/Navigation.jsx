@@ -167,6 +167,19 @@ export default function Navigation({ openSideMenu, setOpenSideMenu }) {
         <hr className="nav-line" />
         <Link
           className="nav-link"
+          to="/catalogs"
+          onClick={() => {
+            setOpenSideMenu(false);
+          }}
+        >
+          <span className="nav-link-name">
+            {language === "ua" ? "Каталоги" : "Catalogs"}
+          </span>
+          <span className="nav-link-number">03</span>
+        </Link>
+        <hr className="nav-line" />
+        <Link
+          className="nav-link"
           to="/calendar"
           onClick={() => {
             setOpenSideMenu(false);
@@ -175,7 +188,7 @@ export default function Navigation({ openSideMenu, setOpenSideMenu }) {
           <span className="nav-link-name">
             {language === "ua" ? "Календар заходів" : "Events calendar"}
           </span>
-          <span className="nav-link-number">03</span>
+          <span className="nav-link-number">04</span>
         </Link>
         <hr className="nav-line" />
         <Link
@@ -188,7 +201,7 @@ export default function Navigation({ openSideMenu, setOpenSideMenu }) {
           <span className="nav-link-name">
             {language === "ua" ? "Контакти" : "Contacts"}
           </span>
-          <span className="nav-link-number">04</span>
+          <span className="nav-link-number">05</span>
         </Link>
         <hr className="nav-line" />
         <Link
@@ -201,7 +214,7 @@ export default function Navigation({ openSideMenu, setOpenSideMenu }) {
           <span className="nav-link-name">
             {language === "ua" ? "Зворотній зв'язок" : "Feedback"}
           </span>
-          <span className="nav-link-number">05</span>
+          <span className="nav-link-number">06</span>
         </Link>
       </div>
     </section>

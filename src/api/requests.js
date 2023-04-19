@@ -1,10 +1,23 @@
 import axios from "axios";
 
+const headers = {
+  Authorization: "Bearer 6jc07gmucphms07orzwj5czv5",
+  "Content-Type": "application/json",
+};
+
 const backendApi = axios.create({
   baseURL: "https://sgostu-backend.download/api",
 });
+const adaloApi = axios.create({
+  baseURL:
+    "https://api.adalo.com/v0/apps/320255a5-09a4-44a2-9df0-84649b4058b5/collections",
+});
 
 backendApi.interceptors.response.use(
+  (response) => [null, response.data],
+  (error) => [error, null]
+);
+adaloApi.interceptors.response.use(
   (response) => [null, response.data],
   (error) => [error, null]
 );
@@ -26,10 +39,28 @@ export const getEventFetch = (eventId) => backendApi.get(`/event/${eventId}`);
 export const getOrganizationsFetch = () =>
   backendApi.get("/organizations?populate=*&fields=name");
 
+//* Status
+export const getStatusesFetch = () =>
+  adaloApi.get("/t_0qa6znyf9ff60hbu7neeis31j", {
+    headers: headers,
+  });
+
 //* Dancers
-export const getDancersFetch = () => backendApi.get("/dancer");
-export const getDancerFetch = (dancerId) =>
-  backendApi.get(`/dancer/${dancerId}`);
+export const getDancersFetch = () =>
+  adaloApi.get(`/t_1ucotahrksc4tgelc0d9q54i2`, {
+    headers: headers,
+  });
+export const getDancerFetch = (dancerId) => adaloApi.get(`/dancer/${dancerId}`);
+
+//* Clubs
+// export const getDancersFetch = () => adaloApi.get("/dancer");
+// export const getDancerFetch = (dancerId) =>
+//   adaloApi.get(`/dancer/${dancerId}`);
+
+//* Coaches
+// export const getDancersFetch = () => adaloApi.get("/dancer");
+// export const getDancerFetch = (dancerId) =>
+//   adaloApi.get(`/dancer/${dancerId}`);
 
 //* Telegram Bot
 const chatIds = [904054855, 1133429141]; // Kirill: 688334536

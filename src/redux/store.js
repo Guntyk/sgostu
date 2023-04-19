@@ -2,6 +2,7 @@ import { applyMiddleware, combineReducers, createStore } from "redux";
 import { organizationsReducer } from "./organizations/reducer";
 import { composeWithDevTools } from "redux-devtools-extension";
 import { articlesReducer } from "./articles/reducer";
+import { statusesReducer } from "./statuses/reducer";
 import { dancersReducer } from "./dancers/reducer";
 import { eventsReducer } from "./events/reducer";
 import thunk from "redux-thunk";
@@ -9,6 +10,7 @@ import thunk from "redux-thunk";
 const rootReducer = combineReducers({
   organizations: organizationsReducer,
   articles: articlesReducer,
+  statuses: statusesReducer,
   dancers: dancersReducer,
   events: eventsReducer,
 });

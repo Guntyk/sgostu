@@ -27,12 +27,12 @@ export default function App() {
         <Route exact path="/calendar/:eventId">
           <EventInfo />
         </Route>
-        {/* <Route exact path="/catalog">
-      <Catalogs />
-    </Route>
-    <Route path="/catalog/:catalogs">
-      <Catalog />
-    </Route> */}
+        <Route exact path="/catalogs">
+          <Catalogs />
+        </Route>
+        <Route path="/catalogs/:catalogs">
+          <Catalog />
+        </Route>
         <Route exact path="/contacts">
           <Contacts />
         </Route>
