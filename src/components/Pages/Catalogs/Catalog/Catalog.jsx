@@ -11,13 +11,17 @@ import { useState } from "react";
 import "./Catalog.css";
 import { getStatuses } from "../../../../redux/statuses/thunk";
 import Button from "../../../../common/Button/Button";
+import { getClubs } from "../../../../redux/clubs/thunk";
+import { clubsSelector } from "../../../../redux/clubs/selectors";
+import ClubCard from "./ClubCard/ClubCard";
+import { getCoaches } from "../../../../redux/coaches/thunk";
 
 export default function Dancers() {
   const [catalogTheme, setCatalogTheme] = useState(false);
   const statuses = useSelector(statusesSelector);
   const dancers = useSelector(dancersSelector);
+  const clubs = useSelector(clubsSelector);
   const coaches = [];
-  const clubs = [];
   const judges = [];
   const { catalogs } = useParams();
   const dispatch = useDispatch();
@@ -38,10 +42,10 @@ export default function Dancers() {
         dispatch(getDancers());
       }
       if (catalogs === "coaches" && coaches.length === 0) {
-        // dispatch(getDancers());
+        dispatch(getCoaches());
       }
       if (catalogs === "clubs" && clubs.length === 0) {
-        // dispatch(getDancers());
+        dispatch(getClubs());
       }
       if (catalogs === "judges" && judges.length === 0) {
         // dispatch(getDancers());
@@ -70,7 +74,7 @@ export default function Dancers() {
               className="back-link"
               onClick={goBack}
             />
-            {catalogs === "dancers" && dancers.length !== 0 ? (
+            {catalogs === "dancers" && (
               <>
                 <h1 className="catalog-title">Танцюристи</h1>
                 <Input
@@ -78,21 +82,23 @@ export default function Dancers() {
                   placeholderText="Пошук"
                 />
                 <div className="catalog-wrapper">
-                  {dancers
-                    .filter((dancer) =>
-                      statuses
-                        .filter((status) => status.Name !== "Не активний")
-                        .map((status) => status.Dancers)
-                        .flat()
-                        .includes(dancer.id)
-                    )
-                    .map((dancer) => (
-                      <DancerCard dancer={dancer} key={dancer.id} />
-                    ))}
+                  {dancers.length !== 0 ? (
+                    dancers
+                      .filter((dancer) =>
+                        statuses
+                          .filter((status) => status.Name !== "Не активний")
+                          .map((status) => status.Dancers)
+                          .flat()
+                          .includes(dancer.id)
+                      )
+                      .map((dancer) => (
+                        <DancerCard dancer={dancer} key={dancer.id} />
+                      ))
+                  ) : (
+                    <Loader />
+                  )}
                 </div>
               </>
-            ) : (
-              <Loader />
             )}
             {catalogs === "coaches" && (
               <>
@@ -115,11 +121,16 @@ export default function Dancers() {
                   inputClassName="catalog-search"
                   placeholderText="Пошук"
                 />
-                {/* <div className="catalog-wrapper">
-              {dancers.map((dancer) => (
-                <DancerCard dancer={dancer} />
-              ))}
-            </div> */}
+                <div className="catalog-wrapper">
+                  {clubs.length !== 0 ? (
+                    clubs
+                      .slice(1)
+                      // .filter((club) => club.Approve_Club)
+                      .map((club) => <ClubCard club={club} key={club.id} />)
+                  ) : (
+                    <Loader />
+                  )}
+                </div>
               </>
             )}
             {catalogs === "judges" && (

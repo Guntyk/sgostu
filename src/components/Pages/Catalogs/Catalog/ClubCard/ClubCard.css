@@ -3,8 +3,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: 1px solid;
-  max-width: 260px;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  width: 238px;
   border-radius: 10px;
   padding: 18px 0 36px;
   background: linear-gradient(
@@ -21,6 +21,7 @@
   object-fit: cover;
   border-radius: 50%;
   margin-bottom: 30px;
+  border: 1px solid rgba(0, 0, 0, 0.5);
 }
 
 .club-card-city,
@@ -66,11 +67,11 @@
 }
 
 .coaches-quantity::before {
-  background: url(../../../materials/icons/clubcard/coaches.svg);
+  background: url(../../../../../materials/icons/clubcard/coaches.svg);
 }
 
 .dancers-quantity::before {
-  background: url(../../../materials/icons/clubcard/dancers.svg);
+  background: url(../../../../../materials/icons/clubcard/dancers.svg);
 }
 
 .club-cards-details-link {
