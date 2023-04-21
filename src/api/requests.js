@@ -47,11 +47,17 @@ export const getStatusesFetch = () =>
 
 //* Dancers
 export const getDancersFetch = () =>
-  adaloApi.get(`/t_1ucotahrksc4tgelc0d9q54i2`, {
+  adaloApi.get(`/t_1ucotahrksc4tgelc0d9q54i2?offset=400`, {
     headers: headers,
   });
 export const getDancerFetch = (dancerId) =>
   adaloApi.get(`/t_1ucotahrksc4tgelc0d9q54i2/${dancerId}`, {
+    headers: headers,
+  });
+
+//* Dancer Classes
+export const getDancerClassesFetch = () =>
+  adaloApi.get(`/t_0wnuo5fh8wb9emod6la6mbyx7`, {
     headers: headers,
   });
 
@@ -72,6 +78,22 @@ export const getCoachesFetch = () =>
   });
 export const getCoachFetch = (coachId) =>
   adaloApi.get(`/t_0krimgt2jojxj54w8kaqyc676/${coachId}`, {
+    headers: headers,
+  });
+
+//* Judges
+export const getJudgesFetch = () =>
+  adaloApi.get("/t_7cuuwcj0h9gr250xkiwxv0qv0", {
+    headers: headers,
+  });
+export const getJudgeFetch = (judgeId) =>
+  adaloApi.get(`/t_7cuuwcj0h9gr250xkiwxv0qv0/${judgeId}`, {
+    headers: headers,
+  });
+
+//* Judge Classes
+export const getJudgeClassesFetch = () =>
+  adaloApi.get("/t_d67j8boj781o5qhv2b3g5had0", {
     headers: headers,
   });
 

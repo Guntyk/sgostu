@@ -3,7 +3,8 @@ import { dateToLocalFormat } from "../../../../../helpers/dateToLocalFormat";
 import { Link } from "react-router-dom";
 import "./DancerCard.css";
 
-export default function DancerCard({ dancer }) {
+export default function DancerCard({ dancer, clubs, classes }) {
+  console.log(classes)
   return (
     <div className="card-wrapper">
       <div className="img-wrapper">
@@ -13,11 +14,29 @@ export default function DancerCard({ dancer }) {
           <AvatarPlaceholder />
         )}
       </div>
-      <span className="dancer-class">Категорія: </span>
+      <span className="dancer-class">
+        Клас:{" "}
+        {classes
+          .filter(
+            (danceClass) =>
+              classes.indexOf(danceClass) + 1 ===
+              Number(dancer["Dancer Class"].at(-1))
+          )
+          .at(-1)
+          .Class_Name.trim()}
+      </span>
       <h5 className="dancer-name">
         {dancer.D_Surname.trim()} {dancer.D_Name.trim()}
       </h5>
-      <span className="dancer-club">{dancer.club}</span>
+      <span className="dancer-club">
+        {String(
+          clubs
+            .filter((club) => club.id === Number(dancer.Club))
+            .map((club) => club.Club_Name)
+        )
+          .split("(")[0]
+          .trim()}
+      </span>
       <span className="dancer-birthday">
         {dancer.Birthday && dateToLocalFormat(dancer.Birthday)}
       </span>
