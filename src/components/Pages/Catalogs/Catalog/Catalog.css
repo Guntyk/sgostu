@@ -5,6 +5,7 @@
     url(../../../../materials/backgrounds/waves-left.svg) no-repeat 0% 20%;
   background-size: 40% 150%;
   min-height: 100vh;
+  background-attachment: fixed;
 }
 
 .catalog-title {
