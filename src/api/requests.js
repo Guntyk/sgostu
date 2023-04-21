@@ -56,7 +56,7 @@ export const getDancerFetch = (dancerId) =>
   });
 
 //* Dancers Classes
-export const getClassesFetch = () =>
+export const getDancerClassesFetch = () =>
   adaloApi.get(`/t_0wnuo5fh8wb9emod6la6mbyx7`, {
     headers: headers,
   });

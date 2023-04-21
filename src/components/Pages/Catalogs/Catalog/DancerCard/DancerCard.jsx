@@ -4,38 +4,6 @@ import { Link } from "react-router-dom";
 import "./DancerCard.css";
 
 export default function DancerCard({ dancer, clubs, classes }) {
-  // console.log(dancer);
-  // console.log(classes);
-  // console.log(
-  //   classes
-  //     .map((dancerClass) => dancerClass.Dancers)
-  //     .filter((dancerClass) => dancerClass !== undefined)
-  //     .map((dancerClass) => dancerClass.includes(Number(dancer.id)))
-  //     .map((dancerClass) => includes(Number(dancer.id)))
-  //     .map((dancerClass) => dancerClass.includes(String(dancerClass)))
-  //     .includes((dancerClass) => dancerClass.includes(Number(dancer.id)))
-  //     .indexOf(true)
-  // );
-  // console.log(
-  //   classes.filter(
-  //     (danceClass) =>
-  //       classes.indexOf(danceClass) + 1 ===
-  //       Number(dancer["Dancer Class"].at(-1))
-  //   )
-  // );
-  // console.log(
-  //   classes.filter((dancerClass) =>
-  //     console.log(dancerClass.Dancers?.includes(dancer["Dancer Class"].at(-1)))
-  //   )
-  // );
-  // console.log(
-  // classes.map((dancerClass) => dancerClass.Dancers)
-  // .filter((dancerClass) => dancerClass.id === dancer["Dancer Class"].at(-1))
-  // );
-  // console.log(
-  // classes.map((dancerClass) => dancerClass.Dancers)
-  // .filter((dancerClass) => dancerClass.id
-  // );
   return (
     <div className="card-wrapper">
       <div className="img-wrapper">
