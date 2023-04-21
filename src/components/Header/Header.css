@@ -93,6 +93,9 @@
     width: 150%;
     height: 150%;
   }
+  .language {
+    margin-right: 55px;
+  }
 }
 
 @media (max-width: 550px) {
@@ -113,5 +116,8 @@
   .cross::before {
     width: 130%;
     height: 130%;
+  }
+  .language {
+    margin-right: 35px;
   }
 }
