@@ -12,7 +12,7 @@ export default function JudgeCard({ judge, classes }) {
         )}
       </div>
       <h5 className="dancer-name">
-        {String(judge["Name Surname"]).replace(/ /g, "").trim()}{" "}
+        {String(judge["Name Surname"]).replace(/ /g, "").trim()}
       </h5>
       <span className="judge-class">
         Категорія:{" "}
