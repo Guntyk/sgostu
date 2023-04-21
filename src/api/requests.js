@@ -46,8 +46,8 @@ export const getStatusesFetch = () =>
   });
 
 //* Dancers
-export const getDancersFetch = () =>
-  adaloApi.get(`/t_1ucotahrksc4tgelc0d9q54i2?offset=400`, {
+export const getDancersFetch = (offset) =>
+  adaloApi.get(`/t_1ucotahrksc4tgelc0d9q54i2?offset=${offset}`, {
     headers: headers,
   });
 export const getDancerFetch = (dancerId) =>

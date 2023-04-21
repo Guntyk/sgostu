@@ -4,6 +4,6 @@ export function getDancersAction(dancersArr) {
   return { type: GET_DANCERS, dancersArr };
 }
 
-// export function getMoreDancersAction(dancersArr) {
-//   return { type: MORE_DANCERS, dancersArr };
-// }
+export function getMoreDancersAction(dancersArr) {
+  return { type: MORE_DANCERS, dancersArr };
+}

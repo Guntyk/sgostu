@@ -1,9 +1,9 @@
 import { getDancersAction, getMoreDancersAction } from "./actionCreators";
-import { getDancersFetch } from "../../api/requests";
+import { getDancersAmountFetch, getDancersFetch } from "../../api/requests";
 
-export function getDancers(offset) {
+export function getDancers() {
   return (dispatch) => {
-    getDancersFetch(`?offset=${offset}`).then((response) => {
+    getDancersFetch(0).then((response) => {
       if (response) {
         dispatch(getDancersAction(response.at(-1).records));
       } else {
@@ -13,15 +13,14 @@ export function getDancers(offset) {
   };
 }
 
-// export function getMoreDancers(offset) {
-//   return (dispatch) => {
-//     getDancersFetch(`?offset=${offset}`).then((response) => {
-//       if (response) {
-//         console.log(response);
-//         dispatch(getMoreDancersAction(response.at(-1).records.reverse()));
-//       } else {
-//         alert("Getting More Dancers Error");
-//       }
-//     });
-//   };
-// }
+export function getMoreDancers(offset) {
+  return (dispatch) => {
+    getDancersFetch(offset).then((response) => {
+      if (response) {
+        dispatch(getMoreDancersAction(response.at(-1).records));
+      } else {
+        alert("Getting More Dancers Error");
+      }
+    });
+  };
+}

@@ -6,8 +6,9 @@ export function dancersReducer(state = defaultState, action) {
   switch (action.type) {
     case GET_DANCERS:
       return action.dancersArr;
-    // case MORE_DANCERS:
-    //   return [...state, action.payload];
+    case MORE_DANCERS:
+      console.log(action.dancersArr);
+      return [...state, ...action.dancersArr];
     default:
       return state;
   }
