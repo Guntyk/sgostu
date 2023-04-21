@@ -1,0 +1,32 @@
+.judge-card {
+  justify-content: space-around;
+}
+
+@media (max-width: 840px) {
+  .judge-card {
+    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+  }
+  .judge-card .dancer-name {
+    margin: 0;
+  }
+  .judge-details {
+    display: none;
+  }
+  .judge-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5px;
+    justify-self: center;
+  }
+  .judge-class {
+    line-height: 1;
+  }
+}
+
+@media (max-width: 550px) {
+  .judge-class {
+    font-size: 12px;
+  }
+}

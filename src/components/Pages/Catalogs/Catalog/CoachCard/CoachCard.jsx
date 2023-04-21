@@ -5,7 +5,7 @@ import "./CoachCard.css";
 export default function CoachCard({ coach, clubs }) {
   console.log(clubs.filter((club) => club.id === Number(coach.Club)));
   return (
-    <div className="card-wrapper">
+    <div className="card-wrapper coach-card">
       <div className="img-wrapper">
         {coach["Coach Foto"]?.url ? (
           <img src={coach["Coach Foto"]?.url} alt="Аватар" />
