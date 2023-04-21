@@ -7,6 +7,7 @@ import { classesReducer } from "./classes/reducer";
 import { coachesReducer } from "./coaches/reducer";
 import { dancersReducer } from "./dancers/reducer";
 import { eventsReducer } from "./events/reducer";
+import { judgesReducer } from "./judges/reducer";
 import { clubsReducer } from "./clubs/reducer";
 import thunk from "redux-thunk";
 
@@ -18,6 +19,7 @@ const rootReducer = combineReducers({
   coaches: coachesReducer,
   dancers: dancersReducer,
   events: eventsReducer,
+  judges: judgesReducer,
   clubs: clubsReducer,
 });
 
