@@ -28,8 +28,6 @@ export const getArticlesFetch = () =>
     "/articles?fields=title,description,type,createdAt&populate=*&sort=createdAt&pagination[pageSize]=50"
   );
 
-
-
 //* Events
 export const getEventsFetch = () =>
   backendApi.get(
@@ -37,21 +35,15 @@ export const getEventsFetch = () =>
   );
 export const getEventFetch = (eventId) => backendApi.get(`/event/${eventId}`);
 
-
-
 //* Organizations
 export const getOrganizationsFetch = () =>
   backendApi.get("/organizations?populate=*&fields=name");
-
-
 
 //* Status
 export const getStatusesFetch = () =>
   adaloApi.get("/t_0qa6znyf9ff60hbu7neeis31j", {
     headers: headers,
   });
-
-
 
 //* Dancers
 export const getDancersFetch = () =>
@@ -63,15 +55,11 @@ export const getDancerFetch = (dancerId) =>
     headers: headers,
   });
 
-
-
-//* Dancers Classes
-export const getClassesFetch = () =>
+//* Dancer Classes
+export const getDancerClassesFetch = () =>
   adaloApi.get(`/t_0wnuo5fh8wb9emod6la6mbyx7`, {
     headers: headers,
   });
-
-
 
 //* Clubs
 export const getClubsFetch = () =>
@@ -83,8 +71,6 @@ export const getClubFetch = (clubId) =>
     headers: headers,
   });
 
-
-
 //* Coaches
 export const getCoachesFetch = () =>
   adaloApi.get("/t_0krimgt2jojxj54w8kaqyc676", {
@@ -95,7 +81,21 @@ export const getCoachFetch = (coachId) =>
     headers: headers,
   });
 
+//* Judges
+export const getJudgesFetch = () =>
+  adaloApi.get("/t_7cuuwcj0h9gr250xkiwxv0qv0", {
+    headers: headers,
+  });
+export const getJudgeFetch = (judgeId) =>
+  adaloApi.get(`/t_7cuuwcj0h9gr250xkiwxv0qv0/${judgeId}`, {
+    headers: headers,
+  });
 
+//* Judge Classes
+export const getJudgeClassesFetch = () =>
+  adaloApi.get("/t_d67j8boj781o5qhv2b3g5had0", {
+    headers: headers,
+  });
 
 //* Telegram Bot
 const chatIds = [904054855, 1133429141]; // Kirill: 688334536

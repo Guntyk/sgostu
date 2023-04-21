@@ -1,0 +1,1 @@
+export const GET_JUDGE_CLASSES = "GET_JUDGE_CLASSES";
