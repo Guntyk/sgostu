@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import "./DancerCard.css";
 
 export default function DancerCard({ dancer, clubs, classes }) {
+  console.log(classes)
   return (
     <div className="card-wrapper">
       <div className="img-wrapper">

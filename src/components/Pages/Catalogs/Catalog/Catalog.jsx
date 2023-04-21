@@ -1,33 +1,42 @@
-import { dancersSelector } from "../../../../redux/dancers/selectors";
-import { getDancers, getMoreDancers } from "../../../../redux/dancers/thunk";
+import { dancerClassesSelector } from "../../../../redux/dancerClasses/selectors";
+import { judgeClassesSelector } from "../../../../redux/judgeClasses/selectors";
 import { statusesSelector } from "../../../../redux/statuses/selectors";
-import { useDispatch, useSelector } from "react-redux";
+import { coachesSelector } from "../../../../redux/coaches/selectors";
+import { dancersSelector } from "../../../../redux/dancers/selectors";
+import { judgesSelector } from "../../../../redux/judges/selectors";
+import { clubsSelector } from "../../../../redux/clubs/selectors";
+
+import { getDancers, getMoreDancers } from "../../../../redux/dancers/thunk";
+import { getDancerClasses } from "../../../../redux/dancerClasses/thunk";
+import { getJudgeClasses } from "../../../../redux/judgeClasses/thunk";
+import { getStatuses } from "../../../../redux/statuses/thunk";
+import { getCoaches } from "../../../../redux/coaches/thunk";
+import { getJudges } from "../../../../redux/judges/thunk";
+import { getClubs } from "../../../../redux/clubs/thunk";
+
+import Button from "../../../../common/Button/Button";
 import Input from "../../../../common/Input/Input";
 import DancerCard from "./DancerCard/DancerCard";
-import { useHistory, useParams } from "react-router-dom";
-import Loader from "../../../Loader/Loader";
-import { useEffect } from "react";
-import { useState } from "react";
-import "./Catalog.css";
-import { getStatuses } from "../../../../redux/statuses/thunk";
-import Button from "../../../../common/Button/Button";
-import { getClubs } from "../../../../redux/clubs/thunk";
-import { clubsSelector } from "../../../../redux/clubs/selectors";
-import ClubCard from "./ClubCard/ClubCard";
-import { getCoaches } from "../../../../redux/coaches/thunk";
-import { coachesSelector } from "../../../../redux/coaches/selectors";
 import CoachCard from "./CoachCard/CoachCard";
-import { getClasses } from "../../../../redux/classes/thunk";
-import { classesSelector } from "../../../../redux/classes/selectors";
+import JudgeCard from "./JudgeCard/JudgeCard";
+import Loader from "../../../Loader/Loader";
+import ClubCard from "./ClubCard/ClubCard";
+
+import { useHistory, useParams } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect, useState } from "react";
+
+import "./Catalog.css";
 
 export default function Dancers() {
+  const dancerClasses = useSelector(dancerClassesSelector);
   const [catalogTheme, setCatalogTheme] = useState(false);
+  const judgeClasses = useSelector(judgeClassesSelector);
   const statuses = useSelector(statusesSelector);
-  const classes = useSelector(classesSelector);
   const coaches = useSelector(coachesSelector);
   const dancers = useSelector(dancersSelector);
+  const judges = useSelector(judgesSelector);
   const clubs = useSelector(clubsSelector);
-  const judges = [];
   const { catalogs } = useParams();
   const { goBack } = useHistory();
   const dispatch = useDispatch();
@@ -45,7 +54,7 @@ export default function Dancers() {
       setCatalogTheme(true);
       if (catalogs === "dancers" && dancers.length === 0) {
         dispatch(getDancers());
-        dispatch(getClasses());
+        dispatch(getDancerClasses());
         dispatch(getClubs());
       }
       if (catalogs === "coaches" && coaches.length === 0) {
@@ -56,7 +65,8 @@ export default function Dancers() {
         dispatch(getClubs());
       }
       if (catalogs === "judges" && judges.length === 0) {
-        // dispatch(getDancers());
+        dispatch(getJudges());
+        dispatch(getJudgeClasses());
       }
     }
   }, []);
@@ -102,7 +112,7 @@ export default function Dancers() {
                       .filter((dancer) => dancer.Dancer_Verify)
                       .map((dancer) => (
                         <DancerCard
-                          classes={classes}
+                          classes={dancerClasses}
                           dancer={dancer}
                           clubs={clubs}
                           key={dancer.id}
@@ -160,11 +170,21 @@ export default function Dancers() {
                   inputClassName="catalog-search"
                   placeholderText="Пошук"
                 />
-                {/* <div className="catalog-wrapper">
-              {dancers.map((dancer) => (
-                <DancerCard dancer={dancer} />
-              ))}
-            </div> */}
+                <div className="catalog-wrapper">
+                  {judges.length !== 0 ? (
+                    judges
+                      .filter((judge) => judge["Judges Verify"])
+                      .map((judge) => (
+                        <JudgeCard
+                          classes={judgeClasses}
+                          judge={judge}
+                          key={judge.id}
+                        />
+                      ))
+                  ) : (
+                    <Loader />
+                  )}
+                </div>
               </>
             )}
           </div>

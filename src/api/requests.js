@@ -55,7 +55,7 @@ export const getDancerFetch = (dancerId) =>
     headers: headers,
   });
 
-//* Dancers Classes
+//* Dancer Classes
 export const getDancerClassesFetch = () =>
   adaloApi.get(`/t_0wnuo5fh8wb9emod6la6mbyx7`, {
     headers: headers,
@@ -88,6 +88,12 @@ export const getJudgesFetch = () =>
   });
 export const getJudgeFetch = (judgeId) =>
   adaloApi.get(`/t_7cuuwcj0h9gr250xkiwxv0qv0/${judgeId}`, {
+    headers: headers,
+  });
+
+//* Judge Classes
+export const getJudgeClassesFetch = () =>
+  adaloApi.get("/t_d67j8boj781o5qhv2b3g5had0", {
     headers: headers,
   });
 

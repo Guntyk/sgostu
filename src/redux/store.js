@@ -2,6 +2,7 @@ import { applyMiddleware, combineReducers, createStore } from "redux";
 import { dancerClassesReducer } from "./dancerClasses/reducer";
 import { organizationsReducer } from "./organizations/reducer";
 import { composeWithDevTools } from "redux-devtools-extension";
+import { judgeClassesReducer } from "./judgeClasses/reducer";
 import { articlesReducer } from "./articles/reducer";
 import { statusesReducer } from "./statuses/reducer";
 import { coachesReducer } from "./coaches/reducer";
@@ -13,7 +14,8 @@ import thunk from "redux-thunk";
 
 const rootReducer = combineReducers({
   organizations: organizationsReducer,
-  classes: dancerClassesReducer,
+  dancerClasses: dancerClassesReducer,
+  judgeClasses: judgeClassesReducer,
   articles: articlesReducer,
   statuses: statusesReducer,
   coaches: coachesReducer,
