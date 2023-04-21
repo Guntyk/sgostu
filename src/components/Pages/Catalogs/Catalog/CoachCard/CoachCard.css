@@ -69,6 +69,9 @@
   .coach-card .dancers-quantity {
     margin: 0;
   }
+  .dancer-details {
+    display: none;
+  }
 }
 
 @media (max-width: 550px) {
