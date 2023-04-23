@@ -1,28 +1,14 @@
-import { getClubsAction, getMoreClubsAction } from "./actionCreators";
+import { getClubsAction } from "./actionCreators";
 import { getClubsFetch } from "../../api/requests";
 
-export function getClubs(offset) {
+export function getClubs() {
   return (dispatch) => {
-    getClubsFetch(`?offset=${offset}`).then((response) => {
+    getClubsFetch().then((response) => {
       if (response) {
-        console.log(response.at(-1).records);
-        dispatch(getClubsAction(response.at(-1).records));
+        dispatch(getClubsAction(response.at(-1).records.slice(1)));
       } else {
         alert("Getting dancers error");
       }
     });
   };
 }
-
-// export function getMoreDancers(offset) {
-//   return (dispatch) => {
-//     getDancersFetch(`?offset=${offset}`).then((response) => {
-//       if (response) {
-//         console.log(response);
-//         dispatch(getMoreDancersAction(response.at(-1).records.reverse()));
-//       } else {
-//         alert("Getting More Dancers Error");
-//       }
-//     });
-//   };
-// }

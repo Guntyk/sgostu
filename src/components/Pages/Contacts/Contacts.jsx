@@ -4,6 +4,7 @@ export default function Contacts() {
   const language = window.localStorage.getItem("language");
   return (
     <article className="contacts">
+      {window.scrollTo(0, 0)}
       <div className="container">
         <h1 className="contacts-title">
           {" "}

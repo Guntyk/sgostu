@@ -39,6 +39,12 @@ export const getEventFetch = (eventId) => backendApi.get(`/event/${eventId}`);
 export const getOrganizationsFetch = () =>
   backendApi.get("/organizations?populate=*&fields=name");
 
+//* Regions
+export const getRegionsFetch = () =>
+  adaloApi.get("/t_6vdt8hjlwqw4abagjn501kzz4", {
+    headers: headers,
+  });
+
 //* Status
 export const getStatusesFetch = () =>
   adaloApi.get("/t_0qa6znyf9ff60hbu7neeis31j", {
@@ -46,8 +52,8 @@ export const getStatusesFetch = () =>
   });
 
 //* Dancers
-export const getDancersFetch = (offset) =>
-  adaloApi.get(`/t_1ucotahrksc4tgelc0d9q54i2?offset=${offset}`, {
+export const getDancersFetch = async () =>
+  adaloApi.get(`/t_1ucotahrksc4tgelc0d9q54i2?limit=3000`, {
     headers: headers,
   });
 export const getDancerFetch = (dancerId) =>

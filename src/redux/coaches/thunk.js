@@ -1,28 +1,22 @@
-import { getCoachesAction, getMoreCoachesAction } from "./actionCreators";
+import { getCoachesAction } from "./actionCreators";
 import { getCoachesFetch } from "../../api/requests";
 
-export function getCoaches(offset) {
+export function getCoaches(statuses) {
   return (dispatch) => {
-    getCoachesFetch(`?offset=${offset}`).then((response) => {
+    getCoachesFetch().then((response) => {
       if (response) {
-        console.log(response.at(-1).records);
-        dispatch(getCoachesAction(response.at(-1).records));
+        dispatch(
+          getCoachesAction(
+            response
+              .at(-1)
+              .records.slice(1)
+              .filter((coach) => coach.Coach_Verify)
+              .filter((coach) => statuses[0]["Сoaches"].includes(coach.id))
+          )
+        );
       } else {
         alert("Getting coaches error");
       }
     });
   };
 }
-
-// export function getMoreCoaches(offset) {
-//   return (dispatch) => {
-//     getCoachesFetch(`?offset=${offset}`).then((response) => {
-//       if (response) {
-//         console.log(response);
-//         dispatch(getMoreCoachesAction(response.at(-1).records.reverse()));
-//       } else {
-//         alert("Getting More Coaches Error");
-//       }
-//     });
-//   };
-// }

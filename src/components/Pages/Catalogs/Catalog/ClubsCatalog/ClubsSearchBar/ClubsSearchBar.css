@@ -1,0 +1,90 @@
+.search-form {
+  position: sticky !important;
+  top: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 50px !important;
+  box-sizing: border-box;
+  z-index: 2;
+}
+
+.form {
+  display: flex;
+  align-items: center;
+  margin: 30px 0;
+  width: 70%;
+  font-size: 0.8rem;
+}
+
+.search-input {
+  width: 10%;
+  width: auto;
+  width: 30%;
+  border-radius: 0px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+  border-right: none;
+}
+
+.search-select {
+  font-family: "e-Ukraine-Light", sans-serif;
+  padding: 0.9em 1.5384em;
+  font-size: 1em;
+  border: 1px solid #0e0e0e59;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+  transition: 0.2s;
+}
+
+.search-select:is(:focus, :active) {
+  outline: none;
+}
+
+.search-select:nth-child(2) {
+  margin-left: 1px;
+  width: 26%;
+}
+
+.search-btn {
+  position: relative;
+  padding: 1em;
+  width: 7.5%;
+  font-family: "e-Ukraine-Light", sans-serif;
+  border: 1px solid #0e0e0e59;
+  border-radius: 0px;
+  border-left: none;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  background: transparent;
+  transition: 0.2s;
+}
+
+.search-btn:hover {
+  background: #222;
+  color: #fff;
+}
+
+.reset-filters-btn {
+  width: 25%;
+  font-family: "e-Ukraine-Light", sans-serif;
+  font-size: 0.8em;
+  border: 1px solid #0e0e0e59;
+  border-radius: 10px;
+}
+
+.reset-filters-btn:hover {
+  background: #222;
+  color: #fff;
+}
+
+.search-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 30px;
+  height: 30px;
+  transform: translate(-50%, -50%);
+}

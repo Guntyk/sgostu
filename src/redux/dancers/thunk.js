@@ -1,25 +1,26 @@
-import { getDancersAction, getMoreDancersAction } from "./actionCreators";
-import { getDancersAmountFetch, getDancersFetch } from "../../api/requests";
+import { getDancersFetch } from "../../api/requests";
+import { getDancersAction } from "./actionCreators";
 
-export function getDancers() {
+export function getDancers(statuses) {
   return (dispatch) => {
-    getDancersFetch(0).then((response) => {
+    getDancersFetch().then((response) => {
       if (response) {
-        dispatch(getDancersAction(response.at(-1).records));
+        dispatch(
+          getDancersAction(
+            response
+              .at(-1)
+              .records.filter((dancer) => dancer.Dancer_Verify)
+              .filter((dancer) =>
+                statuses
+                  .filter((status) => status.Name !== "Не активний")
+                  .map((status) => status.Dancers)
+                  .flat()
+                  .includes(dancer.id)
+              )
+          )
+        );
       } else {
         alert("Getting dancers error");
-      }
-    });
-  };
-}
-
-export function getMoreDancers(offset) {
-  return (dispatch) => {
-    getDancersFetch(offset).then((response) => {
-      if (response) {
-        dispatch(getMoreDancersAction(response.at(-1).records));
-      } else {
-        alert("Getting More Dancers Error");
       }
     });
   };

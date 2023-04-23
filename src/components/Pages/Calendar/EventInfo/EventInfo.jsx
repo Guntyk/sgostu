@@ -51,6 +51,7 @@ export default function EventInfo() {
     <>
       {event ? (
         <article className="event-info">
+          {window.scrollTo(0, 0)}
           <div className="container event-details-container">
             <Button
               buttonText={

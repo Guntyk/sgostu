@@ -1,4 +1,5 @@
 .catalog {
+  --coefficient: 1;
   padding: 100px 0;
   background: url(../../../../materials/backgrounds/waves-right.svg) no-repeat
       100% 100%,
@@ -9,8 +10,14 @@
 }
 
 .catalog-title {
+  margin-top: -50px;
   font-size: 38px;
   text-align: center;
+}
+
+.catalog-wrapper .loader-sec {
+  margin-top: 200px;
+  height: auto;
 }
 
 .catalog-wrapper {
@@ -18,6 +25,11 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: 50px;
+}
+
+.no-dancers-searched {
+  margin-top: 150px;
+  font-size: 1.5rem;
 }
 
 @media (max-width: 840px) {
