@@ -1,0 +1,14 @@
+.select {
+  margin-left: 1px;
+  font-family: "e-Ukraine-Light", sans-serif;
+  padding: 0.9em 1.5384em;
+  font-size: 1em;
+  border: 1px solid #0e0e0e59;
+  background: transparent;
+  backdrop-filter: blur(10px);
+  transition: 0.2s;
+}
+
+.select:is(:focus, :active) {
+  outline: none;
+}

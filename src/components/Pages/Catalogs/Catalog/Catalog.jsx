@@ -6,6 +6,8 @@ import { dancersSelector } from "../../../../redux/dancers/selectors";
 import { judgesSelector } from "../../../../redux/judges/selectors";
 import { clubsSelector } from "../../../../redux/clubs/selectors";
 
+import { searchDancersAction } from "../../../../redux/dancers/actionCreators";
+
 import { getDancers, getMoreDancers } from "../../../../redux/dancers/thunk";
 import { getDancerClasses } from "../../../../redux/dancerClasses/thunk";
 import { getJudgeClasses } from "../../../../redux/judgeClasses/thunk";
@@ -14,6 +16,7 @@ import { getCoaches } from "../../../../redux/coaches/thunk";
 import { getJudges } from "../../../../redux/judges/thunk";
 import { getClubs } from "../../../../redux/clubs/thunk";
 
+import SearchBar from "../../../../common/SearchBar/SearchBar";
 import Button from "../../../../common/Button/Button";
 import Input from "../../../../common/Input/Input";
 import DancerCard from "./DancerCard/DancerCard";
@@ -31,6 +34,7 @@ import "./Catalog.css";
 export default function Dancers() {
   const [catalogTheme, setCatalogTheme] = useState(false);
   const [dancersOffset, setDancersOffset] = useState(100);
+  const [dancersList, setDancersList] = useState([]);
 
   const dancerClasses = useSelector(dancerClassesSelector);
   const judgeClasses = useSelector(judgeClassesSelector);
@@ -44,8 +48,6 @@ export default function Dancers() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    window.addEventListener("scroll", throttle(checkPosition, 250));
-    window.addEventListener("resize", throttle(checkPosition, 250));
     if (statuses.length === 0) {
       dispatch(getStatuses());
     }
@@ -75,54 +77,12 @@ export default function Dancers() {
     }
   }, []);
 
-  function checkPosition() {
-    // Нам потребуется знать высоту документа и высоту экрана:
-    const height = document.body.offsetHeight;
-    const screenHeight = window.innerHeight;
-
-    // Они могут отличаться: если на странице много контента,
-    // высота документа будет больше высоты экрана (отсюда и скролл).
-
-    // Записываем, сколько пикселей пользователь уже проскроллил:
-    const scrolled = window.scrollY;
-
-    // Обозначим порог, по приближении к которому
-    // будем вызывать какое-то действие.
-    // В нашем случае — четверть экрана до конца страницы:
-    const threshold = height - screenHeight / 4;
-
-    // Отслеживаем, где находится низ экрана относительно страницы:
-    const position = scrolled + screenHeight;
-
-    if (position >= threshold) {
-      dispatch(getMoreDancers(dancersOffset));
-      setDancersOffset(dancersOffset + 100);
-    }
-  }
-
-  function throttle(callee, timeout) {
-    let timer = null;
-
-    return function perform(...args) {
-      if (timer) return;
-
-      timer = setTimeout(() => {
-        callee(...args);
-
-        clearTimeout(timer);
-        timer = null;
-      }, timeout);
-    };
-  }
-
   function handleMoreDancers(e) {
     e.target.innerText = "Завантаження";
-    e.target.disabled = "true";
     dispatch(getMoreDancers(dancersOffset));
     setDancersOffset(dancersOffset + 100);
     setTimeout(() => {
       e.target.innerText = "Більше";
-      e.target.disabled = "none";
     }, 4000);
   }
 
@@ -150,42 +110,57 @@ export default function Dancers() {
             {catalogs === "dancers" && (
               <>
                 <h1 className="catalog-title">Танцюристи</h1>
-                <Input
-                  inputClassName="catalog-search"
-                  placeholderText="Пошук"
+                <SearchBar
+                  dancers={dancers}
+                  clubs={clubs}
+                  dancerClasses={dancerClasses}
+                  statuses={statuses}
+                  dancersList={dancersList}
+                  setDancersList={setDancersList}
                 />
                 <div className="catalog-wrapper">
-                  {dancers.length !== 0 ? (
-                    dancers
-                      .filter((dancer) =>
-                        statuses
-                          .filter((status) => status.Name !== "Не активний")
-                          .map((status) => status.Dancers)
-                          .flat()
-                          .includes(dancer.id)
-                      )
-                      .filter((dancer) => dancer.Dancer_Verify)
-                      .map((dancer) => (
-                        <DancerCard
-                          classes={dancerClasses}
-                          dancer={dancer}
-                          clubs={clubs}
-                          key={dancer.id}
-                        />
-                      ))
+                  {dancersList.length === 0 ? (
+                    dancers.length !== 0 ? (
+                      dancers
+                        .filter((dancer) =>
+                          statuses
+                            .filter((status) => status.Name !== "Не активний")
+                            .map((status) => status.Dancers)
+                            .flat()
+                            .includes(dancer.id)
+                        )
+                        .filter((dancer) => dancer.Dancer_Verify)
+                        .map((dancer) => (
+                          <DancerCard
+                            classes={dancerClasses}
+                            dancer={dancer}
+                            clubs={clubs}
+                            key={dancer.id}
+                          />
+                        ))
+                    ) : (
+                      <Loader />
+                    )
                   ) : (
-                    <Loader />
+                    dancersList.map((dancer) => (
+                      <DancerCard
+                        classes={dancerClasses}
+                        dancer={dancer}
+                        clubs={clubs}
+                        key={dancer.id}
+                      />
+                    ))
                   )}
                 </div>
-                {dancersOffset <= 500 && dancers.length !== 0 ? (
-                  <Button
-                    className="catalog-more-btn"
-                    buttonText="Більше"
-                    onClick={handleMoreDancers}
-                  />
-                ) : (
-                  ""
-                )}
+                {dancersOffset <= 500 &&
+                  dancers.length !== 0 &&
+                  dancersList.length === 0 && (
+                    <Button
+                      className="catalog-more-btn"
+                      buttonText="Більше"
+                      onClick={handleMoreDancers}
+                    />
+                  )}
               </>
             )}
             {catalogs === "coaches" && (

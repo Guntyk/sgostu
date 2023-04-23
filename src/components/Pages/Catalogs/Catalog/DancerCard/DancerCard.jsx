@@ -8,7 +8,12 @@ export default function DancerCard({ dancer, clubs, classes }) {
     <div className="card-wrapper dancer-card">
       <div className="img-wrapper">
         {dancer.Dancer_Foto?.url ? (
-          <img src={dancer.Dancer_Foto?.url} alt="Аватар" loading="lazy" />
+          <img
+            src={dancer.Dancer_Foto?.url}
+            alt="Аватар"
+            loading="lazy"
+            className="dancer-img"
+          />
         ) : (
           <AvatarPlaceholder />
         )}
@@ -22,7 +27,7 @@ export default function DancerCard({ dancer, clubs, classes }) {
         <span className="dancer-club">
           {String(
             clubs
-              .filter((club) => club.id === Number(dancer.Club))
+              .filter((club) => club.id === Number(dancer["Club-"]))
               .map((club) => club.Club_Name)
           )
             .split("(")[0]

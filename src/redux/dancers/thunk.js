@@ -1,5 +1,9 @@
 import { getDancersAction, getMoreDancersAction } from "./actionCreators";
-import { getDancersAmountFetch, getDancersFetch } from "../../api/requests";
+import {
+  getAllDancersFetch,
+  getDancersAmountFetch,
+  getDancersFetch,
+} from "../../api/requests";
 
 export function getDancers() {
   return (dispatch) => {

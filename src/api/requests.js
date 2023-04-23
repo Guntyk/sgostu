@@ -46,6 +46,23 @@ export const getStatusesFetch = () =>
   });
 
 //* Dancers
+export const getAllDancersFetch = async (statuses) =>
+  adaloApi
+    .get(`/t_1ucotahrksc4tgelc0d9q54i2?limit=3000`, {
+      headers: headers,
+    })
+    .then((response) => {
+      return response
+        .at(-1)
+        .records.filter((dancer) => dancer.Dancer_Verify)
+        .filter((dancer) =>
+          statuses
+            .filter((status) => status.Name !== "Не активний")
+            .map((status) => status.Dancers)
+            .flat()
+            .includes(dancer.id)
+        );
+    });
 export const getDancersFetch = (offset) =>
   adaloApi.get(`/t_1ucotahrksc4tgelc0d9q54i2?offset=${offset}`, {
     headers: headers,

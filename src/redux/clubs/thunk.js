@@ -5,7 +5,6 @@ export function getClubs(offset) {
   return (dispatch) => {
     getClubsFetch(`?offset=${offset}`).then((response) => {
       if (response) {
-        console.log(response.at(-1).records);
         dispatch(getClubsAction(response.at(-1).records));
       } else {
         alert("Getting dancers error");
