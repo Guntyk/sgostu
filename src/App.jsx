@@ -13,6 +13,7 @@ import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import Main from "./components/Pages/Main/Main";
 import News from "./components/Pages/News/News";
+import DancerInfo from "./components/Pages/Catalogs/Catalog/DancerCard/DancerInfo/DancerInfo";
 
 export default function App() {
   return (
@@ -36,6 +37,9 @@ export default function App() {
         </Route>
         <Route path="/coach-info">
           <CoachInfo />
+        </Route>
+        <Route path="/dancer-info">
+          <DancerInfo />
         </Route>
         <Route exact path="/contacts">
           <Contacts />

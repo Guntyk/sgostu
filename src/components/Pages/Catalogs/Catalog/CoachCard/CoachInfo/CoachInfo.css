@@ -22,12 +22,7 @@
   font-size: 24px;
 }
 
-.coach-inner {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
+.coach-inner,
 .coach-details {
   display: flex;
   flex-direction: column;

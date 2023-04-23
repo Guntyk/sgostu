@@ -1,0 +1,55 @@
+.dancer-info {
+  padding-top: 150px;
+}
+
+.dancer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 70px;
+  margin-bottom: 100px;
+}
+
+.dancer-avatar {
+  width: 180px;
+  height: 180px;
+  border: 1px solid #272500;
+  border-radius: 50%;
+  object-fit: contain;
+}
+
+.dancer-details {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.dancer-name {
+  font-size: 24px;
+}
+
+.dancer-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.dancer-birth {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.dancer-details-wrapper {
+  display: flex;
+  gap: 4px;
+}
+
+.dancer-details-wrapper dd {
+  font-family: "e-Ukraine-Light";
+}
+
+.dancer .dancer-class,
+.dancer-club {
+  margin: 0;
+}
