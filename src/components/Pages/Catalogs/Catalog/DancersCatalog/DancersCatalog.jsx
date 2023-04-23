@@ -11,7 +11,6 @@ export default function DancersCatalog({
 }) {
   const [dancersList, setDancersList] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [search, setSearch] = useState(false);
 
   useEffect(() => {
     if (dancers.length !== 0) {
@@ -27,15 +26,13 @@ export default function DancersCatalog({
         setDancersList={setDancersList}
         dancerClasses={dancerClasses}
         dancersList={dancersList}
-        setSearch={setSearch}
         statuses={statuses}
         dancers={dancers}
         loading={loading}
-        search={search}
         clubs={clubs}
       />
       <div className="catalog-wrapper">
-        {!search && dancersList.length !== 0 ? (
+        {dancersList.length !== 0 ? (
           dancersList.map((dancer) => (
             <DancerCard
               classes={dancerClasses}

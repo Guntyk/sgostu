@@ -1,16 +1,14 @@
+import Search from "../../../../../../materials/icons/Search";
 import Button from "../../../../../../common/Button/Button";
-import Input from "../../../../../../common/Input/Input";
 import "./DancersSearchBar.css";
 
 export default function DancersSearchBar({
   setDancersList,
   dancerClasses,
   dancersList,
-  setSearch,
   statuses,
   dancers,
   loading,
-  search,
   clubs,
 }) {
   const filterDancers = (nameValue, clubValue, classValue, statusValue) => {
@@ -53,14 +51,14 @@ export default function DancersSearchBar({
     e.preventDefault();
     setDancersList(
       filterDancers(
-        e.target.search.value?.toLowerCase().trim() || null,
+        e.target.name.value?.toLowerCase().trim() || null,
         e.target.club?.value === "choose" ? null : e.target.club.value,
         e.target.class?.value === "choose" ? null : e.target.class.value,
         e.target.status?.value === "choose" ? null : e.target.status.value
       )
     );
     // Reset values
-    e.target.search.value = "";
+    e.target.name.value = "";
     e.target.club.value = "choose";
     e.target.class.value = "choose";
     e.target.status.value = "choose";
@@ -69,10 +67,10 @@ export default function DancersSearchBar({
   return (
     <div className="container search-form">
       <form className="form" onSubmit={handleSearch}>
-        <Input
-          inputClassName="search-input"
-          placeholderText="Ім'я або прізвище танцюриста"
-          name="search"
+        <input
+          className="input search-input"
+          placeholder="Ім'я або прізвище танцюриста"
+          name="name"
         />
         <select
           name="club"
@@ -80,7 +78,7 @@ export default function DancersSearchBar({
           defaultValue="choose"
         >
           <option className="club-option" value="choose" disabled>
-            Оберіть клуб
+            Клуб
           </option>
           {clubs.map((club) => (
             <option className="club-option" value={club.id} key={club.id}>
@@ -94,7 +92,7 @@ export default function DancersSearchBar({
           defaultValue="choose"
         >
           <option className="class-option" value="choose" disabled>
-            Оберіть клас
+            Клас
           </option>
           {dancerClasses.map((dancerClass) => (
             <option
@@ -112,7 +110,7 @@ export default function DancersSearchBar({
           defaultValue="choose"
         >
           <option className="status-option" value="choose" disabled>
-            Оберіть статус
+            Статус
           </option>
           {statuses
             .filter((status) => status.Name !== "Не активний")
@@ -138,32 +136,5 @@ export default function DancersSearchBar({
         />
       )}
     </div>
-  );
-}
-
-function Search() {
-  return (
-    <svg
-      className="search-icon"
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 512 512"
-    >
-      <path
-        d="M221.09 64a157.09 157.09 0 10157.09 157.09A157.1 157.1 0 00221.09 64z"
-        fill="none"
-        stroke="currentColor"
-        strokeMiterlimit="10"
-        strokeWidth="32"
-      />
-      <path
-        className="search-line"
-        fill="none"
-        stroke="currentColor"
-        strokeLinecap="round"
-        strokeMiterlimit="10"
-        strokeWidth="32"
-        d="M338.29 338.29L448 448"
-      />
-    </svg>
   );
 }

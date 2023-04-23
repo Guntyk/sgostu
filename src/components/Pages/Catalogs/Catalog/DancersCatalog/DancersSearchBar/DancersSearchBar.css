@@ -6,7 +6,7 @@
   align-items: center;
   padding: 0 50px !important;
   box-sizing: border-box;
-  z-index: 10;
+  z-index: 2;
 }
 
 .form {
@@ -17,12 +17,10 @@
   font-size: 0.8rem;
 }
 
-.form-control {
-  width: 100%;
-  font-size: 1em;
-}
-
 .search-input {
+  width: 10%;
+  width: auto;
+  width: 30%;
   border-radius: 0px;
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
@@ -47,16 +45,22 @@
 
 .search-select:nth-child(2) {
   margin-left: 1px;
+  width: 26%;
 }
 .search-select:nth-child(3) {
+  width: 12%;
   border-left: none;
   border-right: none;
+}
+.search-select:nth-child(4) {
+  width: 15%;
 }
 
 .search-btn {
   position: relative;
-  font-family: "e-Ukraine-Light", sans-serif;
   padding: 1em;
+  width: 7.5%;
+  font-family: "e-Ukraine-Light", sans-serif;
   border: 1px solid #0e0e0e59;
   border-radius: 0px;
   border-left: none;
@@ -70,10 +74,6 @@
   background: #222;
   color: #fff;
 }
-
-/* .search-btn:hover .search-icon {
-  transform: scale(1.2) translate(-40%, -40%);
-} */
 
 .reset-filters-btn {
   width: 25%;
