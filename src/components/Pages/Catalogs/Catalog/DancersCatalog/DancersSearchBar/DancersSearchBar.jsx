@@ -1,34 +1,26 @@
-import { searchDancersAction } from "../../redux/dancers/actionCreators";
-import { useDispatch } from "react-redux";
-import Button from "../Button/Button";
-import Input from "../Input/Input";
-import "./SearchBar.css";
-import { getAllDancersFetch } from "../../api/requests";
-import { useEffect, useState } from "react";
+import Button from "../../../../../../common/Button/Button";
+import Input from "../../../../../../common/Input/Input";
+import "./DancersSearchBar.css";
 
-export default function SearchBar({
-  clubs,
-  dancerClasses,
-  statuses,
+export default function DancersSearchBar({
   setDancersList,
+  dancerClasses,
+  dancersList,
+  setSearch,
+  statuses,
+  dancers,
+  loading,
+  search,
+  clubs,
 }) {
-  const [fullDancersList, setFullDancersList] = useState([]);
-  useEffect(() => {
-    if (statuses.length !== 0) {
-      getAllDancersFetch(statuses).then((response) => {
-        setDancersList(response);
-        setFullDancersList(response);
-      });
-    }
-  }, [statuses]);
-
   const filterDancers = (nameValue, clubValue, classValue, statusValue) => {
+    // Returning all dancers if fields are empty
     if (!nameValue && !clubValue && !classValue && !statusValue) {
-      return fullDancersList;
+      return dancers;
     }
-
-    let list = [...fullDancersList];
-
+    // Copying dancers for filtering
+    let list = [...dancers];
+    // Filtering by name
     if (nameValue) {
       list = list.filter(
         (dancer) =>
@@ -36,16 +28,19 @@ export default function SearchBar({
           dancer.D_Name.toLowerCase().includes(nameValue)
       );
     }
+    // Filtering by club
     if (clubValue) {
       list = list.filter((dancer) =>
         dancer["Club-"].includes(Number(clubValue))
       );
     }
+    // Filtering by class
     if (classValue) {
       list = list.filter((dancer) =>
         dancer["Dancer Class"].includes(Number(classValue))
       );
     }
+    // Filtering by status
     if (statusValue) {
       list = list.filter((dancer) =>
         dancer["Status"].includes(Number(statusValue))
@@ -64,6 +59,7 @@ export default function SearchBar({
         e.target.status?.value === "choose" ? null : e.target.status.value
       )
     );
+    // Reset values
     e.target.search.value = "";
     e.target.club.value = "choose";
     e.target.class.value = "choose";
@@ -71,7 +67,7 @@ export default function SearchBar({
   }
 
   return (
-    <div className="container">
+    <div className="container search-form">
       <form className="form" onSubmit={handleSearch}>
         <Input
           inputClassName="search-input"
@@ -128,10 +124,46 @@ export default function SearchBar({
         </select>
         <Button
           className="btn-primary search-btn"
-          buttonText="Пошук"
+          buttonText={<Search />}
           type="submit"
         />
       </form>
+      {!loading && dancers.length > dancersList.length && (
+        <Button
+          className="reset-filters-btn"
+          buttonText="Скинути фільтри"
+          onClick={() => {
+            setDancersList(dancers);
+          }}
+        />
+      )}
     </div>
+  );
+}
+
+function Search() {
+  return (
+    <svg
+      className="search-icon"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 512 512"
+    >
+      <path
+        d="M221.09 64a157.09 157.09 0 10157.09 157.09A157.1 157.1 0 00221.09 64z"
+        fill="none"
+        stroke="currentColor"
+        strokeMiterlimit="10"
+        strokeWidth="32"
+      />
+      <path
+        className="search-line"
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeMiterlimit="10"
+        strokeWidth="32"
+        d="M338.29 338.29L448 448"
+      />
+    </svg>
   );
 }

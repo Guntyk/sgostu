@@ -16,14 +16,17 @@
 }
 
 .card-wrapper > .img-wrapper {
+  top: 25%;
+  left: 50%;
   width: 150px;
   height: 150px;
   overflow: hidden;
   border-radius: 50%;
   border: 1px solid #0e0e0e59;
+  /* transform: translate(-50%, -50%); */
 }
 
-.card-wrapper > .img-wrapper > img {
+.dancer-img {
   width: 100%;
   height: 100%;
   object-fit: cover;

@@ -1,4 +1,4 @@
-import AvatarPlaceholder from "../../../../../common/AvatarPlaceholder/AvatarPlaceholder";
+import AvatarPlaceholder from "../../../../../../common/AvatarPlaceholder/AvatarPlaceholder";
 import { Link } from "react-router-dom";
 import "./JudgeCard.css";
 

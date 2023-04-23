@@ -54,11 +54,11 @@
 }
 
 .coaches-quantity::before {
-  background: url(../../../../../materials/icons/clubcard/coaches.svg);
+  background: url(../../../../../../materials/icons/clubcard/coaches.svg);
 }
 
 .dancers-quantity::before {
-  background: url(../../../../../materials/icons/clubcard/dancers.svg);
+  background: url(../../../../../../materials/icons/clubcard/dancers.svg);
 }
 
 .club-cards-details-link {

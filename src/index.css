@@ -172,6 +172,10 @@ a {
   cursor: pointer;
 }
 
+* {
+  scroll-behavior: smooth;
+}
+
 body::-webkit-scrollbar {
   display: none;
 }

@@ -1,9 +1,8 @@
-import AvatarPlaceholder from "../../../../../common/AvatarPlaceholder/AvatarPlaceholder";
+import AvatarPlaceholder from "../../../../../../common/AvatarPlaceholder/AvatarPlaceholder";
 import { Link } from "react-router-dom";
 import "./CoachCard.css";
 
 export default function CoachCard({ coach, clubs }) {
-  console.log(clubs.filter((club) => club.id === Number(coach.Club)));
   return (
     <div className="card-wrapper coach-card">
       <div className="img-wrapper">
