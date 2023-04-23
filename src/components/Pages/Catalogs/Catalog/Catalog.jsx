@@ -64,7 +64,7 @@ export default function Dancers() {
         dispatch(getClubs());
       }
       if (catalogs === "coaches" && coaches.length === 0) {
-        dispatch(getCoaches());
+        dispatch(getCoaches(statuses));
         dispatch(getClubs());
       }
       if (catalogs === "clubs" && clubs.length === 0) {
@@ -100,11 +100,7 @@ export default function Dancers() {
               onClick={goBack}
             />
             {catalogs === "coaches" && (
-              <CoachesCatalog
-                statuses={statuses}
-                coaches={coaches}
-                clubs={clubs}
-              />
+              <CoachesCatalog coaches={coaches} clubs={clubs} />
             )}
             {catalogs === "dancers" && (
               <DancersCatalog

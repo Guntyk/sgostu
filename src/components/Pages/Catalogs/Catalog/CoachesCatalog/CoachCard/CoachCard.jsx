@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import "./CoachCard.css";
 
 export default function CoachCard({ coach, clubs }) {
+  console.log(coach);
   return (
     <div className="card-wrapper coach-card">
       <div className="img-wrapper">
@@ -25,7 +26,9 @@ export default function CoachCard({ coach, clubs }) {
           .trim()}
       </span>
       <div className="coach-card-stats">
-        <span className="dancers-quantity">{coach.Dancers?.length || "—"}</span>
+        <span className="dancers-quantity">
+          {coach["Dancers-"]?.length || "—"}
+        </span>
       </div>
       <Link className="coach-details" to={`./coaches/${coach.id}`}>
         Детальніше
