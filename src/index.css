@@ -176,6 +176,15 @@ body::-webkit-scrollbar {
   display: none;
 }
 
+::selection {
+  background-color: #ff0;
+}
+
+img {
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
 .container {
   margin: 0 auto;
   padding: 0 5px;
