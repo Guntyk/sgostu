@@ -46,11 +46,11 @@
   font-family: "e-Ukraine-Regular", sans-serif;
   font-size: 20px;
   line-height: 24px;
-  margin-top: 10px;
+  margin: 10px 0;
 }
 
 .dancer-class {
-  margin: 16px 0 6px 0;
+  margin-bottom: 10px;
 }
 
 .dancer-club {
