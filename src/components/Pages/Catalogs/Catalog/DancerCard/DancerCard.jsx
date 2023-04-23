@@ -16,13 +16,13 @@ export default function DancerCard({ dancer, clubs, classes }) {
 
       <div className="name-club">
         <h5 className="dancer-name">
-          {dancer.D_Surname.trim()} {dancer.D_Name.trim()}
+          {dancer.D_Surname.trim()} <br /> {dancer.D_Name.trim()}
         </h5>
 
         <span className="dancer-club">
           {String(
             clubs
-              .filter((club) => club.id === Number(dancer.Club))
+              .filter((club) => club.id === Number(dancer["Club-"]))
               .map((club) => club.Club_Name)
           )
             .split("(")[0]

@@ -1,0 +1,53 @@
+.coach-info {
+  padding-top: 150px;
+}
+
+.coach {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 70px;
+  margin-bottom: 100px;
+}
+
+.coach-avatar {
+  width: 180px;
+  height: 180px;
+  border: 1px solid #272500;
+  border-radius: 50%;
+  object-fit: contain;
+}
+
+.coach-name {
+  font-size: 24px;
+}
+
+.coach-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.coach-details {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.coach-details-wrapper {
+  display: flex;
+  gap: 4px;
+}
+.coach-details-wrapper dd {
+  font-family: "e-Ukraine-Light";
+}
+
+.coach-dancers {
+  text-align: center;
+}
+
+.coach-dancers-title {
+  display: inline-block;
+  font-size: 20px;
+  margin-bottom: 35px;
+}

@@ -6,6 +6,7 @@ import Contacts from "./components/Pages/Contacts/Contacts";
 import Feedback from "./components/Pages/Feedback/Feedback";
 import NotFound from "./components/Pages/NotFound/NotFound";
 import Catalogs from "./components/Pages/Catalogs/Catalogs";
+import CoachInfo from "./components/Pages/Catalogs/Catalog/CoachCard/CoachInfo/CoachInfo";
 import About from "./components/Pages/About/About";
 import { Route, Switch } from "react-router-dom";
 import Header from "./components/Header/Header";
@@ -32,6 +33,9 @@ export default function App() {
         </Route>
         <Route path="/catalogs/:catalogs">
           <Catalog />
+        </Route>
+        <Route path="/coach-info">
+          <CoachInfo />
         </Route>
         <Route exact path="/contacts">
           <Contacts />
