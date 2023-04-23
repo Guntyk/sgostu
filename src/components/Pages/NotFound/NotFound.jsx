@@ -7,6 +7,7 @@ export default function NotFound() {
   const { goBack } = useHistory();
   return (
     <article className="not-found">
+      {window.scrollTo(0, 0)}
       <div className="not-found-wrapper">
         <h1 className="not-found-title">404</h1>
         <p className="not-found-text">
