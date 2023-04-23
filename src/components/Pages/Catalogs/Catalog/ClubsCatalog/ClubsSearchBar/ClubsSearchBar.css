@@ -47,14 +47,6 @@
   margin-left: 1px;
   width: 26%;
 }
-.search-select:nth-child(3) {
-  width: 12%;
-  border-left: none;
-  border-right: none;
-}
-.search-select:nth-child(4) {
-  width: 15%;
-}
 
 .search-btn {
   position: relative;

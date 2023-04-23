@@ -7,6 +7,7 @@ import { articlesReducer } from "./articles/reducer";
 import { statusesReducer } from "./statuses/reducer";
 import { coachesReducer } from "./coaches/reducer";
 import { dancersReducer } from "./dancers/reducer";
+import { regionsReducer } from "./regions/reducer";
 import { eventsReducer } from "./events/reducer";
 import { judgesReducer } from "./judges/reducer";
 import { clubsReducer } from "./clubs/reducer";
@@ -20,6 +21,7 @@ const rootReducer = combineReducers({
   statuses: statusesReducer,
   coaches: coachesReducer,
   dancers: dancersReducer,
+  regions: regionsReducer,
   events: eventsReducer,
   judges: judgesReducer,
   clubs: clubsReducer,

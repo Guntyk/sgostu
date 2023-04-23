@@ -3,7 +3,7 @@ import Loader from "../../../../Loader/Loader";
 import { useState, useEffect } from "react";
 import ClubCard from "./ClubCard/ClubCard";
 
-export default function ClubsCatalog({ clubs }) {
+export default function ClubsCatalog({ clubs, regions }) {
   const [clubsList, setClubsList] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -21,6 +21,7 @@ export default function ClubsCatalog({ clubs }) {
         setClubsList={setClubsList}
         clubsList={clubsList}
         loading={loading}
+        regions={regions}
         clubs={clubs}
       />
       <div className="catalog-wrapper">

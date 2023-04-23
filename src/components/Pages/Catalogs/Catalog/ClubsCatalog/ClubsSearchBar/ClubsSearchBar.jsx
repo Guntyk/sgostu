@@ -6,6 +6,7 @@ export default function ClubsSearchBar({
   setClubsList,
   clubsList,
   loading,
+  regions,
   clubs,
 }) {
   const filterClubs = (nameValue, regionValue) => {
@@ -23,7 +24,9 @@ export default function ClubsSearchBar({
     }
     // Filtering by region
     if (regionValue) {
-      // list = list.filter((club) => club["Club-"].includes(Number(clubValue)));
+      list = list.filter((club) =>
+        club.Region_Clubs.includes(Number(regionValue))
+      );
     }
     return list;
   };
@@ -33,7 +36,7 @@ export default function ClubsSearchBar({
     setClubsList(
       filterClubs(
         e.target.name.value?.toLowerCase().trim() || null,
-        e.target.region?.value === "choose" ? null : e.target.club.value
+        e.target.region?.value === "choose" ? null : e.target.region.value
       )
     );
     // Reset values
@@ -57,11 +60,11 @@ export default function ClubsSearchBar({
           <option className="region-option" value="choose" disabled>
             Регіон
           </option>
-          {/* {clubs.map((club) => (
-            <option className="club-option" value={club.id} key={club.id}>
-              {club.Club_Name.split("(")[0].trim()}
+          {regions.map((region) => (
+            <option className="region-option" value={region.id} key={region.id}>
+              {region.Region_Name.trim()}
             </option>
-          ))} */}
+          ))}
         </select>
         <Button
           className="btn-primary search-btn"

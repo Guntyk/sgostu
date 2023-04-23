@@ -39,6 +39,12 @@ export const getEventFetch = (eventId) => backendApi.get(`/event/${eventId}`);
 export const getOrganizationsFetch = () =>
   backendApi.get("/organizations?populate=*&fields=name");
 
+//* Regions
+export const getRegionsFetch = () =>
+  adaloApi.get("/t_6vdt8hjlwqw4abagjn501kzz4", {
+    headers: headers,
+  });
+
 //* Status
 export const getStatusesFetch = () =>
   adaloApi.get("/t_0qa6znyf9ff60hbu7neeis31j", {

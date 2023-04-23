@@ -11,6 +11,7 @@ import { getJudgeClasses } from "../../../../redux/judgeClasses/thunk";
 import { getStatuses } from "../../../../redux/statuses/thunk";
 import { getCoaches } from "../../../../redux/coaches/thunk";
 import { getDancers } from "../../../../redux/dancers/thunk";
+import { getRegions } from "../../../../redux/regions/thunk";
 import { getJudges } from "../../../../redux/judges/thunk";
 import { getClubs } from "../../../../redux/clubs/thunk";
 
@@ -27,6 +28,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 
 import "./Catalog.css";
+import { regionsSelector } from "../../../../redux/regions/selectors";
 
 export default function Dancers() {
   const [catalogTheme, setCatalogTheme] = useState(false);
@@ -39,6 +41,7 @@ export default function Dancers() {
   const dancerClasses = useSelector(dancerClassesSelector);
   const judgeClasses = useSelector(judgeClassesSelector);
   const statuses = useSelector(statusesSelector);
+  const regions = useSelector(regionsSelector);
 
   const { catalogs } = useParams();
   const { goBack } = useHistory();
@@ -66,6 +69,7 @@ export default function Dancers() {
       }
       if (catalogs === "clubs" && clubs.length === 0) {
         dispatch(getClubs());
+        dispatch(getRegions());
       }
       if (catalogs === "judges" && judges.length === 0) {
         dispatch(getJudges());
@@ -117,7 +121,9 @@ export default function Dancers() {
                 judges={judges}
               />
             )}
-            {catalogs === "clubs" && <ClubsCatalog clubs={clubs} />}
+            {catalogs === "clubs" && (
+              <ClubsCatalog clubs={clubs} regions={regions} />
+            )}
           </div>
         </div>
       ) : (
