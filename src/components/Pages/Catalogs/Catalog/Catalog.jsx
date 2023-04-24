@@ -72,7 +72,7 @@ export default function Dancers() {
         dispatch(getRegions());
       }
       if (catalogs === "judges" && judges.length === 0) {
-        dispatch(getJudges());
+        dispatch(getJudges(statuses));
         dispatch(getJudgeClasses());
       }
     }
