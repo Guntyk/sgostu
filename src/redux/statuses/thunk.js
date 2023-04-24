@@ -1,4 +1,4 @@
-import { getStatusesFetch } from "../../api/requests";
+import { getStatusesFetch } from "../../api/Adalo/statuses";
 import { getStatusesAction } from "./actionCreators";
 
 export function getStatuses() {

@@ -1,6 +1,6 @@
 .club-card-img {
-  width: 141px;
-  height: 141px;
+  width: 100%;
+  height: 100%;
   object-fit: contain;
   border-radius: 50%;
   margin-bottom: 30px;
@@ -54,11 +54,11 @@
 }
 
 .coaches-quantity::before {
-  background: url(../../../../../materials/icons/clubcard/coaches.svg);
+  background: url(../../../../../../materials/icons/clubcard/coaches.svg);
 }
 
 .dancers-quantity::before {
-  background: url(../../../../../materials/icons/clubcard/dancers.svg);
+  background: url(../../../../../../materials/icons/clubcard/dancers.svg);
 }
 
 .club-cards-details-link {

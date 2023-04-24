@@ -1,4 +1,4 @@
-import { sendMessageToBot } from "../../../api/requests";
+import { sendMessageToBot } from "../../../api/bot";
 import Button from "../../../common/Button/Button";
 import Input from "../../../common/Input/Input";
 import ReactInputMask from "react-input-mask";
@@ -39,6 +39,7 @@ export default function Feedback() {
 
   return (
     <article className="feedback-main">
+      {window.scrollTo(0, 0)}
       <div className="feedback-wrapper">
         <span className="feedback-title">
           {language === "ua" ? "Зворотній зв'язок" : "Feedback"}

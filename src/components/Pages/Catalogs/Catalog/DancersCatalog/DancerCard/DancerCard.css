@@ -1,0 +1,98 @@
+.card-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between !important;
+  align-items: center;
+  padding: 20px 10px;
+  width: calc(238px * var(--coefficient));
+  height: calc(380px * var(--coefficient));
+  font-family: "e-Ukraine-Light", sans-serif;
+  font-size: 88%;
+  line-height: 1.25;
+  text-align: center;
+  border: 1px solid #0e0e0e59;
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+
+.card-wrapper > .img-wrapper {
+  width: calc(150px * var(--coefficient));
+  height: calc(150px * var(--coefficient));
+  overflow: hidden;
+  border-radius: 50%;
+  border: 1px solid #0e0e0e59;
+  background: #fff;
+}
+
+.dancer-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.class-birth {
+  display: flex;
+  flex-direction: column;
+}
+
+.name-club {
+  justify-self: center;
+}
+
+.dancer-name {
+  font-family: "e-Ukraine-Regular", sans-serif;
+  font-size: 142%;
+  line-height: 1.2;
+  margin-bottom: 8%;
+}
+
+.dancer-class {
+  margin-bottom: 12%;
+}
+
+@media (max-width: 1150px) {
+  .card-wrapper {
+    --coefficient: 0.8;
+  }
+}
+
+@media (max-width: 840px) {
+  .card-wrapper.dancer-card {
+    gap: 0;
+  }
+  .dancer-card .dancer-name {
+    margin-top: 0;
+  }
+  .card-wrapper {
+    margin: -1px 0;
+    width: 100%;
+  }
+  .dancer-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .dancer-class {
+    justify-self: center;
+    margin: 0;
+  }
+}
+
+@media (max-width: 550px) {
+  .dancer-birthday {
+    font-size: 10px;
+  }
+  .dancer-club {
+    font-size: 10px;
+  }
+  .dancer-class {
+    font-size: 10px;
+  }
+  .dancer-card .dancer-name {
+    font-size: 14px;
+    line-height: 14px;
+  }
+  .dancer-class {
+    margin: 0;
+  }
+}

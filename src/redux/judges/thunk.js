@@ -1,28 +1,27 @@
-import { getJudgesAction, getMoreJudgesAction } from "./actionCreators";
-import { getJudgesFetch } from "../../api/requests";
+import { getJudgesAction } from "./actionCreators";
+import { getJudgesFetch } from "../../api/Adalo/judges";
 
-export function getJudges(offset) {
+export function getJudges(statuses) {
   return (dispatch) => {
-    getJudgesFetch(`?offset=${offset}`).then((response) => {
+    getJudgesFetch().then((response) => {
       if (response) {
-        console.log(response.at(-1).records);
-        dispatch(getJudgesAction(response.at(-1).records));
+        dispatch(
+          getJudgesAction(
+            response
+              .at(-1)
+              .records.filter((judge) => judge["Judges Verify"])
+              .filter((judge) =>
+                statuses
+                  .filter((status) => status.Name !== "Не активний")
+                  .map((status) => status.Judges)
+                  .flat()
+                  .includes(judge.id)
+              )
+          )
+        );
       } else {
-        alert("Getting Judges error");
+        alert("Getting judges error");
       }
     });
   };
 }
-
-// export function getMoreJudges(offset) {
-//   return (dispatch) => {
-//     getJudgesFetch(`?offset=${offset}`).then((response) => {
-//       if (response) {
-//         console.log(response);
-//         dispatch(getMoreJudgesAction(response.at(-1).records.reverse()));
-//       } else {
-//         alert("Getting More Judges Error");
-//       }
-//     });
-//   };
-// }

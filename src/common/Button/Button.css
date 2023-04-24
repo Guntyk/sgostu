@@ -150,3 +150,9 @@
 .back-link:hover {
   background: none;
 }
+
+.catalog-more-btn {
+  margin-top: 50px !important;
+  display: block;
+  margin: 0 auto;
+}

@@ -26,10 +26,6 @@
   line-height: 24px;
 }
 
-.dancer-class {
-  margin: 16px 0 6px 0;
-}
-
 .dancer-club {
   margin: 12px 0 8px 0;
 }
@@ -69,6 +65,9 @@
   .coach-card .dancers-quantity {
     margin: 0;
   }
+  .dancer-class {
+    margin: 0;
+  }
   .dancer-details {
     display: none;
   }
@@ -81,5 +80,8 @@
   .card-wrapper > .img-wrapper {
     width: 50px;
     height: 50px;
+  }
+  .coach-club {
+    font-size: 12px;
   }
 }

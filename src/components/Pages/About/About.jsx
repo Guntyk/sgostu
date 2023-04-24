@@ -4,6 +4,7 @@ import aboutImg from "../../../materials/img/about.png";
 export default function About() {
   return (
     <article className="about-page">
+      {window.scrollTo(0, 0)}
       <div className="container">
         <h2 className="about-page-title">Про нас</h2>
         <div className="about-page-content">

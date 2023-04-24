@@ -37,6 +37,7 @@ export default function NewsInfo() {
       {article ? (
         article.type === "Новина" || article.type === "Анонс" ? (
           <div className="article-info">
+            {window.scrollTo(0, 0)}
             <div className="container">
               <div className="article-wrapper">
                 <div

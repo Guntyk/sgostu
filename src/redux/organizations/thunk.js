@@ -1,5 +1,5 @@
+import { getOrganizationsFetch } from "../../api/Strapi/organizations";
 import { getOrganizationsAction } from "./actionCreators";
-import { getOrganizationsFetch } from "../../api/requests";
 
 export function getOrganizations() {
   return (dispatch) => {

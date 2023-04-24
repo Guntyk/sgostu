@@ -1,11 +1,24 @@
-import { getDancersAction, getMoreDancersAction } from "./actionCreators";
-import { getDancersFetch } from "../../api/requests";
+import { getDancersAction, getSingleDancerAction } from "./actionCreators";
+import { getDancerFetch, getDancersFetch } from "../../api/Adalo/dancers";
 
-export function getDancers(offset) {
+export function getDancers(statuses) {
   return (dispatch) => {
-    getDancersFetch(`?offset=${offset}`).then((response) => {
+    getDancersFetch().then((response) => {
       if (response) {
-        dispatch(getDancersAction(response.at(-1).records));
+        dispatch(
+          getDancersAction(
+            response
+              .at(-1)
+              .records.filter((dancer) => dancer.Dancer_Verify)
+              .filter((dancer) =>
+                statuses
+                  .filter((status) => status.Name !== "Не активний")
+                  .map((status) => status.Dancers)
+                  .flat()
+                  .includes(dancer.id)
+              )
+          )
+        );
       } else {
         alert("Getting dancers error");
       }
@@ -13,15 +26,12 @@ export function getDancers(offset) {
   };
 }
 
-// export function getMoreDancers(offset) {
-//   return (dispatch) => {
-//     getDancersFetch(`?offset=${offset}`).then((response) => {
-//       if (response) {
-//         console.log(response);
-//         dispatch(getMoreDancersAction(response.at(-1).records.reverse()));
-//       } else {
-//         alert("Getting More Dancers Error");
-//       }
-//     });
-//   };
-// }
+export function getDancer(dancerId) {
+  return (dispatch) => {
+    getDancerFetch(dancerId).then((response) => {
+      if (response) {
+        dispatch(getSingleDancerAction(response[1]));
+      }
+    });
+  };
+}

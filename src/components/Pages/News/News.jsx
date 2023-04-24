@@ -41,6 +41,7 @@ export default function News() {
     <>
       {articles.length !== 0 ? (
         <article className="news">
+          {window.scrollTo(0, 0)}
           <h1 className="news-title">
             {language === "ua" ? "Усі новини" : "All news"}
           </h1>

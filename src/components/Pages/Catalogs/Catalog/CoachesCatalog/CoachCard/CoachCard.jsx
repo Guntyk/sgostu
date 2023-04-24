@@ -1,11 +1,11 @@
-import AvatarPlaceholder from "../../../../../common/AvatarPlaceholder/AvatarPlaceholder";
+import AvatarPlaceholder from "../../../../../../common/AvatarPlaceholder/AvatarPlaceholder";
 import { Link } from "react-router-dom";
 import "./CoachCard.css";
 
 export default function CoachCard({ coach, clubs }) {
-  console.log(clubs.filter((club) => club.id === Number(coach.Club)));
+  console.log(coach);
   return (
-    <div className="card-wrapper">
+    <div className="card-wrapper coach-card">
       <div className="img-wrapper">
         {coach["Coach Foto"]?.url ? (
           <img src={coach["Coach Foto"]?.url} alt="Аватар" />
@@ -26,7 +26,9 @@ export default function CoachCard({ coach, clubs }) {
           .trim()}
       </span>
       <div className="coach-card-stats">
-        <span className="dancers-quantity">{coach.Dancers?.length || "—"}</span>
+        <span className="dancers-quantity">
+          {coach["Dancers-"]?.length || "—"}
+        </span>
       </div>
       <Link className="coach-details" to={`./coaches/${coach.id}`}>
         Детальніше
