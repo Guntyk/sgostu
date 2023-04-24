@@ -38,6 +38,7 @@ export default function CoachesSearchBar({
         e.target.club?.value === "choose" ? null : e.target.club.value
       )
     );
+    window.scrollTo(0, 0);
     // Reset values
     e.target.name.value = "";
     e.target.club.value = "choose";

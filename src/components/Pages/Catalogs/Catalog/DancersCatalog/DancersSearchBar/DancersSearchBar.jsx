@@ -57,6 +57,7 @@ export default function DancersSearchBar({
         e.target.status?.value === "choose" ? null : e.target.status.value
       )
     );
+    window.scrollTo(0, 0);
     // Reset values
     e.target.name.value = "";
     e.target.club.value = "choose";
