@@ -1,5 +1,5 @@
 import { getJudgesAction } from "./actionCreators";
-import { getJudgesFetch } from "../../api/requests";
+import { getJudgesFetch } from "../../api/Adalo/judges";
 
 export function getJudges(statuses) {
   return (dispatch) => {

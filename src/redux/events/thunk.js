@@ -1,4 +1,4 @@
-import { getEventsFetch } from "../../api/requests";
+import { getEventsFetch } from "../../api/Strapi/events";
 import { getEventsAction } from "./actionCreators";
 
 export function getEvents() {

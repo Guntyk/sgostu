@@ -1,4 +1,4 @@
-import { getDancerClassesFetch } from "../../api/requests";
+import { getDancerClassesFetch } from "../../api/Adalo/dancers";
 import { getDancerClassesAction } from "./actionCreators";
 
 export function getDancerClasses() {

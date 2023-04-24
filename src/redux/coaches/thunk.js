@@ -1,5 +1,5 @@
+import { getCoachesFetch } from "../../api/Adalo/coaches";
 import { getCoachesAction } from "./actionCreators";
-import { getCoachesFetch } from "../../api/requests";
 
 export function getCoaches(statuses) {
   return (dispatch) => {
@@ -20,3 +20,9 @@ export function getCoaches(statuses) {
     });
   };
 }
+
+// export function getCoach(coachId) {
+//   return (dispatch) => {
+//     get;
+//   };
+// }

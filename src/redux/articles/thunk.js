@@ -1,4 +1,4 @@
-import { getArticlesFetch } from "../../api/requests";
+import { getArticlesFetch } from "../../api/Strapi/articles";
 import { getArticlesAction } from "./actionCreators";
 
 export function getArticles() {

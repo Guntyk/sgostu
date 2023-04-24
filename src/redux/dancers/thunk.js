@@ -1,5 +1,5 @@
-import { getDancerFetch, getDancersFetch } from "../../api/requests";
 import { getDancersAction, getSingleDancerAction } from "./actionCreators";
+import { getDancerFetch, getDancersFetch } from "../../api/Adalo/dancers";
 
 export function getDancers(statuses) {
   return (dispatch) => {
