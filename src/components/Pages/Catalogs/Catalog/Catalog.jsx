@@ -58,7 +58,10 @@ export default function Dancers() {
 
   useEffect(() => {
     if (statuses.length !== 0) {
-      if (catalogs === "dancers" && dancers.length === 0) {
+      if (
+        (catalogs === "dancers" && dancers.length === 0) ||
+        !Array.isArray(dancers)
+      ) {
         dispatch(getDancers(statuses));
         dispatch(getDancerClasses());
         dispatch(getClubs());
@@ -77,6 +80,12 @@ export default function Dancers() {
       }
     }
   }, [statuses]);
+
+  // useEffect(() => {
+  //   if (typeof dancers === "object") {
+  //     getDancers(statuses);
+  //   }
+  // }, [dancers]);
 
   return (
     <>

@@ -1,9 +1,10 @@
 import AvatarPlaceholder from "../../../../../../common/AvatarPlaceholder/AvatarPlaceholder";
 import { dateToLocalFormat } from "../../../../../../helpers/dateToLocalFormat";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import "./DancerCard.css";
 
 export default function DancerCard({ dancer, clubs, classes }) {
+  const { catalogs } = useParams();
   return (
     <div className="card-wrapper dancer-card">
       <div className="img-wrapper">
@@ -46,7 +47,10 @@ export default function DancerCard({ dancer, clubs, classes }) {
           {dancer.Birthday && dateToLocalFormat(dancer.Birthday)}
         </span>
       </div>
-      <Link className="dancer-details" to={`./dancers/${dancer.id}`}>
+      <Link
+        className="dancer-details"
+        to={`/catalogs/${catalogs}/${dancer.id}`}
+      >
         Детальніше
       </Link>
     </div>

@@ -1,3 +1,2 @@
 export const GET_DANCERS = "GET_DANCERS";
-export const MORE_DANCERS = "MORE_DANCERS";
-export const SEARCH_DANCERS = "SEARCH_DANCERS";
+export const GET_DANCER = "GET_DANCER";
