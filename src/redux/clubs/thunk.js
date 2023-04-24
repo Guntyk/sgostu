@@ -1,5 +1,5 @@
 import { getClubsAction } from "./actionCreators";
-import { getClubsFetch } from "../../api/requests";
+import { getClubsFetch } from "../../api/Adalo/clubs";
 
 export function getClubs() {
   return (dispatch) => {

@@ -1,4 +1,4 @@
-import { sendMessageToBot } from "../../../../api/requests";
+import { sendMessageToBot } from "../../../../api/bot";
 import Button from "../../../../common/Button/Button";
 import Input from "../../../../common/Input/Input";
 import ReactInputMask from "react-input-mask";

@@ -1,5 +1,5 @@
-import { getCoachesAction } from "./actionCreators";
-import { getCoachesFetch } from "../../api/requests";
+import { getCoachFetch, getCoachesFetch } from "../../api/Adalo/coaches";
+import { getCoachesAction, getSingleCoachAction } from "./actionCreators";
 
 export function getCoaches(statuses) {
   return (dispatch) => {
@@ -16,6 +16,16 @@ export function getCoaches(statuses) {
         );
       } else {
         alert("Getting coaches error");
+      }
+    });
+  };
+}
+
+export function getCoach(coachId) {
+  return (dispatch) => {
+    getCoachFetch(coachId).then((response) => {
+      if (response) {
+        dispatch(getSingleCoachAction(response[1]));
       }
     });
   };

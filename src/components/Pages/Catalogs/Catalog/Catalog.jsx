@@ -3,6 +3,7 @@ import { judgeClassesSelector } from "../../../../redux/judgeClasses/selectors";
 import { statusesSelector } from "../../../../redux/statuses/selectors";
 import { coachesSelector } from "../../../../redux/coaches/selectors";
 import { dancersSelector } from "../../../../redux/dancers/selectors";
+import { regionsSelector } from "../../../../redux/regions/selectors";
 import { judgesSelector } from "../../../../redux/judges/selectors";
 import { clubsSelector } from "../../../../redux/clubs/selectors";
 
@@ -28,7 +29,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 
 import "./Catalog.css";
-import { regionsSelector } from "../../../../redux/regions/selectors";
 
 export default function Dancers() {
   const [catalogTheme, setCatalogTheme] = useState(false);
@@ -58,7 +58,10 @@ export default function Dancers() {
 
   useEffect(() => {
     if (statuses.length !== 0) {
-      if (catalogs === "dancers" && dancers.length === 0) {
+      if (
+        (catalogs === "dancers" && dancers.length === 0) ||
+        !Array.isArray(dancers)
+      ) {
         dispatch(getDancers(statuses));
         dispatch(getDancerClasses());
         dispatch(getClubs());
@@ -72,11 +75,17 @@ export default function Dancers() {
         dispatch(getRegions());
       }
       if (catalogs === "judges" && judges.length === 0) {
-        dispatch(getJudges());
+        dispatch(getJudges(statuses));
         dispatch(getJudgeClasses());
       }
     }
   }, [statuses]);
+
+  // useEffect(() => {
+  //   if (typeof dancers === "object") {
+  //     getDancers(statuses);
+  //   }
+  // }, [dancers]);
 
   return (
     <>
@@ -111,11 +120,7 @@ export default function Dancers() {
               />
             )}
             {catalogs === "judges" && (
-              <JudgesCatalog
-                judgeClasses={judgeClasses}
-                statuses={statuses}
-                judges={judges}
-              />
+              <JudgesCatalog judgeClasses={judgeClasses} judges={judges} />
             )}
             {catalogs === "clubs" && (
               <ClubsCatalog clubs={clubs} regions={regions} />

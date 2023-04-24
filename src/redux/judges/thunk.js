@@ -1,13 +1,26 @@
 import { getJudgesAction } from "./actionCreators";
-import { getJudgesFetch } from "../../api/requests";
+import { getJudgesFetch } from "../../api/Adalo/judges";
 
-export function getJudges() {
+export function getJudges(statuses) {
   return (dispatch) => {
     getJudgesFetch().then((response) => {
       if (response) {
-        dispatch(getJudgesAction(response.at(-1).records));
+        dispatch(
+          getJudgesAction(
+            response
+              .at(-1)
+              .records.filter((judge) => judge["Judges Verify"])
+              .filter((judge) =>
+                statuses
+                  .filter((status) => status.Name !== "Не активний")
+                  .map((status) => status.Judges)
+                  .flat()
+                  .includes(judge.id)
+              )
+          )
+        );
       } else {
-        alert("Getting Judges error");
+        alert("Getting judges error");
       }
     });
   };

@@ -1,5 +1,5 @@
+import { getRegionsFetch } from "../../api/Adalo/regions";
 import { getRegionsAction } from "./actionCreators";
-import { getRegionsFetch } from "../../api/requests";
 
 export function getRegions() {
   return (dispatch) => {

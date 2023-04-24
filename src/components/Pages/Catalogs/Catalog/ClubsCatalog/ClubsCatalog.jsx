@@ -1,11 +1,20 @@
+import { getRegions } from "../../../../../redux/regions/thunk";
 import ClubsSearchBar from "./ClubsSearchBar/ClubsSearchBar";
 import Loader from "../../../../Loader/Loader";
 import { useState, useEffect } from "react";
 import ClubCard from "./ClubCard/ClubCard";
+import { useDispatch } from "react-redux";
 
 export default function ClubsCatalog({ clubs, regions }) {
   const [clubsList, setClubsList] = useState([]);
   const [loading, setLoading] = useState(true);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (regions.length === 0) {
+      dispatch(getRegions());
+    }
+  }, [regions]);
 
   useEffect(() => {
     if (clubs.length !== 0) {

@@ -1,9 +1,9 @@
-import { GET_COACHES, MORE_COACHES } from "./actionTypes";
+import { GET_COACHES, GET_COACH } from "./actionTypes";
 
 export function getCoachesAction(coachesArr) {
   return { type: GET_COACHES, coachesArr };
 }
 
-// export function getMoreCoachesAction(coachesArr) {
-//   return { type: MORE_COACHES, coachesArr };
-// }
+export function getSingleCoachAction(coachObj) {
+  return { type: GET_COACH, coachObj };
+}

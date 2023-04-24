@@ -13,7 +13,7 @@ export default function DancersCatalog({
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    if (dancers.length !== 0) {
+    if (Array.isArray(dancers) && dancers.length !== 0) {
       setDancersList(dancers);
       setLoading(false);
     }

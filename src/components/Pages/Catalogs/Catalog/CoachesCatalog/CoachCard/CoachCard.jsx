@@ -1,9 +1,9 @@
 import AvatarPlaceholder from "../../../../../../common/AvatarPlaceholder/AvatarPlaceholder";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import "./CoachCard.css";
 
 export default function CoachCard({ coach, clubs }) {
-  console.log(coach);
+  const { catalogs } = useParams();
   return (
     <div className="card-wrapper coach-card">
       <div className="img-wrapper">
@@ -30,7 +30,7 @@ export default function CoachCard({ coach, clubs }) {
           {coach["Dancers-"]?.length || "—"}
         </span>
       </div>
-      <Link className="coach-details" to={`./coaches/${coach.id}`}>
+      <Link className="coach-details" to={`/catalogs/coaches/${coach.id}`}>
         Детальніше
       </Link>
     </div>
