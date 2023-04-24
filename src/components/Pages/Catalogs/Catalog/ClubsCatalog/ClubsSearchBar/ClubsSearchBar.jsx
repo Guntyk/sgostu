@@ -19,7 +19,7 @@ export default function ClubsSearchBar({
     // Filtering by name
     if (nameValue) {
       list = list.filter((club) =>
-        club.Club_Name.toLowerCase().includes(nameValue)
+        club.Club_Name.split("(")[0].trim().toLowerCase().includes(nameValue)
       );
     }
     // Filtering by region
