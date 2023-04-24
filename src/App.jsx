@@ -1,3 +1,4 @@
+import CoachInfo from "./components/Pages/Catalogs/Catalog/CoachesCatalog/CoachCard/CoachInfo/CoachInfo";
 import DancerInfo from "./components/Pages/Catalogs/Catalog/DancersCatalog/DancerCard/DancerInfo/DancerInfo";
 import EventInfo from "./components/Pages/Calendar/EventInfo/EventInfo";
 import Catalog from "./components/Pages/Catalogs/Catalog/Catalog";
@@ -37,10 +38,10 @@ export default function App() {
         <Route exact path="/catalogs/:catalogs">
           <Catalog />
         </Route>
-        {/* <Route path="/catalogs/:catalogs/:coachId">
+        <Route exact path="/catalogs/coaches/:coachId">
           <CoachInfo />
-        </Route> */}
-        <Route exact path="/catalogs/:catalogs/:dancerId">
+        </Route>
+        <Route exact path="/catalogs/dancers/:dancerId">
           <DancerInfo />
         </Route>
         {/* Contacts */}

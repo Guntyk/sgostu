@@ -9,7 +9,6 @@ export default function CoachesSearchBar({
   loading,
   clubs,
 }) {
-  console.log(coaches);
   const filterCoaches = (nameValue, clubValue) => {
     // Returning all coaches if fields are empty
     if (!nameValue && !clubValue) {

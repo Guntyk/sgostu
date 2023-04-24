@@ -47,10 +47,7 @@ export default function DancerCard({ dancer, clubs, classes }) {
           {dancer.Birthday && dateToLocalFormat(dancer.Birthday)}
         </span>
       </div>
-      <Link
-        className="dancer-details"
-        to={`/catalogs/${catalogs}/${dancer.id}`}
-      >
+      <Link className="dancer-details" to={`/catalogs/dancers/${dancer.id}`}>
         Детальніше
       </Link>
     </div>

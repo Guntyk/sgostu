@@ -7,7 +7,7 @@ export function coachesReducer(state = defaultState, action) {
     case GET_COACHES:
       return action.coachesArr;
     case GET_COACH:
-      return [...state, action.coachObj];
+      return action.coachObj;
     default:
       return state;
   }
