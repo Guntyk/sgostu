@@ -1,7 +1,7 @@
 import AvatarPlaceholder from "../../../../../../common/AvatarPlaceholder/AvatarPlaceholder";
 import { dateToLocalFormat } from "../../../../../../helpers/dateToLocalFormat";
 import { Link, useParams } from "react-router-dom";
-// import "./DancerCard.css";
+import "./DancerCard.css";
 import "../../Catalog.css";
 
 export default function DancerCard({ dancer, clubs, classes }) {

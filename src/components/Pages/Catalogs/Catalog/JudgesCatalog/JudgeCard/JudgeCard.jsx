@@ -1,6 +1,6 @@
 import AvatarPlaceholder from "../../../../../../common/AvatarPlaceholder/AvatarPlaceholder";
 import { Link } from "react-router-dom";
-// import "./JudgeCard.css";
+import "./JudgeCard.css";
 import "../../Catalog.css";
 
 export default function JudgeCard({ judge, classes }) {
@@ -14,7 +14,7 @@ export default function JudgeCard({ judge, classes }) {
         )}
       </div>
 
-      <h5 className="dancer-name">
+      <h5 className="card-name">
         {String(judge["Name Surname"]).replace(/ /g, "").trim()}
       </h5>
       <span className="judge-class">
@@ -29,7 +29,7 @@ export default function JudgeCard({ judge, classes }) {
           .Category.trim()}
       </span>
 
-      <Link className="judge-details" to={`./judges/${judge.id}`}>
+      <Link className="card-details" to={`./judges/${judge.id}`}>
         Детальніше
       </Link>
     </div>

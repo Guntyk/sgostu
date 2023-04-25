@@ -70,6 +70,10 @@
   white-space: nowrap;
 }
 
+.club-card .img-wrapper > img {
+  object-fit: contain;
+}
+
 @media (max-width: 840px) {
   .card-city,
   .card-club-owner {
@@ -123,6 +127,7 @@
   .club-card {
     grid-template-columns: 1fr 4fr 1fr;
   }
+
   /* .club-card-city,
   .club-card-owner {
     font-size: 12px;

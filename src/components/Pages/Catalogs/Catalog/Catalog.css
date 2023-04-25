@@ -47,10 +47,10 @@
   background: #fff;
 }
 
-.catalog-card .img-wrapper > img {
+.catalog-card .img-wrapper img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
 }
 
 .card-name {
