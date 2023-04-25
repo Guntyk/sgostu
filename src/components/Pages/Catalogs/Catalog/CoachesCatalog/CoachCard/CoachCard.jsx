@@ -1,11 +1,12 @@
 import AvatarPlaceholder from "../../../../../../common/AvatarPlaceholder/AvatarPlaceholder";
 import { Link, useParams } from "react-router-dom";
-import "./CoachCard.css";
+// import "./CoachCard.css";
+import "../../Catalog.css";
 
 export default function CoachCard({ coach, clubs }) {
   const { catalogs } = useParams();
   return (
-    <div className="card-wrapper coach-card">
+    <div className="catalog-card coach-card">
       <div className="img-wrapper">
         {coach["Coach Foto"]?.url ? (
           <img src={coach["Coach Foto"]?.url} alt="Аватар" />

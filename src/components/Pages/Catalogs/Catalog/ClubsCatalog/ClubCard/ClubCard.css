@@ -1,48 +1,48 @@
-.club-card-img {
+/* .club-card-img {
   width: 100%;
   height: 100%;
   object-fit: contain;
   border-radius: 50%;
   margin-bottom: 30px;
   border: 1px solid rgba(0, 0, 0, 0.5);
-}
+} */
 
-.club-card-city,
+/* .club-card-city,
 .club-card-owner,
 .coaches-quantity,
 .dancers-quantity,
 .club-cards-details-link {
   font-size: 13px;
   font-family: "e-Ukraine-Light";
-}
+} */
 
-.card-inner {
+/* .card-inner {
   margin-bottom: 20px;
-}
+} */
 
-.club-card-title {
+/* .club-card-title {
   font-size: 20px;
   margin: 5px 0;
-}
+} */
 
-.club-card-owner {
+/* .club-card-owner {
   margin-bottom: 20px;
-}
+} */
 
-.club-card-stats {
+/* .club-card-stats {
   width: 45%;
   display: flex;
   justify-content: flex-end;
   gap: 60px;
   margin-bottom: 20px;
-}
+} */
 
-.coaches-quantity,
+/* .coaches-quantity,
 .dancers-quantity {
   position: relative;
-}
+} */
 
-.coaches-quantity::before,
+/* .coaches-quantity::before,
 .dancers-quantity::before {
   position: absolute;
   content: "";
@@ -51,34 +51,58 @@
   top: 50%;
   transform: translateY(-50%);
   left: -30px;
-}
+} */
 
-.coaches-quantity::before {
+/* .coaches-quantity::before {
   background: url(../../../../../../materials/icons/clubcard/coaches.svg);
 }
 
 .dancers-quantity::before {
   background: url(../../../../../../materials/icons/clubcard/dancers.svg);
-}
+} */
 
-.club-cards-details-link {
+/* .card-details-link {
   text-decoration: underline;
+} */
+
+.card-club-city,
+.card-club-owner {
+  white-space: nowrap;
 }
 
 @media (max-width: 840px) {
-  .club-card-img {
+  .card-city,
+  .card-club-owner {
+    color: rgba(100, 100, 100, 0.8);
+  }
+  .coach-club {
+    justify-self: center;
+  }
+  /* .club-card-img {
     width: 50px;
     height: 50px;
     margin: 0;
+  } */
+
+  .club-card {
+    grid-template-columns: 1fr 1fr 1fr;
   }
 
-  .card-inner {
+  .card-stats {
+    justify-self: end;
+    margin: 0;
+    width: unset;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  /* .card-inner {
     margin: 0;
     margin-right: 35px;
-  }
-  .club-cards-details-link {
+  } */
+  /* .club-cards-details-link {
     display: none;
-  }
+  } */
   .club-card-stats {
     margin: 0;
     width: unset;
@@ -96,11 +120,14 @@
 }
 
 @media (max-width: 550px) {
-  .club-card-city,
+  .club-card {
+    grid-template-columns: 1fr 4fr 1fr;
+  }
+  /* .club-card-city,
   .club-card-owner {
     font-size: 12px;
-  }
-  .club-card-title {
+  } */
+  /* .club-card-title {
     font-size: 18px;
-  }
+  } */
 }

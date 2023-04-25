@@ -52,19 +52,19 @@
 }
 
 @media (max-width: 1150px) {
-  .card-wrapper {
+  .catalog-card {
     --coefficient: 0.8;
   }
 }
 
 @media (max-width: 840px) {
-  .card-wrapper.dancer-card {
+  .catalog-card.dancer-card {
     gap: 0;
   }
-  .dancer-card .dancer-name {
+  .dancer-card .card-name {
     margin-top: 0;
   }
-  .card-wrapper {
+  .catalog-card {
     margin: -1px 0;
     width: 100%;
   }
@@ -72,7 +72,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
   }
-  .dancer-class {
+  .card-class {
     justify-self: center;
     margin: 0;
   }
