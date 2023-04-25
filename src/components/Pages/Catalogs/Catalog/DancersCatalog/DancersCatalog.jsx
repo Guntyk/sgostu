@@ -11,6 +11,7 @@ export default function DancersCatalog({
 }) {
   const [dancersList, setDancersList] = useState([]);
   const [loading, setLoading] = useState(true);
+  const screenWidth = window.screen.availWidth;
 
   useEffect(() => {
     if (Array.isArray(dancers) && dancers.length !== 0) {
@@ -35,6 +36,7 @@ export default function DancersCatalog({
         {dancersList.length !== 0 ? (
           dancersList.map((dancer) => (
             <DancerCard
+              screenWidth={screenWidth}
               classes={dancerClasses}
               key={dancer.id}
               dancer={dancer}
