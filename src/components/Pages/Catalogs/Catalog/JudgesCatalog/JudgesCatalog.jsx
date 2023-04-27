@@ -7,7 +7,7 @@ import SearchBar from "../SearchBar/SearchBar";
 export default function JudgesCatalog({ judgeClasses, judges }) {
   const [judgesList, setJudgesList] = useState([]);
   const [loading, setLoading] = useState(true);
-  console.log(judges);
+  
   useEffect(() => {
     if (judges.length !== 0) {
       setJudgesList(judges);
