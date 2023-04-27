@@ -1,10 +1,11 @@
-import DancersSearchBar from "./DancersSearchBar/DancersSearchBar";
 import DancerCard from "./DancerCard/DancerCard";
 import Loader from "../../../../Loader/Loader";
+import SearchBar from "../SearchBar/SearchBar";
 import { useState, useEffect } from "react";
 
 export default function DancersCatalog({
   dancerClasses,
+  catalogs,
   statuses,
   dancers,
   clubs,
@@ -23,10 +24,11 @@ export default function DancersCatalog({
   return (
     <>
       <h1 className="catalog-title">Танцюристи</h1>
-      <DancersSearchBar
+      <SearchBar
         setDancersList={setDancersList}
         dancerClasses={dancerClasses}
         dancersList={dancersList}
+        catalogs={catalogs}
         statuses={statuses}
         dancers={dancers}
         loading={loading}
