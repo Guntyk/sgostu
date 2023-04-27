@@ -20,6 +20,86 @@
   height: auto;
 }
 
+.catalog-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between !important;
+  align-items: center;
+  padding: 20px 10px;
+  width: calc(238px * var(--coefficient));
+  height: calc(380px * var(--coefficient));
+  font-family: "e-Ukraine-Light", sans-serif;
+  font-size: 13px;
+  line-height: 1.25;
+  text-align: center;
+  border: 1px solid #0e0e0e59;
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+
+.catalog-card .img-wrapper {
+  width: calc(150px * var(--coefficient));
+  height: calc(150px * var(--coefficient));
+  overflow: hidden;
+  border-radius: 50%;
+  border: 1px solid #0e0e0e59;
+  background: #fff;
+}
+
+.catalog-card .img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-name {
+  font-family: "e-Ukraine-Regular", sans-serif;
+  font-size: 20px;
+  line-height: 24px;
+  margin: 5px 0;
+}
+
+.card-inner {
+  margin-bottom: 20px;
+}
+
+.card-stats {
+  width: 45%;
+  display: flex;
+  justify-content: flex-end;
+  gap: 60px;
+  margin-bottom: 20px;
+}
+
+.coaches-quantity,
+.dancers-quantity {
+  position: relative;
+}
+
+.coaches-quantity::before,
+.dancers-quantity::before {
+  position: absolute;
+  content: "";
+  width: 30px;
+  height: 30px;
+  top: 50%;
+  transform: translateY(-50%);
+  left: -30px;
+}
+
+.coaches-quantity::before {
+  background: url(../../../../materials/icons/clubcard/coaches.svg);
+}
+
+.dancers-quantity::before {
+  background: url(../../../../materials/icons/clubcard/dancers.svg);
+}
+
+.card-details {
+  text-decoration: underline;
+}
+
 .catalog-wrapper {
   display: flex;
   flex-wrap: wrap;
@@ -37,5 +117,86 @@
     gap: 0;
     flex-wrap: nowrap;
     flex-direction: column;
+  }
+  .catalog-card.dancer-card {
+    gap: 0;
+  }
+  .dancer-card .card-name {
+    margin-top: 0;
+  }
+  .dancer-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .card-class {
+    justify-self: center;
+    margin: 0;
+  }
+  .card-inner {
+    margin: 0;
+  }
+  .card-name {
+    font-size: 18px;
+    margin: 0;
+    white-space: nowrap;
+  }
+  .catalog-card {
+    display: grid;
+    justify-content: space-between;
+    flex-direction: row;
+    margin: -1px 0;
+    padding: 0 10px;
+    width: 100%;
+    height: 80px;
+    gap: 10px;
+    overflow: hidden;
+    border-radius: 0;
+    box-sizing: border-box;
+  }
+  .catalog-card:first-child {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+  .catalog-card:last-child {
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+  .catalog-card > .img-wrapper {
+    width: 60px;
+    height: 60px;
+    justify-self: baseline;
+  }
+
+  .coach-details {
+    display: none;
+  }
+  .coach-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+  .coach-card .card-dancers-quantity {
+    margin: 0;
+  }
+  .card-class {
+    margin: 0;
+  }
+  .card-details {
+    display: none;
+  }
+}
+
+@media (max-width: 550px) {
+  .catalog-card {
+    grid-template-columns: 1fr 4fr 1fr;
+    font-size: 12px;
+  }
+  .catalog-card > .img-wrapper {
+    height: 77%;
+  }
+  .card-name {
+    font-size: 16px;
+    white-space: nowrap;
+    line-height: 1.2;
+    margin-bottom: 5px;
   }
 }

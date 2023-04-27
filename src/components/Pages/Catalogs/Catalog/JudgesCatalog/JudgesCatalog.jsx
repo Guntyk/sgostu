@@ -2,11 +2,12 @@ import JudgesSearchBar from "./JudgesSearchBar/JudgesSearchBar";
 import Loader from "../../../../Loader/Loader";
 import JudgeCard from "./JudgeCard/JudgeCard";
 import { useState, useEffect } from "react";
+import SearchBar from "../SearchBar/SearchBar";
 
 export default function JudgesCatalog({ judgeClasses, judges }) {
   const [judgesList, setJudgesList] = useState([]);
   const [loading, setLoading] = useState(true);
-  console.log(judges);
+  
   useEffect(() => {
     if (judges.length !== 0) {
       setJudgesList(judges);
@@ -17,7 +18,7 @@ export default function JudgesCatalog({ judgeClasses, judges }) {
   return (
     <div className="judges-catalog">
       <h1 className="catalog-title">Судді</h1>
-      <JudgesSearchBar
+      <SearchBar
         setJudgesList={setJudgesList}
         judgeClasses={judgeClasses}
         judgesList={judgesList}

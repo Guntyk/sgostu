@@ -1,17 +1,19 @@
-import DancersSearchBar from "./DancersSearchBar/DancersSearchBar";
 import DancerCard from "./DancerCard/DancerCard";
 import Loader from "../../../../Loader/Loader";
+import SearchBar from "../SearchBar/SearchBar";
 import { useState, useEffect } from "react";
 
 export default function DancersCatalog({
   dancerClasses,
+  catalogs,
   statuses,
   dancers,
   clubs,
 }) {
   const [dancersList, setDancersList] = useState([]);
   const [loading, setLoading] = useState(true);
-  console.log(dancersList);
+  const screenWidth = window.screen.availWidth;
+
   useEffect(() => {
     if (Array.isArray(dancers) && dancers.length !== 0) {
       setDancersList(dancers);
@@ -22,10 +24,11 @@ export default function DancersCatalog({
   return (
     <>
       <h1 className="catalog-title">Танцюристи</h1>
-      <DancersSearchBar
+      <SearchBar
         setDancersList={setDancersList}
         dancerClasses={dancerClasses}
         dancersList={dancersList}
+        catalogs={catalogs}
         statuses={statuses}
         dancers={dancers}
         loading={loading}
@@ -35,6 +38,7 @@ export default function DancersCatalog({
         {dancersList.length !== 0 ? (
           dancersList.map((dancer) => (
             <DancerCard
+              screenWidth={screenWidth}
               classes={dancerClasses}
               key={dancer.id}
               dancer={dancer}

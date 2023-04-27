@@ -34,7 +34,6 @@ export default function DancerInfo() {
   }, []);
 
   useEffect(() => {
-    console.log(dancers);
     if (Array.isArray(dancers) && dancers.length > 1) {
       setDancer(...dancers.filter((dancer) => dancer.id === Number(dancerId)));
       setLoading(false);
@@ -43,13 +42,6 @@ export default function DancerInfo() {
       setLoading(false);
     }
   }, [dancers]);
-
-  useEffect(() => {
-    console.log(dancer);
-    if (dancer.Dancer_Foto?.url) {
-      console.log(dancer.Dancer_Foto?.url);
-    }
-  }, [dancer]);
 
   return (
     <>

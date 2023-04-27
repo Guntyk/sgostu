@@ -1,11 +1,12 @@
 import AvatarPlaceholder from "../../../../../../common/AvatarPlaceholder/AvatarPlaceholder";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import "./CoachCard.css";
+import "../../Catalog.css";
 
 export default function CoachCard({ coach, clubs }) {
-  console.log(coach);
+  const { catalogs } = useParams();
   return (
-    <div className="card-wrapper coach-card">
+    <div className="catalog-card coach-card">
       <div className="img-wrapper">
         {coach["Coach Foto"]?.url ? (
           <img src={coach["Coach Foto"]?.url} alt="Аватар" />
@@ -13,7 +14,7 @@ export default function CoachCard({ coach, clubs }) {
           <AvatarPlaceholder />
         )}
       </div>
-      <h5 className="dancer-name">
+      <h5 className="card-name">
         {coach["Coach Name"].trim()} {coach["Coach Surname"].trim()}
       </h5>
       <span className="coach-club">
@@ -25,12 +26,12 @@ export default function CoachCard({ coach, clubs }) {
           .split("(")[0]
           .trim()}
       </span>
-      <div className="coach-card-stats">
+      <div className="card-stats">
         <span className="dancers-quantity">
           {coach["Dancers-"]?.length || "—"}
         </span>
       </div>
-      <Link className="coach-details" to={`./coaches/${coach.id}`}>
+      <Link className="card-details" to={`/catalogs/coaches/${coach.id}`}>
         Детальніше
       </Link>
     </div>

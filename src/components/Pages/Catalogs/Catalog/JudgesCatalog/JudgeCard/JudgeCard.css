@@ -2,11 +2,15 @@
   justify-content: space-around;
 }
 
+.judge-card .card-name {
+  white-space: normal !important;
+}
+
 @media (max-width: 840px) {
   .judge-card {
     justify-content: space-between;
     display: grid;
-    grid-template-columns: 1fr 4fr;
+    grid-template-columns: 1fr 1fr 1fr;
   }
   .judge-card .dancer-name {
     margin: 0;
@@ -14,12 +18,12 @@
   .judge-details {
     display: none;
   }
-  .judge-wrapper {
+  /* .judge-card {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 5px;
-    justify-self: center;
-  }
+
+  } */
   .judge-class {
     line-height: 1;
   }
