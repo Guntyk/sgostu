@@ -74,7 +74,10 @@ export default function Dancers() {
         dispatch(getCoaches(statuses));
         dispatch(getClubs());
       }
-      if (catalogs === "clubs" && clubs.length === 0) {
+      if (
+        (catalogs === "clubs" && regions.length === 0) ||
+        clubs.length === 0
+      ) {
         dispatch(getClubs());
         dispatch(getRegions());
       }
@@ -98,11 +101,13 @@ export default function Dancers() {
     if (catalogs === "judges" && judges.length !== 0) {
       setEntitiesList(judges);
     }
+  }, [coaches, dancers, judges, clubs]);
+
+  useEffect(() => {
     if (entitiesList.length !== 0) {
       setLoading(false);
     }
-    console.log(entitiesList);
-  }, [coaches, dancers, judges, clubs]);
+  }, [entitiesList]);
 
   return (
     <>
@@ -161,17 +166,17 @@ export default function Dancers() {
                     <ClubCard key={entity.id} club={entity} />
                   ) : catalogs === "coaches" ? (
                     <CoachCard clubs={clubs} coach={entity} key={entity.id} />
-                  ) : catalogs === "judges" ? (
-                    <JudgeCard
-                      classes={judgeClasses}
-                      judge={entity}
-                      key={entity.id}
-                    />
                   ) : (
-                    <h2>Сталася помилка</h2>
+                    catalogs === "judges" && (
+                      <JudgeCard
+                        classes={judgeClasses}
+                        judge={entity}
+                        key={entity.id}
+                      />
+                    )
                   )
                 )
-              ) : !loading && entitiesList.length === 0 ? (
+              ) : !loading && catalogs.length > 0 ? (
                 <h2 className="no-dancers-searched">
                   По вашому запиту нічого не знайдено 😐
                 </h2>

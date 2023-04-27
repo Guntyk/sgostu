@@ -24,18 +24,24 @@ export const filterDancers = (
 
   // Filtering by name
   if (nameValue) {
-    list = list.filter((entity) =>
-      (catalogs === "dancers"
-        ? entity.D_Surname || entity.D_Name
-        : catalogs === "clubs"
-        ? entity["Club_Name"].split("(")[0].trim()
-        : catalogs === "coaches"
-        ? entity["Name Surname Coach"]
-        : catalogs === "judges" && entity["Name Surname"]
-      )
-        .toLowerCase()
-        .includes(nameValue)
-    );
+    if (catalogs === "dancers") {
+      list = list.filter(
+        (entity) =>
+          entity.D_Surname.toLowerCase().includes(nameValue) ||
+          entity.D_Name.toLowerCase().includes(nameValue)
+      );
+    } else {
+      list = list.filter((entity) =>
+        (catalogs === "clubs"
+          ? entity["Club_Name"].split("(")[0].trim()
+          : catalogs === "coaches"
+          ? entity["Name Surname Coach"]
+          : catalogs === "judges" && entity["Name Surname"]
+        )
+          .toLowerCase()
+          .includes(nameValue)
+      );
+    }
   }
   // Filtering by club
   if (clubValue) {
