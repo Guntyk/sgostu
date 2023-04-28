@@ -1,0 +1,319 @@
+.person-details-wrapper {
+  --coefficient: 1;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  pointer-events: none;
+  overflow: hidden;
+  opacity: 0;
+  backdrop-filter: blur(15px);
+  transition: 0.7s;
+  z-index: 10;
+}
+
+.management-cross {
+  position: absolute;
+  padding: calc(0.28vw * var(--coefficient));
+  width: calc(1.05vw * var(--coefficient));
+  height: calc(1.05vw * var(--coefficient));
+  top: calc(1.05vw * var(--coefficient));
+  left: calc(1.05vw * var(--coefficient));
+  cursor: pointer;
+  transition: 0.3s;
+  opacity: 1;
+  z-index: 3;
+}
+
+.management-cross::after,
+.management-cross::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 2px;
+  border: none;
+  border-radius: 50px;
+  background: #ccc;
+  transition: inherit;
+}
+
+.management-cross::before {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.management-cross::after {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.management-cross:hover::after,
+.management-cross:hover::before {
+  background: #000;
+}
+
+.person-detail-card {
+  --card-width: 60%;
+  --height-coefficient: 0.9;
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: calc(var(--card-width) * var(--coefficient));
+  padding: calc(2vw * var(--coefficient)) calc(3vw * var(--coefficient));
+  font-family: "e-Ukraine-Light", sans-serif;
+  border-radius: calc(1vw * var(--coefficient));
+  border: var(--border);
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  background: #fff;
+  overflow: hidden;
+  transform: translate(-50%, 100%);
+  transition: 0.7s;
+}
+
+.person-detail-card.non-descripted {
+  min-height: 60%;
+}
+
+.person-detail-info {
+  width: 60%;
+  font-size: calc(1vw * var(--coefficient));
+}
+
+.person-detail-name {
+  font-family: "e-Ukraine-Regular", sans-serif;
+  font-size: calc(2.8vw * var(--coefficient));
+  line-height: 1;
+  order: 1;
+  white-space: nowrap;
+}
+
+.person-detail-town,
+.person-detail-role {
+  display: flex;
+  align-items: center;
+  margin: calc(0.9vw * var(--coefficient)) 0;
+  order: 2;
+}
+
+.icon {
+  margin-right: calc(0.5vw * var(--coefficient));
+  height: calc(1.4vw * var(--coefficient));
+}
+
+.person-detail-description {
+  color: rgba(100, 100, 111, 0.8);
+  font-family: "e-Ukraine-Thin", sans-serif;
+  font-size: calc(0.8vw * var(--coefficient));
+  line-height: 1.6;
+  max-height: 460px;
+  overflow-x: hidden;
+  white-space: pre-line;
+  width: 85%;
+  padding-right: 20px;
+  order: 3;
+}
+
+.person-detail-description::-webkit-scrollbar {
+  width: 5px;
+}
+
+.person-detail-description::-webkit-scrollbar-track {
+  background: rgba(100, 100, 100, 0.1);
+  border-radius: 50px;
+}
+
+.person-detail-description::-webkit-scrollbar-thumb {
+  border-radius: 50px;
+  background-color: rgb(210, 210, 210);
+  outline: 0.5px solid rgba(0, 0, 0, 0.5);
+}
+
+.person-contacts {
+  margin-top: calc(1.5vw * var(--coefficient));
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  order: 4;
+}
+
+.person-contact {
+  display: flex;
+  align-items: center;
+  position: relative;
+  color: #000;
+  text-decoration: none;
+}
+
+.person-contact::before {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  width: 100%;
+  height: 1px;
+  background: #000;
+  transform: scaleX(0);
+  transition: 0.35s;
+}
+
+.person-detail-photo {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 37%;
+  object-fit: cover;
+  border: var(--border);
+}
+
+/* Animations */
+.person-details-wrapper.active {
+  pointer-events: all;
+  opacity: 1;
+}
+
+.person-details-wrapper.active .person-detail-card {
+  transform: translate(-50%, -50%);
+}
+
+.person-contact:hover::before {
+  transform: scaleX(1);
+}
+
+@media (max-width: 1150px) {
+  .person-details-wrapper {
+    --coefficient: 1.4;
+  }
+}
+
+@media (max-width: 840px) {
+  .person-detail-card {
+    top: 42%;
+    max-height: 75%;
+    overflow: unset;
+  }
+  .person-details-content-wrapper {
+    display: flex;
+    justify-content: space-between;
+    overflow-x: hidden;
+  }
+  .person-detail-role {
+    margin-top: 20px;
+  }
+  .person-detail-role,
+  .person-detail-town,
+  .person-detail-phone,
+  .person-detail-email {
+    align-items: start;
+    font-size: 120%;
+  }
+  .management-cross {
+    top: unset;
+    padding: 20px;
+    left: 50%;
+    bottom: -10%;
+    border-radius: 50%;
+    border: var(--border);
+    background: #fff;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    transform: translateX(-50%);
+  }
+  .management-cross::after,
+  .management-cross::before {
+    width: 55%;
+    background: #000;
+  }
+  .person-detail-info {
+    display: flex;
+    flex-direction: column;
+  }
+  .person-detail-name {
+    font-size: 300%;
+  }
+  .icon {
+    width: 30px !important;
+    height: 20px;
+  }
+  .person-contacts {
+    order: 2;
+    margin: 0;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .person-contact {
+    margin: calc(0.8vw * var(--coefficient)) 0;
+  }
+  .person-detail-description {
+    position: relative;
+    margin-top: 110px;
+    width: 162%;
+    max-height: unset;
+    overflow: unset;
+    font-size: 150%;
+  }
+  .person-detail-description::before {
+    content: "Історія";
+    position: absolute;
+    color: rgba(0, 0, 0, 1);
+    top: -60px;
+    left: 50%;
+    font-size: 150%;
+    transform: translateX(-50%);
+  }
+  .person-detail-description::after {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: rgba(0, 0, 0, 0.5);
+  }
+  .person-detail-photo {
+    position: static;
+    width: auto;
+    height: 350px;
+    height: 40%;
+    border-radius: 10px;
+  }
+}
+
+@media (max-width: 550px) {
+  .person-details-content-wrapper {
+    padding-top: 20px;
+  }
+  .person-detail-info {
+    width: auto;
+  }
+  .person-detail-name {
+    font-size: 320%;
+  }
+  .person-detail-role,
+  .person-detail-town,
+  .person-detail-phone,
+  .person-detail-email {
+    font-size: 170%;
+    text-overflow: ellipsis;
+  }
+  .person-detail-description {
+    margin-top: 80px;
+    padding: 0;
+    width: 141%;
+    font-size: 200%;
+  }
+  .person-detail-photo {
+    height: 30%;
+    object-fit: unset;
+  }
+}
+
+@media (max-width: 400px) {
+  .person-detail-description {
+    width: 161%;
+  }
+  .person-detail-description::before {
+    top: -50px;
+  }
+}
