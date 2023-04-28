@@ -19,7 +19,6 @@
   height: 40px;
   font-family: "e-Ukraine-Light", sans-serif;
   font-size: 1rem;
-  /* outline: 2px solid red; */
 }
 
 .search-input {
@@ -34,13 +33,8 @@
   border-right: none;
 }
 
-.search-input::placeholder {
-  font-size: 1em;
-}
-
 .search-select {
   padding-left: var(--padding);
-  height: 100%;
   font-family: "e-Ukraine-Light", sans-serif;
   border: var(--border);
   background: rgba(255, 255, 255, 0.6);
@@ -52,17 +46,9 @@
   outline: none;
 }
 
-.search-select:nth-child(2) {
-  margin-left: 1px;
-  /* width: 26%; */
-}
 .search-select:nth-child(3) {
-  /* width: 12%; */
   border-left: none;
   border-right: none;
-}
-.search-select:nth-child(4) {
-  /* width: 15%; */
 }
 
 .search-btn {
