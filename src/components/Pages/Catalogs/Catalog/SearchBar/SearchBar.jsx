@@ -72,109 +72,111 @@ export default function SearchBar({
           }${catalogs === "judges" ? "Ім'я або прізвище судді" : ""}`}
           name="name"
         />
-        {(catalogs === "dancers" || catalogs === "coaches") && (
-          <select
-            name="club"
-            className="search-select club-select"
-            defaultValue="choose"
-          >
-            <option className="club-option" value="choose" disabled>
-              Клуб
-            </option>
-            {clubs.map((club) => (
-              <option className="club-option" value={club.id} key={club.id}>
-                {club.Club_Name.split("(")[0].trim()}
+        <div className="form-inner">
+          {(catalogs === "dancers" || catalogs === "coaches") && (
+            <select
+              name="club"
+              className="search-select club-select"
+              defaultValue="choose"
+            >
+              <option className="club-option" value="choose" disabled>
+                Клуб
               </option>
-            ))}
-          </select>
-        )}
-        {catalogs === "dancers" && (
-          <select
-            name="class"
-            className="search-select class-select"
-            defaultValue="choose"
-          >
-            <option className="class-option" value="choose" disabled>
-              Клас
-            </option>
-            {dancerClasses.map((dancerClass) => (
-              <option
-                className="class-option"
-                value={dancerClass.id}
-                key={dancerClass.id}
-              >
-                {dancerClass.Class_Name.trim()}
-              </option>
-            ))}
-          </select>
-        )}
-        {catalogs === "dancers" && (
-          <select
-            name="status"
-            className="search-select status-select"
-            defaultValue="choose"
-          >
-            <option className="status-option" value="choose" disabled>
-              Статус
-            </option>
-            {statuses
-              .filter((status) => status.Name !== "Не активний")
-              .map((status) => (
-                <option
-                  className="club-option"
-                  value={status.id}
-                  key={status.id}
-                >
-                  {status.Name.trim()}
+              {clubs.map((club) => (
+                <option className="club-option" value={club.id} key={club.id}>
+                  {club.Club_Name.split("(")[0].trim()}
                 </option>
               ))}
-          </select>
-        )}
-        {catalogs === "clubs" && (
-          <select
-            name="region"
-            className="search-select region-select"
-            defaultValue="choose"
-          >
-            <option className="region-option" value="choose" disabled>
-              Регіон
-            </option>
-            {regions.map((region) => (
-              <option
-                className="region-option"
-                value={region.id}
-                key={region.id}
-              >
-                {region.Region_Name.trim()}
+            </select>
+          )}
+          {catalogs === "dancers" && (
+            <select
+              name="class"
+              className="search-select class-select"
+              defaultValue="choose"
+            >
+              <option className="class-option" value="choose" disabled>
+                Клас
               </option>
-            ))}
-          </select>
-        )}
-        {catalogs === "judges" && (
-          <select
-            name="category"
-            className="search-select category-select"
-            defaultValue="choose"
-          >
-            <option className="category-option" value="choose" disabled>
-              Категорія
-            </option>
-            {judgeClasses.map((category) => (
-              <option
-                className="category-option"
-                value={category.id}
-                key={category.id}
-              >
-                {category.Category.trim()}
+              {dancerClasses.map((dancerClass) => (
+                <option
+                  className="class-option"
+                  value={dancerClass.id}
+                  key={dancerClass.id}
+                >
+                  {dancerClass.Class_Name.trim()}
+                </option>
+              ))}
+            </select>
+          )}
+          {catalogs === "dancers" && (
+            <select
+              name="status"
+              className="search-select status-select"
+              defaultValue="choose"
+            >
+              <option className="status-option" value="choose" disabled>
+                Статус
               </option>
-            ))}
-          </select>
-        )}
-        <Button
-          className="btn-primary search-btn"
-          buttonText={<Search />}
-          type="submit"
-        />
+              {statuses
+                .filter((status) => status.Name !== "Не активний")
+                .map((status) => (
+                  <option
+                    className="club-option"
+                    value={status.id}
+                    key={status.id}
+                  >
+                    {status.Name.trim()}
+                  </option>
+                ))}
+            </select>
+          )}
+          {catalogs === "clubs" && (
+            <select
+              name="region"
+              className="search-select region-select"
+              defaultValue="choose"
+            >
+              <option className="region-option" value="choose" disabled>
+                Регіон
+              </option>
+              {regions.map((region) => (
+                <option
+                  className="region-option"
+                  value={region.id}
+                  key={region.id}
+                >
+                  {region.Region_Name.trim()}
+                </option>
+              ))}
+            </select>
+          )}
+          {catalogs === "judges" && (
+            <select
+              name="category"
+              className="search-select category-select"
+              defaultValue="choose"
+            >
+              <option className="category-option" value="choose" disabled>
+                Категорія
+              </option>
+              {judgeClasses.map((category) => (
+                <option
+                  className="category-option"
+                  value={category.id}
+                  key={category.id}
+                >
+                  {category.Category.trim()}
+                </option>
+              ))}
+            </select>
+          )}
+          <Button
+            className="btn-primary search-btn"
+            buttonText={<Search />}
+            type="submit"
+          />
+        </div>
       </form>
       {!loading && entitiesList.length < filteringArr.length && (
         <Button
