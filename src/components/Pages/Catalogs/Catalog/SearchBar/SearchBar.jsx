@@ -2,31 +2,35 @@ import { filterEntities } from "../../../../../helpers/filterEntities";
 import Search from "../../../../../materials/icons/Search";
 import Button from "../../../../../common/Button/Button";
 import "./SearchBar.css";
+import { useState } from "react";
 
 export default function SearchBar({
   setEntitiesList,
-  catalogs,
-  regions,
-  dancers,
-  clubs,
-  coaches,
-  judges,
-  statuses,
   dancerClasses,
+  entitiesList,
   judgeClasses,
+  catalogs,
+  statuses,
+  coaches,
+  dancers,
+  regions,
+  loading,
+  judges,
+  clubs,
 }) {
+  const [search, setSearch] = useState(false);
+  const filteringArr =
+    catalogs === "dancers"
+      ? dancers
+      : catalogs === "clubs"
+      ? clubs
+      : catalogs === "coaches"
+      ? coaches
+      : catalogs === "judges" && judges;
+
   function handleSearch(e) {
     e.preventDefault();
     window.scrollTo(0, 0);
-
-    const filteringArr =
-      catalogs === "dancers"
-        ? dancers
-        : catalogs === "clubs"
-        ? clubs
-        : catalogs === "coaches"
-        ? coaches
-        : catalogs === "judges" && judges;
 
     const filtersValue = [
       catalogs,
@@ -59,8 +63,9 @@ export default function SearchBar({
         : null,
     ];
 
-    // Filter Lists
+    // Main functions
     setEntitiesList(filterEntities(...filtersValue));
+    setSearch(true);
 
     // Reset values
     e.target.reset();
@@ -182,15 +187,16 @@ export default function SearchBar({
           type="submit"
         />
       </form>
-      {/* {!loading && entitiesList.length && (
+      {!loading && entitiesList.length < filteringArr.length && (
         <Button
           className="reset-filters-btn"
           buttonText="Скинути фільтри"
           onClick={() => {
-            setEntitiesList(entitiesList);
+            setEntitiesList(filteringArr);
+            setSearch(false);
           }}
         />
-      )} */}
+      )}
     </div>
   );
 }

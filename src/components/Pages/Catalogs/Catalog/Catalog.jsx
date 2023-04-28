@@ -141,15 +141,17 @@ export default function Dancers() {
             </h1>
             <SearchBar
               setEntitiesList={setEntitiesList}
-              catalogs={catalogs}
-              regions={regions}
-              dancers={dancers}
-              clubs={clubs}
-              coaches={coaches}
-              judges={judges}
-              statuses={statuses}
               dancerClasses={dancerClasses}
+              entitiesList={entitiesList}
               judgeClasses={judgeClasses}
+              catalogs={catalogs}
+              statuses={statuses}
+              coaches={coaches}
+              dancers={dancers}
+              regions={regions}
+              loading={loading}
+              judges={judges}
+              clubs={clubs}
             />
             <div className="catalog-wrapper">
               {entitiesList.length !== 0 ? (
