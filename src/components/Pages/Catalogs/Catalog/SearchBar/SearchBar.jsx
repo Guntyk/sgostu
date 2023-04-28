@@ -1,4 +1,4 @@
-import { filterDancers } from "../../../../../helpers/filters/filterDancers";
+import { filterEntities } from "../../../../../helpers/filterEntities";
 import Search from "../../../../../materials/icons/Search";
 import Button from "../../../../../common/Button/Button";
 import "./SearchBar.css";
@@ -60,7 +60,7 @@ export default function SearchBar({
     ];
 
     // Filter Lists
-    setEntitiesList(filterDancers(...filtersValue));
+    setEntitiesList(filterEntities(...filtersValue));
 
     // Reset values
     e.target.reset();
@@ -70,7 +70,7 @@ export default function SearchBar({
     <div className="container search-form">
       <form className="form" id="search" onSubmit={handleSearch}>
         <input
-          className="input search-input"
+          className="search-input"
           placeholder={`${
             catalogs === "dancers" ? "Ім'я або прізвище танцюриста" : ""
           }${catalogs === "clubs" ? "Назва клубу" : ""}${

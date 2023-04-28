@@ -1,4 +1,4 @@
-export const filterDancers = (
+export const filterEntities = (
   catalogs,
   filteringArr,
   nameValue,
@@ -67,6 +67,12 @@ export const filterDancers = (
   if (regionValue) {
     list = list.filter((club) =>
       club.Region_Clubs.includes(Number(regionValue))
+    );
+  }
+  // Filtering by category
+  if (categoryValue) {
+    list = list.filter((judge) =>
+      judge["Category Judge"].includes(Number(categoryValue))
     );
   }
 

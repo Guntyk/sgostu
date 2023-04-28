@@ -16,10 +16,10 @@ import { getRegions } from "../../../../redux/regions/thunk";
 import { getJudges } from "../../../../redux/judges/thunk";
 import { getClubs } from "../../../../redux/clubs/thunk";
 
-import DancerCard from "./DancersCatalog/DancerCard/DancerCard";
-import CoachCard from "./CoachesCatalog/CoachCard/CoachCard";
-import JudgeCard from "./JudgesCatalog/JudgeCard/JudgeCard";
-import ClubCard from "./ClubsCatalog/ClubCard/ClubCard";
+import DancerCard from "./Cards/DancerCard/DancerCard";
+import CoachCard from "./Cards/CoachCard/CoachCard";
+import JudgeCard from "./Cards/JudgeCard/JudgeCard";
+import ClubCard from "./Cards/ClubCard/ClubCard";
 
 import Button from "../../../../common/Button/Button";
 import SearchBar from "./SearchBar/SearchBar";
