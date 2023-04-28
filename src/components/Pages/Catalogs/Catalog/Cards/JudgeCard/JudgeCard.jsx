@@ -4,7 +4,6 @@ import "./JudgeCard.css";
 import "../../Catalog.css";
 
 export default function JudgeCard({ judge, classes }) {
-  // console.log(judge);
   console.log(
     String(judge["Name Surname"].replace("&nbsp;", "").replace(" ", ""))
   );

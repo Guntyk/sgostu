@@ -16,12 +16,13 @@ import { getRegions } from "../../../../redux/regions/thunk";
 import { getJudges } from "../../../../redux/judges/thunk";
 import { getClubs } from "../../../../redux/clubs/thunk";
 
-import CoachesCatalog from "./CoachesCatalog/CoachesCatalog";
-import DancersCatalog from "./DancersCatalog/DancersCatalog";
-import JudgesCatalog from "./JudgesCatalog/JudgesCatalog";
-import ClubsCatalog from "./ClubsCatalog/ClubsCatalog";
+import DancerCard from "./Cards/DancerCard/DancerCard";
+import CoachCard from "./Cards/CoachCard/CoachCard";
+import JudgeCard from "./Cards/JudgeCard/JudgeCard";
+import ClubCard from "./Cards/ClubCard/ClubCard";
 
 import Button from "../../../../common/Button/Button";
+import SearchBar from "./SearchBar/SearchBar";
 import Loader from "../../../Loader/Loader";
 
 import { useHistory, useParams } from "react-router-dom";
@@ -32,6 +33,8 @@ import "./Catalog.css";
 
 export default function Dancers() {
   const [catalogTheme, setCatalogTheme] = useState(false);
+  const [entitiesList, setEntitiesList] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   const dancers = useSelector(dancersSelector);
   const coaches = useSelector(coachesSelector);
@@ -43,6 +46,7 @@ export default function Dancers() {
   const statuses = useSelector(statusesSelector);
   const regions = useSelector(regionsSelector);
 
+  const screenWidth = window.screen.availWidth;
   const { catalogs } = useParams();
   const { goBack } = useHistory();
   const dispatch = useDispatch();
@@ -70,7 +74,10 @@ export default function Dancers() {
         dispatch(getCoaches(statuses));
         dispatch(getClubs());
       }
-      if (catalogs === "clubs" && clubs.length === 0) {
+      if (
+        (catalogs === "clubs" && regions.length === 0) ||
+        clubs.length === 0
+      ) {
         dispatch(getClubs());
         dispatch(getRegions());
       }
@@ -81,11 +88,26 @@ export default function Dancers() {
     }
   }, [statuses]);
 
-  // useEffect(() => {
-  //   if (typeof dancers === "object") {
-  //     getDancers(statuses);
-  //   }
-  // }, [dancers]);
+  useEffect(() => {
+    if (catalogs === "dancers" && dancers.length !== 0) {
+      setEntitiesList(dancers);
+    }
+    if (catalogs === "coaches" && coaches.length !== 0) {
+      setEntitiesList(coaches);
+    }
+    if (catalogs === "clubs" && clubs.length !== 0) {
+      setEntitiesList(clubs);
+    }
+    if (catalogs === "judges" && judges.length !== 0) {
+      setEntitiesList(judges);
+    }
+  }, [coaches, dancers, judges, clubs]);
+
+  useEffect(() => {
+    if (entitiesList.length !== 0) {
+      setLoading(false);
+    }
+  }, [entitiesList]);
 
   return (
     <>
@@ -108,23 +130,62 @@ export default function Dancers() {
               className="back-link"
               onClick={goBack}
             />
-            {catalogs === "coaches" && (
-              <CoachesCatalog coaches={coaches} clubs={clubs} />
-            )}
-            {catalogs === "dancers" && (
-              <DancersCatalog
-                dancerClasses={dancerClasses}
-                statuses={statuses}
-                dancers={dancers}
-                clubs={clubs}
-              />
-            )}
-            {catalogs === "judges" && (
-              <JudgesCatalog judgeClasses={judgeClasses} judges={judges} />
-            )}
-            {catalogs === "clubs" && (
-              <ClubsCatalog clubs={clubs} regions={regions} />
-            )}
+            <h1 className="catalog-title">
+              {catalogs === "dancers"
+                ? "Танцюристи"
+                : catalogs === "clubs"
+                ? "Клуби"
+                : catalogs === "coaches"
+                ? "Тренери"
+                : catalogs === "judges" && "Судді"}
+            </h1>
+            <SearchBar
+              setEntitiesList={setEntitiesList}
+              dancerClasses={dancerClasses}
+              entitiesList={entitiesList}
+              judgeClasses={judgeClasses}
+              catalogs={catalogs}
+              statuses={statuses}
+              coaches={coaches}
+              dancers={dancers}
+              regions={regions}
+              loading={loading}
+              judges={judges}
+              clubs={clubs}
+            />
+            <div className="catalog-wrapper">
+              {entitiesList.length !== 0 ? (
+                entitiesList.map((entity) =>
+                  catalogs === "dancers" ? (
+                    <DancerCard
+                      screenWidth={screenWidth}
+                      classes={dancerClasses}
+                      key={entity.id}
+                      dancer={entity}
+                      clubs={clubs}
+                    />
+                  ) : catalogs === "clubs" ? (
+                    <ClubCard key={entity.id} club={entity} />
+                  ) : catalogs === "coaches" ? (
+                    <CoachCard clubs={clubs} coach={entity} key={entity.id} />
+                  ) : (
+                    catalogs === "judges" && (
+                      <JudgeCard
+                        classes={judgeClasses}
+                        judge={entity}
+                        key={entity.id}
+                      />
+                    )
+                  )
+                )
+              ) : !loading && catalogs.length > 0 ? (
+                <h2 className="no-dancers-searched">
+                  По вашому запиту нічого не знайдено 😐
+                </h2>
+              ) : (
+                <Loader />
+              )}
+            </div>
           </div>
         </div>
       ) : (

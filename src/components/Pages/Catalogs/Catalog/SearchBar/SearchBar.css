@@ -1,40 +1,47 @@
 .search-form {
-  position: sticky !important;
-  top: 50px;
+  --background: rgba(255, 255, 255, 0.6);
+  --border: 1px solid #0e0e0e59;
+  --padding: 1rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 50px !important;
-  box-sizing: border-box;
+  position: sticky !important;
+  top: 50px;
+  /* margin: 30px 50px !important; */
+  padding: 30px 50px !important;
+  height: 60px;
+  font-size: 1.1rem;
+  /* box-sizing: border-box; */
   z-index: 2;
 }
 
 .form {
   display: flex;
-  align-items: center;
-  margin: 30px 0;
-  width: 70%;
-  font-size: 0.8rem;
+  align-items: stretch;
+  max-width: 70%;
+  height: 100%;
+  font-family: "e-Ukraine-Light", sans-serif;
 }
 
 .search-input {
-  width: 10%;
-  width: auto;
-  width: 30%;
+  padding-left: var(--padding);
+  min-width: 25em;
+  font-size: 1em;
+  border: var(--border);
   border-radius: 0px;
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
-  background: rgba(255, 255, 255, 0.6);
+  background: var(--background);
   backdrop-filter: blur(10px);
   border-right: none;
 }
 
 .search-select {
+  padding-left: var(--padding);
   font-family: "e-Ukraine-Light", sans-serif;
-  padding: 0.9em 1.5384em;
   font-size: 1em;
-  border: 1px solid #0e0e0e59;
-  background: rgba(255, 255, 255, 0.6);
+  border: var(--border);
+  background: var(--background);
   backdrop-filter: blur(10px);
   transition: 0.2s;
 }
@@ -43,30 +50,22 @@
   outline: none;
 }
 
-.search-select:nth-child(2) {
-  margin-left: 1px;
-  width: 26%;
-}
 .search-select:nth-child(3) {
-  width: 12%;
   border-left: none;
   border-right: none;
-}
-.search-select:nth-child(4) {
-  width: 15%;
 }
 
 .search-btn {
   position: relative;
-  padding: 1em;
-  width: 7.5%;
-  font-family: "e-Ukraine-Light", sans-serif;
-  border: 1px solid #0e0e0e59;
+  width: auto;
+  padding: 0 2rem;
+  height: 100%;
+  border: var(--border);
   border-radius: 0px;
   border-left: none;
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
-  background: transparent;
+  background: var(--background);
   transition: 0.2s;
 }
 
@@ -77,10 +76,11 @@
 
 .reset-filters-btn {
   width: 25%;
-  font-family: "e-Ukraine-Light", sans-serif;
-  font-size: 0.8em;
-  border: 1px solid #0e0e0e59;
+  height: 100%;
+  font-size: 1em;
+  border: var(--border);
   border-radius: 10px;
+  background: var(--background);
 }
 
 .reset-filters-btn:hover {

@@ -6,7 +6,6 @@ import { dancersSelector } from "../../../../../../../redux/dancers/selectors";
 import { coachesSelector } from "../../../../../../../redux/coaches/selectors";
 import { clubsSelector } from "../../../../../../../redux/clubs/selectors";
 import { getStatuses } from "../../../../../../../redux/statuses/thunk";
-import DancerCard from "../../../DancersCatalog/DancerCard/DancerCard";
 import { getDancers } from "../../../../../../../redux/dancers/thunk";
 import { getCoach } from "../../../../../../../redux/coaches/thunk";
 import { Redirect, useHistory, useParams } from "react-router-dom";
@@ -16,6 +15,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Loader from "../../../../../../Loader/Loader";
 import { useState, useEffect } from "react";
 import "./CoachInfo.css";
+import DancerCard from "../../DancerCard/DancerCard";
 
 export default function CoachInfo() {
   const dancerClasses = useSelector(dancerClassesSelector);

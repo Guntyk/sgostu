@@ -1,10 +1,15 @@
-import "./About.css";
 import aboutImg from "../../../materials/img/about.png";
+import Button from "../../../common/Button/Button";
+import "./About.css";
+import { useHistory } from "react-router-dom";
 
 export default function About() {
+  const { push } = useHistory();
+
+  window.scrollTo(0, 0);
+
   return (
     <article className="about-page">
-      {window.scrollTo(0, 0)}
       <div className="container">
         <h2 className="about-page-title">Про нас</h2>
         <div className="about-page-content">

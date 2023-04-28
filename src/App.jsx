@@ -1,5 +1,6 @@
-import CoachInfo from "./components/Pages/Catalogs/Catalog/CoachesCatalog/CoachCard/CoachInfo/CoachInfo";
-import DancerInfo from "./components/Pages/Catalogs/Catalog/DancersCatalog/DancerCard/DancerInfo/DancerInfo";
+import DancerInfo from "./components/Pages/Catalogs/Catalog/Cards/DancerCard/DancerInfo/DancerInfo";
+import CoachInfo from "./components/Pages/Catalogs/Catalog/Cards/CoachCard/CoachInfo/CoachInfo";
+import Management from "./components/Pages/About/Management/Management";
 import EventInfo from "./components/Pages/Calendar/EventInfo/EventInfo";
 import Catalog from "./components/Pages/Catalogs/Catalog/Catalog";
 import NewsInfo from "./components/Pages/News/NewsInfo/NewsInfo";
@@ -63,6 +64,15 @@ export default function App() {
         <Route exact path="/about">
           <About />
         </Route>
+        <Route exact path="/management">
+          <Management />
+        </Route>
+        {/* <Route exact path="/management">
+          <Management />
+        </Route> */}
+        {/* <Route exact path="/about">
+          <About />
+        </Route> */}
         {/* Not Found */}
         <Route>
           <NotFound />

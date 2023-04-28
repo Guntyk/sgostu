@@ -1,10 +1,9 @@
 import AvatarPlaceholder from "../../../../../../common/AvatarPlaceholder/AvatarPlaceholder";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./CoachCard.css";
 import "../../Catalog.css";
 
 export default function CoachCard({ coach, clubs }) {
-  const { catalogs } = useParams();
   return (
     <div className="catalog-card coach-card">
       <div className="img-wrapper">
