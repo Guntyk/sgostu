@@ -193,6 +193,19 @@ export default function Navigation({ openSideMenu, setOpenSideMenu }) {
         <hr className="nav-line" />
         <Link
           className="nav-link"
+          to="/management"
+          onClick={() => {
+            setOpenSideMenu(false);
+          }}
+        >
+          <span className="nav-link-name">
+            {language === "ua" ? "Керівництво" : "Management"}
+          </span>
+          <span className="nav-link-number">05</span>
+        </Link>
+        <hr className="nav-line" />
+        <Link
+          className="nav-link"
           to="/contacts"
           onClick={() => {
             setOpenSideMenu(false);
@@ -201,7 +214,7 @@ export default function Navigation({ openSideMenu, setOpenSideMenu }) {
           <span className="nav-link-name">
             {language === "ua" ? "Контакти" : "Contacts"}
           </span>
-          <span className="nav-link-number">05</span>
+          <span className="nav-link-number">06</span>
         </Link>
         <hr className="nav-line" />
         <Link
@@ -214,7 +227,7 @@ export default function Navigation({ openSideMenu, setOpenSideMenu }) {
           <span className="nav-link-name">
             {language === "ua" ? "Зворотній зв'язок" : "Feedback"}
           </span>
-          <span className="nav-link-number">06</span>
+          <span className="nav-link-number">07</span>
         </Link>
       </div>
     </section>
