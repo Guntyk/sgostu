@@ -2,7 +2,6 @@ import { filterEntities } from "../../../../../helpers/filterEntities";
 import Search from "../../../../../materials/icons/Search";
 import Button from "../../../../../common/Button/Button";
 import "./SearchBar.css";
-import { useState } from "react";
 
 export default function SearchBar({
   setEntitiesList,
@@ -18,7 +17,6 @@ export default function SearchBar({
   judges,
   clubs,
 }) {
-  const [search, setSearch] = useState(false);
   const filteringArr =
     catalogs === "dancers"
       ? dancers
@@ -32,40 +30,31 @@ export default function SearchBar({
     e.preventDefault();
     window.scrollTo(0, 0);
 
+    const inputValues = [
+      e.target.club,
+      e.target.class,
+      e.target.status,
+      e.target.region,
+      e.target.category,
+    ];
+
     const filtersValue = [
       catalogs,
       filteringArr,
       e.target.name.value?.toLowerCase().trim() || null,
-      e.target.club
-        ? e.target.club.value === "choose"
-          ? null
-          : e.target.club.value
-        : null,
-      e.target.class
-        ? e.target.class.value === "choose"
-          ? null
-          : e.target.class.value
-        : null,
-      e.target.status
-        ? e.target.status.value === "choose"
-          ? null
-          : e.target.status.value
-        : null,
-      e.target.region
-        ? e.target.region.value === "choose"
-          ? null
-          : e.target.region.value
-        : null,
-      e.target.category
-        ? e.target.category.value === "choose"
-          ? null
-          : e.target.category.value
-        : null,
+      ...inputValues.map((inputValue) =>
+        inputValue
+          ? inputValue.value === "choose"
+            ? null
+            : inputValue.value
+          : null
+      ),
     ];
+
+    console.log(filtersValue);
 
     // Main functions
     setEntitiesList(filterEntities(...filtersValue));
-    setSearch(true);
 
     // Reset values
     e.target.reset();
@@ -193,7 +182,6 @@ export default function SearchBar({
           buttonText="Скинути фільтри"
           onClick={() => {
             setEntitiesList(filteringArr);
-            setSearch(false);
           }}
         />
       )}
