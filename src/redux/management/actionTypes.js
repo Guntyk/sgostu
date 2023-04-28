@@ -1,0 +1,1 @@
+export const GET_MANAGEMENT = "GET_MANAGEMENT";

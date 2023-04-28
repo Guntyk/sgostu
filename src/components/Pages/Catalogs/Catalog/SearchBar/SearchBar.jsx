@@ -1,66 +1,60 @@
-import { filterDancers } from "../../../../../helpers/filters/filterDancers";
+import { filterEntities } from "../../../../../helpers/filterEntities";
 import Search from "../../../../../materials/icons/Search";
 import Button from "../../../../../common/Button/Button";
 import "./SearchBar.css";
 
 export default function SearchBar({
   setEntitiesList,
-  catalogs,
-  regions,
-  dancers,
-  clubs,
-  coaches,
-  judges,
-  statuses,
   dancerClasses,
+  entitiesList,
   judgeClasses,
+  catalogs,
+  statuses,
+  coaches,
+  dancers,
+  regions,
+  loading,
+  judges,
+  clubs,
 }) {
+  const filteringArr =
+    catalogs === "dancers"
+      ? dancers
+      : catalogs === "clubs"
+      ? clubs
+      : catalogs === "coaches"
+      ? coaches
+      : catalogs === "judges" && judges;
+
   function handleSearch(e) {
     e.preventDefault();
     window.scrollTo(0, 0);
 
-    const filteringArr =
-      catalogs === "dancers"
-        ? dancers
-        : catalogs === "clubs"
-        ? clubs
-        : catalogs === "coaches"
-        ? coaches
-        : catalogs === "judges" && judges;
+    const inputValues = [
+      e.target.club,
+      e.target.class,
+      e.target.status,
+      e.target.region,
+      e.target.category,
+    ];
 
     const filtersValue = [
       catalogs,
       filteringArr,
       e.target.name.value?.toLowerCase().trim() || null,
-      e.target.club
-        ? e.target.club.value === "choose"
-          ? null
-          : e.target.club.value
-        : null,
-      e.target.class
-        ? e.target.class.value === "choose"
-          ? null
-          : e.target.class.value
-        : null,
-      e.target.status
-        ? e.target.status.value === "choose"
-          ? null
-          : e.target.status.value
-        : null,
-      e.target.region
-        ? e.target.region.value === "choose"
-          ? null
-          : e.target.region.value
-        : null,
-      e.target.category
-        ? e.target.category.value === "choose"
-          ? null
-          : e.target.category.value
-        : null,
+      ...inputValues.map((inputValue) =>
+        inputValue
+          ? inputValue.value === "choose"
+            ? null
+            : inputValue.value
+          : null
+      ),
     ];
 
-    // Filter Lists
-    setEntitiesList(filterDancers(...filtersValue));
+    console.log(filtersValue);
+
+    // Main functions
+    setEntitiesList(filterEntities(...filtersValue));
 
     // Reset values
     e.target.reset();
@@ -70,7 +64,7 @@ export default function SearchBar({
     <div className="container search-form">
       <form className="form" id="search" onSubmit={handleSearch}>
         <input
-          className="input search-input"
+          className="search-input"
           placeholder={`${
             catalogs === "dancers" ? "Ім'я або прізвище танцюриста" : ""
           }${catalogs === "clubs" ? "Назва клубу" : ""}${
@@ -182,15 +176,15 @@ export default function SearchBar({
           type="submit"
         />
       </form>
-      {/* {!loading && entitiesList.length && (
+      {!loading && entitiesList.length < filteringArr.length && (
         <Button
           className="reset-filters-btn"
           buttonText="Скинути фільтри"
           onClick={() => {
-            setEntitiesList(entitiesList);
+            setEntitiesList(filteringArr);
           }}
         />
-      )} */}
+      )}
     </div>
   );
 }

@@ -23,7 +23,7 @@
   justify-content: space-between;
   pointer-events: none;
   width: 300%;
-  height: calc(100% / 6);
+  height: calc(100% / 7);
   font-size: 4rem;
   letter-spacing: 5px;
   -webkit-text-stroke: 2px var(--primary-black);
@@ -37,7 +37,7 @@
   height: 2px;
   background-color: var(--primary-black);
   border: none;
-  transform: translateY(50px);
+  transform: translateY(50px) scale(1.000001);
 }
 
 .nav-link:hover {
