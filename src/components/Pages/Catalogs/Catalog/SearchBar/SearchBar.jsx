@@ -54,8 +54,6 @@ export default function SearchBar({
       ),
     ];
 
-    console.log(filtersValue);
-
     // Main functions
     setEntitiesList(filterEntities(...filtersValue));
 
@@ -88,7 +86,7 @@ export default function SearchBar({
                 </option>
                 {clubs.map((club) => (
                   <option className="club-option" value={club.id} key={club.id}>
-                    {club.Club_Name.split("(")[0].trim()}
+                    {club["Club Name"].split("(")[0].trim()}
                   </option>
                 ))}
               </select>
@@ -108,7 +106,7 @@ export default function SearchBar({
                     value={dancerClass.id}
                     key={dancerClass.id}
                   >
-                    {dancerClass.Class_Name.trim()}
+                    {dancerClass["Class Name"].trim()}
                   </option>
                 ))}
               </select>
@@ -150,7 +148,7 @@ export default function SearchBar({
                     value={region.id}
                     key={region.id}
                   >
-                    {region.Region_Name.trim()}
+                    {region["Region Name"].trim()}
                   </option>
                 ))}
               </select>
@@ -200,9 +198,9 @@ export default function SearchBar({
               <path
                 fill="none"
                 stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="24"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="24"
                 d="M112 184l144 144 144-144"
               />
             </svg>

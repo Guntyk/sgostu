@@ -37,7 +37,7 @@ export default function DancerInfo() {
     if (Array.isArray(dancers) && dancers.length > 1) {
       setDancer(...dancers.filter((dancer) => dancer.id === Number(dancerId)));
       setLoading(false);
-    } else if (typeof dancers === "object" && dancers.D_Name) {
+    } else if (typeof dancers === "object" && dancers["D Name"]) {
       setDancer(dancers);
       setLoading(false);
     }
@@ -45,7 +45,7 @@ export default function DancerInfo() {
 
   return (
     <>
-      {dancer !== {} && dancer.D_Name ? (
+      {dancer !== {} && dancer["D Name"] ? (
         <section className="dancer-info">
           <Button
             buttonText={
@@ -75,7 +75,7 @@ export default function DancerInfo() {
             )}
             <div className="dancer-inner">
               <h2 className="dancer-name">
-                {dancer.D_Surname.trim()} {dancer.D_Name.trim()}
+                {dancer["D Surname"].trim()} {dancer["D Name"].trim()}
               </h2>
               <dl className="dancer-details">
                 <div className="dancer-details-wrapper">
@@ -94,7 +94,7 @@ export default function DancerInfo() {
                           Number(dancer["Dancer Class"].at(-1))
                       )
                       .at(-1)
-                      .Class_Name.trim()}
+                      ["Class Name"].trim()}
                   </dd>
                 </div>
                 <div className="dancer-details-wrapper">
@@ -102,8 +102,8 @@ export default function DancerInfo() {
                   <dd>
                     {String(
                       clubs
-                        .filter((club) => club.id === Number(dancer["Club-"]))
-                        .map((club) => club.Club_Name)
+                        .filter((club) => club.id === Number(dancer["Clubs ok*"]))
+                        .map((club) => club["Club Name"])
                     )
                       .split("(")[0]
                       .trim()}

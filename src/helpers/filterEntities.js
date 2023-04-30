@@ -27,13 +27,13 @@ export const filterEntities = (
     if (catalogs === "dancers") {
       list = list.filter(
         (entity) =>
-          entity.D_Surname.toLowerCase().includes(nameValue) ||
-          entity.D_Name.toLowerCase().includes(nameValue)
+          entity["D Surname"].toLowerCase().includes(nameValue) ||
+          entity["D Name"].toLowerCase().includes(nameValue)
       );
     } else {
       list = list.filter((entity) =>
         (catalogs === "clubs"
-          ? entity["Club_Name"].split("(")[0].trim()
+          ? entity["Club Name"].split("(")[0].trim()
           : catalogs === "coaches"
           ? entity["Name Surname Coach"]
           : catalogs === "judges" && entity["Name Surname"]
@@ -66,13 +66,13 @@ export const filterEntities = (
   // Filtering by region
   if (regionValue) {
     list = list.filter((club) =>
-      club.Region_Clubs.includes(Number(regionValue))
+      club["Region Clubs"].includes(Number(regionValue))
     );
   }
   // Filtering by category
   if (categoryValue) {
     list = list.filter((judge) =>
-      judge["Category Judge"].includes(Number(categoryValue))
+      judge["Assigned Category Judge"].includes(Number(categoryValue))
     );
   }
 

@@ -4,9 +4,6 @@ import "./JudgeCard.css";
 import "../../Catalog.css";
 
 export default function JudgeCard({ judge, classes }) {
-  console.log(
-    String(judge["Name Surname"].replace("&nbsp;", "").replace(" ", ""))
-  );
   return (
     <div className="catalog-card judge-card">
       <div className="img-wrapper">
@@ -24,7 +21,7 @@ export default function JudgeCard({ judge, classes }) {
           .filter(
             (judgeClass) =>
               classes.indexOf(judgeClass) + 1 ===
-              Number(judge["Category Judge"].at(-1))
+              Number(judge["Assigned Category Judge"].at(-1))
           )
           .at(-1)
           .Category.trim()}
