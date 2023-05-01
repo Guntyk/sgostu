@@ -19,6 +19,10 @@ export default function DocumentsSlider() {
   const documents = useSelector(documentsSelector);
   const { documentsType } = useParams();
   const dispatch = useDispatch();
+  const filteredDocs = documents.filter(
+    (document) =>
+      document.attributes.document_type.data.id === Number(documentsType)
+  );
 
   useEffect(() => {
     if (documents.length === 0 || documentTypes.length === 0) {
@@ -29,7 +33,7 @@ export default function DocumentsSlider() {
 
   return (
     <div className="slider-box">
-      <BackButton />
+      <BackButton className="docs-back-btn" />
       {documents.length !== 0 ? (
         documents
           .filter(
@@ -41,7 +45,9 @@ export default function DocumentsSlider() {
             <div
               key={document.id}
               className={`document-overlay ${
-                documents.indexOf(document) === activeSlideIdx ? "active" : ""
+                filteredDocs.indexOf(document) === activeSlideIdx
+                  ? "active"
+                  : ""
               }`}
             >
               <div className="document-info-wrapper">
