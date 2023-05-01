@@ -8,6 +8,13 @@
   z-index: 0 !important;
 }
 
+.docs-back-btn {
+  position: absolute;
+  top: 80px;
+  left: 4vw;
+  z-index: 5;
+}
+
 .card-floating {
   --translate-coefficient: 1;
   --card-width: 330px;
@@ -24,7 +31,7 @@
   height: calc(var(--card-width) * 1.41);
   border-radius: calc(var(--card-width) / 30);
   filter: blur(10px) saturate(20%);
-  transform: rotateX(45deg) scale(0.7);  
+  transform: rotateX(45deg) scale(0.7);
   box-shadow: rgba(100, 100, 111, 0.7) 0px 7px 29px 0px !important;
   transition: 0.7s;
 }
@@ -64,7 +71,7 @@
   pointer-events: none;
   transition: 0.5s;
   opacity: 0;
-  z-index: 1;
+  z-index: 2;
 }
 
 .document-overlay::before {
@@ -101,6 +108,7 @@
 .document-card-name {
   margin: 0;
   color: #fff;
+  font-family: "e-Ukraine-Head", sans-serif;
   font-size: 3vw;
   line-height: 1.4;
   transform: translateX(-150%);
