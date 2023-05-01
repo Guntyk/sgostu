@@ -16,17 +16,17 @@ import { getRegions } from "../../../../redux/regions/thunk";
 import { getJudges } from "../../../../redux/judges/thunk";
 import { getClubs } from "../../../../redux/clubs/thunk";
 
+import BackButton from "../../../../common/BackButton/BackButton";
+import SearchBar from "./SearchBar/SearchBar";
+import Loader from "../../../Loader/Loader";
+
 import DancerCard from "./Cards/DancerCard/DancerCard";
 import CoachCard from "./Cards/CoachCard/CoachCard";
 import JudgeCard from "./Cards/JudgeCard/JudgeCard";
 import ClubCard from "./Cards/ClubCard/ClubCard";
 
-import Button from "../../../../common/Button/Button";
-import SearchBar from "./SearchBar/SearchBar";
-import Loader from "../../../Loader/Loader";
-
-import { useHistory, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 import "./Catalog.css";
@@ -48,7 +48,6 @@ export default function Dancers() {
 
   const screenWidth = window.screen.availWidth;
   const { catalogs } = useParams();
-  const { goBack } = useHistory();
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -114,22 +113,7 @@ export default function Dancers() {
       {catalogTheme ? (
         <div className="catalog">
           <div className="container">
-            <Button
-              buttonText={
-                <svg
-                  cursor="pointer"
-                  width="30px"
-                  height="30px"
-                  fill="#000"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 512 512"
-                >
-                  <path d="M7 239c-9.4 9.4-9.4 24.6 0 33.9L143 409c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-95-95L488 280c13.3 0 24-10.7 24-24s-10.7-24-24-24L81.9 232l95-95c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0L7 239z" />
-                </svg>
-              }
-              className="back-link"
-              onClick={goBack}
-            />
+            <BackButton />
             <h1 className="catalog-title">
               {catalogs === "dancers"
                 ? "Танцюристи"

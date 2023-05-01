@@ -9,7 +9,7 @@ export function getDancers(statuses) {
           getDancersAction(
             response
               .at(-1)
-              .records.filter((dancer) => dancer.Dancer_Verify)
+              .records.filter((dancer) => dancer["Dancer Verify"])
               .filter((dancer) =>
                 statuses
                   .filter((status) => status.Name !== "Не активний")

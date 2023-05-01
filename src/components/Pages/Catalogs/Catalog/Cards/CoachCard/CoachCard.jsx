@@ -20,14 +20,14 @@ export default function CoachCard({ coach, clubs }) {
         {String(
           clubs
             .filter((club) => club.id === Number(coach.Club))
-            .map((club) => club.Club_Name)
+            .map((club) => club["Club Name"])
         )
           .split("(")[0]
           .trim()}
       </span>
       <div className="card-stats">
         <span className="dancers-quantity">
-          {coach["Dancers-"]?.length || "—"}
+          {coach["My Dancers ok"]?.length || "—"}
         </span>
       </div>
       <Link className="card-details" to={`/catalogs/coaches/${coach.id}`}>

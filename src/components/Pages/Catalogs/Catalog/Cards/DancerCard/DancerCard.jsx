@@ -6,11 +6,12 @@ import "../../Catalog.css";
 
 export default function DancerCard({ dancer, clubs, classes, screenWidth }) {
   const { push } = useHistory();
-  const dancerFullName = dancer.D_Surname.trim() + " " + dancer.D_Name.trim();
+  const dancerFullName =
+    dancer["D Surname"].trim() + " " + dancer["D Name"].trim();
   const dancerClub = String(
     clubs
-      .filter((club) => club.id === Number(dancer["Club-"]))
-      .map((club) => club.Club_Name)
+      .filter((club) => club.id === Number(dancer["Clubs ok*"]))
+      .map((club) => club["Club Name"])
   )
     .split("(")[0]
     .trim();
@@ -24,10 +25,10 @@ export default function DancerCard({ dancer, clubs, classes, screenWidth }) {
   return (
     <div className="catalog-card dancer-card" onClick={handleClick}>
       <div className="img-wrapper">
-        {dancer.Dancer_Foto?.url ? (
+        {dancer["Dancer_Foto"]?.url ? (
           <img
             className="dancer-img"
-            src={dancer.Dancer_Foto?.url}
+            src={dancer["Dancer_Foto"]?.url + "?q=20&auto=format"}
             alt="Аватар"
           />
         ) : (
@@ -44,9 +45,9 @@ export default function DancerCard({ dancer, clubs, classes, screenWidth }) {
             )
           ) : (
             <>
-              {dancer.D_Surname.trim()}
+              {dancer["D Surname"].trim()}
               <br />
-              {dancer.D_Name.trim()}
+              {dancer["D Name"].trim()}
             </>
           )}
         </h5>
@@ -67,7 +68,7 @@ export default function DancerCard({ dancer, clubs, classes, screenWidth }) {
                 Number(dancer["Dancer Class"].at(-1))
             )
             .at(-1)
-            .Class_Name.trim()}
+            ["Class Name"].trim()}
         </span>
         <span className="dancer-birthday">
           {dateToLocalFormat(dancer.Birthday)}

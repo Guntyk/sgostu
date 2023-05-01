@@ -1,11 +1,11 @@
 import { dateToLocalFormat } from "../../../../helpers/dateToLocalFormat";
 import couple from "../../../../materials/icons/calendar-card/couple.png";
 import { eventsSelector } from "../../../../redux/events/selectors";
+import BackButton from "../../../../common/BackButton/BackButton";
 import { getEvents } from "../../../../redux/events/thunk";
-import { useHistory, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import Button from "../../../../common/Button/Button";
 import PartnerCard from "./PartnerCard/PartnerCard";
+import { useParams } from "react-router-dom";
 import Loader from "../../../Loader/Loader";
 import { useEffect } from "react";
 import { useState } from "react";
@@ -19,7 +19,6 @@ export default function EventInfo() {
   const [event, setEvent] = useState(null);
   const { eventId } = useParams();
   const dispatch = useDispatch();
-  const { goBack } = useHistory();
 
   useEffect(() => {
     if (events.length === 0) {
@@ -53,22 +52,7 @@ export default function EventInfo() {
         <article className="event-info">
           {window.scrollTo(0, 0)}
           <div className="container event-details-container">
-            <Button
-              buttonText={
-                <svg
-                  cursor="pointer"
-                  width="30px"
-                  height="30px"
-                  fill="#000"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 512 512"
-                >
-                  <path d="M7 239c-9.4 9.4-9.4 24.6 0 33.9L143 409c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-95-95L488 280c13.3 0 24-10.7 24-24s-10.7-24-24-24L81.9 232l95-95c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0L7 239z" />
-                </svg>
-              }
-              className="back-link"
-              onClick={goBack}
-            />
+            <BackButton />
             <div className="event-detail-info-row">
               <div className="img-wrapper">
                 {event.banner?.data ? (

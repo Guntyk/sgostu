@@ -10,8 +10,8 @@ export function getCoaches(statuses) {
             response
               .at(-1)
               .records.slice(1)
-              .filter((coach) => coach.Coach_Verify)
-              .filter((coach) => statuses[0]["Сoaches"].includes(coach.id))
+              .filter((coach) => coach["Coach Verify"])
+              .filter((coach) => statuses[0]["Coaches"].includes(coach.id))
           )
         );
       } else {
