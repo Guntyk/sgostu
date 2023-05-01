@@ -1,9 +1,9 @@
 .contacts {
   font-size: 1rem;
   height: 100vh;
-  background: url(../../../materials/backgrounds/waves-right.svg) no-repeat 100%
+  background: url(../../../../materials/backgrounds/waves-right.svg) no-repeat 100%
       100%,
-    url(../../../materials/backgrounds/waves-left.svg) no-repeat 0% 20%;
+    url(../../../../materials/backgrounds/waves-left.svg) no-repeat 0% 20%;
   background-size: 40% 150%;
 }
 
@@ -100,8 +100,8 @@
 }
 @media (max-width: 550px) {
   .contacts {
-    background: url(../../../materials/backgrounds/mobile/waves-left.svg),
-      url(../../../materials/backgrounds/mobile/waves-right.svg);
+    background: url(../../../../materials/backgrounds/mobile/waves-left.svg),
+      url(../../../../materials/backgrounds/mobile/waves-right.svg);
     background-repeat: no-repeat, no-repeat;
     background-position: 0 0, 100% 100%;
     background-size: 90% 150%;
