@@ -220,7 +220,7 @@ export default function Navigation({ openSideMenu, setOpenSideMenu }) {
             </li>
             <li className="nav-link-drop-down">
               <Link
-                to="/history"
+                to="/about"
                 onClick={() => {
                   setOpenDropDown(false);
                   setOpenSideMenu(false);
