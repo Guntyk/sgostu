@@ -12,7 +12,7 @@
   position: absolute;
   top: 80px;
   left: 4vw;
-  z-index: 5;
+  z-index: 3;
 }
 
 .card-floating {
