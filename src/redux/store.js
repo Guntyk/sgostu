@@ -4,6 +4,7 @@ import { organizationsReducer } from "./organizations/reducer";
 import { composeWithDevTools } from "redux-devtools-extension";
 import { judgeClassesReducer } from "./judgeClasses/reducer";
 import { managementReducer } from "./management/reducer";
+import { documentsReducer } from "./documents/reducer";
 import { articlesReducer } from "./articles/reducer";
 import { statusesReducer } from "./statuses/reducer";
 import { coachesReducer } from "./coaches/reducer";
@@ -19,6 +20,7 @@ const rootReducer = combineReducers({
   dancerClasses: dancerClassesReducer,
   judgeClasses: judgeClassesReducer,
   management: managementReducer,
+  documents: documentsReducer,
   articles: articlesReducer,
   statuses: statusesReducer,
   coaches: coachesReducer,
