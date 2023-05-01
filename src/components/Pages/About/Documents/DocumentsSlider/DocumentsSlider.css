@@ -1,0 +1,46 @@
+.slider-box {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.slider {
+  height: 100vh;
+}
+
+.swiper-wrapper {
+  padding-left: 20vw;
+}
+
+.tilt {
+  perspective: 1000px;
+}
+
+.back-btn {
+  position: fixed;
+  top: 3%;
+  left: 3%;
+  z-index: 50;
+}
+
+@media (max-width: 1150px) {
+  .slider {
+    font-size: 0.8rem;
+  }
+}
+@media (max-width: 870px) {
+  .slider {
+    font-size: 0.6rem;
+  }
+  .swiper-wrapper {
+    padding-left: 10vw;
+  }
+}
+@media (max-width: 550px) {
+  .slider {
+    font-size: 0.4rem;
+  }
+  .swiper-wrapper {
+    padding-left: 0;
+  }
+}

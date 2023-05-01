@@ -1,0 +1,34 @@
+.folders {
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 100vh;
+  font-size: 1rem;
+}
+
+@media (max-width: 1150px) {
+  .folders {
+    font-size: 0.8rem;
+  }
+}
+@media (max-width: 840px) {
+  .folders {
+    font-size: 0.7rem;
+  }
+  .folder-wrapper {
+    width: calc(100% / 2);
+  }
+}
+@media (max-width: 550px) {
+  .folders-wrapper {
+    display: grid;
+    place-items: center;
+    height: 100vh;
+    width: 100vw;
+  }
+  .folders {
+    height: 70vh;
+    font-size: 0.6rem;
+  }
+}
