@@ -1,10 +1,14 @@
 .slider-box {
   width: 100vw;
   height: 100vh;
-  overflow: hidden;
+  overflow: hidden !important;
+  background: url(../../../../../materials/backgrounds/waves-right.svg)
+      no-repeat 100% 100%,
+    url(../../../../../materials/backgrounds/waves-left.svg) no-repeat 0% 20%;
+  background-size: 40% 150%;
 }
 
-.slider {
+.slider-doc {
   height: 100vh;
 }
 
@@ -20,7 +24,7 @@
   position: fixed;
   top: 3%;
   left: 3%;
-  z-index: 50;
+  z-index: 1;
 }
 
 @media (max-width: 1150px) {
@@ -39,6 +43,13 @@
 @media (max-width: 550px) {
   .slider {
     font-size: 0.4rem;
+  }
+  .slider-box {
+    background: url(../../../../../materials/backgrounds/mobile/waves-left.svg),
+      url(../../../../../materials/backgrounds/mobile/waves-right.svg);
+    background-repeat: no-repeat, no-repeat;
+    background-position: 0 0, 100% 125%;
+    background-size: 90% 130%;
   }
   .swiper-wrapper {
     padding-left: 0;

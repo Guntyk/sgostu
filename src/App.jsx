@@ -1,12 +1,13 @@
 import DancerInfo from "./components/Pages/Catalogs/Catalog/Cards/DancerCard/DancerInfo/DancerInfo";
 import DocumentsFolder from "./components/Pages/About/Documents/DocumentsFolder/DocumentsFolder";
+import DocumentsSlider from "./components/Pages/About/Documents/DocumentsSlider/DocumentsSlider";
 import CoachInfo from "./components/Pages/Catalogs/Catalog/Cards/CoachCard/CoachInfo/CoachInfo";
 import Management from "./components/Pages/About/Management/Management";
 import EventInfo from "./components/Pages/Calendar/EventInfo/EventInfo";
 import Catalog from "./components/Pages/Catalogs/Catalog/Catalog";
+import Contacts from "./components/Pages/About/Contacts/Contacts";
 import NewsInfo from "./components/Pages/News/NewsInfo/NewsInfo";
 import Calendar from "./components/Pages/Calendar/Calendar";
-import Contacts from "./components/Pages/About/Contacts/Contacts";
 import Feedback from "./components/Pages/Feedback/Feedback";
 import NotFound from "./components/Pages/NotFound/NotFound";
 import Catalogs from "./components/Pages/Catalogs/Catalogs";
@@ -66,6 +67,9 @@ export default function App() {
         </Route>
         <Route exact path="/documents">
           <DocumentsFolder />
+        </Route>
+        <Route exact path="/documents/:documentsType">
+          <DocumentsSlider />
         </Route>
         <Route exact path="/contacts">
           <Contacts />

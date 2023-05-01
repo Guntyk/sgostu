@@ -1,14 +1,14 @@
 import { useHistory } from "react-router-dom";
 import "./Folder.css";
 
-export default function Folder({ type }) {
+export default function Folder({ type, typeId }) {
   const { push } = useHistory();
   return (
     <div className="folder-wrapper">
       <div
         className="folder"
         onClick={() => {
-          push(`/documents/${type.slice(-1)}`);
+          push(`/documents/${typeId}`);
         }}
       >
         <div className="paper">
@@ -16,7 +16,8 @@ export default function Folder({ type }) {
           <hr />
           <hr />
           <hr />
-          <span>Open</span>
+          <hr />
+          <hr />
           <hr />
           <hr />
           <hr />
@@ -27,14 +28,14 @@ export default function Folder({ type }) {
           <hr />
           <hr />
           <hr />
-          <span>Open</span>
+          <span>Відкрити</span>
           <hr />
           <hr />
           <hr />
           <hr />
         </div>
       </div>
-      <span className="type-name">{type}</span>
+      <span className="type-name">{type.name}</span>
     </div>
   );
 }
