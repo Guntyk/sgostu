@@ -4,11 +4,11 @@ import { dateToLocalFormat } from "../../../../../../../helpers/dateToLocalForma
 import { getDancerClasses } from "../../../../../../../redux/dancerClasses/thunk";
 import { dancersSelector } from "../../../../../../../redux/dancers/selectors";
 import { clubsSelector } from "../../../../../../../redux/clubs/selectors";
+import BackButton from "../../../../../../../common/BackButton/BackButton";
 import { getDancer } from "../../../../../../../redux/dancers/thunk";
-import { Redirect, useHistory, useParams } from "react-router-dom";
 import { getClubs } from "../../../../../../../redux/clubs/thunk";
-import Button from "../../../../../../../common/Button/Button";
 import { useDispatch, useSelector } from "react-redux";
+import { Redirect, useParams } from "react-router-dom";
 import Loader from "../../../../../../Loader/Loader";
 import { useState, useEffect } from "react";
 import "./DancerInfo.css";
@@ -22,7 +22,6 @@ export default function DancerInfo() {
   const [dancer, setDancer] = useState({});
 
   const { dancerId } = useParams();
-  const { goBack } = useHistory();
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -37,7 +36,7 @@ export default function DancerInfo() {
     if (Array.isArray(dancers) && dancers.length > 1) {
       setDancer(...dancers.filter((dancer) => dancer.id === Number(dancerId)));
       setLoading(false);
-    } else if (typeof dancers === "object" && dancers.D_Name) {
+    } else if (typeof dancers === "object" && dancers["D Name"]) {
       setDancer(dancers);
       setLoading(false);
     }
@@ -45,24 +44,9 @@ export default function DancerInfo() {
 
   return (
     <>
-      {dancer !== {} && dancer.D_Name ? (
+      {dancer !== {} && dancer["D Name"] ? (
         <section className="dancer-info">
-          <Button
-            buttonText={
-              <svg
-                cursor="pointer"
-                width="30px"
-                height="30px"
-                fill="#000"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 512 512"
-              >
-                <path d="M7 239c-9.4 9.4-9.4 24.6 0 33.9L143 409c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-95-95L488 280c13.3 0 24-10.7 24-24s-10.7-24-24-24L81.9 232l95-95c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0L7 239z" />
-              </svg>
-            }
-            className="back-link"
-            onClick={goBack}
-          />
+          <BackButton />
           <div className="dancer">
             {dancer.Dancer_Foto?.url ? (
               <img
@@ -75,7 +59,7 @@ export default function DancerInfo() {
             )}
             <div className="dancer-inner">
               <h2 className="dancer-name">
-                {dancer.D_Surname.trim()} {dancer.D_Name.trim()}
+                {dancer["D Surname"].trim()} {dancer["D Name"].trim()}
               </h2>
               <dl className="dancer-details">
                 <div className="dancer-details-wrapper">
@@ -94,7 +78,7 @@ export default function DancerInfo() {
                           Number(dancer["Dancer Class"].at(-1))
                       )
                       .at(-1)
-                      .Class_Name.trim()}
+                      ["Class Name"].trim()}
                   </dd>
                 </div>
                 <div className="dancer-details-wrapper">
@@ -102,8 +86,10 @@ export default function DancerInfo() {
                   <dd>
                     {String(
                       clubs
-                        .filter((club) => club.id === Number(dancer["Club-"]))
-                        .map((club) => club.Club_Name)
+                        .filter(
+                          (club) => club.id === Number(dancer["Clubs ok*"])
+                        )
+                        .map((club) => club["Club Name"])
                     )
                       .split("(")[0]
                       .trim()}

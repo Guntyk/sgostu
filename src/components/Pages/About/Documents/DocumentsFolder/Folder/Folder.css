@@ -1,0 +1,146 @@
+.folder-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: calc(100% / 4);
+  perspective: 1000px;
+}
+
+.type-name {
+  position: relative;
+  margin-top: 2em;
+  font-size: 1.5em;
+  letter-spacing: 1px;
+  transition: 0.5s;
+}
+
+.type-name::before {
+  content: "";
+  position: absolute;
+  bottom: -0.3em;
+  width: 100%;
+  height: 1px;
+  background: #000;
+  transition: 0.5s;
+  transform: scaleX(0);
+}
+
+.folder,
+.folder::before,
+.folder::after,
+.paper {
+  transition: 0.5s;
+}
+
+.folder {
+  position: relative;
+  width: 14em;
+  height: 18.75em;
+  background: linear-gradient(to right, rgb(211, 196, 130), rgb(255, 237, 156));
+  border-radius: 0.2em;
+  transform-style: preserve-3d;
+  transform: rotateY(0deg);
+  cursor: pointer;
+}
+/* Second Folder Page */
+.folder::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, rgb(211, 196, 130), rgb(255, 237, 156));
+  border-radius: 0.2em;
+  transform: rotateY(-40deg);
+  transform-origin: left;
+}
+/* Folder Name Tag */
+.folder::after {
+  content: "Docs";
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  width: 50%;
+  height: 1.875em;
+  display: grid;
+  place-items: center;
+  color: #000;
+  font-family: sans-serif;
+  letter-spacing: 0.125em;
+  background: linear-gradient(to right, rgb(231, 231, 231), rgb(255, 255, 255));
+  border-radius: 50px;
+  transform: rotateY(-40deg) translateX(-50%) translateZ(1px);
+  transform-origin: -100%;
+}
+
+.paper {
+  padding: 1.25em;
+  width: 95%;
+  height: 90%;
+  color: #000;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  background: #fff;
+  border-radius: 0.15em;
+  transform-origin: left;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.paper:nth-child(1) {
+  transform: translateY(5%) rotateY(-10deg);
+}
+.paper:nth-child(2) {
+  transform: translateY(-95%) rotateY(-27.5deg);
+}
+
+.paper hr {
+  margin: 1.25em 0;
+  height: 1px;
+  background: #6e6e6e;
+  border: none;
+  outline: none;
+}
+
+.paper span {
+  font-size: 1.3em;
+  letter-spacing: 1px;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotateY(0) rotateX(0);
+  }
+  100% {
+    transform: rotateY(360deg) rotateX(360deg);
+  }
+}
+
+.folder:hover {
+  transform: translateX(-0.625em);
+}
+
+.folder:hover ~ .type-name {
+  letter-spacing: 0.3125em;
+}
+
+.folder:hover ~ .type-name::before {
+  transform: scaleX(100%);
+}
+
+.folder:hover::before {
+  transform: rotateY(-70deg);
+}
+
+.folder:hover::after {
+  transform: rotateY(-70deg) translateX(-50%) translateZ(1px);
+}
+
+.folder:hover .paper {
+  transform: translateY(5%) translateX(3.125em) rotateY(-10deg) rotateZ(-10deg);
+}
+
+.folder:hover .paper:nth-child(2) {
+  transform: translateY(-95%) translateX(3.125em) rotateY(-27.5deg)
+    rotateZ(10deg);
+}

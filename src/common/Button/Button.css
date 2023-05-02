@@ -145,6 +145,8 @@
   width: auto;
   height: auto;
   border: none;
+  background: none;
+  backdrop-filter: none;
 }
 
 .back-link:hover {

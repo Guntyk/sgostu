@@ -9,6 +9,7 @@ import { useParams } from "react-router-dom";
 import Loader from "../../../Loader/Loader";
 import { useEffect, useState } from "react";
 import "./NewsInfo.css";
+import BackButton from "../../../../common/BackButton/BackButton";
 
 export default function NewsInfo() {
   const language = window.localStorage.getItem("language");
@@ -39,6 +40,7 @@ export default function NewsInfo() {
           <div className="article-info">
             {window.scrollTo(0, 0)}
             <div className="container">
+              <BackButton />
               <div className="article-wrapper">
                 <div
                   className={`article-img-wrapper ${

@@ -8,14 +8,14 @@ import { clubsSelector } from "../../../../../../../redux/clubs/selectors";
 import { getStatuses } from "../../../../../../../redux/statuses/thunk";
 import { getDancers } from "../../../../../../../redux/dancers/thunk";
 import { getCoach } from "../../../../../../../redux/coaches/thunk";
-import { Redirect, useHistory, useParams } from "react-router-dom";
 import { getClubs } from "../../../../../../../redux/clubs/thunk";
-import Button from "../../../../../../../common/Button/Button";
 import { useDispatch, useSelector } from "react-redux";
+import { Redirect, useParams } from "react-router-dom";
 import Loader from "../../../../../../Loader/Loader";
 import { useState, useEffect } from "react";
 import "./CoachInfo.css";
 import DancerCard from "../../DancerCard/DancerCard";
+import BackButton from "../../../../../../../common/BackButton/BackButton";
 
 export default function CoachInfo() {
   const dancerClasses = useSelector(dancerClassesSelector);
@@ -28,7 +28,6 @@ export default function CoachInfo() {
   const [coach, setCoach] = useState({});
 
   const { coachId } = useParams();
-  const { goBack } = useHistory();
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -70,22 +69,7 @@ export default function CoachInfo() {
     <>
       {coach !== {} && coach["Coach Name"] ? (
         <section className="coach-info">
-          <Button
-            buttonText={
-              <svg
-                cursor="pointer"
-                width="30px"
-                height="30px"
-                fill="#000"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 512 512"
-              >
-                <path d="M7 239c-9.4 9.4-9.4 24.6 0 33.9L143 409c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-95-95L488 280c13.3 0 24-10.7 24-24s-10.7-24-24-24L81.9 232l95-95c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0L7 239z" />
-              </svg>
-            }
-            className="back-link"
-            onClick={goBack}
-          />
+          <BackButton />
           {window.scrollTo(0, 0)}
           <div className="coach">
             {coach["Coach Foto"]?.url ? (

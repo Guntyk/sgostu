@@ -1,0 +1,1 @@
+export const GET_DOCUMENT_TYPES = "GET_DOCUMENT_TYPES";

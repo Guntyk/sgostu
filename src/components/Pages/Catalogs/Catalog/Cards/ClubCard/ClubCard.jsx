@@ -6,10 +6,10 @@ export default function ClubCard({ club }) {
   return (
     <div className="catalog-card club-card">
       <div className="img-wrapper">
-        {club.Logo_Clubs?.url ? (
+        {club["Logo Clubs"]?.url ? (
           <img
             className="club-card-img"
-            src={club.Logo_Clubs?.url}
+            src={club["Logo Clubs"]?.url}
             alt="Логотип"
           />
         ) : (
@@ -18,9 +18,9 @@ export default function ClubCard({ club }) {
       </div>
       <div className="card-inner">
         <p className="card-city">
-          {club.Club_Name.split("(")[1].trim().slice(0, -1)}
+          {club["Club Name"].split("(")[1].trim().slice(0, -1)}
         </p>
-        <h4 className="card-name">{club.Club_Name.split("(")[0].trim()}</h4>
+        <h4 className="card-name">{club["Club Name"].split("(")[0].trim()}</h4>
         <span className="card-club-owner">
           {club["SurName of Supervisor"]} {club["Name of Supervisor"]}
         </span>
@@ -28,10 +28,10 @@ export default function ClubCard({ club }) {
 
       <div className="card-stats">
         <span className="coaches-quantity">
-          {club["Name Coach Club"]?.split(",").length || "—"}
+          {club["Сoaches ok"]?.length || "—"}
         </span>
         <span className="dancers-quantity">
-          {club["Dancers-"]?.length || "—"}
+          {club["Dancers ok*"]?.length || "—"}
         </span>
       </div>
       <a href="#" className="card-details">

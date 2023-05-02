@@ -1,10 +1,18 @@
 import { Link } from "react-router-dom";
 import gsap, { Back } from "gsap";
+import { useState } from "react";
 import "./Navigation.css";
+import { useEffect } from "react";
 
 export default function Navigation({ openSideMenu, setOpenSideMenu }) {
+  const [openDropDown, setOpenDropDown] = useState(false);
   const language = window.localStorage.getItem("language");
   const navTimeline = gsap.timeline({ repeat: 0, repeatDelay: 1 });
+
+  useEffect(() => {
+    console.log(openSideMenu);
+  }, [openSideMenu]);
+
   if (openSideMenu) {
     navTimeline.to(".navigation", {
       zIndex: 5,
@@ -22,7 +30,6 @@ export default function Navigation({ openSideMenu, setOpenSideMenu }) {
       ".nav-link",
       {
         width: "80%",
-        translateX: "10%",
         duration: 0.7,
         opacity: 1,
         ease: Back.easeOut.config(0.8),
@@ -57,10 +64,12 @@ export default function Navigation({ openSideMenu, setOpenSideMenu }) {
     );
     navTimeline.to(".nav-link", {
       transition: 0.2,
+    });
+    navTimeline.to(".nav-wrapper", {
       pointerEvents: "all",
     });
   } else {
-    navTimeline.to(".nav-link", {
+    navTimeline.to(".nav-wrapper", {
       pointerEvents: "none",
     });
     navTimeline.to(
@@ -92,8 +101,7 @@ export default function Navigation({ openSideMenu, setOpenSideMenu }) {
     navTimeline.to(
       ".nav-link",
       {
-        width: "300%",
-        translateX: "-20%",
+        width: "200%",
         duration: 0.5,
         opacity: 0,
         ease: "Power1.easeIn",
@@ -102,19 +110,19 @@ export default function Navigation({ openSideMenu, setOpenSideMenu }) {
           each: 0.15,
         },
       },
-      "-=0.3"
+      "-=0.5"
     );
-    navTimeline.to(".nav-line", {
-      width: 0,
-    });
     navTimeline.to(
-      ".navigation",
+      ".nav-line",
       {
-        duration: 0.5,
-        opacity: 0,
+        width: 0,
       },
-      "-=0.2"
+      "-=0.5"
     );
+    navTimeline.to(".navigation", {
+      duration: 0.5,
+      opacity: 0,
+    });
     navTimeline.to(".navigation", {
       zIndex: -10,
       duration: 0.01,
@@ -131,6 +139,7 @@ export default function Navigation({ openSideMenu, setOpenSideMenu }) {
         <div
           className={`cross ${openSideMenu ? "active" : ""}`}
           onClick={() => {
+            setOpenDropDown(false);
             setOpenSideMenu(false);
           }}
         >
@@ -138,98 +147,156 @@ export default function Navigation({ openSideMenu, setOpenSideMenu }) {
           <span className="cross-line"></span>
         </div>
       </div>
-      <div className="nav-wrapper">
-        <Link
-          className="nav-link"
-          to="/"
-          onClick={() => {
-            setOpenSideMenu(false);
-          }}
-        >
-          <span className="nav-link-name">
-            {language === "ua" ? "Головна" : "Home"}
+      <ul className="nav-wrapper">
+        <li className="nav-category">
+          <Link
+            className="nav-link"
+            to="/"
+            onClick={() => {
+              setOpenSideMenu(false);
+            }}
+          >
+            <span className="nav-link-name">
+              {language === "ua" ? "Головна" : "Home"}
+            </span>
+            <span className="nav-link-number">01</span>
+          </Link>
+          <hr className="nav-line" />
+        </li>
+        <li className="nav-category">
+          <Link
+            className="nav-link"
+            to="/news"
+            onClick={() => {
+              setOpenSideMenu(false);
+            }}
+          >
+            <span className="nav-link-name">
+              {language === "ua" ? "Новини" : "News"}
+            </span>
+            <span className="nav-link-number">02</span>
+          </Link>
+          <hr className="nav-line" />
+        </li>
+        <li className={`nav-category ${openDropDown && "opened"}`}>
+          <span
+            className={`nav-link nav-link-list ${openDropDown && "opened"}`}
+            onClick={() => {
+              setOpenDropDown(!openDropDown);
+            }}
+          >
+            <span className="nav-link-name">Про нас</span>
+            <span className="nav-link-number">03</span>
           </span>
-          <span className="nav-link-number">01</span>
-        </Link>
-        <hr className="nav-line" />
-        <Link
-          className="nav-link"
-          to="/news"
-          onClick={() => {
-            setOpenSideMenu(false);
-          }}
-        >
-          <span className="nav-link-name">
-            {language === "ua" ? "Новини" : "News"}
-          </span>
-          <span className="nav-link-number">02</span>
-        </Link>
-        <hr className="nav-line" />
-        <Link
-          className="nav-link"
-          to="/catalogs"
-          onClick={() => {
-            setOpenSideMenu(false);
-          }}
-        >
-          <span className="nav-link-name">
-            {language === "ua" ? "Каталоги" : "Catalogs"}
-          </span>
-          <span className="nav-link-number">03</span>
-        </Link>
-        <hr className="nav-line" />
-        <Link
-          className="nav-link"
-          to="/calendar"
-          onClick={() => {
-            setOpenSideMenu(false);
-          }}
-        >
-          <span className="nav-link-name">
-            {language === "ua" ? "Календар заходів" : "Events calendar"}
-          </span>
-          <span className="nav-link-number">04</span>
-        </Link>
-        <hr className="nav-line" />
-        <Link
-          className="nav-link"
-          to="/management"
-          onClick={() => {
-            setOpenSideMenu(false);
-          }}
-        >
-          <span className="nav-link-name">
-            {language === "ua" ? "Керівництво" : "Management"}
-          </span>
-          <span className="nav-link-number">05</span>
-        </Link>
-        <hr className="nav-line" />
-        <Link
-          className="nav-link"
-          to="/contacts"
-          onClick={() => {
-            setOpenSideMenu(false);
-          }}
-        >
-          <span className="nav-link-name">
-            {language === "ua" ? "Контакти" : "Contacts"}
-          </span>
-          <span className="nav-link-number">06</span>
-        </Link>
-        <hr className="nav-line" />
-        <Link
-          className="nav-link"
-          to="/feedback"
-          onClick={() => {
-            setOpenSideMenu(false);
-          }}
-        >
-          <span className="nav-link-name">
-            {language === "ua" ? "Зворотній зв'язок" : "Feedback"}
-          </span>
-          <span className="nav-link-number">07</span>
-        </Link>
-      </div>
+          <ul className={`nav-list-drop-down ${openDropDown && "opened"}`}>
+            <div className="nav-indicator"></div>
+            <li className="nav-link-drop-down">
+              <Link
+                to="/documents"
+                onClick={() => {
+                  setOpenDropDown(false);
+                  setOpenSideMenu(false);
+                }}
+              >
+                <span className="nav-link-name">
+                  {language === "ua" ? "Документи" : "Documents"}
+                </span>
+              </Link>
+              {/* <hr className="nav-line" /> */}
+            </li>
+            <li className="nav-link-drop-down">
+              <Link
+                to="/management"
+                onClick={() => {
+                  setOpenDropDown(false);
+                  setOpenSideMenu(false);
+                }}
+              >
+                <span className="nav-link-name">
+                  {language === "ua" ? "Керівництво" : "Management"}
+                </span>
+              </Link>
+              {/* <hr className="nav-line" /> */}
+            </li>
+            <li className="nav-link-drop-down">
+              <Link
+                to="/about"
+                onClick={() => {
+                  setOpenDropDown(false);
+                  setOpenSideMenu(false);
+                }}
+              >
+                <span className="nav-link-name">
+                  {language === "ua" ? "Історія" : "History"}
+                </span>
+              </Link>
+              {/* <hr className="nav-line" /> */}
+            </li>
+            <li className="nav-link-drop-down">
+              <Link
+                to="/contacts"
+                onClick={() => {
+                  setOpenDropDown(false);
+                  setOpenSideMenu(false);
+                }}
+              >
+                <span className="nav-link-name">
+                  {language === "ua" ? "Контакти" : "Contacts"}
+                </span>
+              </Link>
+              {/* <hr className="nav-line" /> */}
+            </li>
+          </ul>
+          <hr className="nav-line" />
+        </li>
+        <li className="nav-category">
+          <Link
+            className="nav-link"
+            to="/catalogs"
+            onClick={() => {
+              setOpenDropDown(false);
+              setOpenSideMenu(false);
+            }}
+          >
+            <span className="nav-link-name">
+              {language === "ua" ? "Каталоги" : "Catalogs"}
+            </span>
+            <span className="nav-link-number">04</span>
+          </Link>
+          <hr className="nav-line" />
+        </li>
+        <li className="nav-category">
+          <Link
+            className="nav-link"
+            to="/calendar"
+            onClick={() => {
+              setOpenDropDown(false);
+              setOpenSideMenu(false);
+            }}
+          >
+            <span className="nav-link-name">
+              {language === "ua" ? "Календар" : "Calendar"}
+            </span>
+            <span className="nav-link-number">05</span>
+          </Link>
+          <hr className="nav-line" />
+        </li>
+        <li className="nav-category">
+          <Link
+            className="nav-link"
+            to="/feedback"
+            onClick={() => {
+              setOpenDropDown(false);
+              setOpenSideMenu(false);
+            }}
+          >
+            <span className="nav-link-name">
+              {language === "ua" ? "Зворотній зв'язок" : "Feedback"}
+            </span>
+            <span className="nav-link-number">06</span>
+          </Link>
+        </li>
+      </ul>
     </section>
   );
 }
