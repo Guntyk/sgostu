@@ -1,10 +1,56 @@
 .class-birth {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  margin: 5% 0;
+  position: relative;
+  width: 100%;
 }
 
+/* .class-birth::after,
+.class-birth::before {
+  position: absolute;
+  top: 50%;
+  color: #fff;
+  font-family: inherit;
+  gap: 30px;
+  transform: translateY(-50%);
+}
+.class-birth::before {
+  content: "F  >";
+  left: 7%;
+}
+.class-birth::after {
+  content: ">  D";
+  right: 7%;
+} */
+
 .dancer-class {
-  margin-bottom: 12%;
+  position: relative;
+  font-size: 1.5em;
+  letter-spacing: 1px;
+}
+
+.dancer-class::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300px;
+  height: 40px;
+  transform: translate(-50%, -50%);
+  z-index: -2;
+}
+
+.dancer-class::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100px;
+  height: 50px;
+  transform: translate(-50%, -50%);
+  z-index: -1;
 }
 
 @media (max-width: 1150px) {
