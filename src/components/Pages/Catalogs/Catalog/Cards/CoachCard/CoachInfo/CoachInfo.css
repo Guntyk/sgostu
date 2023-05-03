@@ -46,3 +46,19 @@
   font-size: 20px;
   margin-bottom: 35px;
 }
+
+.coach-detail-dancers-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin-bottom: 100px;
+  row-gap: 30px;
+}
+
+@media (max-width: 840px) {
+  .coach-detail-dancers-wrapper {
+    margin: 0 auto 50px;
+    width: 90%;
+    gap: 0px;
+  }
+}

@@ -73,6 +73,10 @@
   margin-bottom: 20px;
 }
 
+.coach-card .card-stats {
+  justify-content: center;
+}
+
 .coaches-quantity,
 .dancers-quantity {
   position: relative;
@@ -174,9 +178,6 @@
     justify-self: baseline;
   }
 
-  .coach-details {
-    display: none;
-  }
   .coach-card {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
