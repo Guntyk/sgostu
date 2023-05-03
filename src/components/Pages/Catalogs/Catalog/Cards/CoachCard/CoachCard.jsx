@@ -1,11 +1,21 @@
 import AvatarPlaceholder from "../../../../../../common/AvatarPlaceholder/AvatarPlaceholder";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import "./CoachCard.css";
 import "../../Catalog.css";
 
-export default function CoachCard({ coach, clubs }) {
+export default function CoachCard({ coach, clubs, screenWidth }) {
+  const { push } = useHistory();
+  const coachFullName =
+    coach["Coach Surname"].trim() + " " + coach["Coach Name"].trim();
+
+  function handleClick() {
+    if (screenWidth <= 840) {
+      push(`/catalogs/coaches/${coach.id}`);
+    }
+  }
+
   return (
-    <div className="catalog-card coach-card">
+    <div className="catalog-card coach-card" onClick={handleClick}>
       <div className="img-wrapper">
         {coach["Coach Foto"]?.url ? (
           <img src={coach["Coach Foto"]?.url} alt="Аватар" />
@@ -14,7 +24,19 @@ export default function CoachCard({ coach, clubs }) {
         )}
       </div>
       <h5 className="card-name">
-        {coach["Coach Name"].trim()} {coach["Coach Surname"].trim()}
+        {screenWidth <= 840 ? (
+          coachFullName.length > 21 ? (
+            coachFullName.slice(0, 20) + "..."
+          ) : (
+            coachFullName
+          )
+        ) : (
+          <>
+            {coach["Coach Name"].trim()}
+            <br />
+            {coach["Coach Surname"].trim()}
+          </>
+        )}
       </h5>
       <span className="coach-club">
         {String(
