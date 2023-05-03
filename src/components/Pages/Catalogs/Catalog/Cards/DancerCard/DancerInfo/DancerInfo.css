@@ -1,18 +1,25 @@
 .dancer-info {
-  padding-top: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: url(../../../../../../../materials/backgrounds/waves-right.svg)
+      no-repeat 100% 100%,
+    url(../../../../../../../materials/backgrounds/waves-left.svg) no-repeat 0%
+      20%;
+  background-size: 40% 150%;
 }
 
 .dancer {
   display: flex;
   justify-content: center;
-  align-items: center;
   gap: 70px;
-  margin-bottom: 100px;
 }
 
 .dancer-avatar {
-  width: 180px;
-  height: 180px;
+  width: 300px;
+  height: 300px;
   border: 1px solid #272500;
   border-radius: 50%;
   object-fit: cover;
@@ -25,12 +32,13 @@
 }
 
 .dancer-name {
-  font-size: 24px;
+  font-size: 38px;
 }
 
 .dancer-inner {
   display: flex;
   flex-direction: column;
+  margin-top: 5%;
   gap: 20px;
 }
 
@@ -42,6 +50,9 @@
 
 .dancer-details-wrapper {
   display: flex;
+  align-items: center;
+  margin-top: 10px;
+  font-size: 20px;
   gap: 4px;
 }
 
@@ -49,7 +60,150 @@
   font-family: "e-Ukraine-Light";
 }
 
-.dancer .dancer-class,
+.dancer-detail-class,
 .dancer-club {
   margin: 0;
+}
+
+.dancer-detail-club-name {
+  position: relative;
+}
+
+.dancer-detail-club-name::before {
+  content: "";
+  position: absolute;
+  bottom: -3px;
+  left: 50%;
+  width: 0;
+  height: 1.5px;
+  background: #222;
+  transform: translateX(-50%);
+  transition: 0.2s;
+}
+
+.dancer-detail-club-name:hover::before {
+  width: 100%;
+}
+
+.dancer-detail-class-wrapper {
+  display: flex;
+  align-items: center;
+  margin-top: 50px;
+  width: 100%;
+  height: 50px;
+}
+
+.dancer-detail-class {
+  display: grid;
+  place-items: center;
+  padding: 0 10px;
+  min-width: calc(100% / 3 + 30px);
+  height: 100%;
+  font-size: 24px;
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+
+.dancer-detail-class.false {
+  display: none;
+}
+
+.dancer-detail-prev-class {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.dancer-detail-current-class {
+  position: relative;
+  height: 150%;
+  font-size: 32px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 0px 8px 0px;
+}
+.dancer-detail-current-class::before,
+.dancer-detail-current-class::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 0;
+  height: 0;
+  border-bottom: 15px solid transparent;
+  border-top: 15px solid transparent;
+  font-size: 24px;
+  transform: translateY(-50%);
+}
+.dancer-detail-current-class::before {
+  left: -20px;
+  transform-origin: 50% 25%;
+  transform: rotate(180deg);
+}
+.dancer-detail-current-class::after {
+  right: -20px;
+}
+.dancer-detail-next-class {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.dancer-detail-class.false ~ .dancer-detail-current-class::before {
+  display: none;
+}
+
+/* Socials */
+.dancer-detail-socials {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  margin-top: 100px;
+  width: 30%;
+  /* outline: 2px solid blue; */
+}
+
+.dancer-social-btn {
+  display: grid;
+  place-items: center;
+  width: calc(100% / 3 - 50px);
+  background: radial-gradient(
+      circle farthest-corner at 35% 90%,
+      #fec564,
+      transparent 50%
+    ),
+    radial-gradient(circle farthest-corner at 0 140%, #fec564, transparent 50%),
+    radial-gradient(ellipse farthest-corner at 0 -25%, #5258cf, transparent 50%),
+    radial-gradient(
+      ellipse farthest-corner at 20% -50%,
+      #5258cf,
+      transparent 50%
+    ),
+    radial-gradient(ellipse farthest-corner at 100% 0, #893dc2, transparent 50%),
+    radial-gradient(
+      ellipse farthest-corner at 60% -20%,
+      #893dc2,
+      transparent 50%
+    ),
+    radial-gradient(ellipse farthest-corner at 100% 100%, #d9317a, transparent),
+    linear-gradient(
+      #6559ca,
+      #bc318f 30%,
+      #e33f5f 50%,
+      #f77638 70%,
+      #fec66d 100%
+    );
+  border-radius: 20px;
+  aspect-ratio: 1/1;
+}
+
+.dancer-social-btn svg {
+  width: 70%;
+  height: auto;
+  fill: #fff;
+  aspect-ratio: 1/1;
+}
+
+@media (max-width: 550px) {
+  .dancer-info {
+    background: url(../../../../../../../materials/backgrounds/mobile/waves-left.svg),
+      url(../../../../../../../materials/backgrounds/mobile/waves-right.svg);
+    background-repeat: no-repeat, no-repeat;
+    background-position: 0 0, 100% 100%;
+    background-size: 90% 150%;
+  }
 }

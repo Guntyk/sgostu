@@ -32,6 +32,7 @@
   font-size: 13px;
   line-height: 1.25;
   text-align: center;
+  overflow: hidden;
   border: 1px solid #0e0e0e59;
   backdrop-filter: blur(10px);
   border-radius: 10px;
@@ -110,6 +111,12 @@
 .no-dancers-searched {
   margin-top: 150px;
   font-size: 1.5rem;
+}
+
+.detail-catalog-info-button {
+  position: absolute;
+  top: 80px;
+  left: 5vw;
 }
 
 @media (max-width: 840px) {

@@ -1,0 +1,122 @@
+.dancer-class,
+.dancer-info {
+  --debut: rgb(217, 223, 233);
+  --school: rgb(155, 202, 255);
+  --f: rgb(140, 159, 255);
+  --e: rgb(195, 162, 255);
+  --d: rgb(227, 129, 238);
+  --c: rgb(245, 202, 109);
+  --b: rgb(193, 248, 116);
+  --a: rgb(241, 129, 129);
+  --s: rgba(255, 243, 79);
+  --pro: rgb(218, 0, 0);
+}
+
+.dancer-class.Debut,
+.dancer-detail-class.Debut,
+.dancer-class.School,
+.dancer-detail-class.School,
+.dancer-class.F,
+.dancer-detail-class.F,
+.dancer-class.E,
+.dancer-detail-class.E,
+.dancer-class.D,
+.dancer-detail-class.D,
+.dancer-class.C,
+.dancer-detail-class.C,
+.dancer-class.B,
+.dancer-detail-class.B,
+.dancer-class.A,
+.dancer-detail-class.A,
+.dancer-class.S,
+.dancer-detail-class.S,
+.dancer-class.Pro,
+.dancer-detail-class.Pro {
+  color: #fff;
+  text-shadow: 0 0 4px #222;
+}
+.dancer-class.No::before,
+.dancer-detail-class.No {
+  outline: 2px solid rgba(100, 100, 100, 0.8);
+}
+.dancer-class.Debut::before,
+.dancer-detail-class.Debut {
+  background: var(--debut);
+}
+.dancer-class.School::before,
+.dancer-detail-class.School {
+  background: var(--school);
+}
+.dancer-class.F::before,
+.dancer-detail-class.F {
+  background: var(--f);
+}
+.dancer-class.E::before,
+.dancer-detail-class.E {
+  background: var(--e);
+}
+.dancer-class.D::before,
+.dancer-detail-class.D {
+  background: var(--d);
+}
+.dancer-class.C::before,
+.dancer-detail-class.C {
+  background: var(--c);
+}
+.dancer-class.B::before,
+.dancer-detail-class.B {
+  background: var(--b);
+}
+.dancer-class.A::before,
+.dancer-detail-class.A {
+  background: var(--a);
+}
+.dancer-class.S::before,
+.dancer-detail-class.S {
+  background: var(--s);
+}
+.dancer-class.Pro::before,
+.dancer-detail-class.Pro {
+  background: var(--pro);
+}
+
+.dancer-detail-current-class.Debut::before,
+.dancer-detail-current-class.Debut::after {
+  border-left: 20px solid var(--debut);
+}
+.dancer-detail-current-class.School::before,
+.dancer-detail-current-class.School::after {
+  border-left: 20px solid var(--school);
+}
+.dancer-detail-current-class.F::before,
+.dancer-detail-current-class.F::after {
+  border-left: 20px solid var(--f);
+}
+.dancer-detail-current-class.E::before,
+.dancer-detail-current-class.E::after {
+  border-left: 20px solid var(--e);
+}
+.dancer-detail-current-class.D::before,
+.dancer-detail-current-class.D::after {
+  border-left: 20px solid var(--d);
+}
+.dancer-detail-current-class.C::before,
+.dancer-detail-current-class.C::after {
+  border-left: 20px solid var(--c);
+}
+.dancer-detail-current-class.B::before,
+.dancer-detail-current-class.B::after {
+  border-left: 20px solid var(--b);
+}
+.dancer-detail-current-class.A::before,
+.dancer-detail-current-class.A::after {
+  border-left: 20px solid var(--a);
+}
+.dancer-detail-current-class.S::before,
+.dancer-detail-current-class.S::after {
+  border-left: 20px solid var(--s);
+}
+.dancer-detail-current-class.Pro::before,
+.dancer-detail-current-class.Pro::after {
+  border-left: 20px solid var(--pro);
+}
