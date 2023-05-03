@@ -18,7 +18,9 @@ export default function DancerCard({ dancer, clubs, classes, screenWidth }) {
     ["Class Name"].trim();
   const dancerClub = String(
     clubs
-      .filter((club) => club.id === Number(dancer["Clubs ok*"]))
+      .filter(
+        (club) => club.id === Number(dancer["Clubs ok*"] || dancer["Club-"])
+      )
       .map((club) => club["Club Name"])
   )
     .split("(")[0]
