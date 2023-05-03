@@ -115,6 +115,7 @@
 .no-dancers-searched {
   margin-top: 150px;
   font-size: 1.5rem;
+  text-align: center;
 }
 
 .detail-catalog-info-button {
@@ -191,9 +192,21 @@
   .card-details {
     display: none;
   }
+  .no-dancers-searched {
+    font-size: 1.2rem;
+    line-height: 1.5;
+  }
 }
 
 @media (max-width: 550px) {
+  .catalog {
+    background: url(../../../../materials/backgrounds/mobile/waves-left.svg),
+      url(../../../../materials/backgrounds/mobile/waves-right.svg);
+    background-repeat: no-repeat, no-repeat;
+    background-position: 0 0, 100% 100%;
+    background-size: 90% 150%;
+    background-attachment: fixed;
+  }
   .catalog-card {
     grid-template-columns: 1fr 4fr 1fr;
     font-size: 12px;
