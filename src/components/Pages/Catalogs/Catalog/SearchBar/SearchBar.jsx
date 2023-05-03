@@ -62,7 +62,11 @@ export default function SearchBar({
   }
 
   return (
-    <div className={`container search-form ${increase ? "increase" : ""}`}>
+    <div
+      className={`container search-form ${
+        increase ? "increase" : ""
+      } ${catalogs}`}
+    >
       <form className="form" id="search" onSubmit={handleSearch}>
         <input
           className="search-input"

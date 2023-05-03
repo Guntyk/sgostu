@@ -144,6 +144,22 @@
   .search-select {
     max-width: 130px;
   }
+
+  .search-form.judges .search-select {
+    width: 379px;
+    max-width: none;
+  }
+
+  .search-form.clubs .search-select {
+    width: 379px;
+    max-width: none;
+  }
+
+  .search-form.coaches .search-select {
+    width: 379px;
+    max-width: none;
+  }
+
   .search-select:first-child {
     border-bottom-left-radius: 10px;
   }
@@ -161,12 +177,19 @@
     height: 150px;
   }
   .reset-filters-btn {
-    width: 60%;
+    width: 110%;
     height: 60px;
+  }
+  .button-wrapper {
+    width: 50%;
   }
 }
 
 @media (max-width: 550px) {
+  .form {
+    max-width: 330px;
+    width: 100%;
+  }
   .search-form {
     padding: 25px 0 !important;
     justify-content: center !important;
@@ -175,13 +198,17 @@
     transition: 0.5s;
   }
   .search-form.increase {
+    min-height: 205px;
+  }
+  .search-form.dancers.increase {
     min-height: 255px;
   }
   .form-inner {
-    width: 100%;
+    /* width: 100%;
     flex-wrap: wrap;
     justify-items: stretch;
-    transform-origin: bottom;
+    transform-origin: bottom; */
+    flex-direction: column;
   }
   .form-selectors-wrapper {
     display: unset;
@@ -192,8 +219,50 @@
   .form-selectors-wrapper.increase {
     height: 100px;
   }
+
+  .search-form.clubs .form-selectors-wrapper.increase {
+    height: 50px;
+  }
+  .search-form.coaches .form-selectors-wrapper.increase {
+    height: 50px;
+  }
+  .search-form.judges .form-selectors-wrapper.increase {
+    height: 50px;
+  }
+  .search-form.clubs,
+  .search-form.coaches,
+  .search-form.judges .form-inner {
+    /* width: unset;
+    max-width: 379px; */
+    max-width: 379px;
+    width: 100%;
+  }
+
+  .search-form.clubs .form-inner {
+    max-width: 379px;
+    width: 100%;
+  }
+
+  .search-form.coaches .form-inner {
+    max-width: 379px;
+    width: 100%;
+  }
+
+  .search-form.coaches,
+  .search-form.judges .search-select {
+    width: unset;
+    max-width: none;
+  }
+  .search-form.clubs .search-select {
+    width: unset;
+    max-width: none;
+  }
+  .search-form.coaches .search-select {
+    width: unset;
+    max-width: none;
+  }
   .search-input {
-    padding-left: 25px !important;
+    padding-left: 10px !important;
     min-width: unset;
     width: 100%;
     padding-left: 8px;
