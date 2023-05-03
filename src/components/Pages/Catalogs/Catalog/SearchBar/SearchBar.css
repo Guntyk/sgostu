@@ -43,6 +43,10 @@
   transition: 0.7s;
 }
 
+.form-selectors-wrapper {
+  display: flex;
+}
+
 .search-select {
   padding-left: var(--padding);
   font-family: "e-Ukraine-Light", sans-serif;
@@ -135,7 +139,7 @@
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
     border-right: 1px solid #0e0e0e59;
-    width: 425px;
+    width: 423px;
   }
   .search-select {
     max-width: 130px;
@@ -180,6 +184,7 @@
     transform-origin: bottom;
   }
   .form-selectors-wrapper {
+    display: unset;
     height: 0;
     overflow: hidden;
     transition: 0.5s;
