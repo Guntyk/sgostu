@@ -1,5 +1,10 @@
 .coach-info {
   padding-top: 150px;
+  background: url(../../../../../../../materials/backgrounds/waves-right.svg) no-repeat 100%
+      100%,
+    url(../../../../../../../materials/backgrounds/waves-left.svg) no-repeat 0% 20%;
+  background-size: 40% 150%;
+  background-attachment: fixed;
 }
 
 .coach {
@@ -51,8 +56,13 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  margin-bottom: 100px;
-  row-gap: 30px;
+  margin: 0 auto 100px;
+  width: 70%;
+  gap: 50px;
+}
+
+.catalog-card.dancer-card {
+  --coefficient: 1;
 }
 
 @media (max-width: 840px) {

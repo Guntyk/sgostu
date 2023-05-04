@@ -152,7 +152,13 @@ export default function Catalog() {
                   ) : catalogs === "clubs" ? (
                     <ClubCard key={entity.id} club={entity} />
                   ) : catalogs === "coaches" ? (
-                    <CoachCard screenWidth={screenWidth} clubs={clubs} coach={entity} key={entity.id} />
+                    <CoachCard
+                      screenWidth={screenWidth}
+                      dancers={dancers}
+                      key={entity.id}
+                      coach={entity}
+                      clubs={clubs}
+                    />
                   ) : (
                     catalogs === "judges" && (
                       <JudgeCard

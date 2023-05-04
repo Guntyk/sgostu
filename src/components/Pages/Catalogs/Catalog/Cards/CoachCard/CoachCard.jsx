@@ -3,10 +3,14 @@ import { Link, useHistory } from "react-router-dom";
 import "./CoachCard.css";
 import "../../Catalog.css";
 
-export default function CoachCard({ coach, clubs, screenWidth }) {
+export default function CoachCard({ dancers, coach, clubs, screenWidth }) {
   const { push } = useHistory();
   const coachFullName =
     coach["Coach Surname"].trim() + " " + coach["Coach Name"].trim();
+
+  console.log(
+    coach["My Dancers ok"].filter((dancer) => dancers.includes(dancer))
+  );
 
   function handleClick() {
     if (screenWidth <= 840) {
@@ -49,7 +53,8 @@ export default function CoachCard({ coach, clubs, screenWidth }) {
       </span>
       <div className="card-stats">
         <span className="dancers-quantity">
-          {coach["My Dancers ok"]?.length || "—"}
+          {coach["My Dancers ok"].filter((dancer) => dancers.includes(dancer))
+            .length || "—"}
         </span>
       </div>
       <Link className="card-details" to={`/catalogs/coaches/${coach.id}`}>
