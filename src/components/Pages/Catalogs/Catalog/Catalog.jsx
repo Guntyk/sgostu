@@ -31,7 +31,8 @@ import { useEffect, useState } from "react";
 
 import "./Catalog.css";
 
-export default function Dancers() {
+export default function Catalog() {
+  window.scrollTo(0, 0);
   const [catalogTheme, setCatalogTheme] = useState(false);
   const [entitiesList, setEntitiesList] = useState([]);
   const [loading, setLoading] = useState(true);
