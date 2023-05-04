@@ -28,7 +28,7 @@
 .dancer-details {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 5px;
 }
 
 .dancer-name {

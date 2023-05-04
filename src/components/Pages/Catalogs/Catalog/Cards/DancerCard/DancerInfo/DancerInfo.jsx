@@ -143,6 +143,16 @@ export default function DancerInfo() {
                     )}
                   </dd>
                 </div>
+                <div className="dancer-details-wrapper">
+                  <dt className="dancer-status">Статус:</dt>
+                  <dd className="dancer-detail-status-name">
+                    {
+                      statuses.filter(
+                        (status) => status.id === dancer["Status"][0]
+                      )[0]["Name"]
+                    }
+                  </dd>
+                </div>
               </dl>
               {dancerClasses.length !== 0 ? (
                 <div className="dancer-detail-class-wrapper">
