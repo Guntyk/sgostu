@@ -31,7 +31,8 @@ import { useEffect, useState } from "react";
 
 import "./Catalog.css";
 
-export default function Dancers() {
+export default function Catalog() {
+  window.scrollTo(0, 0);
   const [catalogTheme, setCatalogTheme] = useState(false);
   const [entitiesList, setEntitiesList] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -151,7 +152,7 @@ export default function Dancers() {
                   ) : catalogs === "clubs" ? (
                     <ClubCard key={entity.id} club={entity} />
                   ) : catalogs === "coaches" ? (
-                    <CoachCard clubs={clubs} coach={entity} key={entity.id} />
+                    <CoachCard screenWidth={screenWidth} clubs={clubs} coach={entity} key={entity.id} />
                   ) : (
                     catalogs === "judges" && (
                       <JudgeCard

@@ -16,7 +16,6 @@ export default function JudgeCard({ judge, classes }) {
 
       <h5 className="card-name">{judge["Name Surname"]}</h5>
       <span className="judge-class">
-        Категорія:{" "}
         {classes
           .filter(
             (judgeClass) =>

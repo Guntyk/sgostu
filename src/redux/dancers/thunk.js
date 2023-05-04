@@ -1,5 +1,5 @@
-import { getDancersAction, getSingleDancerAction } from "./actionCreators";
-import { getDancerFetch, getDancersFetch } from "../../api/Adalo/dancers";
+import { getDancersFetch } from "../../api/Adalo/dancers";
+import { getDancersAction } from "./actionCreators";
 
 export function getDancers(statuses) {
   return (dispatch) => {
@@ -21,16 +21,6 @@ export function getDancers(statuses) {
         );
       } else {
         alert("Getting dancers error");
-      }
-    });
-  };
-}
-
-export function getDancer(dancerId) {
-  return (dispatch) => {
-    getDancerFetch(dancerId).then((response) => {
-      if (response) {
-        dispatch(getSingleDancerAction(response[1]));
       }
     });
   };
