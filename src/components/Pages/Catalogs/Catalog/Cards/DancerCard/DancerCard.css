@@ -1,15 +1,53 @@
 .class-birth {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  margin: 5% 0;
+  position: relative;
+  width: 100%;
 }
 
+/* .class-birth::after,
+.class-birth::before {
+  position: absolute;
+  top: 50%;
+  color: #fff;
+  font-family: inherit;
+  gap: 30px;
+  transform: translateY(-50%);
+}
+.class-birth::before {
+  content: "F  >";
+  left: 7%;
+}
+.class-birth::after {
+  content: ">  D";
+  right: 7%;
+} */
+
 .dancer-class {
-  margin-bottom: 12%;
+  position: relative;
+  font-size: 1.5em;
+  letter-spacing: 1px;
+}
+
+.dancer-class::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: calc(300px * var(--coefficient));
+  height: calc(40px * var(--coefficient));
+  transform: translate(-50%, -50%);
+  z-index: -2;
 }
 
 @media (max-width: 1150px) {
   .catalog-card {
     --coefficient: 0.8;
+  }
+  .dancer-class {
+    font-size: 1.2em;
   }
 }
 
@@ -17,11 +55,9 @@
   .catalog-card.dancer-card {
     gap: 0;
   }
-  .dancer-class {
-    margin-bottom: 7px;
-  }
   .dancer-card .card-name {
     margin-top: 0;
+    line-height: 1.6;
   }
   .catalog-card {
     margin: -1px 0;
@@ -40,23 +76,60 @@
     white-space: nowrap;
   }
   .class-birth {
-    display: flex;
     align-items: flex-end;
+  }
+  .dancer-class {
+    margin-right: 20px;
+    font-size: 1.2em;
+  }
+  .dancer-class:before {
+    width: 40px;
+    height: auto;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    border: 1px solid #0e0e0e59;
+  }
+  .dancer-class.Debut:before,
+  .dancer-class.School:before,
+  .dancer-class.Pro:before,
+  .dancer-class.No:before {
+    width: 150%;
+    height: 40px;
+    aspect-ratio: unset;
+    border-radius: 50px;
+  }
+  .dancer-class.No:before {
+    outline: none;
   }
 }
 
 @media (max-width: 550px) {
-  .dancer-birthday {
-    font-size: 10px;
-  }
   .dancer-club {
-    font-size: 10px;
-  }
-  .dancer-class {
     font-size: 10px;
   }
   .dancer-card .dancer-name {
     font-size: 14px;
     line-height: 1;
+  }
+  .dancer-class {
+    margin-right: 10px;
+    font-size: 1.15em;
+    letter-spacing: 0;
+  }
+  .dancer-class:before {
+    width: 35px;
+    height: auto;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    border: 1px solid #0e0e0e59;
+  }
+  .dancer-class.Debut:before,
+  .dancer-class.School:before,
+  .dancer-class.Pro:before,
+  .dancer-class.No:before {
+    width: 150%;
+    height: 40px;
+    aspect-ratio: unset;
+    border-radius: 50px;
   }
 }

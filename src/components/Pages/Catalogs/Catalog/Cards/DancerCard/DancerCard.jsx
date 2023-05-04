@@ -1,16 +1,26 @@
 import AvatarPlaceholder from "../../../../../../common/AvatarPlaceholder/AvatarPlaceholder";
-import { dateToLocalFormat } from "../../../../../../helpers/dateToLocalFormat";
 import { Link, useHistory } from "react-router-dom";
-import "./DancerCard.css";
 import "../../Catalog.css";
+import "./DancerCard.css";
+import "./Colors.css";
 
 export default function DancerCard({ dancer, clubs, classes, screenWidth }) {
   const { push } = useHistory();
   const dancerFullName =
     dancer["D Surname"].trim() + " " + dancer["D Name"].trim();
+  const dancerClass = classes
+    .filter(
+      (danceClass) =>
+        classes.indexOf(danceClass) + 1 ===
+        Number(dancer["Dancer Class"].at(-1))
+    )
+    .at(-1)
+    ["Class Name"].trim();
   const dancerClub = String(
     clubs
-      .filter((club) => club.id === Number(dancer["Clubs ok*"]))
+      .filter(
+        (club) => club.id === Number(dancer["Clubs ok*"] || dancer["Club-"])
+      )
       .map((club) => club["Club Name"])
   )
     .split("(")[0]
@@ -60,18 +70,10 @@ export default function DancerCard({ dancer, clubs, classes, screenWidth }) {
         </span>
       </div>
       <div className="class-birth">
-        <span className="dancer-class">
-          {classes
-            .filter(
-              (danceClass) =>
-                classes.indexOf(danceClass) + 1 ===
-                Number(dancer["Dancer Class"].at(-1))
-            )
-            .at(-1)
-            ["Class Name"].trim()}
-        </span>
-        <span className="dancer-birthday">
-          {dateToLocalFormat(dancer.Birthday)}
+        <span className={`dancer-class ${dancerClass}`}>
+          {dancerClass === "F (H)"
+            ? dancerClass.split("(")[0].trim()
+            : dancerClass}
         </span>
       </div>
       <Link className="dancer-details" to={`/catalogs/dancers/${dancer.id}`}>

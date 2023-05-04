@@ -28,7 +28,7 @@ export default function ClubCard({ club }) {
 
       <div className="card-stats">
         <span className="coaches-quantity">
-          {club["Сoaches ok"]?.length || "—"}
+          {club["Coaches ok"]?.length || "—"}
         </span>
         <span className="dancers-quantity">
           {club["Dancers ok*"]?.length || "—"}

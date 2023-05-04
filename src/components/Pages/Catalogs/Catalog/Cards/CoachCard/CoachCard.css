@@ -11,7 +11,7 @@
 } */
 
 .coach-card .dancers-quantity {
-  margin-left: 30px;
+  margin: 10px 0 0 30px;
 }
 
 /* .card-wrapper > .img-wrapper > img {
@@ -60,7 +60,10 @@
   } */
   .coach-card {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 2fr 1fr 0.75fr;
+  }
+  .coach-card .card-name {
+    text-align: left;
   }
   .coach-card .dancers-quantity {
     margin: 0;

@@ -151,7 +151,7 @@ export default function Dancers() {
                   ) : catalogs === "clubs" ? (
                     <ClubCard key={entity.id} club={entity} />
                   ) : catalogs === "coaches" ? (
-                    <CoachCard clubs={clubs} coach={entity} key={entity.id} />
+                    <CoachCard screenWidth={screenWidth} clubs={clubs} coach={entity} key={entity.id} />
                   ) : (
                     catalogs === "judges" && (
                       <JudgeCard

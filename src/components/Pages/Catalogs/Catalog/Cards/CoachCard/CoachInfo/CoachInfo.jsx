@@ -62,9 +62,6 @@ export default function CoachInfo() {
     }
   }, [coaches]);
 
-  console.log(coaches);
-  console.log(dancers);
-
   return (
     <>
       {coach !== {} && coach["Coach Name"] ? (
@@ -90,17 +87,18 @@ export default function CoachInfo() {
               <dl className="coach-details">
                 <div className="coach-details-wrapper">
                   <dt className="coach-dancers">Танцюристів тренера:</dt>
-                  <dd>{coach["Dancers-"]?.length || "—"}</dd>
+                  <dd>{coach["My Dancers ok"]?.length || "—"}</dd>
                 </div>
                 <div className="coach-details-wrapper">
                   <dt className="coach-city">Місто:</dt>
                   <dd>
                     {String(
                       clubs
-                        .filter((club) => club.id === Number(coach.Club))
-                        .map((club) => club.Club_Name)
+                        .filter((club) => club.id === Number(coach["Clubs ok"]))
+                        .map((club) => club["Club Name"])
                     )
                       .split("(")[1]
+                      ?.trim()
                       ?.slice(0, -1)}
                   </dd>
                 </div>
@@ -109,8 +107,8 @@ export default function CoachInfo() {
                   <dd>
                     {String(
                       clubs
-                        .filter((club) => club.id === Number(coach.Club))
-                        .map((club) => club.Club_Name)
+                        .filter((club) => club.id === Number(coach["Clubs ok"]))
+                        .map((club) => club["Club Name"])
                     )
                       .split("(")[0]
                       .trim()}
@@ -123,20 +121,25 @@ export default function CoachInfo() {
             <span className="coach-dancers-title">
               Список танцюристів тренера:
             </span>
-            {dancers.length !== 0 ? (
-              dancers
-                .filter((dancer) => coach["Dancers-"].includes(dancer.id))
-                .map((dancer) => (
-                  <DancerCard
-                    classes={dancerClasses}
-                    dancer={dancer}
-                    clubs={clubs}
-                    key={dancer.id}
-                  />
-                ))
-            ) : (
-              <Loader />
-            )}
+            <div className="coach-detail-dancers-wrapper">
+              {dancers.length !== 0 && coach["My Dancers ok"] ? (
+                dancers
+                  .filter((dancer) =>
+                    coach["My Dancers ok"]?.includes(dancer.id)
+                  )
+                  .map((dancer) => (
+                    <DancerCard
+                      screenWidth={window.screen.availWidth}
+                      classes={dancerClasses}
+                      dancer={dancer}
+                      clubs={clubs}
+                      key={dancer.id}
+                    />
+                  ))
+              ) : (
+                <Loader />
+              )}
+            </div>
           </div>
         </section>
       ) : !loading ? (
