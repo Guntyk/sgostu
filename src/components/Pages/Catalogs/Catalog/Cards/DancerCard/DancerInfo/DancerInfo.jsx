@@ -1,10 +1,12 @@
 import AvatarPlaceholder from "../../../../../../../common/AvatarPlaceholder/AvatarPlaceholder";
 import { dancerClassesSelector } from "../../../../../../../redux/dancerClasses/selectors";
 import { getDancerClasses } from "../../../../../../../redux/dancerClasses/thunk";
+import { statusesSelector } from "../../../../../../../redux/statuses/selectors";
 import { dancersSelector } from "../../../../../../../redux/dancers/selectors";
 import { clubsSelector } from "../../../../../../../redux/clubs/selectors";
 import BackButton from "../../../../../../../common/BackButton/BackButton";
-import { getDancer } from "../../../../../../../redux/dancers/thunk";
+import { getStatuses } from "../../../../../../../redux/statuses/thunk";
+import { getDancers } from "../../../../../../../redux/dancers/thunk";
 import { getClubs } from "../../../../../../../redux/clubs/thunk";
 import { Link, Redirect, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -12,6 +14,7 @@ import Loader from "../../../../../../Loader/Loader";
 import { useState, useEffect } from "react";
 import "./DancerInfo.css";
 import "../Colors.css";
+
 import Facebook from "../../../../../../../materials/icons/Facebook";
 import Insta from "../../../../../../../materials/icons/Insta";
 import Tiktok from "../../../../../../../materials/icons/Tiktok";
@@ -19,33 +22,48 @@ import Tiktok from "../../../../../../../materials/icons/Tiktok";
 export default function DancerInfo() {
   window.scrollTo(0, 0);
   const dancerClasses = useSelector(dancerClassesSelector);
+  const statuses = useSelector(statusesSelector);
   const dancers = useSelector(dancersSelector);
   const clubs = useSelector(clubsSelector);
 
   const [loading, setLoading] = useState(true);
-  const [dancer, setDancer] = useState({});
+  const [dancer, setDancer] = useState(null);
 
   const { dancerId } = useParams();
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (dancers.length === 0) {
-      dispatch(getDancer(dancerId));
-      dispatch(getDancerClasses());
-      dispatch(getClubs());
+    if (statuses.length === 0) {
+      dispatch(getStatuses());
     }
   }, []);
 
   useEffect(() => {
-    if (Array.isArray(dancers) && dancers.length > 1) {
-      setDancer(...dancers.filter((dancer) => dancer.id === Number(dancerId)));
+    if (statuses.length !== 0) {
+      if (dancers.length === 0) {
+        dispatch(getDancers(statuses));
+      }
+      if (dancerClasses.length === 0) {
+        dispatch(getDancerClasses());
+      }
+      if (clubs.length === 0) {
+        dispatch(getClubs());
+      }
+    }
+  }, [statuses]);
+
+  useEffect(() => {
+    if (dancers.length !== 0) {
       setLoading(false);
-    } else if (typeof dancers === "object" && dancers["D Name"]) {
-      setDancer(dancers);
-      setLoading(false);
+      dancers.map((dancer) => {
+        if (Number(dancer.id) === Number(dancerId)) {
+          setDancer(dancer);
+        }
+      });
     }
   }, [dancers]);
 
+  // Fields filling
   function dancerClub() {
     return clubs.filter((club) => club.id === Number(dancer["Clubs ok*"]))[0];
   }
@@ -65,9 +83,37 @@ export default function DancerInfo() {
     return dancerClass !== undefined && dancerClass["Class Name"]?.trim();
   }
 
+  function dancerSocials(socialType, socialField) {
+    if (
+      socialField.length >= 23 &&
+      (socialField.includes(`https://m.${socialType}.com`) ||
+        socialField.includes(`https://${socialType}.com`) ||
+        socialField.includes(`https://www.${socialType}.com`) ||
+        socialField.includes(`http://${socialType}.com`))
+    ) {
+      return socialField;
+    } else if (socialField.includes("@") && socialField.length <= 30) {
+      return socialType === "tiktok"
+        ? `https://tiktok.com/${socialField}`
+        : `https://${socialType}.com/${socialField.slice(1)}`;
+    } else if (
+      socialField.length <= 30 &&
+      (!socialField.includes(`https://m.${socialType}.com`) ||
+        !socialField.includes(`https://${socialType}.com`) ||
+        !socialField.includes(`https://www.${socialType}.com`) ||
+        !socialField.includes(`http://${socialType}.com`))
+    ) {
+      return socialType === "tiktok"
+        ? `https://tiktok.com/@${socialField}`
+        : `https://${socialType}.com/${socialField}`;
+    } else {
+      return;
+    }
+  }
+
   return (
     <>
-      {dancer !== {} && dancer["D Name"] ? (
+      {dancer ? (
         <section className="dancer-info">
           <BackButton className="detail-catalog-info-button" />
           <div className="dancer">
@@ -132,34 +178,38 @@ export default function DancerInfo() {
               )}
             </div>
           </div>
-          {/* <div className="dancer-detail-socials">
-            {dancer.Facebook ? (
+          <div className="dancer-detail-socials">
+            {dancer.Facebook && dancer.Facebook?.length > 3 && (
               <a
-                href={dancer.Facebook}
+                href={dancerSocials("facebook", dancer.Facebook)}
+                target="_blank"
+                rel="noreferrer"
                 className="dancer-social-btn dancer-detail-facebook"
               >
                 <Facebook />
               </a>
-            ) : null}
-            {dancer.Instagram ? (
+            )}
+            {dancer.Instagram && dancer.Instagram?.length > 3 && (
               <a
-                href={dancer.Instagram}
+                href={dancerSocials("instagram", dancer.Instagram)}
                 target="_blank"
                 rel="noreferrer"
                 className="dancer-social-btn dancer-detail-instagram"
               >
                 <Insta fill="#fff" />
               </a>
-            ) : null}
-            {dancer.Tiktok ? (
+            )}
+            {dancer.TikTok && dancer.TikTok?.length > 3 && (
               <a
-                href={dancer.TikTok}
+                href={dancerSocials("tiktok", dancer.TikTok)}
+                target="_blank"
+                rel="noreferrer"
                 className="dancer-social-btn dancer-detail-tiktok"
               >
                 <Tiktok />
               </a>
-            ) : null}
-          </div> */}
+            )}
+          </div>
         </section>
       ) : !loading ? (
         <Redirect to="/not-found" />
