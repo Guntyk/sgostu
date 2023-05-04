@@ -83,6 +83,34 @@ export default function DancerInfo() {
     return dancerClass !== undefined && dancerClass["Class Name"]?.trim();
   }
 
+  function dancerSocials(socialType, socialField) {
+    if (
+      socialField.length >= 23 &&
+      (socialField.includes(`https://m.${socialType}.com`) ||
+        socialField.includes(`https://${socialType}.com`) ||
+        socialField.includes(`https://www.${socialType}.com`) ||
+        socialField.includes(`http://${socialType}.com`))
+    ) {
+      return socialField;
+    } else if (socialField.includes("@") && socialField.length <= 30) {
+      return socialType === "tiktok"
+        ? `https://tiktok.com/${socialField}`
+        : `https://${socialType}.com/${socialField.slice(1)}`;
+    } else if (
+      socialField.length <= 30 &&
+      (!socialField.includes(`https://m.${socialType}.com`) ||
+        !socialField.includes(`https://${socialType}.com`) ||
+        !socialField.includes(`https://www.${socialType}.com`) ||
+        !socialField.includes(`http://${socialType}.com`))
+    ) {
+      return socialType === "tiktok"
+        ? `https://tiktok.com/@${socialField}`
+        : `https://${socialType}.com/${socialField}`;
+    } else {
+      return;
+    }
+  }
+
   return (
     <>
       {dancer ? (
@@ -151,17 +179,19 @@ export default function DancerInfo() {
             </div>
           </div>
           <div className="dancer-detail-socials">
-            {dancer.Facebook ? (
+            {dancer.Facebook && dancer.Facebook?.length > 3 ? (
               <a
-                href={dancer.Facebook}
+                href={dancerSocials("facebook", dancer.Facebook)}
+                target="_blank"
+                rel="noreferrer"
                 className="dancer-social-btn dancer-detail-facebook"
               >
                 <Facebook />
               </a>
             ) : null}
-            {dancer.Instagram ? (
+            {dancer.Instagram && dancer.Instagram?.length > 3 ? (
               <a
-                href={dancer.Instagram}
+                href={dancerSocials("instagram", dancer.Instagram)}
                 target="_blank"
                 rel="noreferrer"
                 className="dancer-social-btn dancer-detail-instagram"
@@ -169,9 +199,11 @@ export default function DancerInfo() {
                 <Insta fill="#fff" />
               </a>
             ) : null}
-            {dancer.Tiktok ? (
+            {dancer.TikTok && dancer.TikTok?.length > 3 ? (
               <a
-                href={dancer.TikTok}
+                href={dancerSocials("tiktok", dancer.TikTok)}
+                target="_blank"
+                rel="noreferrer"
                 className="dancer-social-btn dancer-detail-tiktok"
               >
                 <Tiktok />
