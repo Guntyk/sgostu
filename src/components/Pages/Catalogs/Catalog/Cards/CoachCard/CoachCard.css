@@ -71,7 +71,7 @@
   /* .dancer-class {
     margin: 0;
   } */
-  .dancer-details {
+  a.dancer-details {
     display: none;
   }
 }

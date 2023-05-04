@@ -17,6 +17,7 @@ export function getDancers(statuses) {
                   .flat()
                   .includes(dancer.id)
               )
+              .reverse()
           )
         );
       } else {
