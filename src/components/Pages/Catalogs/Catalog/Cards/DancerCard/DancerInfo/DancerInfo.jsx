@@ -179,7 +179,7 @@ export default function DancerInfo() {
             </div>
           </div>
           <div className="dancer-detail-socials">
-            {dancer.Facebook && dancer.Facebook?.length > 3 ? (
+            {dancer.Facebook && dancer.Facebook?.length > 3 && (
               <a
                 href={dancerSocials("facebook", dancer.Facebook)}
                 target="_blank"
@@ -188,8 +188,8 @@ export default function DancerInfo() {
               >
                 <Facebook />
               </a>
-            ) : null}
-            {dancer.Instagram && dancer.Instagram?.length > 3 ? (
+            )}
+            {dancer.Instagram && dancer.Instagram?.length > 3 && (
               <a
                 href={dancerSocials("instagram", dancer.Instagram)}
                 target="_blank"
@@ -198,8 +198,8 @@ export default function DancerInfo() {
               >
                 <Insta fill="#fff" />
               </a>
-            ) : null}
-            {dancer.TikTok && dancer.TikTok?.length > 3 ? (
+            )}
+            {dancer.TikTok && dancer.TikTok?.length > 3 && (
               <a
                 href={dancerSocials("tiktok", dancer.TikTok)}
                 target="_blank"
@@ -208,7 +208,7 @@ export default function DancerInfo() {
               >
                 <Tiktok />
               </a>
-            ) : null}
+            )}
           </div>
         </section>
       ) : !loading ? (
