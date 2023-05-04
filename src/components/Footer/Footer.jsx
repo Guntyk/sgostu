@@ -77,7 +77,7 @@ export default function Footer() {
               target="_blank"
               rel="noreferrer"
             >
-              <Insta />
+              <Insta fill="#000" />
             </a>
           </div>
         </div>
