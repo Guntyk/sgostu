@@ -2,12 +2,12 @@ import { Link } from "react-router-dom";
 import gsap, { Back } from "gsap";
 import { useState } from "react";
 import "./Navigation.css";
-import { useEffect } from "react";
 
 export default function Navigation({ openSideMenu, setOpenSideMenu }) {
   const [openDropDown, setOpenDropDown] = useState(false);
   const language = window.localStorage.getItem("language");
   const navTimeline = gsap.timeline({ repeat: 0, repeatDelay: 1 });
+  gsap.config({ nullTargetWarn: false });
 
   if (openSideMenu) {
     navTimeline.to(".navigation", {
