@@ -9,10 +9,6 @@ export default function Navigation({ openSideMenu, setOpenSideMenu }) {
   const language = window.localStorage.getItem("language");
   const navTimeline = gsap.timeline({ repeat: 0, repeatDelay: 1 });
 
-  useEffect(() => {
-    console.log(openSideMenu);
-  }, [openSideMenu]);
-
   if (openSideMenu) {
     navTimeline.to(".navigation", {
       zIndex: 5,
