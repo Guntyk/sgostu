@@ -91,15 +91,11 @@
   }
   .dancer-class.Debut:before,
   .dancer-class.School:before,
-  .dancer-class.Pro:before,
-  .dancer-class.No:before {
+  .dancer-class.Pro:before {
     width: 150%;
     height: 40px;
     aspect-ratio: unset;
     border-radius: 50px;
-  }
-  .dancer-class.No:before {
-    outline: none;
   }
 }
 
@@ -123,13 +119,15 @@
     border-radius: 50%;
     border: 1px solid #0e0e0e59;
   }
+  .dancer-class.Debut,
+  .dancer-class.School,
+  .dancer-class.Pro {
+    font-size: 12px;
+  }
   .dancer-class.Debut:before,
   .dancer-class.School:before,
-  .dancer-class.Pro:before,
-  .dancer-class.No:before {
-    width: 150%;
-    height: 40px;
-    aspect-ratio: unset;
-    border-radius: 50px;
+  .dancer-class.Pro:before {
+    width: 130%;
+    height: 30px;
   }
 }

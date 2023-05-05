@@ -133,7 +133,7 @@ export default function DancerInfo() {
               <dl className="dancer-details">
                 <div className="dancer-details-wrapper">
                   <dt className="dancer-club">Клуб:</dt>
-                  <dd className="dancer-detail-club-name">
+                  <dd className="entity-detail-club-name dancer-detail-club-name">
                     {dancerClub() ? (
                       <Link to={`/catalogs/clubs/${dancerClub().id}`}>
                         {dancerClub()["Club Name"].split("(")[0].trim()}
@@ -141,6 +141,16 @@ export default function DancerInfo() {
                     ) : (
                       "Завантаження..."
                     )}
+                  </dd>
+                </div>
+                <div className="dancer-details-wrapper">
+                  <dt className="dancer-status">Статус:</dt>
+                  <dd className="dancer-detail-status-name">
+                    {
+                      statuses.filter(
+                        (status) => status.id === dancer["Status"][0]
+                      )[0]["Name"]
+                    }
                   </dd>
                 </div>
               </dl>

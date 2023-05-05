@@ -1,96 +1,30 @@
-/* .card-wrapper > .img-wrapper {
-  width: 150px;
-  height: 150px;
-  overflow: hidden;
-  border-radius: 50%;
-  border: 1px solid #0e0e0e59;
-} */
-
-/* .coach-card {
-  gap: 10px;
-} */
-
 .coach-card .dancers-quantity {
   margin: 10px 0 0 30px;
 }
 
-/* .card-wrapper > .img-wrapper > img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-} */
-
-/* .dancer-name {
-  font-family: "e-Ukraine-Regular", sans-serif;
-  font-size: 20px;
-  line-height: 24px;
-} */
-
-/* .dancer-club {
-  margin: 12px 0 8px 0;
-} */
-
-/* .dancer-details {
-  margin-top: auto;
-} */
-
 @media (max-width: 840px) {
-  /* .card-wrapper {
-    padding: 0;
-    flex-direction: row;
-    width: 100%;
-    height: 80px;
-    border-radius: 0;
-    overflow: hidden;
-    gap: 10px;
-    box-sizing: border-box;
-    padding: 0 10px;
-    justify-content: space-between;
-  } */
-  /* .card-wrapper > .img-wrapper {
-    width: 60px;
-    height: 60px;
-    justify-self: baseline;
-  } */
-  /* .coach-club {
-    justify-self: center;
-  } */
-  /* .coach-details {
-    display: none;
-  } */
   .coach-card {
     display: grid;
-    grid-template-columns: 1fr 2fr 1fr 0.75fr;
-  }
-  .coach-card .card-name {
-    text-align: left;
+    grid-template-columns: 0.75fr 2fr 0.75fr;
   }
   .coach-card .dancers-quantity {
     margin: 0;
   }
-  /* .dancer-class {
-    margin: 0;
-  } */
+  .coach-name-club {
+    text-align: center;
+  }
+  .coach-name-club .card-name {
+    line-height: 1.5;
+  }
+  .coach-name-club .coach-club {
+    color: rgba(100, 100, 100, 0.8);
+  }
   a.dancer-details {
     display: none;
   }
 }
 
 @media (max-width: 550px) {
-  /* .dancer-name {
-    font-size: 16px;
-  } */
-  /* .card-wrapper > .img-wrapper {
-    width: 50px;
-    height: 50px;
-  } */
-  /* .coach-club {
-    font-size: 12px;
-  } */
-  .coach-card {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-  }
   .coach-card .card-name {
     white-space: normal;
   }
