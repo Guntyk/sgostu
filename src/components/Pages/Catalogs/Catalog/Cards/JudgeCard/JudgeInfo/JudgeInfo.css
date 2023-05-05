@@ -1,0 +1,75 @@
+.judge-info {
+  height: 100vh;
+  display: grid;
+  place-items: center;
+  background: url(../../../../../../../materials/backgrounds/waves-right.svg)
+      no-repeat 100% 100%,
+    url(../../../../../../../materials/backgrounds/waves-left.svg) no-repeat 0%
+      20%;
+  background-size: 40% 150%;
+  background-attachment: fixed;
+}
+
+.judge-info-back-btn {
+  position: fixed;
+  top: 100px;
+  left: 50px;
+}
+
+.judge {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 70px;
+  margin-bottom: 100px;
+}
+
+.judge-avatar {
+  width: 180px;
+  height: 180px;
+  border: 1px solid #272500;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.judge-name {
+  font-size: 24px;
+}
+
+.judge-inner,
+.judge-details {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.judge-details-wrapper {
+  display: flex;
+  gap: 4px;
+}
+.judge-details-wrapper dd {
+  font-family: "e-Ukraine-Light";
+}
+
+@media (max-width: 550px) {
+  .judge-info {
+    padding-top: 70px;
+    background: url(../../../../../../../materials/backgrounds/mobile/waves-left.svg),
+      url(../../../../../../../materials/backgrounds/mobile/waves-right.svg);
+    background-repeat: no-repeat, no-repeat;
+    background-position: 0 0, 100% 100%;
+    background-size: 70% 150%;
+    background-attachment: fixed;
+  }
+  .judge {
+    flex-direction: column;
+    gap: 30px;
+  }
+  .judge-details-wrapper {
+    font-family: "e-Ukraine-Light", sans-serif;
+    margin: 0 auto;
+  }
+  .judge .judge-name {
+    text-align: center;
+  }
+}
