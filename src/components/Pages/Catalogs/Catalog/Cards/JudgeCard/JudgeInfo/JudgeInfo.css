@@ -1,5 +1,7 @@
-.coach-info {
-  padding-top: 150px;
+.judge-info {
+  height: 100vh;
+  display: grid;
+  place-items: center;
   background: url(../../../../../../../materials/backgrounds/waves-right.svg)
       no-repeat 100% 100%,
     url(../../../../../../../materials/backgrounds/waves-left.svg) no-repeat 0%
@@ -8,7 +10,13 @@
   background-attachment: fixed;
 }
 
-.coach {
+.judge-info-back-btn {
+  position: fixed;
+  top: 100px;
+  left: 50px;
+}
+
+.judge {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -16,7 +24,7 @@
   margin-bottom: 100px;
 }
 
-.coach-avatar {
+.judge-avatar {
   width: 180px;
   height: 180px;
   border: 1px solid #272500;
@@ -24,68 +32,27 @@
   object-fit: cover;
 }
 
-.coach-name {
+.judge-name {
   font-size: 24px;
 }
 
-.coach-inner,
-.coach-details {
+.judge-inner,
+.judge-details {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
-.coach-details-wrapper {
+.judge-details-wrapper {
   display: flex;
   gap: 4px;
 }
-.coach-details-wrapper dd {
+.judge-details-wrapper dd {
   font-family: "e-Ukraine-Light";
 }
 
-.coach-dancers {
-  text-align: center;
-}
-
-.coach-dancers-title {
-  display: inline-block;
-  font-size: 20px;
-  margin-bottom: 35px;
-}
-
-.coach-detail-dancers-wrapper {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  margin: 0 auto 100px;
-  width: 70%;
-  gap: 50px;
-}
-
-.catalog-card.dancer-card {
-  --coefficient: 1;
-}
-
-@media (max-width: 1150px) {
-  .catalog-card.dancer-card {
-    --coefficient: 0.8;
-  }
-  .coach-detail-dancers-wrapper {
-    width: 80%;
-    gap: 20px;
-  }
-}
-
-@media (max-width: 840px) {
-  .coach-detail-dancers-wrapper {
-    margin: 0 auto 50px;
-    width: 90%;
-    gap: 0px;
-  }
-}
-
 @media (max-width: 550px) {
-  .coach-info {
+  .judge-info {
     padding-top: 70px;
     background: url(../../../../../../../materials/backgrounds/mobile/waves-left.svg),
       url(../../../../../../../materials/backgrounds/mobile/waves-right.svg);
@@ -94,15 +61,15 @@
     background-size: 70% 150%;
     background-attachment: fixed;
   }
-  .coach {
+  .judge {
     flex-direction: column;
     gap: 30px;
   }
-  .coach-details-wrapper {
+  .judge-details-wrapper {
     font-family: "e-Ukraine-Light", sans-serif;
     margin: 0 auto;
   }
-  .coach .coach-name {
+  .judge .judge-name {
     text-align: center;
   }
 }

@@ -10,20 +10,14 @@
   .judge-card {
     justify-content: space-between;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 0.5fr 2fr 1fr;
   }
-  .judge-card .dancer-name {
-    margin: 0;
+  .judge-card .card-name {
+    text-align: left;
   }
-  .judge-details {
+  a.judge-details {
     display: none;
   }
-  /* .judge-card {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 5px;
-
-  } */
   .judge-class {
     line-height: 1;
   }

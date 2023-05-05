@@ -124,6 +124,26 @@
   left: 5vw;
 }
 
+.entity-detail-club-name {
+  position: relative;
+}
+
+.entity-detail-club-name::before {
+  content: "";
+  position: absolute;
+  bottom: -3px;
+  left: 50%;
+  width: 0;
+  height: 1.5px;
+  background: #222;
+  transform: translateX(-50%);
+  transition: 0.2s;
+}
+
+.entity-detail-club-name:hover::before {
+  width: 100%;
+}
+
 @media (max-width: 840px) {
   .catalog-wrapper {
     gap: 0;

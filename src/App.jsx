@@ -2,6 +2,8 @@ import DancerInfo from "./components/Pages/Catalogs/Catalog/Cards/DancerCard/Dan
 import DocumentsFolder from "./components/Pages/About/Documents/DocumentsFolder/DocumentsFolder";
 import DocumentsSlider from "./components/Pages/About/Documents/DocumentsSlider/DocumentsSlider";
 import CoachInfo from "./components/Pages/Catalogs/Catalog/Cards/CoachCard/CoachInfo/CoachInfo";
+import JudgeInfo from "./components/Pages/Catalogs/Catalog/Cards/JudgeCard/JudgeInfo/JudgeInfo";
+import ClubInfo from "./components/Pages/Catalogs/Catalog/Cards/ClubCard/ClubInfo/ClubInfo";
 import Management from "./components/Pages/About/Management/Management";
 import EventInfo from "./components/Pages/Calendar/EventInfo/EventInfo";
 import Catalog from "./components/Pages/Catalogs/Catalog/Catalog";
@@ -46,6 +48,12 @@ export default function App() {
         </Route>
         <Route exact path="/catalogs/dancers/:dancerId">
           <DancerInfo />
+        </Route>
+        <Route exact path="/catalogs/clubs/:clubId">
+          <ClubInfo />
+        </Route>
+        <Route exact path="/catalogs/judges/:judgeId">
+          <JudgeInfo />
         </Route>
         {/* Feedback */}
         <Route exact path="/feedback">

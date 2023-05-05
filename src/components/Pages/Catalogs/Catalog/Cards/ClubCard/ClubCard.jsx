@@ -1,6 +1,7 @@
 import AvatarPlaceholder from "../../../../../../common/AvatarPlaceholder/AvatarPlaceholder";
-import "./ClubCard.css";
+import { Link } from "react-router-dom";
 import "../../Catalog.css";
+import "./ClubCard.css";
 
 export default function ClubCard({ club }) {
   return (
@@ -25,7 +26,6 @@ export default function ClubCard({ club }) {
           {club["SurName of Supervisor"]} {club["Name of Supervisor"]}
         </span>
       </div>
-
       <div className="card-stats">
         <span className="coaches-quantity">
           {club["Coaches ok"]?.length || "—"}
@@ -34,9 +34,9 @@ export default function ClubCard({ club }) {
           {club["Dancers ok*"]?.length || "—"}
         </span>
       </div>
-      <a href="#" className="card-details">
+      <Link className="card-details" to={`/catalogs/clubs/${club.id}`}>
         Детальніше
-      </a>
+      </Link>
     </div>
   );
 }

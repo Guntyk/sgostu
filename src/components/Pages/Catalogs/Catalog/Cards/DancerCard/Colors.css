@@ -37,7 +37,8 @@
 }
 .dancer-class.No::before,
 .dancer-detail-class.No {
-  outline: 2px solid rgba(100, 100, 100, 0.8);
+  border: 1px solid rgba(100, 100, 100, 0.8);
+  backdrop-filter: blur(5px);
 }
 .dancer-class.Debut::before,
 .dancer-detail-class.Debut {
