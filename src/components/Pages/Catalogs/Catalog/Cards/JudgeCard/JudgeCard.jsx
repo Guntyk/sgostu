@@ -13,7 +13,6 @@ export default function JudgeCard({ judge, classes }) {
           <AvatarPlaceholder />
         )}
       </div>
-
       <h5 className="card-name">{judge["Name Surname"]}</h5>
       <span className="judge-class">
         {classes
@@ -25,7 +24,6 @@ export default function JudgeCard({ judge, classes }) {
           .at(-1)
           .Category.trim()}
       </span>
-
       <Link className="card-details" to={`./judges/${judge.id}`}>
         Детальніше
       </Link>
