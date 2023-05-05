@@ -80,6 +80,11 @@
   margin-left: 25px;
 }
 
+/* Club catalogs */
+.club-catalog {
+  padding-bottom: 50px;
+}
+
 @media (max-width: 1150px) {
   .catalog-card.dancer-card {
     --coefficient: 0.8;

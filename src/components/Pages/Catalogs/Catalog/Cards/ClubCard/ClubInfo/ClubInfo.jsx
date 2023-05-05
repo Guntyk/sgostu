@@ -30,11 +30,13 @@ export default function ClubInfo() {
 
   const [loading, setLoading] = useState(true);
   const [club, setClub] = useState(null);
+  const [info, setInfo] = useState("Танцюристи");
 
   const { clubId } = useParams();
   const dispatch = useDispatch();
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     if (statuses.length === 0) {
       dispatch(getStatuses());
     }
@@ -70,6 +72,18 @@ export default function ClubInfo() {
       });
     }
   }, [clubs]);
+
+  useEffect(() => {
+    if (club) {
+      const list = document.querySelectorAll(".event-details-list");
+      function activeLink() {
+        list.forEach((item) => item.classList.remove("active"));
+        this.classList.add("active");
+        setInfo(this.innerText);
+      }
+      list.forEach((item) => item.addEventListener("click", activeLink));
+    }
+  }, [club]);
 
   // Fields filling
   function clubDancers() {
@@ -111,7 +125,6 @@ export default function ClubInfo() {
       {club ? (
         <section className="club-info">
           <BackButton />
-          {window.scrollTo(0, 0)}
           <div className="club">
             {club["Logo Clubs"]?.url ? (
               <img
@@ -176,47 +189,57 @@ export default function ClubInfo() {
               </dl>
             </div>
           </div>
-          <div className="club-dancers">
-            <span className="club-dancers-title">Список танцюристів:</span>
-            <div className="club-detail-dancers-wrapper">
-              {dancers.length !== 0 && club["Dancers ok*"] ? (
-                dancers
-                  .filter((dancer) => club["Dancers ok*"]?.includes(dancer.id))
-                  .map((dancer) => (
-                    <DancerCard
-                      screenWidth={window.screen.availWidth}
-                      classes={dancerClasses}
-                      dancer={dancer}
-                      clubs={clubs}
-                      key={dancer.id}
-                    />
-                  ))
-              ) : (
-                <Loader />
-              )}
-            </div>
+          <div className="event-detail-info-row">
+            <ul className="event-detail-buttons">
+              <li className="event-details-list active">Танцюристи</li>
+              <li className="event-details-list">Тренери</li>
+              <div className="indicator"></div>
+            </ul>
           </div>
-          <div className="club-dancers">
-            <span className="club-dancers-title">Список тренерів:</span>
-            <div className="club-detail-dancers-wrapper">
-              {coaches.length !== 0 && club["Coaches ok"] ? (
-                coaches
-                  .filter((coach) => club["Coaches ok"]?.includes(coach.id))
-                  .map((coach) => (
-                    <CoachCard
-                      screenWidth={window.screen.availWidth}
-                      dancerClasses={dancerClasses}
-                      dancers={dancers}
-                      coach={coach}
-                      clubs={clubs}
-                      key={coach.id}
-                    />
-                  ))
-              ) : (
-                <Loader />
-              )}
+          {info === "Танцюристи" ? (
+            <div className="club-catalog club-dancers">
+              <div className="club-detail-dancers-wrapper">
+                {dancers.length !== 0 && club["Dancers ok*"] ? (
+                  dancers
+                    .filter((dancer) =>
+                      club["Dancers ok*"]?.includes(dancer.id)
+                    )
+                    .map((dancer) => (
+                      <DancerCard
+                        screenWidth={window.screen.availWidth}
+                        classes={dancerClasses}
+                        dancer={dancer}
+                        clubs={clubs}
+                        key={dancer.id}
+                      />
+                    ))
+                ) : (
+                  <Loader />
+                )}
+              </div>
             </div>
-          </div>
+          ) : (
+            <div className="club-catalog club-dancers">
+              <div className="club-detail-dancers-wrapper">
+                {coaches.length !== 0 && club["Coaches ok"] ? (
+                  coaches
+                    .filter((coach) => club["Coaches ok"]?.includes(coach.id))
+                    .map((coach) => (
+                      <CoachCard
+                        screenWidth={window.screen.availWidth}
+                        dancerClasses={dancerClasses}
+                        dancers={dancers}
+                        coach={coach}
+                        clubs={clubs}
+                        key={coach.id}
+                      />
+                    ))
+                ) : (
+                  <Loader />
+                )}
+              </div>
+            </div>
+          )}
         </section>
       ) : !loading ? (
         <Redirect to="/not-found" />
