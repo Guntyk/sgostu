@@ -102,4 +102,7 @@
     font-family: "e-Ukraine-Light", sans-serif;
     margin: 0 auto;
   }
+  .coach .coach-name {
+    text-align: center;
+  }
 }
