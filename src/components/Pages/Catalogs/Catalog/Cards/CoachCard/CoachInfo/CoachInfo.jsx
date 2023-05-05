@@ -5,17 +5,17 @@ import { statusesSelector } from "../../../../../../../redux/statuses/selectors"
 import { dancersSelector } from "../../../../../../../redux/dancers/selectors";
 import { coachesSelector } from "../../../../../../../redux/coaches/selectors";
 import { clubsSelector } from "../../../../../../../redux/clubs/selectors";
+import BackButton from "../../../../../../../common/BackButton/BackButton";
 import { getStatuses } from "../../../../../../../redux/statuses/thunk";
 import { getDancers } from "../../../../../../../redux/dancers/thunk";
-import { getCoach } from "../../../../../../../redux/coaches/thunk";
+import { getCoaches } from "../../../../../../../redux/coaches/thunk";
 import { getClubs } from "../../../../../../../redux/clubs/thunk";
 import { useDispatch, useSelector } from "react-redux";
-import { Redirect, useParams } from "react-router-dom";
+import { Link, Redirect, useParams } from "react-router-dom";
+import DancerCard from "../../DancerCard/DancerCard";
 import Loader from "../../../../../../Loader/Loader";
 import { useState, useEffect } from "react";
 import "./CoachInfo.css";
-import DancerCard from "../../DancerCard/DancerCard";
-import BackButton from "../../../../../../../common/BackButton/BackButton";
 
 export default function CoachInfo() {
   const dancerClasses = useSelector(dancerClassesSelector);
@@ -25,46 +25,64 @@ export default function CoachInfo() {
   const clubs = useSelector(clubsSelector);
 
   const [loading, setLoading] = useState(true);
-  const [coach, setCoach] = useState({});
+  const [coach, setCoach] = useState(null);
 
   const { coachId } = useParams();
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (coaches.length === 0) {
-      if (statuses.length === 0) {
-        dispatch(getStatuses());
-      }
-    }
-    if (dancers.length === 0) {
-      dispatch(getDancers(statuses));
+    if (statuses.length === 0) {
+      dispatch(getStatuses());
     }
   }, []);
 
   useEffect(() => {
-    if (coaches.length === 0) {
-      if (statuses.length !== 0) {
-        dispatch(getCoach(coachId));
+    if (statuses.length !== 0) {
+      if (coaches.length === 0) {
+        dispatch(getCoaches(statuses));
+      }
+      if (dancers.length === 0) {
         dispatch(getDancers(statuses));
+      }
+      if (dancerClasses.length === 0) {
         dispatch(getDancerClasses());
+      }
+      if (clubs.length === 0) {
         dispatch(getClubs());
       }
     }
   }, [statuses]);
 
   useEffect(() => {
-    if (Array.isArray(coaches) && coaches.length > 1) {
-      setCoach(...coaches.filter((coach) => coach.id === Number(coachId)));
+    if (coaches.length !== 0) {
       setLoading(false);
-    } else if (!Array.isArray(coaches) && coaches["Coach Name"]) {
-      setCoach(coaches);
-      setLoading(false);
+      coaches.map((coach) => {
+        if (Number(coach.id) === Number(coachId)) {
+          setCoach(coach);
+        }
+      });
     }
   }, [coaches]);
 
+  // Fields filling
+  function coachClub() {
+    return clubs.filter((club) => club.id === Number(coach["Clubs ok"]))[0];
+  }
+
+  function coachTown() {
+    return String(
+      clubs
+        .filter((club) => club.id === Number(coach["Clubs ok"]))
+        .map((club) => club["Club Name"])
+    )
+      .split("(")[1]
+      ?.trim()
+      ?.slice(0, -1);
+  }
+
   return (
     <>
-      {coach !== {} && coach["Coach Name"] ? (
+      {coach ? (
         <section className="coach-info">
           <BackButton />
           {window.scrollTo(0, 0)}
@@ -87,31 +105,29 @@ export default function CoachInfo() {
               <dl className="coach-details">
                 <div className="coach-details-wrapper">
                   <dt className="coach-dancers">Танцюристів тренера:</dt>
-                  <dd>{coach["My Dancers ok"]?.length || "—"}</dd>
+                  <dd>
+                    {coach["My Dancers ok"]?.filter((dancer) =>
+                      dancers.map((dancer) => dancer.id).includes(dancer)
+                    ).length || "—"}
+                  </dd>
                 </div>
                 <div className="coach-details-wrapper">
                   <dt className="coach-city">Місто:</dt>
-                  <dd>
-                    {String(
-                      clubs
-                        .filter((club) => club.id === Number(coach["Clubs ok"]))
-                        .map((club) => club["Club Name"])
-                    )
-                      .split("(")[1]
-                      ?.trim()
-                      ?.slice(0, -1)}
-                  </dd>
+                  <dd>{coachTown() ? coachTown() : "Завантаження..."}</dd>
                 </div>
                 <div className="coach-details-wrapper">
                   <dt className="coach-club">Клуб:</dt>
                   <dd>
-                    {String(
-                      clubs
-                        .filter((club) => club.id === Number(coach["Clubs ok"]))
-                        .map((club) => club["Club Name"])
-                    )
-                      .split("(")[0]
-                      .trim()}
+                    {coachClub() ? (
+                      <Link
+                        to={`/catalogs/clubs/${coachClub().id}`}
+                        className="entity-detail-club-name"
+                      >
+                        {coachClub()["Club Name"].split("(")[0].trim()}
+                      </Link>
+                    ) : (
+                      "Завантаження..."
+                    )}
                   </dd>
                 </div>
               </dl>

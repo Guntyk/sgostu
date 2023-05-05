@@ -1,8 +1,9 @@
 .coach-info {
   padding-top: 150px;
-  background: url(../../../../../../../materials/backgrounds/waves-right.svg) no-repeat 100%
-      100%,
-    url(../../../../../../../materials/backgrounds/waves-left.svg) no-repeat 0% 20%;
+  background: url(../../../../../../../materials/backgrounds/waves-right.svg)
+      no-repeat 100% 100%,
+    url(../../../../../../../materials/backgrounds/waves-left.svg) no-repeat 0%
+      20%;
   background-size: 40% 150%;
   background-attachment: fixed;
 }
@@ -65,10 +66,40 @@
   --coefficient: 1;
 }
 
+@media (max-width: 1150px) {
+  .catalog-card.dancer-card {
+    --coefficient: 0.8;
+  }
+  .coach-detail-dancers-wrapper {
+    width: 80%;
+    gap: 20px;
+  }
+}
+
 @media (max-width: 840px) {
   .coach-detail-dancers-wrapper {
     margin: 0 auto 50px;
     width: 90%;
     gap: 0px;
+  }
+}
+
+@media (max-width: 550px) {
+  .coach-info {
+    padding-top: 70px;
+    background: url(../../../../../../../materials/backgrounds/mobile/waves-left.svg),
+      url(../../../../../../../materials/backgrounds/mobile/waves-right.svg);
+    background-repeat: no-repeat, no-repeat;
+    background-position: 0 0, 100% 100%;
+    background-size: 70% 150%;
+    background-attachment: fixed;
+  }
+  .coach {
+    flex-direction: column;
+    gap: 30px;
+  }
+  .coach-details-wrapper {
+    font-family: "e-Ukraine-Light", sans-serif;
+    margin: 0 auto;
   }
 }
