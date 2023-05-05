@@ -1,11 +1,18 @@
 import AvatarPlaceholder from "../../../../../../common/AvatarPlaceholder/AvatarPlaceholder";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import "./JudgeCard.css";
 import "../../Catalog.css";
 
-export default function JudgeCard({ judge, classes }) {
+export default function JudgeCard({ judge, classes, screenWidth }) {
+  const { push } = useHistory();
+
+  function handleClick() {
+    if (screenWidth <= 840) {
+      push(`/catalogs/judges/${judge.id}`);
+    }
+  }
   return (
-    <div className="catalog-card judge-card">
+    <div className="catalog-card judge-card" onClick={handleClick}>
       <div className="img-wrapper">
         {judge["Foto Judges"]?.url ? (
           <img src={judge["Foto Judges"]?.url} alt="Аватар" />

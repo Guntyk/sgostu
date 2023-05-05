@@ -187,6 +187,7 @@ export default function Catalog() {
                     ) : (
                       catalogs === "judges" && (
                         <JudgeCard
+                          screenWidth={screenWidth}
                           classes={judgeClasses}
                           judge={entity}
                           key={entity.id}
