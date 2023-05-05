@@ -32,7 +32,7 @@ import { useEffect, useState } from "react";
 import "./Catalog.css";
 
 export default function Catalog() {
-  window.scrollTo(0, 0);
+  const [entitiesOffset, setEntitiesOffset] = useState(24);
   const [catalogTheme, setCatalogTheme] = useState(false);
   const [entitiesList, setEntitiesList] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -52,12 +52,17 @@ export default function Catalog() {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     if (statuses.length === 0) {
       dispatch(getStatuses());
     }
     if (catalogs) {
       setCatalogTheme(true);
     }
+    document.addEventListener("scroll", scrollHandler);
+    return () => {
+      document.removeEventListener("scroll", scrollHandler);
+    };
   }, []);
 
   useEffect(() => {
@@ -70,8 +75,16 @@ export default function Catalog() {
         dispatch(getDancerClasses());
         dispatch(getClubs());
       }
-      if (catalogs === "coaches" && coaches.length === 0) {
+      if (
+        catalogs === "coaches" &&
+        (coaches.length === 0 ||
+          dancers.length === 0 ||
+          dancerClasses.length === 0 ||
+          clubs.length === 0)
+      ) {
         dispatch(getCoaches(statuses));
+        dispatch(getDancers(statuses));
+        dispatch(getDancerClasses());
         dispatch(getClubs());
       }
       if (
@@ -109,6 +122,16 @@ export default function Catalog() {
     }
   }, [entitiesList]);
 
+  function scrollHandler(e) {
+    if (
+      e.target.documentElement.scrollHeight -
+        (e.target.documentElement.scrollTop + window.innerHeight) <
+      100
+    ) {
+      setEntitiesOffset((entitiesOffset) => entitiesOffset + 24);
+    }
+  }
+
   return (
     <>
       {catalogTheme ? (
@@ -139,36 +162,38 @@ export default function Catalog() {
               clubs={clubs}
             />
             <div className="catalog-wrapper">
-              {entitiesList.length !== 0 ? (
-                entitiesList.map((entity) =>
-                  catalogs === "dancers" ? (
-                    <DancerCard
-                      screenWidth={screenWidth}
-                      classes={dancerClasses}
-                      key={entity.id}
-                      dancer={entity}
-                      clubs={clubs}
-                    />
-                  ) : catalogs === "clubs" ? (
-                    <ClubCard key={entity.id} club={entity} />
-                  ) : catalogs === "coaches" ? (
-                    <CoachCard
-                      screenWidth={screenWidth}
-                      dancers={dancers}
-                      key={entity.id}
-                      coach={entity}
-                      clubs={clubs}
-                    />
-                  ) : (
-                    catalogs === "judges" && (
-                      <JudgeCard
-                        classes={judgeClasses}
-                        judge={entity}
+              {entitiesList.length !== 0 && !loading ? (
+                entitiesList
+                  .slice(0, entitiesOffset)
+                  .map((entity) =>
+                    catalogs === "dancers" ? (
+                      <DancerCard
+                        screenWidth={screenWidth}
+                        classes={dancerClasses}
                         key={entity.id}
+                        dancer={entity}
+                        clubs={clubs}
                       />
+                    ) : catalogs === "clubs" ? (
+                      <ClubCard key={entity.id} club={entity} />
+                    ) : catalogs === "coaches" ? (
+                      <CoachCard
+                        screenWidth={screenWidth}
+                        dancers={dancers}
+                        key={entity.id}
+                        coach={entity}
+                        clubs={clubs}
+                      />
+                    ) : (
+                      catalogs === "judges" && (
+                        <JudgeCard
+                          classes={judgeClasses}
+                          judge={entity}
+                          key={entity.id}
+                        />
+                      )
                     )
                   )
-                )
               ) : !loading && catalogs.length > 0 ? (
                 <h2 className="no-dancers-searched">
                   По вашому запиту нічого не знайдено 😐

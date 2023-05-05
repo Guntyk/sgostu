@@ -8,10 +8,6 @@ export default function CoachCard({ dancers, coach, clubs, screenWidth }) {
   const coachFullName =
     coach["Coach Surname"].trim() + " " + coach["Coach Name"].trim();
 
-  console.log(
-    coach["My Dancers ok"].filter((dancer) => dancers.includes(dancer))
-  );
-
   function handleClick() {
     if (screenWidth <= 840) {
       push(`/catalogs/coaches/${coach.id}`);
@@ -53,8 +49,9 @@ export default function CoachCard({ dancers, coach, clubs, screenWidth }) {
       </span>
       <div className="card-stats">
         <span className="dancers-quantity">
-          {coach["My Dancers ok"].filter((dancer) => dancers.includes(dancer))
-            .length || "—"}
+          {coach["My Dancers ok"]?.filter((dancer) =>
+            dancers.map((dancer) => dancer.id).includes(dancer)
+          ).length || "—"}
         </span>
       </div>
       <Link className="card-details" to={`/catalogs/coaches/${coach.id}`}>
