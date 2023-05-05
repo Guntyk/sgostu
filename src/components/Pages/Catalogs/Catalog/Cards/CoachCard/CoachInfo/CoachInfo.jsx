@@ -80,6 +80,12 @@ export default function CoachInfo() {
       ?.slice(0, -1);
   }
 
+  function coachDancersQuantity() {
+    return coach["My Dancers ok"]?.filter((dancer) =>
+      dancers.map((dancer) => dancer.id).includes(dancer)
+    ).length;
+  }
+
   return (
     <>
       {coach ? (
@@ -106,9 +112,11 @@ export default function CoachInfo() {
                 <div className="coach-details-wrapper">
                   <dt className="coach-dancers">Танцюристів тренера:</dt>
                   <dd>
-                    {coach["My Dancers ok"]?.filter((dancer) =>
-                      dancers.map((dancer) => dancer.id).includes(dancer)
-                    ).length || "—"}
+                    {coachDancersQuantity()
+                      ? coachDancersQuantity() >= 1
+                        ? coachDancersQuantity()
+                        : "—"
+                      : ""}
                   </dd>
                 </div>
                 <div className="coach-details-wrapper">
