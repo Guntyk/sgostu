@@ -73,6 +73,8 @@ export default function DancerCard({ dancer, clubs, classes, screenWidth }) {
         <span className={`dancer-class ${dancerClass}`}>
           {dancerClass === "F (H)"
             ? dancerClass.split("(")[0].trim()
+            : dancerClass === "No Class"
+            ? "—"
             : dancerClass}
         </span>
       </div>
