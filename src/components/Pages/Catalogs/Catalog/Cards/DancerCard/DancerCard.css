@@ -97,9 +97,6 @@
     aspect-ratio: unset;
     border-radius: 50px;
   }
-  .dancer-class.No:before {
-    outline: none;
-  }
 }
 
 @media (max-width: 550px) {
