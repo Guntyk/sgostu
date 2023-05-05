@@ -25,15 +25,15 @@
 }
 
 .judge-avatar {
-  width: 180px;
-  height: 180px;
+  width: 250px;
+  height: 250px;
   border: 1px solid #272500;
   border-radius: 50%;
   object-fit: cover;
 }
 
 .judge-name {
-  font-size: 24px;
+  font-size: 32px;
 }
 
 .judge-inner,
@@ -49,6 +49,22 @@
 }
 .judge-details-wrapper dd {
   font-family: "e-Ukraine-Light";
+}
+
+@media (max-width: 840px) {
+  .judge {
+    gap: 20px;
+  }
+  .judge-avatar {
+    width: 200px;
+    height: 200px;
+  }
+  .judge-name {
+    font-size: 24px;
+  }
+  .judge-details {
+    gap: px;
+  }
 }
 
 @media (max-width: 550px) {
