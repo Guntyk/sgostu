@@ -7,6 +7,9 @@
 .back-link {
   display: block;
   margin-bottom: 21px;
+  position: absolute;
+  left: 10%;
+  top: 10%;
 }
 
 .back-link:hover {
@@ -233,5 +236,8 @@
   }
   .event-details-list {
     font-size: 14px;
+  }
+  .back-link {
+    left: 5%;
   }
 }
