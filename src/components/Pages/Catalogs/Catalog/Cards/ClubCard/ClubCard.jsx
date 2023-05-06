@@ -1,9 +1,27 @@
-import AvatarPlaceholder from "../../../../../../common/AvatarPlaceholder/AvatarPlaceholder";
+import clubPlaceholder from "../../../../../../materials/icons/clubcard/club-placeholder.jpg";
 import { Link } from "react-router-dom";
 import "../../Catalog.css";
 import "./ClubCard.css";
 
-export default function ClubCard({ club }) {
+export default function ClubCard({ club, dancers, coaches }) {
+  // Fields filling
+  function clubDancers() {
+    const clubDancers = club["Dancers ok*"]?.filter((dancer) =>
+      dancers.map((dancer) => dancer.id).includes(dancer)
+    );
+    return clubDancers === [] || clubDancers === undefined
+      ? undefined
+      : clubDancers.length;
+  }
+  function clubCoaches() {
+    const clubCoaches = club["Coaches ok"]?.filter((coach) =>
+      coaches.map((coach) => coach.id).includes(coach)
+    );
+    return clubCoaches === [] || clubCoaches === undefined
+      ? undefined
+      : clubCoaches.length;
+  }
+
   return (
     <div className="catalog-card club-card">
       <div className="img-wrapper">
@@ -14,7 +32,11 @@ export default function ClubCard({ club }) {
             alt="Логотип"
           />
         ) : (
-          <AvatarPlaceholder />
+          <img
+            className="club-avatar-placeholder"
+            src={clubPlaceholder}
+            alt="Логотип клубу"
+          />
         )}
       </div>
       <div className="card-inner">
@@ -28,10 +50,10 @@ export default function ClubCard({ club }) {
       </div>
       <div className="card-stats">
         <span className="coaches-quantity">
-          {club["Coaches ok"]?.length || "—"}
+          {clubCoaches() ? clubCoaches() : "—"}
         </span>
         <span className="dancers-quantity">
-          {club["Dancers ok*"]?.length || "—"}
+          {clubDancers() ? clubDancers() : "—"}
         </span>
       </div>
       <Link className="card-details" to={`/catalogs/clubs/${club.id}`}>
