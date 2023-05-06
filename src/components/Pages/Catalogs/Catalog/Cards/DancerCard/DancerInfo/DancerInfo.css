@@ -229,6 +229,21 @@
     font-size: 32px;
   }
 
+  .dancer-detail-prev-class,
+  .dancer-detail-next-class {
+    font-size: 15px;
+  }
+  .dancer-detail-current-class {
+    font-size: 21px;
+    height: 130%;
+  }
+  .dancer-detail-current-class::before {
+    left: -15px;
+  }
+  .dancer-detail-current-class::after {
+    right: -15px;
+  }
+
   .dancer-info {
     background: url(../../../../../../../materials/backgrounds/mobile/waves-left.svg),
       url(../../../../../../../materials/backgrounds/mobile/waves-right.svg);

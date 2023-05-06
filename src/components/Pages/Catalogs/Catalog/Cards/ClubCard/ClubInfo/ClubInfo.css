@@ -80,6 +80,17 @@
   margin-left: 25px;
 }
 
+/* Advantages */
+.club-advantages {
+  line-height: 1.5;
+  white-space: pre-line;
+}
+
+/* Club catalogs */
+.club-catalog {
+  padding-bottom: 50px;
+}
+
 @media (max-width: 1150px) {
   .catalog-card.dancer-card {
     --coefficient: 0.8;

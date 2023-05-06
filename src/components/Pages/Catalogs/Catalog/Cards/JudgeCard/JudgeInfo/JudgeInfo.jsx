@@ -93,6 +93,14 @@ export default function JudgeInfo() {
                     {judgeCategory() ? judgeCategory() : "Завантаження..."}
                   </dd>
                 </div>
+                <div className="judge-details-wrapper">
+                  <dt className="judge-chief">Головний суддя:</dt>
+                  <dd>{judge["Chief Judges"][0] === 1 ? "Так" : "Ні"}</dd>
+                </div>
+                <div className="judge-details-wrapper">
+                  <dt className="judge-inspector">Спортивний інспектор:</dt>
+                  <dd>{judge["Sport Inspector"][0] === 1 ? "Так" : "Ні"}</dd>
+                </div>
               </dl>
             </div>
           </div>
