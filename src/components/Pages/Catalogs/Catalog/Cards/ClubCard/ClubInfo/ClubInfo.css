@@ -21,7 +21,7 @@
   height: 180px;
   border: 1px solid #272500;
   border-radius: 50%;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .club-name {
