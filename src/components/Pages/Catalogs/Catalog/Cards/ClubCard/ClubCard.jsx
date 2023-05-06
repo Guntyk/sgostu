@@ -1,9 +1,15 @@
 import clubPlaceholder from "../../../../../../materials/icons/clubcard/club-placeholder.jpg";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import "../../Catalog.css";
 import "./ClubCard.css";
 
-export default function ClubCard({ club, dancers, coaches }) {
+export default function ClubCard({ club, dancers, coaches, screenWidth }) {
+  const { push } = useHistory();
+  function handleClick() {
+    if (screenWidth <= 840) {
+      push(`/catalogs/clubs/${club.id}`);
+    }
+  }
   // Fields filling
   function clubDancers() {
     const clubDancers = club["Dancers ok*"]?.filter((dancer) =>
@@ -23,7 +29,7 @@ export default function ClubCard({ club, dancers, coaches }) {
   }
 
   return (
-    <div className="catalog-card club-card">
+    <div className="catalog-card club-card" onClick={handleClick}>
       <div className="img-wrapper">
         {club["Logo Clubs"]?.url ? (
           <img

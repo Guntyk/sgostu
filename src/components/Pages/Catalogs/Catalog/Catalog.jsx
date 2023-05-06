@@ -186,6 +186,7 @@ export default function Catalog() {
                       />
                     ) : catalogs === "clubs" ? (
                       <ClubCard
+                        screenWidth={screenWidth}
                         dancers={dancers}
                         coaches={coaches}
                         club={entity}
