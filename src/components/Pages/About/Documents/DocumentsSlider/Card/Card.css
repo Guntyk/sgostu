@@ -1,10 +1,10 @@
-.swiper-slide {
+.slider-doc .swiper-slide {
   pointer-events: none;
   z-index: 0 !important;
 }
 
-.swiper-slide-next,
-.swiper-slide-prev {
+.slider-doc .swiper-slide-next,
+.slider-doc .swiper-slide-prev {
   z-index: 0 !important;
 }
 
@@ -147,23 +147,23 @@
   background: transparent;
 }
 
-.swiper-slide.swiper-slide-active {
+.slider-doc .swiper-slide.swiper-slide-active {
   pointer-events: all;
   z-index: 3 !important;
 }
 
-.swiper-slide-active .card-floating {
+.slider-doc .swiper-slide-active .card-floating {
   animation: 3s ease-in-out floating infinite;
   animation-delay: 0.8s;
 }
 
-.swiper-slide-active .document-card {
+.slider-doc .swiper-slide-active .document-card {
   filter: none;
   transform: rotateX(0) translateZ(25em) scale(1);
   z-index: 6;
 }
 
-.swiper-slide-active .document-card::before {
+.slider-doc .swiper-slide-active .document-card::before {
   opacity: 0;
 }
 

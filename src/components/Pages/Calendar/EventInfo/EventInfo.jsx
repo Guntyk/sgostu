@@ -21,6 +21,7 @@ export default function EventInfo() {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     if (events.length === 0) {
       dispatch(getEvents());
     }
@@ -50,9 +51,8 @@ export default function EventInfo() {
     <>
       {event ? (
         <article className="event-info">
-          {window.scrollTo(0, 0)}
+          <BackButton />
           <div className="container event-details-container">
-            <BackButton />
             <div className="event-detail-info-row">
               <div className="img-wrapper">
                 {event.banner?.data ? (

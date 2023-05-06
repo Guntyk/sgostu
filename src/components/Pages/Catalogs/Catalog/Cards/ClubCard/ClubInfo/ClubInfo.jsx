@@ -21,8 +21,8 @@ import EmailIcon from "../../../../../../../materials/icons/email.svg";
 
 import "./ClubInfo.css";
 
-import Facebook from "../../../../../../../materials/icons/Facebook";
 import Insta from "../../../../../../../materials/icons/Insta";
+import Facebook from "../../../../../../../materials/icons/Facebook";
 
 export default function ClubInfo() {
   const dancerClasses = useSelector(dancerClassesSelector);
@@ -31,9 +31,11 @@ export default function ClubInfo() {
   const dancers = useSelector(dancersSelector);
   const clubs = useSelector(clubsSelector);
 
+  const [clubCoaches, setClubCoaches] = useState([]);
+  const [clubDancers, setClubDancers] = useState([]);
+  const [info, setInfo] = useState("Танцюристи");
   const [loading, setLoading] = useState(true);
   const [club, setClub] = useState(null);
-  const [info, setInfo] = useState("Танцюристи");
 
   const { clubId } = useParams();
   const dispatch = useDispatch();
@@ -64,7 +66,6 @@ export default function ClubInfo() {
 
   useEffect(() => {
     if (clubs.length !== 0) {
-      setLoading(false);
       clubs.map((club) => {
         if (Number(club.id) === Number(clubId)) {
           setClub(club);
@@ -82,21 +83,23 @@ export default function ClubInfo() {
         setInfo(this.innerText);
       }
       list.forEach((item) => item.addEventListener("click", activeLink));
+      if (dancers) {
+        setClubDancers(
+          dancers.filter((dancer) => club["Dancers ok*"]?.includes(dancer.id))
+        );
+      }
+      if (coaches) {
+        setClubCoaches(
+          coaches.filter((coach) => club["Coaches ok"]?.includes(coach.id))
+        );
+      }
+      setTimeout(() => {
+        setLoading(false);
+      }, 1000);
     }
-  }, [club]);
+  }, [club, dancers, coaches]);
 
   // Fields filling
-  function clubDancers() {
-    return club["Dancers ok*"]?.filter((dancer) =>
-      dancers.map((dancer) => dancer.id).includes(dancer)
-    );
-  }
-  function clubCoaches() {
-    return club["Coaches ok"]?.filter((coach) =>
-      coaches.map((coach) => coach.id).includes(coach)
-    );
-  }
-
   function clubCity() {
     return club["Club Name"].split("(")[1].trim().slice(0, -1);
   }
@@ -189,13 +192,13 @@ export default function ClubInfo() {
                 <div className="club-dancers-coaches-quantity">
                   <div className="club-details-wrapper">
                     <dt className="coaches-quantity club-coaches">Тренерів:</dt>
-                    <dd>{clubCoaches() ? clubCoaches().length : "—"}</dd>
+                    <dd>{clubCoaches ? clubCoaches.length : "—"}</dd>
                   </div>
                   <div className="club-details-wrapper">
                     <dt className="dancers-quantity club-dancers">
                       Танцюристів:
                     </dt>
-                    <dd>{clubDancers() ? clubDancers().length : "—"}</dd>
+                    <dd>{clubDancers ? clubDancers.length : "—"}</dd>
                   </div>
                 </div>
                 <div className="club-details-wrapper">
@@ -288,43 +291,41 @@ export default function ClubInfo() {
           {info === "Танцюристи" ? (
             <div className="club-catalog club-dancers">
               <div className="club-detail-dancers-wrapper">
-                {dancers.length !== 0 && club["Dancers ok*"] ? (
-                  dancers
-                    .filter((dancer) =>
-                      club["Dancers ok*"]?.includes(dancer.id)
-                    )
-                    .map((dancer) => (
-                      <DancerCard
-                        screenWidth={window.screen.availWidth}
-                        classes={dancerClasses}
-                        dancer={dancer}
-                        clubs={clubs}
-                        key={dancer.id}
-                      />
-                    ))
+                {clubDancers.length !== 0 && !loading ? (
+                  clubDancers.map((dancer) => (
+                    <DancerCard
+                      screenWidth={window.screen.availWidth}
+                      classes={dancerClasses}
+                      dancer={dancer}
+                      clubs={clubs}
+                      key={dancer.id}
+                    />
+                  ))
+                ) : !loading && dancers.length > 0 ? (
+                  <h2 className="no-dancers-searched">Танцюристів немає</h2>
                 ) : (
-                  <Loader />
+                  <Loader className="club-catalog-loader" />
                 )}
               </div>
             </div>
           ) : (
             <div className="club-catalog club-dancers">
               <div className="club-detail-dancers-wrapper">
-                {coaches.length !== 0 && club["Coaches ok"] ? (
-                  coaches
-                    .filter((coach) => club["Coaches ok"]?.includes(coach.id))
-                    .map((coach) => (
-                      <CoachCard
-                        screenWidth={window.screen.availWidth}
-                        dancerClasses={dancerClasses}
-                        dancers={dancers}
-                        coach={coach}
-                        clubs={clubs}
-                        key={coach.id}
-                      />
-                    ))
+                {clubCoaches.length !== 0 && !loading ? (
+                  clubCoaches.map((coach) => (
+                    <CoachCard
+                      screenWidth={window.screen.availWidth}
+                      dancerClasses={dancerClasses}
+                      dancers={dancers}
+                      coach={coach}
+                      clubs={clubs}
+                      key={coach.id}
+                    />
+                  ))
+                ) : !loading && coaches.length > 0 ? (
+                  <h2 className="no-dancers-searched">Тренерів немає</h2>
                 ) : (
-                  <Loader />
+                  <Loader className="club-catalog-loader" />
                 )}
               </div>
             </div>
