@@ -6,6 +6,7 @@
 
 .event-detail-info-row {
   display: flex;
+  overflow: hidden;
 }
 
 .event-detail-info-row > .img-wrapper {

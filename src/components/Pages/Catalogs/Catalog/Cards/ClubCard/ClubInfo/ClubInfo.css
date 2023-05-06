@@ -35,6 +35,28 @@
   gap: 20px;
 }
 
+.club-info .event-detail-buttons > .indicator {
+  width: calc(100% / 2);
+}
+
+.club-info
+  .event-detail-buttons:has(.event-details-list:nth-child(2).active)
+  .indicator {
+  border-right: none;
+  border-top-right-radius: 0;
+}
+.club-info
+  .event-detail-buttons:has(.event-details-list:nth-child(2).active)
+  .indicator::after {
+  display: none;
+}
+
+.club-info .event-detail-buttons {
+  justify-content: center;
+  margin: 20px auto;
+  width: 50%;
+}
+
 .club-details-wrapper {
   display: flex;
   gap: 4px;
@@ -70,9 +92,14 @@
 }
 
 /* Quantity */
-.club-dancers-coaches-quantity {
+
+.dancers-quantity {
   display: flex;
   gap: 20px;
+}
+
+.dancer-detail-phone {
+  width: 50px;
 }
 
 .coaches-quantity,
@@ -84,6 +111,8 @@
 .club-advantages {
   line-height: 1.5;
   white-space: pre-line;
+  text-align: center;
+  margin: 60px;
 }
 
 /* Club catalogs */
@@ -91,6 +120,11 @@
   padding-bottom: 50px;
 }
 
+.club-detail-socials {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  
 .club-catalog-loader {
   height: 200px;
 }
@@ -110,6 +144,9 @@
     margin: 0 auto 50px;
     width: 90%;
     gap: 0px;
+  }
+  .club-info .event-detail-buttons {
+    width: 80%;
   }
 }
 
@@ -133,5 +170,21 @@
   }
   .club .club-name {
     text-align: center;
+  }
+  .club-info .event-detail-buttons {
+    width: 90%;
+  }
+
+  .dancer-social-btn {
+    width: 50px;
+  }
+  .dancer-detail-phone {
+    width: 45px;
+  }
+  .club-advantages {
+    margin: 30px;
+  }
+  .club {
+    margin-bottom: 50px;
   }
 }
