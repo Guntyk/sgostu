@@ -181,7 +181,7 @@ export default function Navigation({ openSideMenu, setOpenSideMenu }) {
               setOpenDropDown(!openDropDown);
             }}
           >
-            <span className="nav-link-name">Про нас</span>
+            <span className="nav-link-name">{language === "ua" ? "Про нас" : "About"}</span>
             <span className="nav-link-number">03</span>
           </span>
           <ul className={`nav-list-drop-down ${openDropDown && "opened"}`}>
