@@ -9,6 +9,8 @@ import BackButton from "../../../../../../../common/BackButton/BackButton";
 import { getStatuses } from "../../../../../../../redux/statuses/thunk";
 import { getCoaches } from "../../../../../../../redux/coaches/thunk";
 import { getDancers } from "../../../../../../../redux/dancers/thunk";
+import EmailIcon from "../../../../../../../materials/icons/Email";
+import PhoneIcon from "../../../../../../../materials/icons/Phone";
 import { getClubs } from "../../../../../../../redux/clubs/thunk";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect, useParams } from "react-router-dom";
@@ -16,8 +18,6 @@ import DancerCard from "../../DancerCard/DancerCard";
 import Loader from "../../../../../../Loader/Loader";
 import CoachCard from "../../CoachCard/CoachCard";
 import { useState, useEffect } from "react";
-import PhoneIcon from "../../../../../../../materials/icons/phone.svg";
-import EmailIcon from "../../../../../../../materials/icons/email.svg";
 
 import "./ClubInfo.css";
 
@@ -100,15 +100,6 @@ export default function ClubInfo() {
   }, [club, dancers, coaches]);
 
   // Fields filling
-  function clubCity() {
-    return club["Club Name"].split("(")[1].trim().slice(0, -1);
-  }
-
-  function clubSupervisor() {
-    const name = `${club["SurName of Supervisor"]} ${club["Name of Supervisor"]}`;
-    return name;
-  }
-
   function clubWebsite(clubWebsite, fieldType) {
     if (fieldType === "href") {
       if (clubWebsite.includes("https://") || clubWebsite.includes("http://")) {
@@ -171,60 +162,66 @@ export default function ClubInfo() {
         <section className="club-info">
           <BackButton />
           <div className="club">
-            {club["Logo Clubs"]?.url ? (
-              <img
-                className="club-avatar"
-                src={club["Logo Clubs"]?.url}
-                alt="Аватар"
-              />
-            ) : (
-              <img
-                className="club-avatar club-avatar-placeholder"
-                src={clubPlaceholder}
-                alt="Логотип клубу"
-              />
-            )}
+            <img
+              className="club-avatar"
+              src={
+                club["Logo Clubs"]?.url
+                  ? club["Logo Clubs"]?.url
+                  : clubPlaceholder
+              }
+              alt="Логотип клубу"
+            />
+
             <div className="club-inner">
-              <h2 className="club-name">
-                {club["Club Name"].split("(")[0].trim()}
-              </h2>
+              {club["Club Name"] && (
+                <h2 className="club-name">
+                  {club["Club Name"].split("(")[0].trim()}
+                </h2>
+              )}
               <dl className="club-details">
                 <div className="club-dancers-coaches-quantity">
                   <div className="club-details-wrapper">
                     <dt className="coaches-quantity club-coaches">Тренерів:</dt>
-                    <dd>{clubCoaches ? clubCoaches.length : "—"}</dd>
+                    <dd>{clubCoaches.length > 0 ? clubCoaches.length : "—"}</dd>
                   </div>
                   <div className="club-details-wrapper">
                     <dt className="dancers-quantity club-dancers">
                       Танцюристів:
                     </dt>
-                    <dd>{clubDancers ? clubDancers.length : "—"}</dd>
+                    <dd>{clubDancers.length > 0 ? clubDancers.length : "—"}</dd>
                   </div>
                 </div>
-                <div className="club-details-wrapper">
-                  <dt className="club-town">Місто:</dt>
-                  <dd>{clubCity() ? clubCity() : "Завантаження..."}</dd>
-                </div>
-                <div className="club-details-wrapper">
-                  <dt className="club-supervisor">Керівник:</dt>
-                  <dd>
-                    {clubSupervisor() ? clubSupervisor() : "Завантаження..."}
-                  </dd>
-                </div>
-                <div className="club-details-wrapper">
-                  <dt className="club-address">Адреса:</dt>
-                  <dd>
-                    {club["Address Club"]
-                      ? club["Address Club"]
-                      : "Завантаження..."}
-                  </dd>
-                </div>
+                {club["Address Club"] && (
+                  <div className="club-details-wrapper">
+                    <dt className="club-address">Адреса:</dt>
+                    <dd>{club["Address Club"]}</dd>
+                  </div>
+                )}
+                {(club["SurName of Supervisor"] ||
+                  club["Name of Supervisor"]) && (
+                  <div className="club-details-wrapper">
+                    <dt className="club-supervisor">Керівник:</dt>
+                    <dd>
+                      {club["SurName of Supervisor"]}{" "}
+                      {club["Name of Supervisor"]}
+                    </dd>
+                  </div>
+                )}
+                {club["Club Name"] && (
+                  <div className="club-details-wrapper">
+                    <dt className="club-town">Місто:</dt>
+                    <dd>
+                      {club["Club Name"].split("(")[1].trim().slice(0, -1)}
+                    </dd>
+                  </div>
+                )}
                 {club["Website club"] && (
                   <div className="club-details-wrapper">
                     <dt className="club-website">Сайт:</dt>
                     <dd>
                       {
                         <a
+                          className="linked"
                           href={clubWebsite(club["Website club"], "href")}
                           target="_blank"
                           rel="noreferrer"
@@ -238,46 +235,54 @@ export default function ClubInfo() {
               </dl>
             </div>
           </div>
-          <div className="club-detail-socials">
-            {club.Facebook && club.Facebook?.length > 3 && (
-              <a
-                href={clubSocials("facebook", club.Facebook)}
-                target="_blank"
-                rel="noreferrer"
-                className="dancer-social-btn dancer-detail-facebook"
-              >
-                <Facebook />
-              </a>
-            )}
-            {club.Instagram && club.Instagram?.length > 3 && (
-              <a
-                href={clubSocials("instagram", club.Instagram)}
-                target="_blank"
-                rel="noreferrer"
-                className="dancer-social-btn dancer-detail-instagram"
-              >
-                <Insta fill="#fff" />
-              </a>
-            )}
-            {club["Phone Number Club"] && (
-              <a
-                href={`tel:${clubSocials("phone", club["Phone Number Club"])}`}
-                className="dancer-social-btn dancer-detail-phone"
-              >
-                <img src={PhoneIcon} alt="" />
-              </a>
-            )}
-            {club["E-mail Club"] && (
-              <a
-                href={`mailto:${clubSocials("email", club["E-mail Club"])}`}
-                target="_blank"
-                rel="noreferrer"
-                className="dancer-social-btn dancer-detail-email"
-              >
-                <img src={EmailIcon} alt="" />
-              </a>
-            )}
-          </div>
+          {(club["Phone Number Club"] ||
+            club["E-mail Club"] ||
+            club.Facebook ||
+            club.Instagram) && (
+            <div className="detail-socials-wrapper">
+              {club.Facebook && club.Facebook?.length > 3 && (
+                <a
+                  href={clubSocials("facebook", club.Facebook)}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="social-btn facebook"
+                >
+                  <Facebook />
+                </a>
+              )}
+              {club.Instagram && club.Instagram?.length > 3 && (
+                <a
+                  href={clubSocials("instagram", club.Instagram)}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="social-btn instagram"
+                >
+                  <Insta fill="#fff" />
+                </a>
+              )}
+              {club["Phone Number Club"] && (
+                <a
+                  href={`tel:${clubSocials(
+                    "phone",
+                    club["Phone Number Club"]
+                  )}`}
+                  className="social-btn phone"
+                >
+                  <PhoneIcon />
+                </a>
+              )}
+              {club["E-mail Club"] && (
+                <a
+                  href={`mailto:${clubSocials("email", club["E-mail Club"])}`}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="social-btn email"
+                >
+                  <EmailIcon />
+                </a>
+              )}
+            </div>
+          )}
           {club["Perevagy Club"] && (
             <div className="club-advantages">{club["Perevagy Club"]}</div>
           )}

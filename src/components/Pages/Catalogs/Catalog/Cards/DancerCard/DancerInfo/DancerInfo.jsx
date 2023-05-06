@@ -133,7 +133,7 @@ export default function DancerInfo() {
               <dl className="dancer-details">
                 <div className="dancer-details-wrapper">
                   <dt className="dancer-club">Клуб:</dt>
-                  <dd className="entity-detail-club-name dancer-detail-club-name">
+                  <dd className="dancer-detail-club-name linked">
                     {dancerClub() ? (
                       <Link to={`/catalogs/clubs/${dancerClub().id}`}>
                         {dancerClub()["Club Name"].split("(")[0].trim()}
@@ -188,13 +188,13 @@ export default function DancerInfo() {
               )}
             </div>
           </div>
-          <div className="dancer-detail-socials">
+          <div className="detail-socials-wrapper">
             {dancer.Facebook && dancer.Facebook?.length > 3 && (
               <a
                 href={dancerSocials("facebook", dancer.Facebook)}
                 target="_blank"
                 rel="noreferrer"
-                className="dancer-social-btn dancer-detail-facebook"
+                className="social-btn facebook"
               >
                 <Facebook />
               </a>
@@ -204,7 +204,7 @@ export default function DancerInfo() {
                 href={dancerSocials("instagram", dancer.Instagram)}
                 target="_blank"
                 rel="noreferrer"
-                className="dancer-social-btn dancer-detail-instagram"
+                className="social-btn instagram"
               >
                 <Insta fill="#fff" />
               </a>
@@ -214,7 +214,7 @@ export default function DancerInfo() {
                 href={dancerSocials("tiktok", dancer.TikTok)}
                 target="_blank"
                 rel="noreferrer"
-                className="dancer-social-btn dancer-detail-tiktok"
+                className="social-btn tiktok"
               >
                 <Tiktok />
               </a>

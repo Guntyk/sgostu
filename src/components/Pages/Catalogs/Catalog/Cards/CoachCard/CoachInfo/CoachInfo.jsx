@@ -128,8 +128,8 @@ export default function CoachInfo() {
                   <dd>
                     {coachClub() ? (
                       <Link
+                        className="linked"
                         to={`/catalogs/clubs/${coachClub().id}`}
-                        className="entity-detail-club-name"
                       >
                         {coachClub()["Club Name"].split("(")[0].trim()}
                       </Link>

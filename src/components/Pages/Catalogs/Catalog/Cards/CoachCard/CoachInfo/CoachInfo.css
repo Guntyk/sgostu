@@ -62,8 +62,8 @@
   gap: 50px;
 }
 
-.catalog-card.dancer-card {
-  --coefficient: 1;
+.coach-info .dancer-card {
+  --coefficient: 0.9;
 }
 
 @media (max-width: 1150px) {

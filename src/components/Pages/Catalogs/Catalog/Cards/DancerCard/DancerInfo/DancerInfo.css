@@ -73,6 +73,7 @@
   height: 50px;
 }
 
+/* Dance class */
 .dancer-detail-class {
   display: grid;
   place-items: center;
@@ -83,11 +84,9 @@
   border-radius: 10px;
   box-sizing: border-box;
 }
-
 .dancer-detail-class.false {
   display: none;
 }
-
 .dancer-detail-prev-class {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
@@ -122,79 +121,8 @@
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }
-
 .dancer-detail-class.false ~ .dancer-detail-current-class::before {
   display: none;
-}
-
-/* Socials */
-.dancer-detail-socials {
-  display: flex;
-  justify-content: center;
-  gap: 50px;
-  margin-top: 50px;
-  width: 50%;
-  /* outline: 2px solid blue; */
-}
-.dancer-detail-socials path {
-  fill: #fff;
-}
-
-.dancer-social-btn {
-  display: grid;
-  place-items: center;
-  /* width: calc(100% / 3 - 50px); */
-  width: 60px;
-  border-radius: 10px;
-  aspect-ratio: 1/1;
-}
-
-.dancer-detail-facebook {
-  background: linear-gradient(#17a9fd, #0165e1);
-}
-
-.dancer-detail-facebook path {
-  fill: #fff;
-}
-
-.dancer-detail-instagram {
-  background: radial-gradient(
-      circle farthest-corner at 35% 90%,
-      #fec564,
-      transparent 50%
-    ),
-    radial-gradient(circle farthest-corner at 0 140%, #fec564, transparent 50%),
-    radial-gradient(ellipse farthest-corner at 0 -25%, #5258cf, transparent 50%),
-    radial-gradient(
-      ellipse farthest-corner at 20% -50%,
-      #5258cf,
-      transparent 50%
-    ),
-    radial-gradient(ellipse farthest-corner at 100% 0, #893dc2, transparent 50%),
-    radial-gradient(
-      ellipse farthest-corner at 60% -20%,
-      #893dc2,
-      transparent 50%
-    ),
-    radial-gradient(ellipse farthest-corner at 100% 100%, #d9317a, transparent),
-    linear-gradient(
-      #6559ca,
-      #bc318f 30%,
-      #e33f5f 50%,
-      #f77638 70%,
-      #fec66d 100%
-    );
-}
-
-.dancer-detail-tiktok {
-  background-color: #000;
-}
-
-.dancer-social-btn svg {
-  width: 70%;
-  height: auto;
-  fill: #fff;
-  aspect-ratio: 1/1;
 }
 
 @media (max-width: 1150px) {
