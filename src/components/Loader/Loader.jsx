@@ -1,9 +1,9 @@
 import "./Loader.css";
 
-export default function Loader() {
+export default function Loader({ className }) {
   const language = window.localStorage.getItem("language");
   return (
-    <div className="loader-sec">
+    <div className={`loader-sec ${className}`}>
       <div className="loader-wrapper">
         <span className="text">{language === "ua" ? "СГ" : "SG"}</span>
         <span className="text">{language === "ua" ? "СТУ" : "STU"}</span>

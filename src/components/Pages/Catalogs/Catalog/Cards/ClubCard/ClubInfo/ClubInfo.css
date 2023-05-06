@@ -75,8 +75,8 @@
   gap: 20px;
 }
 
-.club-coaches,
-.club-dancers {
+.coaches-quantity,
+.dancers-quantity {
   margin-left: 25px;
 }
 
@@ -89,6 +89,10 @@
 /* Club catalogs */
 .club-catalog {
   padding-bottom: 50px;
+}
+
+.club-catalog-loader {
+  height: 200px;
 }
 
 @media (max-width: 1150px) {
