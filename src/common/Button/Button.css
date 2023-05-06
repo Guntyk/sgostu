@@ -149,6 +149,13 @@
   backdrop-filter: none;
 }
 
+.back-link {
+  position: sticky;
+  top: 90px;
+  left: 5vw;
+  z-index: 3;
+}
+
 .back-link:hover {
   background: none;
 }
