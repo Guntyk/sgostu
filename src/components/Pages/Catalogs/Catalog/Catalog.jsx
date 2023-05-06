@@ -68,8 +68,10 @@ export default function Catalog() {
   useEffect(() => {
     if (statuses.length !== 0) {
       if (
-        (catalogs === "dancers" && dancers.length === 0) ||
-        !Array.isArray(dancers)
+        catalogs === "dancers" &&
+        (dancers.length === 0 ||
+          dancerClasses.length === 0 ||
+          clubs.length === 0)
       ) {
         dispatch(getDancers(statuses));
         dispatch(getDancerClasses());
@@ -88,13 +90,21 @@ export default function Catalog() {
         dispatch(getClubs());
       }
       if (
-        (catalogs === "clubs" && regions.length === 0) ||
-        clubs.length === 0
+        catalogs === "clubs" &&
+        (regions.length === 0 ||
+          clubs.length === 0 ||
+          coaches.length === 0 ||
+          dancers.length === 0)
       ) {
-        dispatch(getClubs());
+        dispatch(getCoaches(statuses));
+        dispatch(getDancers(statuses));
         dispatch(getRegions());
+        dispatch(getClubs());
       }
-      if (catalogs === "judges" && judges.length === 0) {
+      if (
+        catalogs === "judges" &&
+        (judges.length === 0 || judgeClasses.length === 0)
+      ) {
         dispatch(getJudges(statuses));
         dispatch(getJudgeClasses());
       }
@@ -175,7 +185,12 @@ export default function Catalog() {
                         clubs={clubs}
                       />
                     ) : catalogs === "clubs" ? (
-                      <ClubCard key={entity.id} club={entity} />
+                      <ClubCard
+                        dancers={dancers}
+                        coaches={coaches}
+                        club={entity}
+                        key={entity.id}
+                      />
                     ) : catalogs === "coaches" ? (
                       <CoachCard
                         screenWidth={screenWidth}
