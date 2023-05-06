@@ -16,6 +16,9 @@ import DancerCard from "../../DancerCard/DancerCard";
 import Loader from "../../../../../../Loader/Loader";
 import CoachCard from "../../CoachCard/CoachCard";
 import { useState, useEffect } from "react";
+import PhoneIcon from "../../../../../../../materials/icons/phone.svg";
+import EmailIcon from "../../../../../../../materials/icons/email.svg";
+
 import "./ClubInfo.css";
 
 import Facebook from "../../../../../../../materials/icons/Facebook";
@@ -258,7 +261,7 @@ export default function ClubInfo() {
                 href={`tel:${clubSocials("phone", club["Phone Number Club"])}`}
                 className="dancer-social-btn dancer-detail-phone"
               >
-                Phone Icon
+                <img src={PhoneIcon} alt="" />
               </a>
             )}
             {club["E-mail Club"] && (
@@ -268,7 +271,7 @@ export default function ClubInfo() {
                 rel="noreferrer"
                 className="dancer-social-btn dancer-detail-email"
               >
-                Email Icon
+                <img src={EmailIcon} alt="" />
               </a>
             )}
           </div>

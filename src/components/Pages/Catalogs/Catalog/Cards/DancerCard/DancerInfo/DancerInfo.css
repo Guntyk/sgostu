@@ -153,6 +153,10 @@
   background: linear-gradient(#17a9fd, #0165e1);
 }
 
+.dancer-detail-facebook path {
+  fill: #fff;
+}
+
 .dancer-detail-instagram {
   background: radial-gradient(
       circle farthest-corner at 35% 90%,
