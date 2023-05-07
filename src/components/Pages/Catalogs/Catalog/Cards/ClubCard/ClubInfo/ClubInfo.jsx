@@ -25,6 +25,7 @@ import Insta from "../../../../../../../materials/icons/Insta";
 import Facebook from "../../../../../../../materials/icons/Facebook";
 
 export default function ClubInfo() {
+  const language = window.localStorage.getItem("language");
   const dancerClasses = useSelector(dancerClassesSelector);
   const statuses = useSelector(statusesSelector);
   const coaches = useSelector(coachesSelector);
@@ -181,26 +182,32 @@ export default function ClubInfo() {
               <dl className="club-details">
                 <div className="club-dancers-coaches-quantity">
                   <div className="club-details-wrapper">
-                    <dt className="coaches-quantity club-coaches">Тренерів:</dt>
+                    <dt className="coaches-quantity club-coaches">
+                      {language === "en" ? "Coaches:" : "Тренерів:"}
+                    </dt>
                     <dd>{clubCoaches.length > 0 ? clubCoaches.length : "—"}</dd>
                   </div>
                   <div className="club-details-wrapper">
                     <dt className="dancers-quantity club-dancers">
-                      Танцюристів:
+                      {language === "en" ? "Dancers:" : "Танцюристів:"}
                     </dt>
                     <dd>{clubDancers.length > 0 ? clubDancers.length : "—"}</dd>
                   </div>
                 </div>
                 {club["Address Club"] && (
                   <div className="club-details-wrapper">
-                    <dt className="club-address">Адреса:</dt>
+                    <dt className="club-address">
+                      {language === "en" ? "Address:" : "Адреса:"}
+                    </dt>
                     <dd>{club["Address Club"]}</dd>
                   </div>
                 )}
                 {(club["SurName of Supervisor"] ||
                   club["Name of Supervisor"]) && (
                   <div className="club-details-wrapper">
-                    <dt className="club-supervisor">Керівник:</dt>
+                    <dt className="club-supervisor">
+                      {language === "en" ? "Supervisor:" : "Керівник:"}
+                    </dt>
                     <dd>
                       {club["SurName of Supervisor"]}{" "}
                       {club["Name of Supervisor"]}
@@ -209,7 +216,9 @@ export default function ClubInfo() {
                 )}
                 {club["Club Name"] && (
                   <div className="club-details-wrapper">
-                    <dt className="club-town">Місто:</dt>
+                    <dt className="club-town">
+                      {language === "en" ? "Town:" : "Місто:"}
+                    </dt>
                     <dd>
                       {club["Club Name"].split("(")[1].trim().slice(0, -1)}
                     </dd>
@@ -217,7 +226,9 @@ export default function ClubInfo() {
                 )}
                 {club["Website club"] && (
                   <div className="club-details-wrapper">
-                    <dt className="club-website">Сайт:</dt>
+                    <dt className="club-website">
+                      {language === "en" ? "Website:" : "Сайт:"}
+                    </dt>
                     <dd>
                       {
                         <a
@@ -288,12 +299,16 @@ export default function ClubInfo() {
           )}
           <div className="event-detail-info-row">
             <ul className="event-detail-buttons">
-              <li className="event-details-list active">Танцюристи</li>
-              <li className="event-details-list">Тренери</li>
+              <li className="event-details-list active">
+                {language === "en" ? "Dancers" : "Танцюристи"}
+              </li>
+              <li className="event-details-list">
+                {language === "en" ? "Coaches" : "Тренери"}
+              </li>
               <div className="indicator"></div>
             </ul>
           </div>
-          {info === "Танцюристи" ? (
+          {info === "Танцюристи" || info === "Dancers" ? (
             <div className="club-catalog club-dancers">
               <div className="club-detail-dancers-wrapper">
                 {clubDancers.length !== 0 && !loading ? (
@@ -307,7 +322,9 @@ export default function ClubInfo() {
                     />
                   ))
                 ) : !loading && dancers.length > 0 ? (
-                  <h2 className="no-dancers-searched">Танцюристів немає</h2>
+                  <h2 className="no-dancers-searched">
+                    {language === "en" ? "No dancers" : "Танцюристів немає"}
+                  </h2>
                 ) : (
                   <Loader className="club-catalog-loader" />
                 )}
@@ -328,7 +345,9 @@ export default function ClubInfo() {
                     />
                   ))
                 ) : !loading && coaches.length > 0 ? (
-                  <h2 className="no-dancers-searched">Тренерів немає</h2>
+                  <h2 className="no-dancers-searched">
+                    {language === "en" ? "No coaches" : "Тренерів немає"}
+                  </h2>
                 ) : (
                   <Loader className="club-catalog-loader" />
                 )}
