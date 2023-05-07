@@ -4,6 +4,7 @@ import "../../Catalog.css";
 import "./ClubCard.css";
 
 export default function ClubCard({ club, dancers, coaches, screenWidth }) {
+  const language = window.localStorage.getItem("language");
   const { push } = useHistory();
   function handleClick() {
     if (screenWidth <= 840) {
@@ -63,7 +64,7 @@ export default function ClubCard({ club, dancers, coaches, screenWidth }) {
         </span>
       </div>
       <Link className="card-details" to={`/catalogs/clubs/${club.id}`}>
-        Детальніше
+        {language === "en" ? "More" : "Детальніше"}
       </Link>
     </div>
   );
