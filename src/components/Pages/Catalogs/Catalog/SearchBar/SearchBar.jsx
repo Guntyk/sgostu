@@ -18,6 +18,7 @@ export default function SearchBar({
   judges,
   clubs,
 }) {
+  const language = window.localStorage.getItem("language");
   const [increase, setIncrease] = useState(false);
 
   const filteringArr =
@@ -71,10 +72,30 @@ export default function SearchBar({
         <input
           className="search-input"
           placeholder={`${
-            catalogs === "dancers" ? "Ім'я або прізвище танцюриста" : ""
-          }${catalogs === "clubs" ? "Назва клубу" : ""}${
-            catalogs === "coaches" ? "Ім'я або прізвище тренера" : ""
-          }${catalogs === "judges" ? "Ім'я або прізвище судді" : ""}`}
+            catalogs === "dancers"
+              ? language === "en"
+                ? "Name or surname of dancer"
+                : "Ім'я або прізвище танцюриста"
+              : ""
+          }${
+            catalogs === "clubs"
+              ? language === "en"
+                ? "Name of club"
+                : "Назва клубу"
+              : ""
+          }${
+            catalogs === "coaches"
+              ? language === "en"
+                ? "Name or surname of coach"
+                : "Ім'я або прізвище тренера"
+              : ""
+          }${
+            catalogs === "judges"
+              ? language === "en"
+                ? "Name or surname of judge"
+                : "Ім'я або прізвище судді"
+              : ""
+          }`}
           name="name"
         />
         <div className={`form-inner`}>
@@ -86,7 +107,7 @@ export default function SearchBar({
                 defaultValue="choose"
               >
                 <option className="club-option" value="choose" disabled>
-                  Клуб
+                  {language === "en" ? "Club" : "Клуб"}
                 </option>
                 {clubs.map((club) => (
                   <option className="club-option" value={club.id} key={club.id}>
@@ -102,7 +123,7 @@ export default function SearchBar({
                 defaultValue="choose"
               >
                 <option className="class-option" value="choose" disabled>
-                  Клас
+                  {language === "en" ? "Class" : "Клас"}
                 </option>
                 {dancerClasses.map((dancerClass) => (
                   <option
@@ -122,7 +143,7 @@ export default function SearchBar({
                 defaultValue="choose"
               >
                 <option className="status-option" value="choose" disabled>
-                  Статус
+                  {language === "en" ? "Status" : "Статус"}
                 </option>
                 {statuses
                   .filter((status) => status.Name !== "Не активний")
@@ -144,7 +165,7 @@ export default function SearchBar({
                 defaultValue="choose"
               >
                 <option className="region-option" value="choose" disabled>
-                  Регіон
+                  {language === "en" ? "Region" : "Регіон"}
                 </option>
                 {regions.map((region) => (
                   <option
@@ -164,7 +185,7 @@ export default function SearchBar({
                 defaultValue="choose"
               >
                 <option className="category-option" value="choose" disabled>
-                  Категорія
+                  {language === "en" ? "Category" : "Категорія"}
                 </option>
                 {judgeClasses.map((category) => (
                   <option
@@ -189,7 +210,7 @@ export default function SearchBar({
         {!loading && entitiesList.length < filteringArr.length && (
           <Button
             className="reset-filters-btn"
-            buttonText="Скинути фільтри"
+            buttonText={language === "en" ? "Reset filters" : "Скинути фільтри"}
             onClick={() => {
               setEntitiesList(filteringArr);
             }}
