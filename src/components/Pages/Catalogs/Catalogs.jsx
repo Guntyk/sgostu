@@ -2,22 +2,25 @@ import { Link } from "react-router-dom";
 import "./Catalogs.css";
 
 export default function Catalogs() {
+  const language = window.localStorage.getItem("language");
   return (
     <section className="catalogs">
       <div className="container">
-        <h1 className="catalogs-title">Каталоги</h1>
+        <h1 className="catalogs-title">
+          {language === "ua" ? "Каталоги" : "Catalogs"}
+        </h1>
         <div className="catalogs-wrapper">
           <Link to="/catalogs/dancers" className="catalogs-card">
-            Танцюристи
+            {language === "ua" ? "Танцюристи" : "Dancers"}
           </Link>
           <Link to="/catalogs/coaches" className="catalogs-card">
-            Тренера
+            {language === "ua" ? "Тренера" : "Coaches"}
           </Link>
           <Link to="/catalogs/clubs" className="catalogs-card">
-            Клуби
+            {language === "ua" ? "Клуби" : "Clubs"}
           </Link>
           <Link to="/catalogs/judges" className="catalogs-card">
-            Судді
+            {language === "ua" ? "Судді" : "Judges"}
           </Link>
         </div>
       </div>
