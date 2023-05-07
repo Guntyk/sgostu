@@ -13,6 +13,7 @@ import { useState, useEffect } from "react";
 import "./JudgeInfo.css";
 
 export default function JudgeInfo() {
+  const language = window.localStorage.getItem("language");
   const judgeClasses = useSelector(judgeClassesSelector);
   const statuses = useSelector(statusesSelector);
   const judges = useSelector(judgesSelector);
@@ -88,18 +89,42 @@ export default function JudgeInfo() {
               </h2>
               <dl className="judge-details">
                 <div className="judge-details-wrapper">
-                  <dt className="judge-city">Категорія:</dt>
+                  <dt className="judge-city">
+                    {language === "en" ? "Category:" : "Категорія:"}
+                  </dt>
                   <dd>
                     {judgeCategory() ? judgeCategory() : "Завантаження..."}
                   </dd>
                 </div>
                 <div className="judge-details-wrapper">
-                  <dt className="judge-chief">Головний суддя:</dt>
-                  <dd>{judge["Chief Judges"][0] === 1 ? "Так" : "Ні"}</dd>
+                  <dt className="judge-chief">
+                    {language === "en" ? "Chief judge:" : "Головний суддя:"}
+                  </dt>
+                  <dd>
+                    {judge["Chief Judges"][0] === 1
+                      ? language === "en"
+                        ? "Yes"
+                        : "Так"
+                      : language === "en"
+                      ? "No"
+                      : "Ні"}
+                  </dd>
                 </div>
                 <div className="judge-details-wrapper">
-                  <dt className="judge-inspector">Спортивний інспектор:</dt>
-                  <dd>{judge["Sport Inspector"][0] === 1 ? "Так" : "Ні"}</dd>
+                  <dt className="judge-inspector">
+                    {language === "en"
+                      ? "Sport inspector:"
+                      : "Спортивний інспектор:"}
+                  </dt>
+                  <dd>
+                    {judge["Sport Inspector"][0] === 1
+                      ? language === "en"
+                        ? "Yes"
+                        : "Так"
+                      : language === "en"
+                      ? "No"
+                      : "Ні"}
+                  </dd>
                 </div>
               </dl>
             </div>
