@@ -44,16 +44,16 @@ export default function Hero() {
       <h1 className="title">
         <div>
           <span className="title-stroke">
-            {language === "ua"
-              ? "Спілка громадських організацій"
-              : "Union of public organizations"}
+            {language === "en"
+              ? "Union of public organizations"
+              : "Спілка громадських організацій"}
           </span>
         </div>
         <div>
           <span className="title-stroke">
-            {language === "ua"
-              ? "спортивного танцю України"
-              : "of sports dance of Ukraine"}
+            {language === "en"
+              ? "of sports dance of Ukraine"
+              : "спортивного танцю України"}
           </span>
         </div>
       </h1>

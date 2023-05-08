@@ -29,34 +29,34 @@ export default function NearestEvents({ events }) {
       <article className="nearest-events">
         <div className="nearest-events-title">
           <p>
-            {language === "ua"
-              ? "Найближчі заходи СГОСТУ"
-              : "The nearest events of SGOSTU"}
+            {language === "en"
+              ? "The nearest events of SGOSTU"
+              : "Найближчі заходи СГОСТУ"}
           </p>
           <p>
-            {language === "ua"
-              ? "Найближчі заходи СГОСТУ"
-              : "The nearest events of SGOSTU"}
+            {language === "en"
+              ? "The nearest events of SGOSTU"
+              : "Найближчі заходи СГОСТУ"}
           </p>
           <p>
-            {language === "ua"
-              ? "Найближчі заходи СГОСТУ"
-              : "The nearest events of SGOSTU"}
+            {language === "en"
+              ? "The nearest events of SGOSTU"
+              : "Найближчі заходи СГОСТУ"}
           </p>
           <p>
-            {language === "ua"
-              ? "Найближчі заходи СГОСТУ"
-              : "The nearest events of SGOSTU"}
+            {language === "en"
+              ? "The nearest events of SGOSTU"
+              : "Найближчі заходи СГОСТУ"}
           </p>
           <p>
-            {language === "ua"
-              ? "Найближчі заходи СГОСТУ"
-              : "The nearest events of SGOSTU"}
+            {language === "en"
+              ? "The nearest events of SGOSTU"
+              : "Найближчі заходи СГОСТУ"}
           </p>
           <p>
-            {language === "ua"
-              ? "Найближчі заходи СГОСТУ"
-              : "The nearest events of SGOSTU"}
+            {language === "en"
+              ? "The nearest events of SGOSTU"
+              : "Найближчі заходи СГОСТУ"}
           </p>
         </div>
         <div className="nearest-events-wrapper">
@@ -72,9 +72,9 @@ export default function NearestEvents({ events }) {
           ) : (
             <span className="event-void">
               {" "}
-              {language === "ua"
-                ? "На жаль, заходів немає"
-                : "Unfortunately, there are no events"}
+              {language === "en"
+                ? "Unfortunately, there are no events"
+                : "На жаль, заходів немає"}
             </span>
           )}
         </div>
@@ -103,9 +103,9 @@ export default function NearestEvents({ events }) {
           ) : (
             <span className="event-void">
               {" "}
-              {language === "ua"
-                ? "На жаль, заходів немає"
-                : "Unfortunately, there are no events"}
+              {language === "en"
+                ? "Unfortunately, there are no events"
+                : "На жаль, заходів немає"}
             </span>
           )}
         </Swiper>
