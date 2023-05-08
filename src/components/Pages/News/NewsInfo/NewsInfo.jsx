@@ -1,5 +1,6 @@
 import { dateToLocalFormat } from "../../../../helpers/dateToLocalFormat";
 import { articlesSelector } from "../../../../redux/articles/selectors";
+import BackButton from "../../../../common/BackButton/BackButton";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { getArticles } from "../../../../redux/articles/thunk";
 import { faExpand } from "@fortawesome/free-solid-svg-icons";
@@ -9,7 +10,6 @@ import { useParams } from "react-router-dom";
 import Loader from "../../../Loader/Loader";
 import { useEffect, useState } from "react";
 import "./NewsInfo.css";
-import BackButton from "../../../../common/BackButton/BackButton";
 
 export default function NewsInfo() {
   const language = window.localStorage.getItem("language");
@@ -51,9 +51,9 @@ export default function NewsInfo() {
                     <img
                       src={url + article.front.data.attributes.url}
                       alt={
-                        language === "ua"
-                          ? "Головна фотографія новини"
-                          : "The main photo of the news"
+                        language === "en"
+                          ? "The main photo of the news"
+                          : "Головна фотографія новини"
                       }
                     />
                     <div className="hover">
@@ -66,9 +66,9 @@ export default function NewsInfo() {
                         <img
                           src={url + photo.attributes.url}
                           alt={
-                            language === "ua"
-                              ? "Фотографія новини"
-                              : "News photo"
+                            language === "en"
+                              ? "News photo"
+                              : "Фотографія новини"
                           }
                         />
                         <div className="hover">
@@ -79,15 +79,15 @@ export default function NewsInfo() {
                 </div>
                 <div className="article-text-wrapper">
                   <h1 className="article-title">
-                    {language === "ua" ? article.title : article.title_en}
+                    {language === "en" ? article.title_en : article.title}
                   </h1>
                   <span className="article-date">
                     {dateToLocalFormat(article.createdAt)}
                   </span>
                   <p className="article-description">
-                    {language === "ua"
-                      ? article.description
-                      : article.description_en}
+                    {language === "en"
+                      ? article.description_en
+                      : article.description}
                   </p>
                 </div>
               </div>

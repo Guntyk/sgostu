@@ -43,7 +43,7 @@ export default function News() {
         <article className="news">
           {window.scrollTo(0, 0)}
           <h1 className="news-title">
-            {language === "ua" ? "Усі новини" : "All news"}
+            {language === "en" ? "All news" : "Усі новини"}
           </h1>
           <div className="container news-wrapper">
             {articles.length !== 0 ? (
@@ -58,7 +58,7 @@ export default function News() {
                 ))
             ) : (
               <span className="void">
-                {language === "ua" ? "Новин немає" : "There is no news"}
+                {language === "en" ? "There is no news" : "Новин немає"}
               </span>
             )}
           </div>
