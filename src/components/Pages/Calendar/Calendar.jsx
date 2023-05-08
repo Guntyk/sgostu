@@ -52,17 +52,8 @@ export default function Calendar() {
   }, []);
 
   const months =
-    language === "ua"
-      ? monthsDataUA
-          .filter((month) =>
-            events
-              .map((event) => new Date(event.attributes.start).getMonth())
-              .includes(monthsDataUA.indexOf(month))
-          )
-          .filter(
-            (month) => monthsDataUA.indexOf(month) >= new Date().getMonth()
-          )
-      : monthsDataEN
+    language === "en"
+      ? monthsDataEN
           .filter((month) =>
             events
               .map((event) => new Date(event.attributes.start).getMonth())
@@ -70,6 +61,15 @@ export default function Calendar() {
           )
           .filter(
             (month) => monthsDataEN.indexOf(month) >= new Date().getMonth()
+          )
+      : monthsDataUA
+          .filter((month) =>
+            events
+              .map((event) => new Date(event.attributes.start).getMonth())
+              .includes(monthsDataUA.indexOf(month))
+          )
+          .filter(
+            (month) => monthsDataUA.indexOf(month) >= new Date().getMonth()
           );
 
   return (
@@ -78,18 +78,18 @@ export default function Calendar() {
         <article className="calendar">
           <div className="container">
             <h1 className="calendar-title">
-              {language === "ua"
-                ? "Календар заходів на 2023 рік"
-                : "Calendar of events for 2023"}
+              {language === "en"
+                ? "Calendar of events for 2023"
+                : "Календар заходів на 2023 рік"}
             </h1>
           </div>
           {months.map((month) => (
             <MonthSection
               month={month}
               monthIdx={
-                language === "ua"
-                  ? monthsDataUA.indexOf(month)
-                  : monthsDataEN.indexOf(month)
+                language === "en"
+                  ? monthsDataEN.indexOf(month)
+                  : monthsDataUA.indexOf(month)
               }
               key={month}
               events={events}
