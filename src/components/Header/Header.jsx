@@ -32,7 +32,9 @@ export default function Header() {
               <a href="/" className="name">
                 <LogoSGOSTU classname="header-logo" />
                 <span className="company-name">
-                  {window.localStorage.getItem("language") === "ua" ? "СГОСТУ" : "SGOSTU"}
+                  {window.localStorage.getItem("language") === "en"
+                    ? "SGOSTU"
+                    : "СГОСТУ"}
                 </span>
               </a>
             </div>
