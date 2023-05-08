@@ -22,25 +22,25 @@ export default function LastNewsCard({ article, articleId }) {
             <img
               className="news-img"
               src={`https://sgostu-backend.download${article.front.data.attributes.url}`}
-              alt={language === "ua" ? "Фотографія новини" : "News photo"}
+              alt={language === "en" ? "News photo" : "Фотографія новини"}
             />
           </div>
           <span className="news-card-date">
             {dateToLocalFormat(article.createdAt)}
           </span>
           <span className="news-card-title">
-            {language === "ua" ? article.title : article.title_en}
+            {language === "en" ? article.title_en : article.title}
           </span>
           <Button
             className="event-details-btn news-link"
-            buttonText={language === "ua" ? "Детальніше" : "More"}
+            buttonText={language === "en" ? "More" : "Детальніше"}
             onClick={() => {
               push(`/news/${articleId}`);
             }}
           />
         </div>
       ) : (
-        <span>{language === "ua" ? "Помилка" : "Error"}</span>
+        <span>{language === "en" ? "Error" : "Помилка"}</span>
       )}
     </>
   );

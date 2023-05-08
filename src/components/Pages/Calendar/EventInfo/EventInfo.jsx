@@ -21,6 +21,7 @@ export default function EventInfo() {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     if (events.length === 0) {
       dispatch(getEvents());
     }
@@ -50,16 +51,15 @@ export default function EventInfo() {
     <>
       {event ? (
         <article className="event-info">
-          {window.scrollTo(0, 0)}
+          <BackButton />
           <div className="container event-details-container">
-            <BackButton />
             <div className="event-detail-info-row">
               <div className="img-wrapper">
                 {event.banner?.data ? (
                   <img
                     className="event-banner"
                     src={url + event.banner.data?.attributes.url}
-                    alt={language === "ua" ? "Банер турніру" : "Event banner"}
+                    alt={language === "en" ? "Банер турніру" : "Event banner"}
                   />
                 ) : (
                   <img className="banner-placeholder" src={couple} />
@@ -69,31 +69,31 @@ export default function EventInfo() {
                 <li className="event-detail-info-title">{event.title}</li>
                 <li>
                   <span className="event-detail-stroke-name">
-                    {language === "ua" ? "Організація: " : "Organization: "}
+                    {language === "en" ? "Organization: " : "Організація: "}
                   </span>
                   {event.organizations?.data
                     ? event.organizations?.data
                         .map((organization) => organization.attributes.name)
                         .join(", ")
-                    : language === "ua"
+                    : language === "en"
                     ? "Not specified"
                     : "Не вказано"}
                 </li>
                 <li>
                   <span className="event-detail-stroke-name">
-                    {language === "ua" ? "Організатор: " : "Organizer: "}
+                    {language === "en" ? "Organizer: " : "Організатор: "}
                   </span>
-                  {language === "ua" ? event.organizator : event.organizator_en}
+                  {language === "en" ? event.organizator_en : event.organizator}
                 </li>
                 <li>
                   <span className="event-detail-stroke-name">
-                    {language === "ua" ? "Місто: " : "City: "}
+                    {language === "en" ? "City: " : "Місто: "}
                   </span>
-                  {language === "ua" ? event.town : event.town_en}
+                  {language === "en" ? event.town_en : event.town}
                 </li>
                 <li>
                   <span className="event-detail-stroke-name">
-                    {language === "ua" ? "Дата: " : "Data: "}
+                    {language === "en" ? "Data: " : "Дата: "}
                   </span>
                   {event.end
                     ? `${dateToLocalFormat(event.start).slice(
@@ -113,7 +113,7 @@ export default function EventInfo() {
                   !event.entry.data && !event.link && "disabled"
                 }`}
               >
-                {language === "ua" ? "Інформація" : "Information"}
+                {language === "en" ? "Information" : "Інформація"}
               </a>
               <a
                 target="_blank"
@@ -121,7 +121,7 @@ export default function EventInfo() {
                 href={event.judges}
                 className={`btn event-info-btn ${!event.judges && "disabled"}`}
               >
-                {language === "ua" ? "Судді" : "Judges"}
+                {language === "en" ? "Judges" : "Судді"}
               </a>
               <a
                 target="_blank"
@@ -131,21 +131,21 @@ export default function EventInfo() {
                   !event.registration && "disabled"
                 }`}
               >
-                {language === "ua" ? "Реєстрація учасників" : "Registration"}
+                {language === "en" ? "Registration" : "Реєстрація учасників"}
               </a>
             </div>
             <div className="event-detail-info-row">
               <ul className="event-detail-buttons">
                 <li className="event-details-list active">
-                  {language === "ua"
-                    ? "Спонсори та партнери"
-                    : "Sponsors and partners"}
+                  {language === "en"
+                    ? "Sponsors and partners"
+                    : "Спонсори та партнери"}
                 </li>
                 <li className="event-details-list">
-                  {language === "ua" ? "Готелі" : "Hotels"}
+                  {language === "en" ? "Hotels" : "Готелі"}
                 </li>
                 <li className="event-details-list">
-                  {language === "ua" ? "Адреса" : "Address"}
+                  {language === "en" ? "Address" : "Адреса"}
                 </li>
                 <div className="indicator"></div>
               </ul>

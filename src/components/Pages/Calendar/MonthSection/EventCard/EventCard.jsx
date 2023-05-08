@@ -32,7 +32,7 @@ export default function EventCard({ event, eventId, className }) {
         {event.end && " — " + dateToLocalFormat(event.end).slice(0, 5)}
       </span>
       <span className="event-town">
-        {language === "ua" ? event.town : event.town_en}
+        {language === "en" ? event.town_en : event.town}
       </span>
       <p className="event-title">{event.title}</p>
       <div className="event-categories">
@@ -42,11 +42,11 @@ export default function EventCard({ event, eventId, className }) {
         {event.spartak && <SpartakIcon />}
       </div>
       <p className="event-organizer">
-        {language === "ua" ? event.organizator : event.organizator_en}
+        {language === "en" ? event.organizator_en : event.organizator}
       </p>
       <Button
         className="event-more event-details-btn"
-        buttonText={language === "ua" ? "Більше" : "More"}
+        buttonText={language === "en" ? "More" : "Більше"}
         onClick={() => {
           push(`/calendar/${eventId}`);
         }}

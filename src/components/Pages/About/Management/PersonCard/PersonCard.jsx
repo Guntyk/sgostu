@@ -7,6 +7,7 @@ export default function PersonCard({
   activePerson,
   setActivePerson,
 }) {
+  const language = window.localStorage.getItem("language");
   return (
     <div
       className={`management-card-wrapper ${
@@ -14,7 +15,9 @@ export default function PersonCard({
       }`}
     >
       <div
-        className={`management-card ${activePerson === personId ? "active" : ""}`}
+        className={`management-card ${
+          activePerson === personId ? "active" : ""
+        }`}
       >
         <img
           src={`https://sgostu-backend.download${person.photo.data.attributes.url}`}
@@ -23,13 +26,19 @@ export default function PersonCard({
         />
         <div className="management-info">
           <h2 className="management-name">
-            {person.name.trim() + " " + person.surname.trim()}
+            {language === "ua"
+              ? person.name.trim() + " " + person.surname.trim()
+              : person.name_en.trim() + " " + person.surname_en.trim()}
           </h2>
           <span className="management-role">
-            {managementType === "regions" && person.regions && person.region}
+            {managementType === "regions" &&
+              person.regions &&
+              (language === "ua" ? person.region : person.region_en)}
             {managementType === "council" &&
               person.council &&
-              person.council_role}
+              (language === "ua"
+                ? person.council_role
+                : person.council_role_en)}
           </span>
           <button
             className="more-btn"
@@ -37,7 +46,7 @@ export default function PersonCard({
               setActivePerson(personId);
             }}
           >
-            Детальніше
+            {language === "ua" ? "Детальніше" : "More"}
           </button>
         </div>
       </div>

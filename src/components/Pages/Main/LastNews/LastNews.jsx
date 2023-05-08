@@ -14,7 +14,7 @@ export default function LastNews({ articles }) {
   return (
     <article className="last-news">
       <span className="last-news-title">
-        {language === "ua" ? "Останні новини" : "Latest news"}
+        {language === "en" ? "Latest news" : "Останні новини"}
       </span>
       <div className="container">
         <div className="last-news-wrapper">
@@ -32,7 +32,7 @@ export default function LastNews({ articles }) {
               ))
           ) : (
             <span className="event-void">
-              {language === "ua" ? "Новин немає" : "No news"}
+              {language === "en" ? "No news" : "Новин немає"}
             </span>
           )}
         </div>
@@ -65,13 +65,13 @@ export default function LastNews({ articles }) {
             ))
         ) : (
           <span className="event-void">
-            {language === "ua" ? "Новин немає" : "No news"}
+            {language === "en" ? "No news" : "Новин немає"}
           </span>
         )}
       </Swiper>
       {articles.length !== 0 && (
         <Button
-          buttonText={language === "ua" ? "Більше" : "More"}
+          buttonText={language === "en" ? "More" : "Більше"}
           onClick={() => {
             history.push("/news");
           }}

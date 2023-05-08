@@ -124,11 +124,71 @@
   left: 5vw;
 }
 
-.entity-detail-club-name {
-  position: relative;
+/* Socials */
+.detail-socials-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+.social-btn {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  aspect-ratio: 1/1;
+  border-radius: 10px;
+  background: rgb(245, 245, 245);
+  transition: 0.3s;
+}
+.social-btn.phone img {
+  width: 55%;
 }
 
-.entity-detail-club-name::before {
+.social-btn.facebook {
+  --color: rgb(1, 101, 225);
+}
+.social-btn.instagram {
+  --color: rgb(137, 47, 255);
+}
+.social-btn.tiktok {
+  --color: rgb(0, 0, 0);
+}
+.social-btn.phone,
+.social-btn.email {
+  --color: rgb(34, 34, 34);
+}
+.social-btn svg,
+.social-btn img {
+  height: 60%;
+  aspect-ratio: 1/1;
+}
+.social-btn path {
+  fill: rgba(70, 70, 70);
+  transition: 0.25s;
+}
+
+.social-btn:hover {
+  background: var(--color);
+}
+.social-btn:hover path {
+  fill: #fff;
+}
+
+.dancer-info .detail-socials-wrapper {
+  margin-top: 50px;
+}
+.dancer-info .social-btn {
+  width: 60px;
+}
+.dancer-info .social-btn svg {
+  height: 70%;
+  width: 70%;
+}
+
+/* Small Classes */
+.linked {
+  position: relative;
+}
+.linked::before {
   content: "";
   position: absolute;
   bottom: -3px;
@@ -139,8 +199,7 @@
   transform: translateX(-50%);
   transition: 0.2s;
 }
-
-.entity-detail-club-name:hover::before {
+.linked:hover::before {
   width: 100%;
 }
 

@@ -2,6 +2,7 @@ import { useHistory } from "react-router-dom";
 import "./Folder.css";
 
 export default function Folder({ type, typeId }) {
+  const language = window.localStorage.getItem("language");
   const { push } = useHistory();
   return (
     <div className="folder-wrapper">
@@ -28,14 +29,16 @@ export default function Folder({ type, typeId }) {
           <hr />
           <hr />
           <hr />
-          <span>Відкрити</span>
+          <span>{language === "ua" ? "Відкрити" : "Open"}</span>
           <hr />
           <hr />
           <hr />
           <hr />
         </div>
       </div>
-      <span className="type-name">{type.name}</span>
+      <span className="type-name">
+        {language === "ua" ? type.name : type.name_en}
+      </span>
     </div>
   );
 }

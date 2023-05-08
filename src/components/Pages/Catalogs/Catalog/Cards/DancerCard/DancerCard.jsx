@@ -5,6 +5,7 @@ import "./DancerCard.css";
 import "./Colors.css";
 
 export default function DancerCard({ dancer, clubs, classes, screenWidth }) {
+  const language = window.localStorage.getItem("language");
   const { push } = useHistory();
   const dancerFullName =
     dancer["D Surname"].trim() + " " + dancer["D Name"].trim();
@@ -79,7 +80,7 @@ export default function DancerCard({ dancer, clubs, classes, screenWidth }) {
         </span>
       </div>
       <Link className="dancer-details" to={`/catalogs/dancers/${dancer.id}`}>
-        Детальніше
+        {language === "en" ? "More" : "Детальніше"}
       </Link>
     </div>
   );

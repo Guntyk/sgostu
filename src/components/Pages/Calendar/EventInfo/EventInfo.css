@@ -4,18 +4,9 @@
   font-size: 1rem;
 }
 
-.back-link {
-  display: block;
-  margin-bottom: 21px;
-}
-
-.back-link:hover {
-  font-family: "e-Ukraine-Regular", sans-serif;
-  font-weight: 500;
-}
-
 .event-detail-info-row {
   display: flex;
+  overflow: hidden;
 }
 
 .event-detail-info-row > .img-wrapper {
@@ -57,7 +48,7 @@
   font-family: "e-Ukraine-Regular", sans-serif;
 }
 
-.event-detail-info-row:nth-child(3) {
+.event-detail-info-row:nth-child(2) {
   --gap: 3em;
   margin: 30px 0 100px 0;
   display: flex;
@@ -206,7 +197,7 @@
 }
 
 @media (max-width: 550px) {
-  .event-detail-info-row:nth-child(3) {
+  .event-detail-info-row:nth-child(2) {
     font-size: 0.75rem;
     --gap: 1em;
     margin: 40px 0;
@@ -233,5 +224,8 @@
   }
   .event-details-list {
     font-size: 14px;
+  }
+  .back-link {
+    left: 5%;
   }
 }

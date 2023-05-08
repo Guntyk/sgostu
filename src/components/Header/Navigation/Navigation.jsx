@@ -153,7 +153,7 @@ export default function Navigation({ openSideMenu, setOpenSideMenu }) {
             }}
           >
             <span className="nav-link-name">
-              {language === "ua" ? "Головна" : "Home"}
+              {language === "en" ? "Home" : "Головна"}
             </span>
             <span className="nav-link-number">01</span>
           </Link>
@@ -168,7 +168,7 @@ export default function Navigation({ openSideMenu, setOpenSideMenu }) {
             }}
           >
             <span className="nav-link-name">
-              {language === "ua" ? "Новини" : "News"}
+              {language === "en" ? "News" : "Новини"}
             </span>
             <span className="nav-link-number">02</span>
           </Link>
@@ -181,7 +181,9 @@ export default function Navigation({ openSideMenu, setOpenSideMenu }) {
               setOpenDropDown(!openDropDown);
             }}
           >
-            <span className="nav-link-name">Про нас</span>
+            <span className="nav-link-name">
+              {language === "en" ? "About" : "Про нас"}
+            </span>
             <span className="nav-link-number">03</span>
           </span>
           <ul className={`nav-list-drop-down ${openDropDown && "opened"}`}>
@@ -195,7 +197,7 @@ export default function Navigation({ openSideMenu, setOpenSideMenu }) {
                 }}
               >
                 <span className="nav-link-name">
-                  {language === "ua" ? "Документи" : "Documents"}
+                  {language === "en" ? "Documents" : "Документи"}
                 </span>
               </Link>
               {/* <hr className="nav-line" /> */}
@@ -209,7 +211,7 @@ export default function Navigation({ openSideMenu, setOpenSideMenu }) {
                 }}
               >
                 <span className="nav-link-name">
-                  {language === "ua" ? "Керівництво" : "Management"}
+                  {language === "en" ? "Management" : "Керівництво"}
                 </span>
               </Link>
               {/* <hr className="nav-line" /> */}
@@ -223,7 +225,7 @@ export default function Navigation({ openSideMenu, setOpenSideMenu }) {
                 }}
               >
                 <span className="nav-link-name">
-                  {language === "ua" ? "Історія" : "History"}
+                  {language === "en" ? "History" : "Історія"}
                 </span>
               </Link>
               {/* <hr className="nav-line" /> */}
@@ -237,7 +239,7 @@ export default function Navigation({ openSideMenu, setOpenSideMenu }) {
                 }}
               >
                 <span className="nav-link-name">
-                  {language === "ua" ? "Контакти" : "Contacts"}
+                  {language === "en" ? "Contacts" : "Контакти"}
                 </span>
               </Link>
               {/* <hr className="nav-line" /> */}
@@ -255,7 +257,7 @@ export default function Navigation({ openSideMenu, setOpenSideMenu }) {
             }}
           >
             <span className="nav-link-name">
-              {language === "ua" ? "Каталоги" : "Catalogs"}
+              {language === "en" ? "Catalogs" : "Каталоги"}
             </span>
             <span className="nav-link-number">04</span>
           </Link>
@@ -271,7 +273,7 @@ export default function Navigation({ openSideMenu, setOpenSideMenu }) {
             }}
           >
             <span className="nav-link-name">
-              {language === "ua" ? "Календар" : "Calendar"}
+              {language === "en" ? "Calendar" : "Календар"}
             </span>
             <span className="nav-link-number">05</span>
           </Link>
@@ -287,7 +289,7 @@ export default function Navigation({ openSideMenu, setOpenSideMenu }) {
             }}
           >
             <span className="nav-link-name">
-              {language === "ua" ? "Зворотній зв'язок" : "Feedback"}
+              {language === "en" ? "Feedback" : "Зворотній зв'язок"}
             </span>
             <span className="nav-link-number">06</span>
           </Link>

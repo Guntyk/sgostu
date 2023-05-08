@@ -1,5 +1,5 @@
 .club-info {
-  padding-top: 150px;
+  padding-top: 100px;
   background: url(../../../../../../../materials/backgrounds/waves-right.svg)
       no-repeat 100% 100%,
     url(../../../../../../../materials/backgrounds/waves-left.svg) no-repeat 0%
@@ -13,34 +13,12 @@
   justify-content: center;
   align-items: center;
   gap: 70px;
-  margin-bottom: 100px;
-}
-
-.club-avatar {
-  width: 180px;
-  height: 180px;
-  border: 1px solid #272500;
-  border-radius: 50%;
-  object-fit: cover;
-}
-
-.club-name {
-  font-size: 24px;
-}
-
-.club-inner,
-.club-details {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+  margin-bottom: 30px;
 }
 
 .club-details-wrapper {
   display: flex;
   gap: 4px;
-}
-.club-details-wrapper dd {
-  font-family: "e-Ukraine-Light";
 }
 
 .club-dancers {
@@ -56,17 +34,50 @@
 .club-detail-dancers-wrapper {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  justify-content: center;
   margin: 0 auto 100px;
   width: 70%;
   gap: 50px;
 }
 
-.catalog-card.dancer-card {
-  --coefficient: 1;
+.club-info .dancer-card {
+  --coefficient: 0.9;
 }
-.catalog-card.coach-card {
-  --coefficient: 1;
+.club-info .coach-card {
+  --coefficient: 0.9;
+}
+
+/* Information */
+.club-avatar {
+  width: 200px;
+  aspect-ratio: 1/1;
+  border: 1px solid rgba(100, 100, 100, 0.2);
+  border-radius: 50%;
+  object-fit: contain;
+}
+.club-name {
+  position: relative;
+  font-family: "e-Ukraine-Head", sans-serif;
+  font-size: 26px;
+  line-height: 2;
+}
+.club-name::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  background: rgba(100, 100, 100, 0.2);
+}
+.club-inner,
+.club-details {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.club-details-wrapper dd {
+  font-family: "e-Ukraine-Light";
 }
 
 /* Quantity */
@@ -74,21 +85,54 @@
   display: flex;
   gap: 20px;
 }
-
-.club-coaches,
-.club-dancers {
+.club-info .coaches-quantity,
+.club-info .dancers-quantity {
   margin-left: 25px;
 }
 
 /* Advantages */
 .club-advantages {
+  margin: 30px auto;
+  padding: 20px;
+  width: 60%;
+  font-family: "e-Ukraine-Light", sans-serif;
   line-height: 1.5;
   white-space: pre-line;
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(100, 100, 100, 0.2);
+}
+
+/* Switcher */
+.club-info .event-detail-buttons > .indicator {
+  width: calc(100% / 2);
+}
+.club-info
+  .event-detail-buttons:has(.event-details-list:nth-child(2).active)
+  .indicator {
+  border-right: none;
+  border-top-right-radius: 0;
+}
+.club-info
+  .event-detail-buttons:has(.event-details-list:nth-child(2).active)
+  .indicator::after {
+  display: none;
+}
+.club-info .event-detail-buttons {
+  justify-content: center;
+  margin: 20px auto;
+  width: 50%;
 }
 
 /* Club catalogs */
 .club-catalog {
   padding-bottom: 50px;
+}
+.club-info .event-detail-buttons li {
+  width: calc(100% / 2);
+}
+.club-catalog-loader {
+  height: 200px;
 }
 
 @media (max-width: 1150px) {
@@ -102,16 +146,34 @@
 }
 
 @media (max-width: 840px) {
+  .club {
+    margin-bottom: 20px;
+    gap: 20px;
+  }
+  .club-details {
+    font-size: 14px;
+    gap: 15px;
+  }
+  .club-advantages {
+    width: 90%;
+    margin: 20px auto;
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 14px;
+  }
   .club-detail-dancers-wrapper {
     margin: 0 auto 50px;
     width: 90%;
     gap: 0px;
   }
+  .club-info .event-detail-buttons {
+    width: 80%;
+  }
 }
 
 @media (max-width: 550px) {
   .club-info {
-    padding-top: 70px;
+    padding-top: 30px;
     background: url(../../../../../../../materials/backgrounds/mobile/waves-left.svg),
       url(../../../../../../../materials/backgrounds/mobile/waves-right.svg);
     background-repeat: no-repeat, no-repeat;
@@ -121,7 +183,7 @@
   }
   .club {
     flex-direction: column;
-    gap: 30px;
+    gap: 0;
   }
   .club-details-wrapper {
     font-family: "e-Ukraine-Light", sans-serif;
@@ -129,5 +191,18 @@
   }
   .club .club-name {
     text-align: center;
+  }
+  .club-info .event-detail-buttons {
+    width: 90%;
+  }
+
+  .dancer-social-btn {
+    width: 35px;
+  }
+  .dancer-detail-phone {
+    width: 30px;
+  }
+  .club {
+    margin-bottom: 25px;
   }
 }

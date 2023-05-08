@@ -18,6 +18,7 @@ import { useState, useEffect } from "react";
 import "./CoachInfo.css";
 
 export default function CoachInfo() {
+  const language = window.localStorage.getItem("language");
   const dancerClasses = useSelector(dancerClassesSelector);
   const statuses = useSelector(statusesSelector);
   const coaches = useSelector(coachesSelector);
@@ -110,7 +111,11 @@ export default function CoachInfo() {
               </h2>
               <dl className="coach-details">
                 <div className="coach-details-wrapper">
-                  <dt className="coach-dancers">Танцюристів тренера:</dt>
+                  <dt className="coach-dancers">
+                    {language === "en"
+                      ? "Coach dancers:"
+                      : "Танцюристів тренера:"}
+                  </dt>
                   <dd>
                     {coachDancersQuantity()
                       ? coachDancersQuantity() >= 1
@@ -120,19 +125,25 @@ export default function CoachInfo() {
                   </dd>
                 </div>
                 <div className="coach-details-wrapper">
-                  <dt className="coach-city">Місто:</dt>
+                  <dt className="coach-city">
+                    {language === "en" ? "Town:" : "Місто:"}
+                  </dt>
                   <dd>{coachTown() ? coachTown() : "Завантаження..."}</dd>
                 </div>
                 <div className="coach-details-wrapper">
-                  <dt className="coach-club">Клуб:</dt>
+                  <dt className="coach-club">
+                    {language === "en" ? "Club:" : "Клуб:"}
+                  </dt>
                   <dd>
                     {coachClub() ? (
                       <Link
+                        className="linked"
                         to={`/catalogs/clubs/${coachClub().id}`}
-                        className="entity-detail-club-name"
                       >
                         {coachClub()["Club Name"].split("(")[0].trim()}
                       </Link>
+                    ) : language === "en" ? (
+                      "Loading..."
                     ) : (
                       "Завантаження..."
                     )}
@@ -143,7 +154,9 @@ export default function CoachInfo() {
           </div>
           <div className="coach-dancers">
             <span className="coach-dancers-title">
-              Список танцюристів тренера:
+              {language === "en"
+                ? "List of coach dancers:"
+                : "Список танцюристів тренера:"}
             </span>
             <div className="coach-detail-dancers-wrapper">
               {dancers.length !== 0 && coach["My Dancers ok"] ? (

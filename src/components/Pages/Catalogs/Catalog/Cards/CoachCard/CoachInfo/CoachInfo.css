@@ -57,13 +57,14 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  margin: 0 auto 100px;
+  margin: 0 auto;
+  padding-bottom: 100px;
   width: 70%;
   gap: 50px;
 }
 
-.catalog-card.dancer-card {
-  --coefficient: 1;
+.coach-info .dancer-card {
+  --coefficient: 0.9;
 }
 
 @media (max-width: 1150px) {

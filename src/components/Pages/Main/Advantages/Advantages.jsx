@@ -6,42 +6,42 @@ export default function Advantages() {
     <article className="advantages">
       <div className="cards-wrapper">
         <div className="advantage-card">
-          {language === "ua" ? "Наші переваги" : "Our advantages"}
+          {language === "en" ? "Our advantages" : "Наші переваги"}
         </div>
         <div className="advantage-card">
-          {language === "ua"
-            ? "Електронні книжки танцюристів"
-            : "Electronic books of dancers"}
+          {language === "en"
+            ? "Electronic books of dancers"
+            : "Електронні книжки танцюристів"}
         </div>
         <div className="advantage-card">
-          {language === "ua"
-            ? "Присвоєння спортивних розрядів"
-            : "Assignment of sports categories"}
+          {language === "en"
+            ? "Assignment of sports categories"
+            : "Присвоєння спортивних розрядів"}
         </div>
         <div className="advantage-card">
-          {language === "ua"
-            ? "Підтримка обласних чемпіонатів"
-            : "Support of regional championships"}
+          {language === "en"
+            ? "Support of regional championships"
+            : "Підтримка обласних чемпіонатів"}
         </div>
         <div className="advantage-card">
-          {language === "ua"
-            ? "Співпраця з організаціями країн Східної Європи"
-            : "Cooperation with organizations of Eastern European countries"}
+          {language === "en"
+            ? "Cooperation with organizations of Eastern European countries"
+            : "Співпраця з організаціями країн Східної Європи"}
         </div>
         <div className="advantage-card">
-          {language === "ua"
-            ? "Пільги для танцюристів на турнірах"
-            : "Benefits for dancers at tournaments"}
+          {language === "en"
+            ? "Benefits for dancers at tournaments"
+            : "Пільги для танцюристів на турнірах"}
         </div>
         <div className="advantage-card">
-          {language === "ua"
-            ? "Рекомендації для тренерів, які виїжджають за кордон"
-            : "Recommendations for coaches traveling abroad"}
+          {language === "en"
+            ? "Recommendations for coaches traveling abroad"
+            : "Рекомендації для тренерів, які виїжджають за кордон"}
         </div>
         <div className="advantage-card">
-          {language === "ua"
-            ? "Сайти для великих клубів"
-            : "Sites for big clubs"}
+          {language === "en"
+            ? "Sites for big clubs"
+            : "Сайти для великих клубів"}
         </div>
       </div>
     </article>
