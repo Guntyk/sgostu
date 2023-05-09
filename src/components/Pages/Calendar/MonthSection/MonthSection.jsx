@@ -86,7 +86,7 @@ export default function MonthSection({ month, monthIdx, events }) {
           ) : (
             <SwiperSlide>
               <h1 className="event-void">
-                {language === "ua"
+                {language === "en"
                   ? "Unfortunately, there are no events"
                   : "На жаль, заходів немає"}
               </h1>
