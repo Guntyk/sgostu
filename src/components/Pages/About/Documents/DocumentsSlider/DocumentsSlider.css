@@ -12,7 +12,7 @@
   height: 100vh;
 }
 
-.slider-doc.swiper-wrapper {
+.slider-doc .swiper-wrapper {
   padding-left: 20vw;
 }
 
@@ -36,7 +36,7 @@
   .slider {
     font-size: 0.6rem;
   }
-  .slider-doc.swiper-wrapper {
+  .slider-doc .swiper-wrapper {
     padding-left: 10vw;
   }
 }
@@ -51,7 +51,7 @@
     background-position: 0 0, 100% 125%;
     background-size: 90% 130%;
   }
-  .swiper-wrapper {
+  .slider-doc .swiper-wrapper {
     padding-left: 0;
   }
 }

@@ -36,7 +36,7 @@ export default function Footer() {
           <div className="footer-wrapper">
             <div className="footer-column">
               <span className="footer-subtitle">
-                {language === "ua" ? "Телефон:" : "Phone:"}
+                {language === "en" ? "Phone:" : "Телефон:"}
               </span>
               <a className="tel" href="tel:+380674428268">
                 +38 (067) 442 82 68
@@ -51,16 +51,16 @@ export default function Footer() {
             </div>
             <div className="footer-column">
               <span className="footer-subtitle">
-                {language === "ua" ? "Адреса:" : "Address:"}
+                {language === "en" ? "Address:" : "Адреса:"}
               </span>
               <a
                 href="https://goo.gl/maps/odd6byYbjoo79Qpa9"
                 target="_blank"
                 rel="noreferrer"
               >
-                {language === "ua"
-                  ? "м. Київ, Залізничне шосе 3"
-                  : "Kyiv, Zaliznychne shose 3"}
+                {language === "en"
+                  ? "Kyiv, Zaliznychne shose 3"
+                  : "м. Київ, Залізничне шосе 3"}
               </a>
             </div>
           </div>
@@ -85,7 +85,7 @@ export default function Footer() {
           <hr className="footer-hr" />
           <div className="footer-bottom">
             <span className="copyright">
-              © {year} {language === "ua" ? "СГОСТУ" : "SGOSTU"}
+              © {year} {language === "en" ? "SGOSTU" : "СГОСТУ"}
             </span>
             <SateLogo />
             <a

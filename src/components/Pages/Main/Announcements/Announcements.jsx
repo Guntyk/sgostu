@@ -9,7 +9,7 @@ export default function Announcements({ articles }) {
   return (
     <article className="last-news announcements">
       <span className="last-news-title">
-        {language === "ua" ? "Анонси" : "Announcements"}
+        {language === "en" ? "Announcements" : "Анонси"}
       </span>
       <div className="container">
         <div className="last-news-wrapper">
@@ -54,7 +54,7 @@ export default function Announcements({ articles }) {
             ))
         ) : (
           <span className="event-void">
-            {language === "ua" ? "Новин немає" : "There is no news"}
+            {language === "en" ? "There is no news" : "Новин немає"}
           </span>
         )}
       </Swiper>

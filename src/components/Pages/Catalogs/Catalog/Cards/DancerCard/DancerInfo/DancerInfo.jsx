@@ -20,6 +20,7 @@ import Insta from "../../../../../../../materials/icons/Insta";
 import Tiktok from "../../../../../../../materials/icons/Tiktok";
 
 export default function DancerInfo() {
+  const language = window.localStorage.getItem("language");
   window.scrollTo(0, 0);
   const dancerClasses = useSelector(dancerClassesSelector);
   const statuses = useSelector(statusesSelector);
@@ -132,19 +133,25 @@ export default function DancerInfo() {
               </h2>
               <dl className="dancer-details">
                 <div className="dancer-details-wrapper">
-                  <dt className="dancer-club">Клуб:</dt>
-                  <dd className="entity-detail-club-name dancer-detail-club-name">
+                  <dt className="dancer-club">
+                    {language === "en" ? "Club:" : "Клуб:"}
+                  </dt>
+                  <dd className="dancer-detail-club-name linked">
                     {dancerClub() ? (
                       <Link to={`/catalogs/clubs/${dancerClub().id}`}>
                         {dancerClub()["Club Name"].split("(")[0].trim()}
                       </Link>
+                    ) : language === "en" ? (
+                      "Loading..."
                     ) : (
                       "Завантаження..."
                     )}
                   </dd>
                 </div>
                 <div className="dancer-details-wrapper">
-                  <dt className="dancer-status">Статус:</dt>
+                  <dt className="dancer-status">
+                    {language === "en" ? "Status:" : "Статус:"}
+                  </dt>
                   <dd className="dancer-detail-status-name">
                     {
                       statuses.filter(
@@ -183,18 +190,20 @@ export default function DancerInfo() {
                       : dancerClass("next")}
                   </span>
                 </div>
+              ) : language === "en" ? (
+                "Loading..."
               ) : (
                 "Завантаження..."
               )}
             </div>
           </div>
-          <div className="dancer-detail-socials">
+          <div className="detail-socials-wrapper">
             {dancer.Facebook && dancer.Facebook?.length > 3 && (
               <a
                 href={dancerSocials("facebook", dancer.Facebook)}
                 target="_blank"
                 rel="noreferrer"
-                className="dancer-social-btn dancer-detail-facebook"
+                className="social-btn facebook"
               >
                 <Facebook />
               </a>
@@ -204,7 +213,7 @@ export default function DancerInfo() {
                 href={dancerSocials("instagram", dancer.Instagram)}
                 target="_blank"
                 rel="noreferrer"
-                className="dancer-social-btn dancer-detail-instagram"
+                className="social-btn instagram"
               >
                 <Insta fill="#fff" />
               </a>
@@ -214,7 +223,7 @@ export default function DancerInfo() {
                 href={dancerSocials("tiktok", dancer.TikTok)}
                 target="_blank"
                 rel="noreferrer"
-                className="dancer-social-btn dancer-detail-tiktok"
+                className="social-btn tiktok"
               >
                 <Tiktok />
               </a>

@@ -9,12 +9,12 @@ export default function Database() {
       <div className="database-wrapper">
         <div className="database-text">
           <h3 className="database-title">
-            {language === "ua" ? "База даних СГОСТУ" : "SGOSTU database"}
+            {language === "en" ? "SGOSTU database" : "База даних СГОСТУ"}
           </h3>
           <p className="database-description">
-            {language === "ua"
-              ? "Клуби, Тренери, Судді, Танцюристи"
-              : "Clubs, Trainers, Judges, Dancers"}
+            {language === "en"
+              ? "Clubs, Trainers, Judges, Dancers"
+              : "Клуби, Тренери, Судді, Танцюристи"}
           </p>
           <a
             className="btn database-btn"
@@ -22,7 +22,7 @@ export default function Database() {
             target="_blank"
             rel="norefferer noopener"
           >
-            {language === "ua" ? "Приєднатися" : "Join"}
+            {language === "en" ? "Join" : "Приєднатися"}
           </a>
         </div>
         <div className="img-wrapper">

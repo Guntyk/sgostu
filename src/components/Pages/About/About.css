@@ -1,5 +1,5 @@
 .about-page {
-  padding: 150px 0 135px;
+  padding: 70px 0 135px;
 }
 
 .about-page-title {
@@ -25,7 +25,6 @@
   max-width: 112px;
   width: 100%;
   border: 2px solid #272500;
-  /* margin-left: 0; */
 
   margin: 17px 22px 17px 0;
 }
@@ -37,6 +36,7 @@
 .about-content-text {
   font-family: "e-Ukraine-Light";
   line-height: 24px;
+  white-space: pre-line;
 }
 
 .about-img {

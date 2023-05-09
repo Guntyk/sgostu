@@ -13,7 +13,6 @@
   justify-content: center;
   align-items: center;
   gap: 70px;
-  margin-bottom: 100px;
 }
 
 .coach-avatar {
@@ -43,6 +42,10 @@
   font-family: "e-Ukraine-Light";
 }
 
+.coach-socials-wrapper {
+  margin: 15px 0 100px;
+}
+
 .coach-dancers {
   text-align: center;
 }
@@ -56,14 +59,20 @@
 .coach-detail-dancers-wrapper {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
-  margin: 0 auto 100px;
+  justify-content: center;
+  margin: 0 auto;
+  padding-bottom: 100px;
   width: 70%;
   gap: 50px;
 }
 
-.catalog-card.dancer-card {
-  --coefficient: 1;
+.coach-info-no-results {
+  margin-top: 0;
+  height: 20vh;
+}
+
+.coach-info .dancer-card {
+  --coefficient: 0.9;
 }
 
 @media (max-width: 1150px) {
@@ -97,6 +106,9 @@
   .coach {
     flex-direction: column;
     gap: 30px;
+  }
+  .coach-socials-wrapper {
+    margin: 15px 0 50px;
   }
   .coach-details-wrapper {
     font-family: "e-Ukraine-Light", sans-serif;

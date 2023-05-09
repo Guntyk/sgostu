@@ -4,6 +4,7 @@ import "./JudgeCard.css";
 import "../../Catalog.css";
 
 export default function JudgeCard({ judge, classes, screenWidth }) {
+  const language = window.localStorage.getItem("language");
   const { push } = useHistory();
 
   function handleClick() {
@@ -32,7 +33,7 @@ export default function JudgeCard({ judge, classes, screenWidth }) {
           .Category.trim()}
       </span>
       <Link className="card-details" to={`./judges/${judge.id}`}>
-        Детальніше
+        {language === "en" ? "More" : "Детальніше"}
       </Link>
     </div>
   );

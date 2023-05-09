@@ -4,6 +4,7 @@ import "./CoachCard.css";
 import "../../Catalog.css";
 
 export default function CoachCard({ dancers, coach, clubs, screenWidth }) {
+  const language = window.localStorage.getItem("language");
   const { push } = useHistory();
   const coachFullName =
     coach["Coach Surname"].trim() + " " + coach["Coach Name"].trim();
@@ -57,7 +58,7 @@ export default function CoachCard({ dancers, coach, clubs, screenWidth }) {
         </span>
       </div>
       <Link className="card-details" to={`/catalogs/coaches/${coach.id}`}>
-        Детальніше
+        {language === "en" ? "More" : "Детальніше"}
       </Link>
     </div>
   );

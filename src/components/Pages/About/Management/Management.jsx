@@ -8,6 +8,7 @@ import Loader from "../../../Loader/Loader";
 import "./Management.css";
 
 export default function Management() {
+  const language = window.localStorage.getItem("language");
   const [managementType, setManagementType] = useState("council");
   const [activePerson, setActivePerson] = useState({});
   const management = useSelector(managementSelector);
@@ -19,12 +20,11 @@ export default function Management() {
     }
   }, []);
 
-  useEffect(() => {
-    console.log(management);
-  }, [management]);
-
   function handleChangeType(e) {
-    if (e.target.innerText === "Рада СГОСТУ") {
+    if (
+      e.target.innerText === "Рада СГОСТУ" ||
+      e.target.innerText === "The Council of SGOSTU"
+    ) {
       setManagementType("council");
     } else {
       setManagementType("regions");
@@ -33,7 +33,9 @@ export default function Management() {
 
   return (
     <div className="management">
-      <h1 className="management-title">Керівництво</h1>
+      <h1 className="management-title">
+        {language === "en" ? "Management" : "Керівництво"}
+      </h1>
       <div className="managements-selection">
         <button
           className={`management-type ${
@@ -41,7 +43,7 @@ export default function Management() {
           }`}
           onClick={handleChangeType}
         >
-          Рада СГОСТУ
+          {language === "en" ? "The Council of SGOSTU" : "Рада СГОСТУ"}
         </button>
         <button
           className={`management-type ${
@@ -49,7 +51,9 @@ export default function Management() {
           }`}
           onClick={handleChangeType}
         >
-          Обласні відокремлені підрозділи
+          {language === "en"
+            ? "Regional separate subdivisions"
+            : "Обласні відокремлені підрозділи"}
         </button>
       </div>
       <div className="management-cards">

@@ -22,7 +22,7 @@ export default function Feedback() {
         .join("");
     });
 
-    setSubmitText(language === "ua" ? "Відіслати" : "Send");
+    setSubmitText(language === "en" ? "Send" : "Відіслати");
   }, [language]);
 
   function handleSubmit(e) {
@@ -34,7 +34,7 @@ export default function Feedback() {
     e.target.phone.value = "";
     e.target.message.value = "";
     e.target.button.disabled = "true";
-    setSubmitText(language === "ua" ? "Дякуємо!" : "Thanks!");
+    setSubmitText(language === "en" ? "Thanks!" : "Дякуємо!");
   }
 
   return (
@@ -42,11 +42,11 @@ export default function Feedback() {
       {window.scrollTo(0, 0)}
       <div className="feedback-wrapper">
         <span className="feedback-title">
-          {language === "ua" ? "Зворотній зв'язок" : "Feedback"}
+          {language === "en" ? "Feedback" : "Зворотній зв'язок"}
         </span>
         <form onSubmit={handleSubmit} className="feedback-form">
           <Input
-            labelText={language === "ua" ? "Ім'я" : "Name"}
+            labelText={language === "en" ? "Name" : "Ім'я"}
             name="name"
             required
           />
@@ -58,11 +58,11 @@ export default function Feedback() {
               required
             />
             <label className="label">
-              {language === "ua" ? "Номер телефону" : "Phone number"}
+              {language === "en" ? "Phone number" : "Номер телефону"}
             </label>
           </div>
           <Input
-            labelText={language === "ua" ? "Ваше питання" : "Your question"}
+            labelText={language === "en" ? "Your question" : "Ваше питання"}
             name="message"
             textarea
             required

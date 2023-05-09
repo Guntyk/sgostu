@@ -32,6 +32,7 @@ import { useEffect, useState } from "react";
 import "./Catalog.css";
 
 export default function Catalog() {
+  const language = window.localStorage.getItem("language");
   const [entitiesOffset, setEntitiesOffset] = useState(24);
   const [catalogTheme, setCatalogTheme] = useState(false);
   const [entitiesList, setEntitiesList] = useState([]);
@@ -150,12 +151,20 @@ export default function Catalog() {
             <BackButton />
             <h1 className="catalog-title">
               {catalogs === "dancers"
-                ? "Танцюристи"
+                ? language === "en"
+                  ? "Dancers"
+                  : "Танцюристи"
                 : catalogs === "clubs"
-                ? "Клуби"
+                ? language === "en"
+                  ? "Clubs"
+                  : "Клуби"
                 : catalogs === "coaches"
-                ? "Тренери"
-                : catalogs === "judges" && "Судді"}
+                ? language === "en"
+                  ? "Coaches"
+                  : "Тренери"
+                : catalogs === "judges" && language === "en"
+                ? "Judges"
+                : "Судді"}
             </h1>
             <SearchBar
               setEntitiesList={setEntitiesList}
@@ -186,6 +195,7 @@ export default function Catalog() {
                       />
                     ) : catalogs === "clubs" ? (
                       <ClubCard
+                        screenWidth={screenWidth}
                         dancers={dancers}
                         coaches={coaches}
                         club={entity}
@@ -212,7 +222,9 @@ export default function Catalog() {
                   )
               ) : !loading && catalogs.length > 0 ? (
                 <h2 className="no-dancers-searched">
-                  По вашому запиту нічого не знайдено 😐
+                  {language === "en"
+                    ? "Nothing was found for your request 😐"
+                    : "По вашому запиту нічого не знайдено 😐"}
                 </h2>
               ) : (
                 <Loader />

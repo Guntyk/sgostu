@@ -12,13 +12,13 @@ export default function NotFound() {
         <h1 className="not-found-title">404</h1>
         <p className="not-found-text">
           <span>
-            {language === "ua"
-              ? "Ой! Ви потрапили на сторінку, яка знаходиться в розробці, або не існує 😔"
-              : "Oh! You have reached a page that is under development or does not exist 😔"}
+            {language === "en"
+              ? "Oh! You have reached a page that is under development or does not exist 😔"
+              : "Ой! Ви потрапили на сторінку, яка знаходиться в розробці, або не існує 😔"}
           </span>
         </p>
         <Button
-          buttonText={language === "ua" ? "Повернутися" : "Back"}
+          buttonText={language === "en" ? "Back" : "Повернутися"}
           onClick={() => {
             goBack();
           }}

@@ -7,6 +7,7 @@ export default function PersonInfo({
   setActivePerson,
   managementType,
 }) {
+  const language = window.localStorage.getItem("language");
   return (
     <div
       className={`person-details-wrapper ${
@@ -27,19 +28,27 @@ export default function PersonInfo({
         <div className="person-details-content-wrapper">
           <div className="person-detail-info">
             <h2 className="person-detail-name">
-              {person.surname + " " + person.name}
+              {language === "en"
+                ? person.surname_en + " " + person.name_en
+                : person.surname + " " + person.name}
             </h2>
             <span className="person-detail-role">
               <User />{" "}
               {managementType === "council"
-                ? person.council_role
+                ? language === "en"
+                  ? person.council_role_en
+                  : person.council_role
+                : language === "en"
+                ? person.region_role_en
                 : person.region_role}
             </span>
             <span className="person-detail-town">
-              <City /> {person.town}
+              <City /> {language === "en" ? person.town_en : person.town}
             </span>
             <p className="person-detail-description">
-              {String(person.description)}
+              {language === "en"
+                ? String(person.description_en)
+                : String(person.description)}
             </p>
             <div className="person-contacts">
               <a

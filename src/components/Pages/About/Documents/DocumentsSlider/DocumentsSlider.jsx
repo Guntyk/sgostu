@@ -14,6 +14,7 @@ import "./DocumentsSlider.css";
 import "swiper/css";
 
 export default function DocumentsSlider() {
+  const language = window.localStorage.getItem("language");
   const [activeSlideIdx, setActiveSlideIdx] = useState({});
   const documentTypes = useSelector(documentTypesSelector);
   const documents = useSelector(documentsSelector);
@@ -52,11 +53,10 @@ export default function DocumentsSlider() {
             >
               <div className="document-info-wrapper">
                 <h1 className="document-card-name">
-                  {document.attributes.name}
+                  {language === "en"
+                    ? document.attributes.name_en
+                    : document.attributes.name}
                 </h1>
-                <p className="document-card-descr">
-                  {document.attributes.description}
-                </p>
                 <div className="document-card-btn-wrapper">
                   <a
                     href={`https://sgostu-backend.download${document.attributes.file.data.attributes.url}`}
@@ -64,7 +64,7 @@ export default function DocumentsSlider() {
                     target="_blank"
                     className="document-card-btn"
                   >
-                    Відкрити
+                    {language === "en" ? "Open" : "Відкрити"}
                   </a>
                 </div>
               </div>
