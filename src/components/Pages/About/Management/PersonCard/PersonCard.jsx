@@ -26,19 +26,19 @@ export default function PersonCard({
         />
         <div className="management-info">
           <h2 className="management-name">
-            {language === "ua"
-              ? person.name.trim() + " " + person.surname.trim()
-              : person.name_en.trim() + " " + person.surname_en.trim()}
+            {language === "en"
+              ? person.name_en.trim() + " " + person.surname_en.trim()
+              : person.name.trim() + " " + person.surname.trim()}
           </h2>
           <span className="management-role">
             {managementType === "regions" &&
               person.regions &&
-              (language === "ua" ? person.region : person.region_en)}
+              (language === "en" ? person.region_en : person.region)}
             {managementType === "council" &&
               person.council &&
-              (language === "ua"
-                ? person.council_role
-                : person.council_role_en)}
+              (language === "en"
+                ? person.council_role_en
+                : person.council_role)}
           </span>
           <button
             className="more-btn"
@@ -46,7 +46,7 @@ export default function PersonCard({
               setActivePerson(personId);
             }}
           >
-            {language === "ua" ? "Детальніше" : "More"}
+            {language === "en" ? "More" : "Детальніше"}
           </button>
         </div>
       </div>

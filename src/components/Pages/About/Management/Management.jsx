@@ -31,14 +31,10 @@ export default function Management() {
     }
   }
 
-  useEffect(() => {
-    console.log(managementType)
-  }, [managementType])
-
   return (
     <div className="management">
       <h1 className="management-title">
-        {language === "ua" ? "Керівництво" : "Management"}
+        {language === "en" ? "Management" : "Керівництво"}
       </h1>
       <div className="managements-selection">
         <button
@@ -47,7 +43,7 @@ export default function Management() {
           }`}
           onClick={handleChangeType}
         >
-          {language === "ua" ? "Рада СГОСТУ" : "The Council of SGOSTU"}
+          {language === "en" ? "The Council of SGOSTU" : "Рада СГОСТУ"}
         </button>
         <button
           className={`management-type ${
@@ -55,9 +51,9 @@ export default function Management() {
           }`}
           onClick={handleChangeType}
         >
-          {language === "ua"
-            ? "Обласні відокремлені підрозділи"
-            : "Regional separate subdivisions"}
+          {language === "en"
+            ? "Regional separate subdivisions"
+            : "Обласні відокремлені підрозділи"}
         </button>
       </div>
       <div className="management-cards">
