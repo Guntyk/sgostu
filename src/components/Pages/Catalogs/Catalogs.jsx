@@ -7,20 +7,20 @@ export default function Catalogs() {
     <section className="catalogs">
       <div className="container">
         <h1 className="catalogs-title">
-          {language === "ua" ? "Каталоги" : "Catalogs"}
+          {language === "en" ? "Catalogs" : "Каталоги"}
         </h1>
         <div className="catalogs-wrapper">
           <Link to="/catalogs/dancers" className="catalogs-card">
-            {language === "ua" ? "Танцюристи" : "Dancers"}
+            {language === "en" ? "Dancers" : "Танцюристи"}
           </Link>
           <Link to="/catalogs/coaches" className="catalogs-card">
-            {language === "ua" ? "Тренера" : "Coaches"}
+            {language === "en" ? "Coaches" : "Тренера"}
           </Link>
           <Link to="/catalogs/clubs" className="catalogs-card">
-            {language === "ua" ? "Клуби" : "Clubs"}
+            {language === "en" ? "Clubs" : "Клуби"}
           </Link>
           <Link to="/catalogs/judges" className="catalogs-card">
-            {language === "ua" ? "Судді" : "Judges"}
+            {language === "en" ? "Judges" : "Судді"}
           </Link>
         </div>
       </div>
