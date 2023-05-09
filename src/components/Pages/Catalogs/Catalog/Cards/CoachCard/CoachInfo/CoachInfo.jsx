@@ -9,9 +9,12 @@ import BackButton from "../../../../../../../common/BackButton/BackButton";
 import { getStatuses } from "../../../../../../../redux/statuses/thunk";
 import { getDancers } from "../../../../../../../redux/dancers/thunk";
 import { getCoaches } from "../../../../../../../redux/coaches/thunk";
+import Facebook from "../../../../../../../materials/icons/Facebook";
 import { getClubs } from "../../../../../../../redux/clubs/thunk";
-import { useDispatch, useSelector } from "react-redux";
+import Tiktok from "../../../../../../../materials/icons/Tiktok";
+import Insta from "../../../../../../../materials/icons/Insta";
 import { Link, Redirect, useParams } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import DancerCard from "../../DancerCard/DancerCard";
 import Loader from "../../../../../../Loader/Loader";
 import { useState, useEffect } from "react";
@@ -25,6 +28,7 @@ export default function CoachInfo() {
   const dancers = useSelector(dancersSelector);
   const clubs = useSelector(clubsSelector);
 
+  const [coachDancers, setCoachDancers] = useState([]);
   const [loading, setLoading] = useState(true);
   const [coach, setCoach] = useState(null);
 
@@ -56,7 +60,6 @@ export default function CoachInfo() {
 
   useEffect(() => {
     if (coaches.length !== 0) {
-      setLoading(false);
       coaches.map((coach) => {
         if (Number(coach.id) === Number(coachId)) {
           setCoach(coach);
@@ -64,6 +67,21 @@ export default function CoachInfo() {
       });
     }
   }, [coaches]);
+
+  useEffect(() => {
+    if (coach) {
+      if (dancers) {
+        setCoachDancers(
+          dancers.filter((dancer) =>
+            coach["My Dancers ok"]?.includes(dancer.id)
+          )
+        );
+      }
+      setTimeout(() => {
+        setLoading(false);
+      }, 1000);
+    }
+  }, [coach, dancers]);
 
   // Fields filling
   function coachClub() {
@@ -85,6 +103,34 @@ export default function CoachInfo() {
     return coach["My Dancers ok"]?.filter((dancer) =>
       dancers.map((dancer) => dancer.id).includes(dancer)
     ).length;
+  }
+
+  function coachSocials(socialType, socialField) {
+    if (
+      socialField.length >= 23 &&
+      (socialField.includes(`https://m.${socialType}.com`) ||
+        socialField.includes(`https://${socialType}.com`) ||
+        socialField.includes(`https://www.${socialType}.com`) ||
+        socialField.includes(`http://${socialType}.com`))
+    ) {
+      return socialField;
+    } else if (socialField.includes("@") && socialField.length <= 30) {
+      return socialType === "tiktok"
+        ? `https://tiktok.com/${socialField}`
+        : `https://${socialType}.com/${socialField.slice(1)}`;
+    } else if (
+      socialField.length <= 30 &&
+      (!socialField.includes(`https://m.${socialType}.com`) ||
+        !socialField.includes(`https://${socialType}.com`) ||
+        !socialField.includes(`https://www.${socialType}.com`) ||
+        !socialField.includes(`http://${socialType}.com`))
+    ) {
+      return socialType === "tiktok"
+        ? `https://tiktok.com/@${socialField}`
+        : `https://${socialType}.com/${socialField}`;
+    } else {
+      return;
+    }
   }
 
   return (
@@ -117,18 +163,14 @@ export default function CoachInfo() {
                       : "Танцюристів тренера:"}
                   </dt>
                   <dd>
-                    {coachDancersQuantity()
-                      ? coachDancersQuantity() >= 1
-                        ? coachDancersQuantity()
-                        : "—"
-                      : ""}
+                    {coachDancersQuantity() ? coachDancersQuantity() : "—"}
                   </dd>
                 </div>
                 <div className="coach-details-wrapper">
                   <dt className="coach-city">
                     {language === "en" ? "Town:" : "Місто:"}
                   </dt>
-                  <dd>{coachTown() ? coachTown() : "Завантаження..."}</dd>
+                  <dd>{coachTown() ? coachTown() : "—"}</dd>
                 </div>
                 <div className="coach-details-wrapper">
                   <dt className="coach-club">
@@ -142,15 +184,45 @@ export default function CoachInfo() {
                       >
                         {coachClub()["Club Name"].split("(")[0].trim()}
                       </Link>
-                    ) : language === "en" ? (
-                      "Loading..."
                     ) : (
-                      "Завантаження..."
+                      "—"
                     )}
                   </dd>
                 </div>
               </dl>
             </div>
+          </div>
+          <div className="coach-socials-wrapper detail-socials-wrapper">
+            {coach.Facebook && coach.Facebook?.length > 3 && (
+              <a
+                href={coachSocials("facebook", coach.Facebook)}
+                target="_blank"
+                rel="noreferrer"
+                className="social-btn facebook"
+              >
+                <Facebook />
+              </a>
+            )}
+            {coach.Instagram && coach.Instagram?.length > 3 && (
+              <a
+                href={coachSocials("instagram", coach.Instagram)}
+                target="_blank"
+                rel="noreferrer"
+                className="social-btn instagram"
+              >
+                <Insta fill="#fff" />
+              </a>
+            )}
+            {coach.TikTok && coach.TikTok?.length > 3 && (
+              <a
+                href={coachSocials("tiktok", coach.TikTok)}
+                target="_blank"
+                rel="noreferrer"
+                className="social-btn tiktok"
+              >
+                <Tiktok />
+              </a>
+            )}
           </div>
           <div className="coach-dancers">
             <span className="coach-dancers-title">
@@ -159,22 +231,22 @@ export default function CoachInfo() {
                 : "Список танцюристів тренера:"}
             </span>
             <div className="coach-detail-dancers-wrapper">
-              {dancers.length !== 0 && coach["My Dancers ok"] ? (
-                dancers
-                  .filter((dancer) =>
-                    coach["My Dancers ok"]?.includes(dancer.id)
-                  )
-                  .map((dancer) => (
-                    <DancerCard
-                      screenWidth={window.screen.availWidth}
-                      classes={dancerClasses}
-                      dancer={dancer}
-                      clubs={clubs}
-                      key={dancer.id}
-                    />
-                  ))
+              {coachDancers.length !== 0 && !loading ? (
+                coachDancers.map((dancer) => (
+                  <DancerCard
+                    screenWidth={window.screen.availWidth}
+                    classes={dancerClasses}
+                    dancer={dancer}
+                    clubs={clubs}
+                    key={dancer.id}
+                  />
+                ))
+              ) : !loading && dancers.length > 0 ? (
+                <h2 className="coach-info-no-results no-dancers-searched">
+                  {language === "en" ? "No dancers" : "Танцюристів немає"}
+                </h2>
               ) : (
-                <Loader />
+                <Loader className="club-catalog-loader" />
               )}
             </div>
           </div>
