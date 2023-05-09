@@ -183,6 +183,9 @@
   .button-wrapper {
     width: 50%;
   }
+  .search-form {
+    top: 120px;
+  }
 }
 
 @media (max-width: 550px) {
