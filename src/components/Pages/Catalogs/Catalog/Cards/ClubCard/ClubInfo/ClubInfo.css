@@ -124,9 +124,6 @@
   display: flex;
   justify-content: center;
   gap: 20px;
-  
-.club-catalog-loader {
-  height: 200px;
 }
 
 @media (max-width: 1150px) {
