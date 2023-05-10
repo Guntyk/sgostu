@@ -1,14 +1,23 @@
 .logos-catalog {
   --coefficient: 1;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  gap: 100px;
   height: 100vh;
   background: url(../../../../materials/backgrounds/waves-right.svg) no-repeat
       100% 100%,
     url(../../../../materials/backgrounds/waves-left.svg) no-repeat 0% 20%;
   background-size: 40% 150%;
+}
+
+.logos-title {
+  margin: 150px 0 200px 0;
+  font-size: 2rem;
+}
+
+.logos-wrapper {
+  display: flex;
+  gap: 100px;
 }
 
 .logo-box {
@@ -138,11 +147,24 @@
 @media (max-width: 1150px) {
   .logos-catalog {
     --coefficient: 0.8;
+  }
+  .logos-title {
+    margin: 130px 0 180px 0;
+    font-size: 2rem;
+  }
+  .logos-wrapper {
     gap: 50px;
   }
 }
 @media (max-width: 840px) {
   .logos-catalog {
+    padding-bottom: 100px;
+  }
+  .logos-title {
+    margin: 100px 0 80px;
+    font-size: 2rem;
+  }
+  .logos-wrapper {
     flex-direction: column;
   }
   .logo-box {
@@ -188,6 +210,10 @@
     background-repeat: no-repeat, no-repeat;
     background-position: 0 0, 100% 100%;
     background-size: 90% 150%;
+  }
+  .logos-title {
+    margin: 70px 0 50px;
+    font-size: 1.8rem;
   }
   .logo-download-link {
     padding: 15px 20px;
