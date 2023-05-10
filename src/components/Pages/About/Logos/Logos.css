@@ -1,0 +1,195 @@
+.logos-catalog {
+  --coefficient: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 100px;
+  height: 100vh;
+  background: url(../../../../materials/backgrounds/waves-right.svg) no-repeat
+      100% 100%,
+    url(../../../../materials/backgrounds/waves-left.svg) no-repeat 0% 20%;
+  background-size: 40% 150%;
+}
+
+.logo-box {
+  display: grid;
+  place-items: center;
+  position: relative;
+  width: calc(250px * var(--coefficient));
+  aspect-ratio: 1/1;
+  border-radius: 10px;
+  border: 1px solid rgba(100, 100, 100, 0.5);
+  backdrop-filter: blur(10px);
+  overflow: hidden;
+}
+
+.logo-box .logo {
+  width: 80%;
+  aspect-ratio: inherit;
+}
+
+.logo-box:hover .logos-download {
+  pointer-events: all;
+  transform: translate(-50%, -50%);
+}
+
+.logos-download {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 30px;
+  position: absolute;
+  padding: 0 20px;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  pointer-events: none;
+  aspect-ratio: 1/1;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.95);
+  box-sizing: border-box;
+  transform: translate(-50%, 50%);
+  transition: 0.5s;
+}
+
+.logo-download-link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  color: #0077ff;
+  border-radius: 5px;
+  border: 1px solid #0077ff;
+  letter-spacing: 3px;
+  transition: 0.2s;
+}
+
+.logo-download-link:hover {
+  color: #fff;
+  background: #0077ff;
+}
+
+.logo-download-link:hover #btn-download polyline,
+.logo-download-link:hover #btn-download path {
+  stroke: #fff;
+}
+
+.logo-download-link.downloaded {
+  pointer-events: none;
+  color: #17d867;
+  border: 1px solid #17d867;
+  background: none;
+}
+
+/* Download button */
+#btn-download {
+  cursor: pointer;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  -webkit-tap-highlight-color: transparent;
+}
+#btn-download svg {
+  margin-right: -5px;
+  fill: none;
+  transform: translate3d(0, 0, 0);
+}
+#btn-download svg polyline,
+#btn-download svg path {
+  stroke: #0077ff;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: all 0.3s ease;
+  transition-delay: 0s;
+}
+#btn-download svg path#check {
+  stroke-dasharray: 38;
+  stroke-dashoffset: 114;
+  transition: all 0.4s ease;
+}
+.logo-download-link.downloaded #btn-download svg polyline,
+.logo-download-link.downloaded #btn-download svg path {
+  transition-delay: 0.3s;
+}
+.logo-download-link.downloaded #btn-download svg .svg-out {
+  opacity: 0;
+  animation: drop 0.3s linear;
+  transition-delay: 0.4s;
+}
+.logo-download-link.downloaded #btn-download svg path#check {
+  stroke: #17d867;
+  stroke-dashoffset: 174;
+  transition-delay: 0.4s;
+}
+
+@keyframes drop {
+  20% {
+    transform: translate(0, -3px);
+  }
+  80% {
+    transform: translate(0, 2px);
+  }
+  95% {
+    transform: translate(0, 0);
+  }
+}
+
+@media (max-width: 1150px) {
+  .logos-catalog {
+    --coefficient: 0.8;
+    gap: 50px;
+  }
+}
+@media (max-width: 840px) {
+  .logos-catalog {
+    flex-direction: column;
+  }
+  .logo-box {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    overflow: visible;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: none;
+    transform: translateX(-50%);
+  }
+  .logos-download {
+    width: 101%;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border: 1px solid rgba(100, 100, 100, 0.5);
+    border-left: none;
+    background: rgba(255, 255, 255, 0.5);
+    pointer-events: all;
+    backdrop-filter: blur(5px);
+    transform: translate(50%, -50%);
+    z-index: 99999;
+  }
+  .logo-box:hover .logos-download {
+    transform: translate(50%, -50%);
+  }
+  .logo-download-link:hover {
+    color: #0077ff;
+    background: none;
+  }
+  .logo-download-link:hover #btn-download polyline,
+  .logo-download-link:hover #btn-download path {
+    stroke: #0077ff;
+  }
+  .logo-download-link.downloaded {
+    color: #17d867;
+  }
+}
+@media (max-width: 550px) {
+  .logos-catalog {
+    --coefficient: 0.7;
+    background: url(../../../../materials/backgrounds/mobile/waves-left.svg),
+      url(../../../../materials/backgrounds/mobile/waves-right.svg);
+    background-repeat: no-repeat, no-repeat;
+    background-position: 0 0, 100% 100%;
+    background-size: 90% 150%;
+  }
+  .logo-download-link {
+    padding: 15px 20px;
+  }
+}
