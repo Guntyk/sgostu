@@ -251,14 +251,14 @@
     display: flex;
     align-items: stretch;
     text-align: center;
-    margin: 0 auto 120px auto;
+    margin: 0 auto 80px auto;
     width: 80%;
     font-size: 1rem;
   }
   .document-card-btn {
     position: static;
     margin-top: 10px;
-    margin: 30px auto 0;
+    margin: 15px auto 0;
     width: 60%;
     height: 40px;
     border-radius: 50px;
@@ -279,5 +279,12 @@
     color: #555555;
     font-size: 12px;
     text-shadow: none;
+  }
+  .document-overlay::before {
+    box-shadow: 0 0 25px 40px rgba(0, 0, 0, 0.5);
+  }
+  .document-card {
+    height: calc(var(--card-width) * 1.21);
+    width: 150px;
   }
 }
