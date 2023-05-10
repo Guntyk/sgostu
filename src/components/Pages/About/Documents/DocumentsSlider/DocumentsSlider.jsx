@@ -5,10 +5,10 @@ import BackButton from "../../../../../common/BackButton/BackButton";
 import { getDocuments } from "../../../../../redux/documents/thunk";
 import { useDispatch, useSelector } from "react-redux";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Mousewheel, Navigation } from "swiper";
 import Loader from "../../../../Loader/Loader";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { Mousewheel } from "swiper";
 import Card from "./Card/Card";
 import "./DocumentsSlider.css";
 import "swiper/css";
@@ -26,6 +26,7 @@ export default function DocumentsSlider() {
   );
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     if (documents.length === 0 || documentTypes.length === 0) {
       dispatch(getDocumentTypes());
       dispatch(getDocuments());
@@ -75,12 +76,13 @@ export default function DocumentsSlider() {
       )}
       <Swiper
         className="slider-doc"
-        modules={[Mousewheel]}
+        modules={[Mousewheel, Navigation]}
         speed={800}
         draggable={false}
         centeredSlides={true}
         slidesPerView={2}
         mousewheel={true}
+        navigation
         onSwiper={(e) => {
           setActiveSlideIdx(e.activeIndex);
         }}
