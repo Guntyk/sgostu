@@ -45,14 +45,14 @@ export default function Hero() {
         <div>
           <span className="title-stroke">
             {language === "en"
-              ? "Union of public organizations"
+              ? "Dancesport public organisations"
               : "Спілка громадських організацій"}
           </span>
         </div>
         <div>
           <span className="title-stroke">
             {language === "en"
-              ? "of sports dance of Ukraine"
+              ? "union of Ukraine"
               : "спортивного танцю України"}
           </span>
         </div>

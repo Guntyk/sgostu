@@ -122,12 +122,13 @@
   .dancer-class.Debut,
   .dancer-class.School,
   .dancer-class.Pro {
+    margin-right: 4%;
     font-size: 12px;
   }
   .dancer-class.Debut:before,
   .dancer-class.School:before,
   .dancer-class.Pro:before {
-    width: 130%;
+    width: 140%;
     height: 30px;
   }
 }

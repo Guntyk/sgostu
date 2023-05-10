@@ -28,27 +28,27 @@ export default function PersonInfo({
         <div className="person-details-content-wrapper">
           <div className="person-detail-info">
             <h2 className="person-detail-name">
-              {language === "ua"
-                ? person.surname + " " + person.name
-                : person.surname_en + " " + person.name_en}
+              {language === "en"
+                ? person.surname_en + " " + person.name_en
+                : person.surname + " " + person.name}
             </h2>
             <span className="person-detail-role">
               <User />{" "}
               {managementType === "council"
-                ? language === "ua"
-                  ? person.council_role
-                  : person.council_role_en
-                : language === "ua"
-                ? person.region_role
-                : person.region_role_en}
+                ? language === "en"
+                  ? person.council_role_en
+                  : person.council_role
+                : language === "en"
+                ? person.region_role_en
+                : person.region_role}
             </span>
             <span className="person-detail-town">
-              <City /> {language === "ua" ? person.town : person.town_en}
+              <City /> {language === "en" ? person.town_en : person.town}
             </span>
             <p className="person-detail-description">
-              {language === "ua"
-                ? String(person.description)
-                : String(person.description_en)}
+              {language === "en"
+                ? String(person.description_en)
+                : String(person.description)}
             </p>
             <div className="person-contacts">
               <a

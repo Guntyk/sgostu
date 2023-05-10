@@ -29,7 +29,7 @@ export default function Folder({ type, typeId }) {
           <hr />
           <hr />
           <hr />
-          <span>{language === "ua" ? "Відкрити" : "Open"}</span>
+          <span>{language === "en" ? "Open" : "Відкрити"}</span>
           <hr />
           <hr />
           <hr />
@@ -37,7 +37,7 @@ export default function Folder({ type, typeId }) {
         </div>
       </div>
       <span className="type-name">
-        {language === "ua" ? type.name : type.name_en}
+        {language === "en" ? type.name_en : type.name}
       </span>
     </div>
   );

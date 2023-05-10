@@ -13,6 +13,7 @@ import Calendar from "./components/Pages/Calendar/Calendar";
 import Feedback from "./components/Pages/Feedback/Feedback";
 import NotFound from "./components/Pages/NotFound/NotFound";
 import Catalogs from "./components/Pages/Catalogs/Catalogs";
+import Logos from "./components/Pages/About/Logos/Logos";
 import About from "./components/Pages/About/About";
 import { Route, Switch } from "react-router-dom";
 import Header from "./components/Header/Header";
@@ -69,6 +70,9 @@ export default function App() {
         {/* About */}
         <Route exact path="/about">
           <About />
+        </Route>
+        <Route exact path="/logos">
+          <Logos />
         </Route>
         <Route exact path="/management">
           <Management />

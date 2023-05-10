@@ -8,13 +8,13 @@ export default function Contacts() {
       <div className="container">
         <h1 className="contacts-title">
           {" "}
-          {language === "ua" ? "Контактна інформація" : "Contact information"}
+          {language === "en" ? "Contact information" : "Контактна інформація"}
         </h1>
         <div className="contacts-info">
           <ul className="contacts-block">
             <li>
               <span className="contacts-subtitle">
-                {language === "ua" ? "Номера телефонів:" : "Phoone numbers"}
+                {language === "en" ? "Phoone numbers" : "Номера телефонів:"}
               </span>
             </li>
             <hr />
@@ -28,7 +28,7 @@ export default function Contacts() {
           <ul className="contacts-block">
             <li>
               <span className="contacts-subtitle">
-                {language === "ua" ? "Електронна адреса:" : "Email addresses"}
+                {language === "en" ? "Email addresses" : "Електронна адреса:"}
               </span>
             </li>
             <hr />
@@ -39,7 +39,7 @@ export default function Contacts() {
           <ul className="contacts-block">
             <li>
               <span className="contacts-subtitle">
-                {language === "ua" ? "Адреса:" : "Address"}
+                {language === "en" ? "Address" : "Адреса:"}
               </span>
             </li>
             <hr />
@@ -49,30 +49,30 @@ export default function Contacts() {
                 target="_blank"
                 rel="noreferrer"
               >
-                {language === "ua"
-                  ? "м. Київ, Залізничне шосе 3"
-                  : "Kyiv, Zaliznychne shose 3"}
+                {language === "en"
+                  ? "Kyiv, Zaliznychne shose 3"
+                  : "м. Київ, Залізничне шосе 3"}
               </a>
             </li>
           </ul>
           <ul className="contacts-block">
             <li>
               <span className="contacts-subtitle">
-                {language === "ua" ? "Банківські реквізити:" : "Bank details:"}
+                {language === "en" ? "Bank details:" : "Банківські реквізити:"}
               </span>
             </li>
             <hr />
             <li className="contact">
               <span>
                 {" "}
-                {language === "ua"
-                  ? "Найменування отримувача: ГО"
-                  : "Name of recipient: NGO"}
+                {language === "en"
+                  ? "Name of recipient: NGO"
+                  : "Найменування отримувача: ГО"}
               </span>
             </li>
             <li className="contact">
               <span>
-                {language === "ua" ? "Код одержувача: " : "Recipient code: "}
+                {language === "en" ? "Recipient code: " : "Код одержувача: "}
                 30386538
               </span>
             </li>
@@ -81,16 +81,16 @@ export default function Contacts() {
             </li>
             <li className="contact">
               <span>
-                {language === "ua"
-                  ? "Назва банку: АТ КБ «ПриватБанк»"
-                  : "Name of the bank: JSC CB «PrivatBank»"}
+                {language === "en"
+                  ? "Name of the bank: JSC CB «PrivatBank»"
+                  : "Назва банку: АТ КБ «ПриватБанк»"}
               </span>
             </li>
           </ul>
           <ul className="contacts-block">
             <li>
               <span className="contacts-subtitle">
-                {language === "ua" ? "Соціальні мережі:" : "Social networks:"}
+                {language === "en" ? "Social networks:" : "Соціальні мережі:"}
               </span>
             </li>
             <hr />

@@ -53,9 +53,9 @@ export default function DocumentsSlider() {
             >
               <div className="document-info-wrapper">
                 <h1 className="document-card-name">
-                  {language === "ua"
-                    ? document.attributes.name
-                    : document.attributes.name_en}
+                  {language === "en"
+                    ? document.attributes.name_en
+                    : document.attributes.name}
                 </h1>
                 <div className="document-card-btn-wrapper">
                   <a
@@ -64,7 +64,7 @@ export default function DocumentsSlider() {
                     target="_blank"
                     className="document-card-btn"
                   >
-                    {language === "ua" ? "Відкрити" : "Open"}
+                    {language === "en" ? "Open" : "Відкрити"}
                   </a>
                 </div>
               </div>

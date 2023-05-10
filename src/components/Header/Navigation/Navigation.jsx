@@ -214,7 +214,6 @@ export default function Navigation({ openSideMenu, setOpenSideMenu }) {
                   {language === "en" ? "Management" : "Керівництво"}
                 </span>
               </Link>
-              {/* <hr className="nav-line" /> */}
             </li>
             <li className="nav-link-drop-down">
               <Link
@@ -228,7 +227,19 @@ export default function Navigation({ openSideMenu, setOpenSideMenu }) {
                   {language === "en" ? "History" : "Історія"}
                 </span>
               </Link>
-              {/* <hr className="nav-line" /> */}
+            </li>
+            <li className="nav-link-drop-down">
+              <Link
+                to="/logos"
+                onClick={() => {
+                  setOpenDropDown(false);
+                  setOpenSideMenu(false);
+                }}
+              >
+                <span className="nav-link-name">
+                  {language === "en" ? "Logos" : "Логотипи"}
+                </span>
+              </Link>
             </li>
             <li className="nav-link-drop-down">
               <Link
