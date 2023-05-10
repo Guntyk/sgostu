@@ -6,6 +6,7 @@
   flex-wrap: wrap;
   width: calc(100% / 4);
   perspective: 1000px;
+  margin-bottom: 60px;
 }
 
 .type-name {
