@@ -4,6 +4,7 @@
   background: url(../../../materials/backgrounds/waves-left.svg) 0% 95%
       no-repeat,
     url(../../../materials/backgrounds/waves-right.svg) top right no-repeat;
+    background-attachment: fixed;
 }
 
 .calendar-title {
