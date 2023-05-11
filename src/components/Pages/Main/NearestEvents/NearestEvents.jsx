@@ -3,10 +3,15 @@ import Button from "../../../../common/Button/Button";
 import { EffectCoverflow, Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useHistory } from "react-router-dom";
+import { ScrollTrigger } from "gsap/all";
 import "swiper/css/effect-coverflow";
+import { useEffect } from "react";
 import "swiper/css/pagination";
 import "./NearestEvents.css";
+import { gsap } from "gsap";
 import "swiper/css";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function NearestEvents({ events }) {
   const language = window.localStorage.getItem("language");
@@ -23,6 +28,17 @@ export default function NearestEvents({ events }) {
     })
     .filter((event) => event !== undefined)
     .slice(0, 3);
+
+  useEffect(() => {
+    gsap.from(".nearest-events-wrapper", {
+      opacity: 0,
+      duration: 1,
+      scrollTrigger: {
+        trigger: ".nearest-events-wrapper",
+        toggleActions: "restart pause resume pause",
+      },
+    });
+  }, []);
 
   return (
     <>
