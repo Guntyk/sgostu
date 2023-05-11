@@ -7,7 +7,6 @@
       no-repeat 100% 85%,
     url(../../../../materials/backgrounds/waves-left-hero.svg) no-repeat 0% 35%;
   background-size: 40% 150%;
-  background-attachment: fixed;
 }
 
 .title {
