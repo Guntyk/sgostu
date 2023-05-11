@@ -23,6 +23,7 @@ import "./ClubInfo.css";
 
 import Insta from "../../../../../../../materials/icons/Insta";
 import Facebook from "../../../../../../../materials/icons/Facebook";
+import { letters } from "../../../ruLetters";
 
 export default function ClubInfo() {
   const language = window.localStorage.getItem("language");
@@ -145,6 +146,9 @@ export default function ClubInfo() {
     } else if (socialField.includes("@") && socialField.length <= 30) {
       return `https://${socialType}.com/${socialField.slice(1)}`;
     } else if (
+      !letters
+        .map((letter) => socialField.toLowerCase().includes(letter))
+        .includes(true) &&
       socialField.length <= 30 &&
       (!socialField.includes(`https://m.${socialType}.com`) ||
         !socialField.includes(`https://${socialType}.com`) ||
