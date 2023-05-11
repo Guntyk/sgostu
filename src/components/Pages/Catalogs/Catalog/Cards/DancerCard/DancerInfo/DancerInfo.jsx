@@ -18,6 +18,7 @@ import "../Colors.css";
 import Facebook from "../../../../../../../materials/icons/Facebook";
 import Insta from "../../../../../../../materials/icons/Insta";
 import Tiktok from "../../../../../../../materials/icons/Tiktok";
+import { socialsFormatting } from "../../../../../../../helpers/socialsFormatting";
 
 export default function DancerInfo() {
   const language = window.localStorage.getItem("language");
@@ -82,34 +83,6 @@ export default function DancerInfo() {
       )
       .at(-1);
     return dancerClass !== undefined && dancerClass["Class Name"]?.trim();
-  }
-
-  function dancerSocials(socialType, socialField) {
-    if (
-      socialField.length >= 23 &&
-      (socialField.includes(`https://m.${socialType}.com`) ||
-        socialField.includes(`https://${socialType}.com`) ||
-        socialField.includes(`https://www.${socialType}.com`) ||
-        socialField.includes(`http://${socialType}.com`))
-    ) {
-      return socialField;
-    } else if (socialField.includes("@") && socialField.length <= 30) {
-      return socialType === "tiktok"
-        ? `https://tiktok.com/${socialField}`
-        : `https://${socialType}.com/${socialField.slice(1)}`;
-    } else if (
-      socialField.length <= 30 &&
-      (!socialField.includes(`https://m.${socialType}.com`) ||
-        !socialField.includes(`https://${socialType}.com`) ||
-        !socialField.includes(`https://www.${socialType}.com`) ||
-        !socialField.includes(`http://${socialType}.com`))
-    ) {
-      return socialType === "tiktok"
-        ? `https://tiktok.com/@${socialField}`
-        : `https://${socialType}.com/${socialField}`;
-    } else {
-      return;
-    }
   }
 
   return (
@@ -198,36 +171,45 @@ export default function DancerInfo() {
             </div>
           </div>
           <div className="detail-socials-wrapper">
-            {dancer.Facebook && dancer.Facebook?.length > 3 && (
-              <a
-                href={dancerSocials("facebook", dancer.Facebook)}
-                target="_blank"
-                rel="noreferrer"
-                className="social-btn facebook"
-              >
-                <Facebook />
-              </a>
-            )}
-            {dancer.Instagram && dancer.Instagram?.length > 3 && (
-              <a
-                href={dancerSocials("instagram", dancer.Instagram)}
-                target="_blank"
-                rel="noreferrer"
-                className="social-btn instagram"
-              >
-                <Insta fill="#fff" />
-              </a>
-            )}
-            {dancer.TikTok && dancer.TikTok?.length > 3 && (
-              <a
-                href={dancerSocials("tiktok", dancer.TikTok)}
-                target="_blank"
-                rel="noreferrer"
-                className="social-btn tiktok"
-              >
-                <Tiktok />
-              </a>
-            )}
+            {dancer.Facebook &&
+              dancer.Facebook?.length > 3 &&
+              String(socialsFormatting("facebook", dancer.Facebook)).length >
+                21 && (
+                <a
+                  href={socialsFormatting("facebook", dancer.Facebook)}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="social-btn facebook"
+                >
+                  <Facebook />
+                </a>
+              )}
+            {dancer.Instagram &&
+              dancer.Instagram?.length > 3 &&
+              String(socialsFormatting("instagram", dancer.Instagram)).length >
+                22 && (
+                <a
+                  href={socialsFormatting("instagram", dancer.Instagram)}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="social-btn instagram"
+                >
+                  <Insta fill="#fff" />
+                </a>
+              )}
+            {dancer.TikTok &&
+              dancer.TikTok?.length > 3 &&
+              String(socialsFormatting("tiktok", dancer.TikTok)).length >
+                19 && (
+                <a
+                  href={socialsFormatting("tiktok", dancer.TikTok)}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="social-btn tiktok"
+                >
+                  <Tiktok />
+                </a>
+              )}
           </div>
         </section>
       ) : !loading ? (

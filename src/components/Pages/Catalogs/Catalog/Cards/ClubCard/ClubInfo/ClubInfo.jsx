@@ -1,5 +1,6 @@
 import clubPlaceholder from "../../../../../../../materials/icons/clubcard/club-placeholder.jpg";
 import { dancerClassesSelector } from "../../../../../../../redux/dancerClasses/selectors";
+import { socialsFormatting } from "../../../../../../../helpers/socialsFormatting";
 import { getDancerClasses } from "../../../../../../../redux/dancerClasses/thunk";
 import { statusesSelector } from "../../../../../../../redux/statuses/selectors";
 import { coachesSelector } from "../../../../../../../redux/coaches/selectors";
@@ -9,21 +10,18 @@ import BackButton from "../../../../../../../common/BackButton/BackButton";
 import { getStatuses } from "../../../../../../../redux/statuses/thunk";
 import { getCoaches } from "../../../../../../../redux/coaches/thunk";
 import { getDancers } from "../../../../../../../redux/dancers/thunk";
+import Facebook from "../../../../../../../materials/icons/Facebook";
 import EmailIcon from "../../../../../../../materials/icons/Email";
 import PhoneIcon from "../../../../../../../materials/icons/Phone";
 import { getClubs } from "../../../../../../../redux/clubs/thunk";
+import Insta from "../../../../../../../materials/icons/Insta";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect, useParams } from "react-router-dom";
 import DancerCard from "../../DancerCard/DancerCard";
 import Loader from "../../../../../../Loader/Loader";
 import CoachCard from "../../CoachCard/CoachCard";
 import { useState, useEffect } from "react";
-
 import "./ClubInfo.css";
-
-import Insta from "../../../../../../../materials/icons/Insta";
-import Facebook from "../../../../../../../materials/icons/Facebook";
-import { letters } from "../../../ruLetters";
 
 export default function ClubInfo() {
   const language = window.localStorage.getItem("language");
@@ -119,45 +117,6 @@ export default function ClubInfo() {
         : link.includes("http://")
         ? link.slice(7)
         : link;
-    }
-  }
-
-  function clubSocials(socialType, socialField) {
-    if (socialType === "phone") {
-      if (String(socialField).slice(0, 1) === "+") {
-        return socialField;
-      } else if (Number(String(socialField).slice(0, 3)) === 380) {
-        return `+${socialField}`;
-      } else {
-        return `+380${socialField}`;
-      }
-    } else if (socialType === "email") {
-      if (socialField.includes("@")) {
-        return socialField;
-      }
-    } else if (
-      socialField.length >= 23 &&
-      (socialField.includes(`https://m.${socialType}.com`) ||
-        socialField.includes(`https://${socialType}.com`) ||
-        socialField.includes(`https://www.${socialType}.com`) ||
-        socialField.includes(`http://${socialType}.com`))
-    ) {
-      return socialField;
-    } else if (socialField.includes("@") && socialField.length <= 30) {
-      return `https://${socialType}.com/${socialField.slice(1)}`;
-    } else if (
-      !letters
-        .map((letter) => socialField.toLowerCase().includes(letter))
-        .includes(true) &&
-      socialField.length <= 30 &&
-      (!socialField.includes(`https://m.${socialType}.com`) ||
-        !socialField.includes(`https://${socialType}.com`) ||
-        !socialField.includes(`https://www.${socialType}.com`) ||
-        !socialField.includes(`http://${socialType}.com`))
-    ) {
-      return `https://${socialType}.com/${socialField}`;
-    } else {
-      return;
     }
   }
 
@@ -257,9 +216,10 @@ export default function ClubInfo() {
             <div className="detail-socials-wrapper">
               {club.Facebook &&
                 club.Facebook?.length > 3 &&
-                String(clubSocials("facebook", club.Facebook)).length > 21 && (
+                String(socialsFormatting("facebook", club.Facebook)).length >
+                  21 && (
                   <a
-                    href={clubSocials("facebook", club.Facebook)}
+                    href={socialsFormatting("facebook", club.Facebook)}
                     target="_blank"
                     rel="noreferrer"
                     className="social-btn facebook"
@@ -269,10 +229,10 @@ export default function ClubInfo() {
                 )}
               {club.Instagram &&
                 club.Instagram?.length > 3 &&
-                String(clubSocials("instagram", club.Instagram)).length >
+                String(socialsFormatting("instagram", club.Instagram)).length >
                   22 && (
                   <a
-                    href={clubSocials("instagram", club.Instagram)}
+                    href={socialsFormatting("instagram", club.Instagram)}
                     target="_blank"
                     rel="noreferrer"
                     className="social-btn instagram"
@@ -282,7 +242,7 @@ export default function ClubInfo() {
                 )}
               {club["Phone Number Club"] && (
                 <a
-                  href={`tel:${clubSocials(
+                  href={`tel:${socialsFormatting(
                     "phone",
                     club["Phone Number Club"]
                   )}`}
@@ -293,7 +253,10 @@ export default function ClubInfo() {
               )}
               {club["E-mail Club"] && (
                 <a
-                  href={`mailto:${clubSocials("email", club["E-mail Club"])}`}
+                  href={`mailto:${socialsFormatting(
+                    "email",
+                    club["E-mail Club"]
+                  )}`}
                   target="_blank"
                   rel="noreferrer"
                   className="social-btn email"
