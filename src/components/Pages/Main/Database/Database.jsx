@@ -15,7 +15,6 @@ export default function Database() {
       duration: 0.8,
       scrollTrigger: {
         trigger: ".database",
-        markers: true,
         start: "100px 105%",
         toggleActions: "restart pause resume pause",
       },
