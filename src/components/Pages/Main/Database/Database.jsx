@@ -1,9 +1,36 @@
 import ddb_logo from "../../../../materials/img/ddb_logo.png";
 import phone from "../../../../materials/img/phone.svg";
+import { ScrollTrigger } from "gsap/all";
+import { useEffect } from "react";
+import { gsap } from "gsap";
 import "./Database.css";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function Database() {
   const language = window.localStorage.getItem("language");
+  useEffect(() => {
+    gsap.from(".database-phone", {
+      y: 300,
+      duration: 0.8,
+      scrollTrigger: {
+        trigger: ".database",
+        markers: true,
+        start: "100px 105%",
+        toggleActions: "restart pause resume pause",
+      },
+    });
+    gsap.from(".database-logo", {
+      y: 300,
+      duration: 1,
+      delay: 0.5,
+      scrollTrigger: {
+        trigger: ".database",
+        start: "150px 105%",
+        toggleActions: "restart pause resume pause",
+      },
+    });
+  }, []);
   return (
     <article className="database">
       <div className="database-wrapper">
