@@ -1,4 +1,4 @@
-import { dateToLocalFormat } from "../../../../helpers/dateToLocalFormat";
+import { dateToLocalFormat } from "../../../../hooks/dateToLocalFormat";
 import { articlesSelector } from "../../../../redux/articles/selectors";
 import BackButton from "../../../../common/BackButton/BackButton";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
