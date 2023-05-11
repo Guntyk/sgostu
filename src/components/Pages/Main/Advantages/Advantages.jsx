@@ -11,6 +11,7 @@ export default function Advantages() {
     gsap.from(".advantage-card", {
       xPercent: -600,
       duration: 1,
+      opacity: 0,
       stagger: {
         each: 0.25,
         from: "end",
