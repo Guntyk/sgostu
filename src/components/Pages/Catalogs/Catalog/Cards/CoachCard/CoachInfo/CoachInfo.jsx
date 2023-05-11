@@ -1,7 +1,7 @@
 import AvatarPlaceholder from "../../../../../../../common/AvatarPlaceholder/AvatarPlaceholder";
 import { dancerClassesSelector } from "../../../../../../../redux/dancerClasses/selectors";
-import { socialsFormatting } from "../../../../../../../helpers/socialsFormatting";
 import { getDancerClasses } from "../../../../../../../redux/dancerClasses/thunk";
+import { socialsFormatting } from "../../../../../../../hooks/socialsFormatting";
 import { statusesSelector } from "../../../../../../../redux/statuses/selectors";
 import { dancersSelector } from "../../../../../../../redux/dancers/selectors";
 import { coachesSelector } from "../../../../../../../redux/coaches/selectors";
