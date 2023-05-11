@@ -17,19 +17,19 @@ export default function LastNews({ articles }) {
   const language = window.localStorage.getItem("language");
   const history = useHistory();
   useEffect(() => {
-    gsap.from(".last-news-card", {
+    gsap.from(".news-section .last-news-card", {
       y: 50,
       opacity: 0,
       stagger: 0.5,
       duration: 1,
       scrollTrigger: {
-        trigger: ".last-news-card",
+        trigger: ".news-section .last-news-card",
         toggleActions: "restart pause resume pause",
       },
     });
   }, []);
   return (
-    <article className="last-news">
+    <article className="last-news news-section">
       <span className="last-news-title">
         {language === "en" ? "Latest news" : "Останні новини"}
       </span>
