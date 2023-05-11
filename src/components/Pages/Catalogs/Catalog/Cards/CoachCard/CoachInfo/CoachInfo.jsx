@@ -17,6 +17,7 @@ import { Link, Redirect, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import DancerCard from "../../DancerCard/DancerCard";
 import Loader from "../../../../../../Loader/Loader";
+import { letters } from "../../../ruLetters";
 import { useState, useEffect } from "react";
 import "./CoachInfo.css";
 
@@ -120,6 +121,9 @@ export default function CoachInfo() {
         ? `https://tiktok.com/${socialField}`
         : `https://${socialType}.com/${socialField.slice(1)}`;
     } else if (
+      !letters
+        .map((letter) => socialField.toLowerCase().includes(letter))
+        .includes(true) &&
       socialField.length <= 30 &&
       (!socialField.includes(`https://m.${socialType}.com`) ||
         !socialField.includes(`https://${socialType}.com`) ||
@@ -193,36 +197,43 @@ export default function CoachInfo() {
             </div>
           </div>
           <div className="coach-socials-wrapper detail-socials-wrapper">
-            {coach.Facebook && coach.Facebook?.length > 3 && (
-              <a
-                href={coachSocials("facebook", coach.Facebook)}
-                target="_blank"
-                rel="noreferrer"
-                className="social-btn facebook"
-              >
-                <Facebook />
-              </a>
-            )}
-            {coach.Instagram && coach.Instagram?.length > 3 && (
-              <a
-                href={coachSocials("instagram", coach.Instagram)}
-                target="_blank"
-                rel="noreferrer"
-                className="social-btn instagram"
-              >
-                <Insta fill="#fff" />
-              </a>
-            )}
-            {coach.TikTok && coach.TikTok?.length > 3 && (
-              <a
-                href={coachSocials("tiktok", coach.TikTok)}
-                target="_blank"
-                rel="noreferrer"
-                className="social-btn tiktok"
-              >
-                <Tiktok />
-              </a>
-            )}
+            {coach.Facebook &&
+              coach.Facebook?.length > 3 &&
+              String(coachSocials("facebook", coach.Facebook)).length > 21 && (
+                <a
+                  href={coachSocials("facebook", coach.Facebook)}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="social-btn facebook"
+                >
+                  <Facebook />
+                </a>
+              )}
+            {coach.Instagram &&
+              coach.Instagram?.length > 3 &&
+              String(coachSocials("instagram", coach.Instagram)).length >
+                22 && (
+                <a
+                  href={coachSocials("instagram", coach.Instagram)}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="social-btn instagram"
+                >
+                  <Insta fill="#fff" />
+                </a>
+              )}
+            {coach.TikTok &&
+              coach.TikTok?.length > 3 &&
+              String(coachSocials("tiktok", coach.TikTok)).length > 19 && (
+                <a
+                  href={coachSocials("tiktok", coach.TikTok)}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="social-btn tiktok"
+                >
+                  <Tiktok />
+                </a>
+              )}
           </div>
           <div className="coach-dancers">
             <span className="coach-dancers-title">
