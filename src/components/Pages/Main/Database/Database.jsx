@@ -11,7 +11,7 @@ export default function Database() {
   const language = window.localStorage.getItem("language");
   useEffect(() => {
     gsap.from(".database-phone", {
-      y: 300,
+      y: 350,
       duration: 0.8,
       scrollTrigger: {
         trigger: ".database",
@@ -23,6 +23,17 @@ export default function Database() {
       y: 300,
       duration: 1,
       delay: 0.5,
+      scrollTrigger: {
+        trigger: ".database",
+        start: "150px 105%",
+        toggleActions: "restart pause resume pause",
+      },
+    });
+    gsap.from(".database-button-wrapper", {
+      opacity: 0,
+      scale: 0,
+      duration: 0.7,
+      delay: 1.5,
       scrollTrigger: {
         trigger: ".database",
         start: "150px 105%",
@@ -42,14 +53,16 @@ export default function Database() {
               ? "Clubs, Trainers, Judges, Dancers"
               : "Клуби, Тренери, Судді, Танцюристи"}
           </p>
-          <a
-            className="btn database-btn"
-            href="https://app.database.dance"
-            target="_blank"
-            rel="norefferer noopener"
-          >
-            {language === "en" ? "Join" : "Приєднатися"}
-          </a>
+          <div className="database-button-wrapper">
+            <a
+              className="btn database-btn"
+              href="https://app.database.dance"
+              target="_blank"
+              rel="norefferer noopener"
+            >
+              {language === "en" ? "Join" : "Приєднатися"}
+            </a>
+          </div>
         </div>
         <div className="img-wrapper">
           <img src={phone} alt="Phone" className="database-phone" />
