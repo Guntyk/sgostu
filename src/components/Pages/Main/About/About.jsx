@@ -16,7 +16,6 @@ export default function About() {
       duration: 0.7,
       scrollTrigger: {
         trigger: ".about",
-        markers: true,
         start: "70% bottom",
         toggleActions: "restart pause resume pause",
       },
