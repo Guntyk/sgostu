@@ -36,6 +36,7 @@ export default function CoachInfo() {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     if (statuses.length === 0) {
       dispatch(getStatuses());
     }
@@ -138,7 +139,6 @@ export default function CoachInfo() {
       {coach ? (
         <section className="coach-info">
           <BackButton />
-          {window.scrollTo(0, 0)}
           <div className="coach">
             {coach["Coach Foto"]?.url ? (
               <img
@@ -147,7 +147,7 @@ export default function CoachInfo() {
                 alt="Аватар"
               />
             ) : (
-              <AvatarPlaceholder />
+              <AvatarPlaceholder className="coach-avatar" />
             )}
             <div className="coach-inner">
               <h2 className="coach-name">
