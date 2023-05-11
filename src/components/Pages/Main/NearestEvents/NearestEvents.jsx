@@ -30,11 +30,13 @@ export default function NearestEvents({ events }) {
     .slice(0, 3);
 
   useEffect(() => {
-    gsap.from(".nearest-events-wrapper", {
+    gsap.from(".event-card", {
+      y: 50,
       opacity: 0,
+      stagger: 0.5,
       duration: 1,
       scrollTrigger: {
-        trigger: ".nearest-events-wrapper",
+        trigger: ".event-card",
         toggleActions: "restart pause resume pause",
       },
     });
