@@ -251,26 +251,31 @@ export default function ClubInfo() {
             club.Facebook ||
             club.Instagram) && (
             <div className="detail-socials-wrapper">
-              {club.Facebook && club.Facebook?.length > 3 && (
-                <a
-                  href={clubSocials("facebook", club.Facebook)}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="social-btn facebook"
-                >
-                  <Facebook />
-                </a>
-              )}
-              {club.Instagram && club.Instagram?.length > 3 && (
-                <a
-                  href={clubSocials("instagram", club.Instagram)}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="social-btn instagram"
-                >
-                  <Insta fill="#fff" />
-                </a>
-              )}
+              {club.Facebook &&
+                club.Facebook?.length > 3 &&
+                String(clubSocials("facebook", club.Facebook)).length > 21 && (
+                  <a
+                    href={clubSocials("facebook", club.Facebook)}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="social-btn facebook"
+                  >
+                    <Facebook />
+                  </a>
+                )}
+              {club.Instagram &&
+                club.Instagram?.length > 3 &&
+                String(clubSocials("instagram", club.Instagram)).length >
+                  22 && (
+                  <a
+                    href={clubSocials("instagram", club.Instagram)}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="social-btn instagram"
+                  >
+                    <Insta fill="#fff" />
+                  </a>
+                )}
               {club["Phone Number Club"] && (
                 <a
                   href={`tel:${clubSocials(
