@@ -7,8 +7,9 @@ export default function PersonInfo({
   setActivePerson,
   managementType,
 }) {
+  const screenWidth = window.screen.availWidth;
   const language = window.localStorage.getItem("language");
-  return (
+  return screenWidth > 840 ? (
     <div
       className={`person-details-wrapper ${
         activePerson === personId ? "active" : ""
@@ -70,6 +71,73 @@ export default function PersonInfo({
             alt="1"
             className="person-detail-photo"
           />
+        </div>
+      </div>
+    </div>
+  ) : (
+    <div
+      className={`person-details-wrapper ${
+        activePerson === personId && "active"
+      }`}
+    >
+      <div
+        className={`person-detail-card ${
+          !person.description && "non-descripted"
+        }`}
+      >
+        <div
+          className="management-cross"
+          onClick={() => {
+            setActivePerson({});
+          }}
+        ></div>
+        <div className="person-details-mobile">
+          <h2 className="person-detail-name mobile">
+            {language === "en"
+              ? person.surname_en + " " + person.name_en
+              : person.surname + " " + person.name}
+          </h2>
+          <div className="person-detail-content mobile">
+            <img
+              src={`https://sgostu-backend.download${person.photo.data.attributes.url}`}
+              alt="1"
+              className="person-detail-photo mobile"
+            />
+            <div className="person-detail-information mobile">
+              <span className="person-detail-role mobile">
+                <User />{" "}
+                <p className="person-detail-role-text mobile">
+                  {managementType === "council"
+                    ? language === "en"
+                      ? person.council_role_en
+                      : person.council_role
+                    : language === "en"
+                    ? person.region_role_en
+                    : person.region_role}
+                </p>
+              </span>
+              <span className="person-detail-town mobile">
+                <City /> {language === "en" ? person.town_en : person.town}
+              </span>
+              <a
+                href={`tel:${person.phone}`}
+                className="person-contact mobile person-detail-phone mobile"
+              >
+                <Phone /> {person.phone}
+              </a>
+              <a
+                href={`mailTo:${person.email}`}
+                className="person-contact mobile person-detail-email mobile"
+              >
+                <Email /> {person.email}
+              </a>
+            </div>
+          </div>
+          <p className="person-detail-description mobile">
+            {language === "en"
+              ? String(person.description_en)
+              : String(person.description)}
+          </p>
         </div>
       </div>
     </div>
