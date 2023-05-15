@@ -78,7 +78,7 @@ export default function JudgeInfo() {
                 alt="Аватар"
               />
             ) : (
-              <AvatarPlaceholder />
+              <AvatarPlaceholder className="judge-avatar" />
             )}
             <div className="judge-inner">
               <h2 className="judge-name">

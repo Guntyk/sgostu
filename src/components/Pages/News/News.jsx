@@ -49,6 +49,7 @@ export default function News() {
             {articles.length !== 0 ? (
               articles
                 .filter((article) => article.attributes.type === "Новина")
+                .reverse()
                 .map((article) => (
                   <LastNewsCard
                     key={article.id}

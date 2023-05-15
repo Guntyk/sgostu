@@ -67,9 +67,10 @@
 
 @media (max-width: 550px) {
   .database {
-    background: #252525 url(../../../../materials/backgrounds/mobile/waves-database.svg)
-      no-repeat 50%;
-      background-size: cover;
+    background: #252525
+      url(../../../../materials/backgrounds/mobile/waves-database.svg) no-repeat
+      50%;
+    background-size: cover;
   }
   .database-wrapper {
     --step: -4em;

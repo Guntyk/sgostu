@@ -1,4 +1,4 @@
-import { dateToLocalFormat } from "../../../../../helpers/dateToLocalFormat";
+import { dateToLocalFormat } from "../../../../../hooks/dateToLocalFormat";
 import Button from "../../../../../common/Button/Button";
 import { useHistory } from "react-router-dom";
 import { useState } from "react";

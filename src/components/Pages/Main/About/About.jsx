@@ -1,7 +1,8 @@
-import gsap from "gsap";
+import Button from "../../../../common/Button/Button";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { useHistory } from "react-router-dom";
-import Button from "../../../../common/Button/Button";
+import { useEffect } from "react";
+import gsap from "gsap";
 import "./About.css";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -9,24 +10,32 @@ gsap.registerPlugin(ScrollTrigger);
 export default function About() {
   const language = window.localStorage.getItem("language");
   const { push } = useHistory();
-  gsap.fromTo(
-    ".circular",
-    {
-      x: 600,
-    },
-    {
-      x: 0,
-      duration: 1,
+  useEffect(() => {
+    gsap.from(".about-line", {
+      width: 0,
+      duration: 0.7,
       scrollTrigger: {
-        trigger: ".circular",
-        scrub: 3,
-        // markers: true,
-        // start: "+=100px",
-        end: "+=500px",
-        toggleActions: "restart none none none",
+        trigger: ".about",
+        start: "70% bottom",
+        toggleActions: "restart pause resume pause",
       },
-    }
-  );
+    });
+    gsap.fromTo(
+      ".circular",
+      {
+        x: 600,
+      },
+      {
+        x: 0,
+        delay: 0.5,
+        duration: 1,
+        scrollTrigger: {
+          trigger: ".circular",
+          toggleActions: "restart pause resume pause",
+        },
+      }
+    );
+  }, []);
 
   return (
     <article className="about">
@@ -35,7 +44,7 @@ export default function About() {
           <div className="about-text">
             <div className="about-row">
               <span>{language === "en" ? "SGOSTU" : "СГОСТУ"}</span>
-              <hr />
+              <hr className="about-line" />
             </div>
             <p>
               {language === "en"

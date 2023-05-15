@@ -1,6 +1,7 @@
 import AvatarPlaceholder from "../../../../../../../common/AvatarPlaceholder/AvatarPlaceholder";
 import { dancerClassesSelector } from "../../../../../../../redux/dancerClasses/selectors";
 import { getDancerClasses } from "../../../../../../../redux/dancerClasses/thunk";
+import { socialsFormatting } from "../../../../../../../hooks/socialsFormatting";
 import { statusesSelector } from "../../../../../../../redux/statuses/selectors";
 import { dancersSelector } from "../../../../../../../redux/dancers/selectors";
 import { coachesSelector } from "../../../../../../../redux/coaches/selectors";
@@ -36,6 +37,7 @@ export default function CoachInfo() {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     if (statuses.length === 0) {
       dispatch(getStatuses());
     }
@@ -105,40 +107,11 @@ export default function CoachInfo() {
     ).length;
   }
 
-  function coachSocials(socialType, socialField) {
-    if (
-      socialField.length >= 23 &&
-      (socialField.includes(`https://m.${socialType}.com`) ||
-        socialField.includes(`https://${socialType}.com`) ||
-        socialField.includes(`https://www.${socialType}.com`) ||
-        socialField.includes(`http://${socialType}.com`))
-    ) {
-      return socialField;
-    } else if (socialField.includes("@") && socialField.length <= 30) {
-      return socialType === "tiktok"
-        ? `https://tiktok.com/${socialField}`
-        : `https://${socialType}.com/${socialField.slice(1)}`;
-    } else if (
-      socialField.length <= 30 &&
-      (!socialField.includes(`https://m.${socialType}.com`) ||
-        !socialField.includes(`https://${socialType}.com`) ||
-        !socialField.includes(`https://www.${socialType}.com`) ||
-        !socialField.includes(`http://${socialType}.com`))
-    ) {
-      return socialType === "tiktok"
-        ? `https://tiktok.com/@${socialField}`
-        : `https://${socialType}.com/${socialField}`;
-    } else {
-      return;
-    }
-  }
-
   return (
     <>
       {coach ? (
         <section className="coach-info">
           <BackButton />
-          {window.scrollTo(0, 0)}
           <div className="coach">
             {coach["Coach Foto"]?.url ? (
               <img
@@ -147,7 +120,7 @@ export default function CoachInfo() {
                 alt="Аватар"
               />
             ) : (
-              <AvatarPlaceholder />
+              <AvatarPlaceholder className="coach-avatar" />
             )}
             <div className="coach-inner">
               <h2 className="coach-name">
@@ -193,36 +166,44 @@ export default function CoachInfo() {
             </div>
           </div>
           <div className="coach-socials-wrapper detail-socials-wrapper">
-            {coach.Facebook && coach.Facebook?.length > 3 && (
-              <a
-                href={coachSocials("facebook", coach.Facebook)}
-                target="_blank"
-                rel="noreferrer"
-                className="social-btn facebook"
-              >
-                <Facebook />
-              </a>
-            )}
-            {coach.Instagram && coach.Instagram?.length > 3 && (
-              <a
-                href={coachSocials("instagram", coach.Instagram)}
-                target="_blank"
-                rel="noreferrer"
-                className="social-btn instagram"
-              >
-                <Insta fill="#fff" />
-              </a>
-            )}
-            {coach.TikTok && coach.TikTok?.length > 3 && (
-              <a
-                href={coachSocials("tiktok", coach.TikTok)}
-                target="_blank"
-                rel="noreferrer"
-                className="social-btn tiktok"
-              >
-                <Tiktok />
-              </a>
-            )}
+            {coach.Facebook &&
+              coach.Facebook?.length > 3 &&
+              String(socialsFormatting("facebook", coach.Facebook)).length >
+                21 && (
+                <a
+                  href={socialsFormatting("facebook", coach.Facebook)}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="social-btn facebook"
+                >
+                  <Facebook />
+                </a>
+              )}
+            {coach.Instagram &&
+              coach.Instagram?.length > 3 &&
+              String(socialsFormatting("instagram", coach.Instagram)).length >
+                22 && (
+                <a
+                  href={socialsFormatting("instagram", coach.Instagram)}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="social-btn instagram"
+                >
+                  <Insta fill="#fff" />
+                </a>
+              )}
+            {coach.TikTok &&
+              coach.TikTok?.length > 3 &&
+              String(socialsFormatting("tiktok", coach.TikTok)).length > 19 && (
+                <a
+                  href={socialsFormatting("tiktok", coach.TikTok)}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="social-btn tiktok"
+                >
+                  <Tiktok />
+                </a>
+              )}
           </div>
           <div className="coach-dancers">
             <span className="coach-dancers-title">

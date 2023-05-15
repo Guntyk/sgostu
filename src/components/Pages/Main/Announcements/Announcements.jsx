@@ -1,11 +1,28 @@
 import LastNewsCard from "../LastNews/LastNewsCard/LastNewsCard";
 import { EffectCoverflow, Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { ScrollTrigger } from "gsap/all";
+import { useEffect } from "react";
 import "swiper/css/pagination";
+import { gsap } from "gsap";
 import "swiper/css";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function Announcements({ articles }) {
   const language = window.localStorage.getItem("language");
+  useEffect(() => {
+    gsap.from(".announcements .last-news-card", {
+      y: 50,
+      opacity: 0,
+      stagger: 0.5,
+      duration: 1,
+      scrollTrigger: {
+        trigger: ".announcements .last-news-card",
+        toggleActions: "restart pause resume pause",
+      },
+    });
+  }, []);
   return (
     <article className="last-news announcements">
       <span className="last-news-title">
