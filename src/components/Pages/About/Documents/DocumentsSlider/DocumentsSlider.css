@@ -44,6 +44,10 @@
   right: 55%;
 }
 
+.slider-box ~ .footer {
+  display: none;
+}
+
 @media (max-width: 1150px) {
   .slider {
     font-size: 0.8rem;

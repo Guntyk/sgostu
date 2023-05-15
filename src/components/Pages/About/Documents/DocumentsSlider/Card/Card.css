@@ -70,6 +70,7 @@
   height: 100vh;
   pointer-events: none;
   transition: 0.5s;
+  overflow: hidden;
   opacity: 0;
   z-index: 2;
 }
@@ -213,7 +214,7 @@
 }
 @media (max-width: 840px) {
   .card-floating {
-    --card-width: 270px;
+    --card-width: 230px;
     top: 39%;
   }
   .document-info-wrapper {
@@ -243,7 +244,7 @@
     top: 37%;
   }
   .document-overlay::before {
-    bottom: -120%;
+    bottom: -100%;
     left: 50%;
     transform: translateX(-50%) scale(20);
   }
