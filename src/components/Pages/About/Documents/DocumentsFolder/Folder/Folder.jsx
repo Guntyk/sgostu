@@ -1,7 +1,8 @@
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import "./Folder.css";
 
 export default function Folder({ type, typeId }) {
+  const screenWidth = window.screen.availWidth;
   const language = window.localStorage.getItem("language");
   const { push } = useHistory();
   return (
@@ -36,9 +37,15 @@ export default function Folder({ type, typeId }) {
           <hr />
         </div>
       </div>
-      <span className="type-name">
-        {language === "en" ? type.name_en : type.name}
-      </span>
+      {screenWidth > 840 ? (
+        <span className="type-name">
+          {language === "en" ? type.name_en : type.name}
+        </span>
+      ) : (
+        <Link className="type-name" to={`/documents/${typeId}`}>
+          {language === "en" ? type.name_en : type.name}
+        </Link>
+      )}
     </div>
   );
 }
