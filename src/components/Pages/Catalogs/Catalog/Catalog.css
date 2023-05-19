@@ -275,6 +275,10 @@
     font-size: 1.2rem;
     line-height: 1.5;
   }
+
+  .catalog .back-link {
+    display: none;
+  }
 }
 
 @media (max-width: 550px) {
