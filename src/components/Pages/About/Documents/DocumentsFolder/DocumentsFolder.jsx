@@ -22,6 +22,7 @@ export default function DocumentsFolder() {
 
   return (
     <div className="folders-wrapper">
+      <h1 className="documents-title">Документи</h1>
       <div className="folders">
         {documentTypes.length !== 0 ? (
           documentTypes.map((type) => (

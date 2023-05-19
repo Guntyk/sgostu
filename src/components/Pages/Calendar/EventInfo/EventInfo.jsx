@@ -1,5 +1,5 @@
-import { dateToLocalFormat } from "../../../../helpers/dateToLocalFormat";
 import couple from "../../../../materials/icons/calendar-card/couple.png";
+import { dateToLocalFormat } from "../../../../hooks/dateToLocalFormat";
 import { eventsSelector } from "../../../../redux/events/selectors";
 import BackButton from "../../../../common/BackButton/BackButton";
 import { getEvents } from "../../../../redux/events/thunk";

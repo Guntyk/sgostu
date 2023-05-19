@@ -1,7 +1,28 @@
+import { ScrollTrigger } from "gsap/all";
+import { useEffect } from "react";
+import { gsap } from "gsap";
 import "./Advantages.css";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function Advantages() {
   const language = window.localStorage.getItem("language");
+  useEffect(() => {
+    gsap.from(".advantage-card", {
+      xPercent: -600,
+      duration: 1,
+      opacity: 0,
+      stagger: {
+        each: 0.25,
+        from: "end",
+      },
+      scrollTrigger: {
+        trigger: ".advantages",
+        start: "30% bottom",
+        toggleActions: "restart pause resume pause",
+      },
+    });
+  });
   return (
     <article className="advantages">
       <div className="cards-wrapper">
