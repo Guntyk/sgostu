@@ -29,18 +29,18 @@ export default function NearestEvents({ events }) {
     .filter((event) => event !== undefined)
     .slice(0, 3);
 
-  useEffect(() => {
-    gsap.from(".event-card", {
-      y: 50,
-      opacity: 0,
-      stagger: 0.5,
-      duration: 1,
-      scrollTrigger: {
-        trigger: ".event-card",
-        toggleActions: "restart pause resume pause",
-      },
-    });
-  }, []);
+  // useEffect(() => {
+  //   gsap.from(".event-card", {
+  //     y: 50,
+  //     opacity: 0,
+  //     stagger: 0.5,
+  //     duration: 1,
+  //     scrollTrigger: {
+  //       trigger: ".event-card",
+  //       toggleActions: "restart pause resume pause",
+  //     },
+  //   });
+  // }, []);
 
   return (
     <>
