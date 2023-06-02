@@ -5,7 +5,7 @@ export function getClubs() {
   return (dispatch) => {
     getClubsFetch().then((response) => {
       if (response) {
-        dispatch(getClubsAction(response.at(-1).records.slice(1)));
+        dispatch(getClubsAction(response.at(-1).records.slice(1).reverse()));
       } else {
         alert("Getting dancers error");
       }
