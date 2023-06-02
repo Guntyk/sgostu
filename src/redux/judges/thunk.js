@@ -17,6 +17,7 @@ export function getJudges(statuses) {
                   .flat()
                   .includes(judge.id)
               )
+              .reverse()
           )
         );
       } else {

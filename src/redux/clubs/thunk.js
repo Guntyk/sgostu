@@ -5,7 +5,15 @@ export function getClubs() {
   return (dispatch) => {
     getClubsFetch().then((response) => {
       if (response) {
-        dispatch(getClubsAction(response.at(-1).records.slice(1)));
+        dispatch(
+          getClubsAction(
+            response
+              .at(-1)
+              .records.slice(1)
+              .filter((club) => club["Approve Club"])
+              .reverse()
+          )
+        );
       } else {
         alert("Getting dancers error");
       }

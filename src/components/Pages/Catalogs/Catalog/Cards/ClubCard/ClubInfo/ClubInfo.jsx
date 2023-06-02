@@ -183,7 +183,9 @@ export default function ClubInfo() {
                       {language === "en" ? "Town:" : "Місто:"}
                     </dt>
                     <dd>
-                      {club["Club Name"].split("(")[1].trim().slice(0, -1)}
+                      {club["Club Name"].includes("(")
+                        ? club["Club Name"].split("(")[1].trim().slice(0, -1)
+                        : "Не вказано"}
                     </dd>
                   </div>
                 )}

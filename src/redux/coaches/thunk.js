@@ -12,6 +12,7 @@ export function getCoaches(statuses) {
               .records.slice(1)
               .filter((coach) => coach["Coach Verify"])
               .filter((coach) => statuses[0]["Coaches"].includes(coach.id))
+              .reverse()
           )
         );
       } else {

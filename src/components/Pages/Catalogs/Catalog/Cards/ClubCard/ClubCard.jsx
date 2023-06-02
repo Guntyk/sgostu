@@ -48,7 +48,9 @@ export default function ClubCard({ club, dancers, coaches, screenWidth }) {
       </div>
       <div className="card-inner">
         <p className="card-city">
-          {club["Club Name"].split("(")[1].trim().slice(0, -1)}
+          {club["Club Name"].includes("(")
+            ? club["Club Name"].split("(")[1].trim().slice(0, -1)
+            : "Не вказано"}
         </p>
         <h4 className="card-name">{club["Club Name"].split("(")[0].trim()}</h4>
         <span className="card-club-owner">
