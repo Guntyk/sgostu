@@ -13,7 +13,7 @@
 .last-news-wrapper {
   position: relative;
   display: flex;
-  /* justify-content: center; */
+  justify-content: center;
   gap: 50px;
   margin: 2.923076em auto 2.8461538em auto;
   max-width: 941px;

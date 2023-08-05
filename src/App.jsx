@@ -38,7 +38,7 @@ export default function App() {
           <EventInfo />
         </Route>
         {/* Catalogs */}
-        <Route exact path="/catalogs">
+        {/* <Route exact path="/catalogs">
           <Catalogs />
         </Route>
         <Route exact path="/catalogs/:catalogs">
@@ -55,7 +55,7 @@ export default function App() {
         </Route>
         <Route exact path="/catalogs/judges/:judgeId">
           <JudgeInfo />
-        </Route>
+        </Route> */}
         {/* Feedback */}
         <Route exact path="/feedback">
           <Feedback />
