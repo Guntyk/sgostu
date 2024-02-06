@@ -4,12 +4,12 @@ import { getDancerClasses } from "../../../../../../../redux/dancerClasses/thunk
 import { socialsFormatting } from "../../../../../../../hooks/socialsFormatting";
 import { statusesSelector } from "../../../../../../../redux/statuses/selectors";
 import { dancersSelector } from "../../../../../../../redux/dancers/selectors";
-import { coachesSelector } from "../../../../../../../redux/coaches/selectors";
+// import { coachesSelector } from "../../../../../../../redux/coaches/selectors";
 import { clubsSelector } from "../../../../../../../redux/clubs/selectors";
 import BackButton from "../../../../../../../common/BackButton/BackButton";
 import { getStatuses } from "../../../../../../../redux/statuses/thunk";
 import { getDancers } from "../../../../../../../redux/dancers/thunk";
-import { getCoaches } from "../../../../../../../redux/coaches/thunk";
+// import { getCoaches } from "../../../../../../../redux/coaches/thunk";
 import Facebook from "../../../../../../../materials/icons/Facebook";
 import { getClubs } from "../../../../../../../redux/clubs/thunk";
 import Tiktok from "../../../../../../../materials/icons/Tiktok";
@@ -25,7 +25,7 @@ export default function CoachInfo() {
   const language = window.localStorage.getItem("language");
   const dancerClasses = useSelector(dancerClassesSelector);
   const statuses = useSelector(statusesSelector);
-  const coaches = useSelector(coachesSelector);
+  // const coaches = useSelector(coachesSelector);
   const dancers = useSelector(dancersSelector);
   const clubs = useSelector(clubsSelector);
 
@@ -45,9 +45,9 @@ export default function CoachInfo() {
 
   useEffect(() => {
     if (statuses.length !== 0) {
-      if (coaches.length === 0) {
-        dispatch(getCoaches(statuses));
-      }
+      // if (coaches.length === 0) {
+      //   dispatch(getCoaches(statuses));
+      // }
       if (dancers.length === 0) {
         dispatch(getDancers(statuses));
       }
@@ -60,15 +60,15 @@ export default function CoachInfo() {
     }
   }, [statuses]);
 
-  useEffect(() => {
-    if (coaches.length !== 0) {
-      coaches.map((coach) => {
-        if (Number(coach.id) === Number(coachId)) {
-          setCoach(coach);
-        }
-      });
-    }
-  }, [coaches]);
+  // useEffect(() => {
+  //   if (coaches.length !== 0) {
+  //     coaches.map((coach) => {
+  //       if (Number(coach.id) === Number(coachId)) {
+  //         setCoach(coach);
+  //       }
+  //     });
+  //   }
+  // }, [coaches]);
 
   useEffect(() => {
     if (coach) {

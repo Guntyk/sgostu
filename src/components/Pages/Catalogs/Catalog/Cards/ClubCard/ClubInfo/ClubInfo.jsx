@@ -3,12 +3,12 @@ import { dancerClassesSelector } from "../../../../../../../redux/dancerClasses/
 import { getDancerClasses } from "../../../../../../../redux/dancerClasses/thunk";
 import { socialsFormatting } from "../../../../../../../hooks/socialsFormatting";
 import { statusesSelector } from "../../../../../../../redux/statuses/selectors";
-import { coachesSelector } from "../../../../../../../redux/coaches/selectors";
+// import { coachesSelector } from "../../../../../../../redux/coaches/selectors";
 import { dancersSelector } from "../../../../../../../redux/dancers/selectors";
 import { clubsSelector } from "../../../../../../../redux/clubs/selectors";
 import BackButton from "../../../../../../../common/BackButton/BackButton";
 import { getStatuses } from "../../../../../../../redux/statuses/thunk";
-import { getCoaches } from "../../../../../../../redux/coaches/thunk";
+// import { getCoaches } from "../../../../../../../redux/coaches/thunk";
 import { getDancers } from "../../../../../../../redux/dancers/thunk";
 import Facebook from "../../../../../../../materials/icons/Facebook";
 import EmailIcon from "../../../../../../../materials/icons/Email";
@@ -27,7 +27,7 @@ export default function ClubInfo() {
   const language = window.localStorage.getItem("language");
   const dancerClasses = useSelector(dancerClassesSelector);
   const statuses = useSelector(statusesSelector);
-  const coaches = useSelector(coachesSelector);
+  // const coaches = useSelector(coachesSelector);
   const dancers = useSelector(dancersSelector);
   const clubs = useSelector(clubsSelector);
 
@@ -52,9 +52,9 @@ export default function ClubInfo() {
       if (clubs.length === 0) {
         dispatch(getClubs());
       }
-      if (coaches.length === 0) {
-        dispatch(getCoaches(statuses));
-      }
+      // if (coaches.length === 0) {
+      //   dispatch(getCoaches(statuses));
+      // }
       if (dancers.length === 0) {
         dispatch(getDancers(statuses));
       }
@@ -88,16 +88,16 @@ export default function ClubInfo() {
           dancers.filter((dancer) => club["Dancers ok*"]?.includes(dancer.id))
         );
       }
-      if (coaches) {
-        setClubCoaches(
-          coaches.filter((coach) => club["Coaches ok"]?.includes(coach.id))
-        );
-      }
+      // if (coaches) {
+      //   setClubCoaches(
+      //     coaches.filter((coach) => club["Coaches ok"]?.includes(coach.id))
+      //   );
+      // }
       setTimeout(() => {
         setLoading(false);
       }, 1000);
     }
-  }, [club, dancers, coaches]);
+  }, [club, dancers]);
 
   // Fields filling
   function clubWebsite(clubWebsite, fieldType) {
@@ -307,7 +307,7 @@ export default function ClubInfo() {
           ) : (
             <div className="club-catalog club-dancers">
               <div className="club-detail-dancers-wrapper">
-                {clubCoaches.length !== 0 && !loading ? (
+                {/* {clubCoaches.length !== 0 && !loading ? (
                   clubCoaches.map((coach) => (
                     <CoachCard
                       screenWidth={window.screen.availWidth}
@@ -324,7 +324,7 @@ export default function ClubInfo() {
                   </h2>
                 ) : (
                   <Loader className="club-catalog-loader" />
-                )}
+                )} */}
               </div>
             </div>
           )}

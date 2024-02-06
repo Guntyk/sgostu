@@ -1,39 +1,24 @@
-import { applyMiddleware, combineReducers, createStore } from "redux";
-import { dancerClassesReducer } from "./dancerClasses/reducer";
-import { documentTypesReducer } from "./documentTypes/reducer";
-import { organizationsReducer } from "./organizations/reducer";
-import { composeWithDevTools } from "redux-devtools-extension";
-import { judgeClassesReducer } from "./judgeClasses/reducer";
-import { managementReducer } from "./management/reducer";
-import { documentsReducer } from "./documents/reducer";
-import { articlesReducer } from "./articles/reducer";
-import { statusesReducer } from "./statuses/reducer";
-import { coachesReducer } from "./coaches/reducer";
-import { dancersReducer } from "./dancers/reducer";
-import { regionsReducer } from "./regions/reducer";
-import { eventsReducer } from "./events/reducer";
-import { judgesReducer } from "./judges/reducer";
-import { clubsReducer } from "./clubs/reducer";
-import thunk from "redux-thunk";
+import { configureStore } from '@reduxjs/toolkit';
+import statusesReducer from 'redux/features/statusesSlice';
+import coachesReducer from 'redux/features/coachesSlice';
+import dancersReducer from 'redux/features/dancersSlice';
+import judgesReducer from 'redux/features/judgesSlice';
+import clubsReducer from 'redux/features/clubsSlice';
 
-const rootReducer = combineReducers({
-  dancerClasses: dancerClassesReducer,
-  documentTypes: documentTypesReducer,
-  organizations: organizationsReducer,
-  judgeClasses: judgeClassesReducer,
-  management: managementReducer,
-  documents: documentsReducer,
-  articles: articlesReducer,
-  statuses: statusesReducer,
-  coaches: coachesReducer,
-  dancers: dancersReducer,
-  regions: regionsReducer,
-  events: eventsReducer,
-  judges: judgesReducer,
-  clubs: clubsReducer,
+const store = configureStore({
+  reducer: {
+    statuses: statusesReducer,
+    coaches: coachesReducer,
+    dancers: dancersReducer,
+    judges: judgesReducer,
+    clubs: clubsReducer,
+  },
+  devTools: process.env.NODE_ENV !== 'production',
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      thunk: true,
+      serializableCheck: false,
+    }),
 });
 
-export const store = createStore(
-  rootReducer,
-  composeWithDevTools(applyMiddleware(thunk))
-);
+export default store;
