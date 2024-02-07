@@ -22,23 +22,24 @@ import '../Colors.css';
 import * as statusesSlice from 'redux/features/statusesSlice';
 import * as dancersSlice from 'redux/features/dancersSlice';
 import * as clubsSlice from 'redux/features/clubsSlice';
+import { ErrorMessage } from 'common/ErrorMessage/ErrorMessage';
+import { v4 } from 'uuid';
 
 export default function DancerInfo() {
   const isStatusesRequestLoading = useSelector((state) => state.statuses.isLoading);
   const statusesRequestErrors = useSelector((state) => state.statuses.errors);
   const statuses = useSelector((state) => state.statuses.statuses);
 
-  const isDancersRequestLoading = useSelector((state) => state.dancer.isLoading);
-  const dancersRequestErrors = useSelector((state) => state.dancer.errors);
-  const dancerClasses = useSelector((state) => state.dancer.dancerClasses);
-  const dancers = useSelector((state) => state.dancer.dancers);
+  const isDancersRequestLoading = useSelector((state) => state.dancers.isLoading);
+  const dancersRequestErrors = useSelector((state) => state.dancers.errors);
+  const dancerClasses = useSelector((state) => state.dancers.dancerClasses);
+  const dancers = useSelector((state) => state.dancers.dancers);
 
-  const isClubsRequestLoading = useSelector((state) => state.club.isLoading);
-  const clubsRequestErrors = useSelector((state) => state.club.errors);
-  const clubs = useSelector((state) => state.club.clubs);
+  const isClubsRequestLoading = useSelector((state) => state.clubs.isLoading);
+  const clubsRequestErrors = useSelector((state) => state.clubs.errors);
+  const clubs = useSelector((state) => state.clubs.clubs);
 
   const language = window.localStorage.getItem('language');
-  const [loading, setLoading] = useState(true);
   const [dancer, setDancer] = useState(null);
 
   const { dancerId } = useParams();
@@ -73,7 +74,7 @@ export default function DancerInfo() {
 
   // Fields filling
   function dancerClub() {
-    return clubs.filter((club) => club.id === Number(dancer['Clubs ok*']))[0];
+    return clubs.find((club) => club.id === Number(dancer['Clubs ok']));
   }
 
   function dancerClass(coefficient) {
@@ -88,10 +89,10 @@ export default function DancerInfo() {
   }
 
   return (
-    <>
-      {dancer ? (
-        <section className='dancer-info'>
-          <BackButton className='detail-catalog-info-button' />
+    <section className='dancer-info'>
+      <BackButton className='detail-catalog-info-button' />
+      {!isStatusesRequestLoading && !isDancersRequestLoading && !isClubsRequestLoading && dancer ? (
+        <>
           <div className='dancer'>
             {dancer.Dancer_Foto?.url ? (
               <img className='dancer-avatar' src={dancer.Dancer_Foto?.url} alt='Аватар' />
@@ -105,15 +106,15 @@ export default function DancerInfo() {
               <dl className='dancer-details'>
                 <div className='dancer-details-wrapper'>
                   <dt className='dancer-club'>{language === 'en' ? 'Club:' : 'Клуб:'}</dt>
-                  <dd className='dancer-detail-club-name linked'>
+                  <dd className={`dancer-detail-club-name ${dancerClub() ? 'linked' : ''}`}>
                     {dancerClub() ? (
                       <Link to={`/catalogs/clubs/${dancerClub().id}`}>
                         {dancerClub()['Club Name'].split('(')[0].trim()}
                       </Link>
                     ) : language === 'en' ? (
-                      'Loading...'
+                      'Not specified'
                     ) : (
-                      'Завантаження...'
+                      'Не вказано'
                     )}
                   </dd>
                 </div>
@@ -185,12 +186,13 @@ export default function DancerInfo() {
                 </a>
               )}
           </div>
-        </section>
-      ) : !loading ? (
-        <Redirect to='/not-found' />
+        </>
       ) : (
         <Loader />
       )}
-    </>
+      {statusesRequestErrors.length > 0 && statusesRequestErrors.map((err) => <ErrorMessage error={err} key={v4()} />)}
+      {dancersRequestErrors.length > 0 && dancersRequestErrors.map((err) => <ErrorMessage error={err} key={v4()} />)}
+      {clubsRequestErrors.length > 0 && clubsRequestErrors.map((err) => <ErrorMessage error={err} key={v4()} />)}
+    </section>
   );
 }
