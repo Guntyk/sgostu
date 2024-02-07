@@ -77,8 +77,8 @@ export default function CoachInfo() {
     console.log(coach);
     if (coach === undefined) {
       replace('/not-found');
-    } else {
-      dancers.length > 0 && setCoachDancers(dancers.filter(({ id }) => coach['My Dancers ok']?.includes(id)));
+    } else if (coach && dancers.length > 0) {
+      setCoachDancers(dancers.filter(({ id }) => coach['My Dancers ok']?.includes(id)));
     }
   }, [coach, dancers]);
 
