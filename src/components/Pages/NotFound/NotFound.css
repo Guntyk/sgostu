@@ -2,7 +2,7 @@
   display: grid;
   place-items: center;
   height: 100vh;
-  font-size: 2rem;
+  font-size: 1.2rem;
 }
 
 .not-found-wrapper {
@@ -13,7 +13,7 @@
 }
 
 .not-found-title {
-  font-size: 7em;
+  font-size: 6em;
 }
 
 @media (max-width: 840px) {
