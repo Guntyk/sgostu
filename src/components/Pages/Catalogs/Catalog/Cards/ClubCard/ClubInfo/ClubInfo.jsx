@@ -1,208 +1,207 @@
-import clubPlaceholder from "../../../../../../../materials/icons/clubcard/club-placeholder.jpg";
-import { dancerClassesSelector } from "../../../../../../../redux/dancerClasses/selectors";
-import { getDancerClasses } from "../../../../../../../redux/dancerClasses/thunk";
-import { socialsFormatting } from "../../../../../../../hooks/socialsFormatting";
-import { statusesSelector } from "../../../../../../../redux/statuses/selectors";
+import clubPlaceholder from '../../../../../../../materials/icons/clubcard/club-placeholder.jpg';
+import { dancerClassesSelector } from '../../../../../../../redux/dancerClasses/selectors';
+import { getDancerClasses } from '../../../../../../../redux/dancerClasses/thunk';
+import { socialsFormatting } from '../../../../../../../hooks/socialsFormatting';
+import { statusesSelector } from '../../../../../../../redux/statuses/selectors';
 // import { coachesSelector } from "../../../../../../../redux/coaches/selectors";
-import { dancersSelector } from "../../../../../../../redux/dancers/selectors";
-import { clubsSelector } from "../../../../../../../redux/clubs/selectors";
-import BackButton from "../../../../../../../common/BackButton/BackButton";
-import { getStatuses } from "../../../../../../../redux/statuses/thunk";
+import { dancersSelector } from '../../../../../../../redux/dancers/selectors';
+import { clubsSelector } from '../../../../../../../redux/clubs/selectors';
+import BackButton from '../../../../../../../common/BackButton/BackButton';
+import { getStatuses } from '../../../../../../../redux/statuses/thunk';
 // import { getCoaches } from "../../../../../../../redux/coaches/thunk";
-import { getDancers } from "../../../../../../../redux/dancers/thunk";
-import Facebook from "../../../../../../../materials/icons/Facebook";
-import EmailIcon from "../../../../../../../materials/icons/Email";
-import PhoneIcon from "../../../../../../../materials/icons/Phone";
-import { getClubs } from "../../../../../../../redux/clubs/thunk";
-import Insta from "../../../../../../../materials/icons/Insta";
-import { useDispatch, useSelector } from "react-redux";
-import { Redirect, useParams } from "react-router-dom";
-import DancerCard from "../../DancerCard/DancerCard";
-import Loader from "../../../../../../Loader/Loader";
-import CoachCard from "../../CoachCard/CoachCard";
-import { useState, useEffect } from "react";
-import "./ClubInfo.css";
+import { getDancers } from '../../../../../../../redux/dancers/thunk';
+import Facebook from '../../../../../../../materials/icons/Facebook';
+import EmailIcon from '../../../../../../../materials/icons/Email';
+import PhoneIcon from '../../../../../../../materials/icons/Phone';
+import { getClubs } from '../../../../../../../redux/clubs/thunk';
+import Insta from '../../../../../../../materials/icons/Insta';
+import { useDispatch, useSelector } from 'react-redux';
+import { useParams, useHistory } from 'react-router-dom';
+import DancerCard from '../../DancerCard/DancerCard';
+import Loader from '../../../../../../Loader/Loader';
+import CoachCard from '../../CoachCard/CoachCard';
+import { useState, useEffect } from 'react';
+import './ClubInfo.css';
+
+import * as statusesSlice from 'redux/features/statusesSlice';
+import * as dancersSlice from 'redux/features/dancersSlice';
+import * as coachesSlice from 'redux/features/coachesSlice';
+import * as clubsSlice from 'redux/features/clubsSlice';
+import { ErrorMessage } from 'common/ErrorMessage/ErrorMessage';
+import { v4 } from 'uuid';
 
 export default function ClubInfo() {
-  const language = window.localStorage.getItem("language");
-  const dancerClasses = useSelector(dancerClassesSelector);
-  const statuses = useSelector(statusesSelector);
-  // const coaches = useSelector(coachesSelector);
-  const dancers = useSelector(dancersSelector);
-  const clubs = useSelector(clubsSelector);
+  const isStatusesRequestLoading = useSelector((state) => state.statuses.isLoading);
+  const statusesRequestErrors = useSelector((state) => state.statuses.errors);
+  const statuses = useSelector((state) => state.statuses.statuses);
 
+  const isDancersRequestLoading = useSelector((state) => state.dancers.isLoading);
+  const dancersRequestErrors = useSelector((state) => state.dancers.errors);
+  const dancerClasses = useSelector((state) => state.dancers.dancerClasses);
+  const dancers = useSelector((state) => state.dancers.dancers);
+
+  const isClubsRequestLoading = useSelector((state) => state.clubs.isLoading);
+  const clubsRequestErrors = useSelector((state) => state.clubs.errors);
+  const clubs = useSelector((state) => state.clubs.clubs);
+
+  const isCoachesRequestLoading = useSelector((state) => state.coaches.isLoading);
+  const coachesRequestErrors = useSelector((state) => state.coaches.errors);
+  const coaches = useSelector((state) => state.coaches.coaches);
+
+  const language = window.localStorage.getItem('language');
   const [clubCoaches, setClubCoaches] = useState([]);
   const [clubDancers, setClubDancers] = useState([]);
-  const [info, setInfo] = useState("Танцюристи");
+  const [info, setInfo] = useState('Танцюристи');
   const [loading, setLoading] = useState(true);
+  const [copied, setCopied] = useState(false);
   const [club, setClub] = useState(null);
-
+  const { replace } = useHistory();
   const { clubId } = useParams();
   const dispatch = useDispatch();
 
   useEffect(() => {
     window.scrollTo(0, 0);
     if (statuses.length === 0) {
-      dispatch(getStatuses());
+      dispatch(statusesSlice.getStatusesData());
     }
   }, []);
 
   useEffect(() => {
     if (statuses.length !== 0) {
-      if (clubs.length === 0) {
-        dispatch(getClubs());
+      if (coaches.length === 0) {
+        dispatch(coachesSlice.getCoachesData(statuses));
       }
-      // if (coaches.length === 0) {
-      //   dispatch(getCoaches(statuses));
-      // }
       if (dancers.length === 0) {
-        dispatch(getDancers(statuses));
+        dispatch(dancersSlice.getDancersData(statuses));
       }
       if (dancerClasses.length === 0) {
-        dispatch(getDancerClasses());
+        dispatch(dancersSlice.getDancerClassesData());
+      }
+      if (clubs.length === 0) {
+        dispatch(clubsSlice.getClubsData());
       }
     }
   }, [statuses]);
 
   useEffect(() => {
     if (clubs.length !== 0) {
-      clubs.map((club) => {
-        if (Number(club.id) === Number(clubId)) {
-          setClub(club);
-        }
-      });
+      setClub(clubs.find(({ id }) => id === Number(clubId)));
     }
   }, [clubs]);
 
   useEffect(() => {
+    console.log(club);
+    if (club === undefined) {
+      replace('/not-found');
+      return;
+    }
+
     if (club) {
-      const list = document.querySelectorAll(".event-details-list");
+      const list = document.querySelectorAll('.event-details-list');
+
       function activeLink() {
-        list.forEach((item) => item.classList.remove("active"));
-        this.classList.add("active");
+        list.forEach((item) => item.classList.remove('active'));
+        this.classList.add('active');
         setInfo(this.innerText);
       }
-      list.forEach((item) => item.addEventListener("click", activeLink));
-      if (dancers) {
-        setClubDancers(
-          dancers.filter((dancer) => club["Dancers ok*"]?.includes(dancer.id))
-        );
+
+      list.forEach((item) => item.addEventListener('click', activeLink));
+
+      if (dancers.length > 0) {
+        setClubDancers(dancers.filter(({ id }) => club['Dancers ok*']?.includes(id)));
       }
-      // if (coaches) {
-      //   setClubCoaches(
-      //     coaches.filter((coach) => club["Coaches ok"]?.includes(coach.id))
-      //   );
-      // }
-      setTimeout(() => {
-        setLoading(false);
-      }, 1000);
+
+      if (coaches.length > 0) {
+        setClubCoaches(coaches.filter(({ id }) => club['Coaches ok']?.includes(id)));
+      }
     }
-  }, [club, dancers]);
+  }, [club, coaches, dancers]);
+
+  const copyToClipboard = () => {
+    navigator.clipboard
+      .writeText(socialsFormatting('phone', club['Phone Number Club']))
+      .then(() => {
+        setCopied(true);
+        setTimeout(() => setCopied(false), 2000);
+      })
+      .catch((err) => console.error('Failed to copy:', err));
+  };
 
   // Fields filling
   function clubWebsite(clubWebsite, fieldType) {
-    if (fieldType === "href") {
-      if (clubWebsite.includes("https://") || clubWebsite.includes("http://")) {
+    if (fieldType === 'href') {
+      if (clubWebsite.includes('https://') || clubWebsite.includes('http://')) {
         return clubWebsite;
       } else {
         return `https://${clubWebsite}`;
       }
-    } else if (fieldType === "link") {
-      let link =
-        club["Website club"].slice(-1) === "/"
-          ? club["Website club"].slice(0, -1)
-          : club["Website club"];
-      return link.includes("https://")
-        ? link.slice(8)
-        : link.includes("http://")
-        ? link.slice(7)
-        : link;
+    } else if (fieldType === 'link') {
+      let link = club['Website club'].slice(-1) === '/' ? club['Website club'].slice(0, -1) : club['Website club'];
+      return link.includes('https://') ? link.slice(8) : link.includes('http://') ? link.slice(7) : link;
     }
   }
 
   return (
-    <>
-      {club ? (
-        <section className="club-info">
-          <BackButton />
-          <div className="club">
+    <section className='club-info'>
+      <BackButton />
+      {!isStatusesRequestLoading && !isClubsRequestLoading && club ? (
+        <>
+          <div className='club'>
             <img
-              className="club-avatar"
-              src={
-                club["Logo Clubs"]?.url
-                  ? club["Logo Clubs"]?.url
-                  : clubPlaceholder
-              }
-              alt="Логотип клубу"
+              className='club-avatar'
+              src={club['Logo Clubs']?.url ? club['Logo Clubs']?.url : clubPlaceholder}
+              alt='Логотип клубу'
             />
 
-            <div className="club-inner">
-              {club["Club Name"] && (
-                <h2 className="club-name">
-                  {club["Club Name"].split("(")[0].trim()}
-                </h2>
-              )}
-              <dl className="club-details">
-                <div className="club-dancers-coaches-quantity">
-                  <div className="club-details-wrapper">
-                    <dt className="coaches-quantity club-coaches">
-                      {language === "en" ? "Coaches:" : "Тренерів:"}
-                    </dt>
-                    <dd>{clubCoaches.length > 0 ? clubCoaches.length : "—"}</dd>
+            <div className='club-inner'>
+              {club['Club Name'] && <h2 className='club-name'>{club['Club Name'].split('(')[0].trim()}</h2>}
+              <dl className='club-details'>
+                <div className='club-dancers-coaches-quantity'>
+                  <div className='club-details-wrapper'>
+                    <dt className='coaches-quantity club-coaches'>{language === 'en' ? 'Coaches:' : 'Тренерів:'}</dt>
+                    <dd>{clubCoaches.length > 0 ? clubCoaches.length : '—'}</dd>
                   </div>
-                  <div className="club-details-wrapper">
-                    <dt className="dancers-quantity club-dancers">
-                      {language === "en" ? "Dancers:" : "Танцюристів:"}
-                    </dt>
-                    <dd>{clubDancers.length > 0 ? clubDancers.length : "—"}</dd>
+                  <div className='club-details-wrapper'>
+                    <dt className='dancers-quantity club-dancers'>{language === 'en' ? 'Dancers:' : 'Танцюристів:'}</dt>
+                    <dd>{clubDancers.length > 0 ? clubDancers.length : '—'}</dd>
                   </div>
                 </div>
-                {club["Address Club"] && (
-                  <div className="club-details-wrapper">
-                    <dt className="club-address">
-                      {language === "en" ? "Address:" : "Адреса:"}
-                    </dt>
-                    <dd>{club["Address Club"]}</dd>
+                {club['Address Club'] && (
+                  <div className='club-details-wrapper'>
+                    <dt className='club-address'>{language === 'en' ? 'Address:' : 'Адреса:'}</dt>
+                    <dd>{club['Address Club']}</dd>
                   </div>
                 )}
-                {(club["SurName of Supervisor"] ||
-                  club["Name of Supervisor"]) && (
-                  <div className="club-details-wrapper">
-                    <dt className="club-supervisor">
-                      {language === "en" ? "Supervisor:" : "Керівник:"}
-                    </dt>
+                {(club['SurName of Supervisor'] || club['Name of Supervisor']) && (
+                  <div className='club-details-wrapper'>
+                    <dt className='club-supervisor'>{language === 'en' ? 'Supervisor:' : 'Керівник:'}</dt>
                     <dd>
-                      {club["SurName of Supervisor"]}{" "}
-                      {club["Name of Supervisor"]}
+                      {club['SurName of Supervisor']} {club['Name of Supervisor']}
                     </dd>
                   </div>
                 )}
-                {club["Club Name"] && (
-                  <div className="club-details-wrapper">
-                    <dt className="club-town">
-                      {language === "en" ? "Town:" : "Місто:"}
-                    </dt>
+                {club['Club Name'] && (
+                  <div className='club-details-wrapper'>
+                    <dt className='club-town'>{language === 'en' ? 'Town:' : 'Місто:'}</dt>
                     <dd>
-                      {club["Club Name"].includes("(")
-                        ? club["Club Name"].split("(")[1].trim().slice(0, -1)
-                        : "Не вказано"}
+                      {club['Club Name'].includes('(')
+                        ? club['Club Name'].split('(')[1].trim().slice(0, -1)
+                        : 'Не вказано'}
                     </dd>
                   </div>
                 )}
-                {club["Website club"] && (
-                  <div className="club-details-wrapper">
-                    <dt className="club-website">
-                      {language === "en" ? "Website:" : "Сайт:"}
-                    </dt>
+                {club['Website club'] && (
+                  <div className='club-details-wrapper'>
+                    <dt className='club-website'>{language === 'en' ? 'Website:' : 'Сайт:'}</dt>
                     <dd>
                       {
                         <a
-                          className="linked"
-                          href={clubWebsite(club["Website club"], "href")}
-                          target="_blank"
-                          rel="noreferrer"
+                          className='linked'
+                          href={clubWebsite(club['Website club'], 'href')}
+                          target='_blank'
+                          rel='noreferrer'
                         >
-                          {clubWebsite(club["Website club"], "link")}
+                          {clubWebsite(club['Website club'], 'link')}
                         </a>
                       }
                     </dd>
@@ -211,81 +210,66 @@ export default function ClubInfo() {
               </dl>
             </div>
           </div>
-          {(club["Phone Number Club"] ||
-            club["E-mail Club"] ||
-            club.Facebook ||
-            club.Instagram) && (
-            <div className="detail-socials-wrapper">
+          {(club['Phone Number Club'] || club['E-mail Club'] || club.Facebook || club.Instagram) && (
+            <div className='detail-socials-wrapper'>
               {club.Facebook &&
                 club.Facebook?.length > 3 &&
-                String(socialsFormatting("facebook", club.Facebook)).length >
-                  21 && (
+                String(socialsFormatting('facebook', club.Facebook)).length > 21 && (
                   <a
-                    href={socialsFormatting("facebook", club.Facebook)}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="social-btn facebook"
+                    href={socialsFormatting('facebook', club.Facebook)}
+                    target='_blank'
+                    rel='noreferrer'
+                    className='social-btn facebook'
                   >
                     <Facebook />
                   </a>
                 )}
               {club.Instagram &&
                 club.Instagram?.length > 3 &&
-                String(socialsFormatting("instagram", club.Instagram)).length >
-                  22 && (
+                String(socialsFormatting('instagram', club.Instagram)).length > 22 && (
                   <a
-                    href={socialsFormatting("instagram", club.Instagram)}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="social-btn instagram"
+                    href={socialsFormatting('instagram', club.Instagram)}
+                    target='_blank'
+                    rel='noreferrer'
+                    className='social-btn instagram'
                   >
-                    <Insta fill="#fff" />
+                    <Insta fill='#fff' />
                   </a>
                 )}
-              {club["Phone Number Club"] && (
-                <a
-                  href={`tel:${socialsFormatting(
-                    "phone",
-                    club["Phone Number Club"]
-                  )}`}
-                  className="social-btn phone"
-                >
+              {club['Phone Number Club'] && (
+                <button onClick={copyToClipboard} className={`social-btn phone ${copied ? 'copied' : ''}`}>
                   <PhoneIcon />
-                </a>
+                </button>
               )}
-              {club["E-mail Club"] && (
+              {club['E-mail Club'] && (
                 <a
-                  href={`mailto:${socialsFormatting(
-                    "email",
-                    club["E-mail Club"]
-                  )}`}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="social-btn email"
+                  href={`mailto:${socialsFormatting('email', club['E-mail Club'])}`}
+                  target='_blank'
+                  rel='noreferrer'
+                  className='social-btn email'
                 >
                   <EmailIcon />
                 </a>
               )}
             </div>
           )}
-          {club["Perevagy Club"] && (
-            <div className="club-advantages">{club["Perevagy Club"]}</div>
-          )}
-          <div className="event-detail-info-row">
-            <ul className="event-detail-buttons">
-              <li className="event-details-list active">
-                {language === "en" ? "Dancers" : "Танцюристи"}
-              </li>
-              <li className="event-details-list">
-                {language === "en" ? "Coaches" : "Тренери"}
-              </li>
-              <div className="indicator"></div>
+          {club['Perevagy Club'] && <div className='club-advantages'>{club['Perevagy Club']}</div>}
+          <div className='event-detail-info-row'>
+            <ul className='event-detail-buttons'>
+              <li className='event-details-list active'>{language === 'en' ? 'Dancers' : 'Танцюристи'}</li>
+              <li className='event-details-list'>{language === 'en' ? 'Coaches' : 'Тренери'}</li>
+              <div className='indicator'></div>
             </ul>
           </div>
-          {info === "Танцюристи" || info === "Dancers" ? (
-            <div className="club-catalog club-dancers">
-              <div className="club-detail-dancers-wrapper">
-                {clubDancers.length !== 0 && !loading ? (
+
+          {info === 'Танцюристи' || info === 'Dancers' ? (
+            <div className='club-catalog club-dancers'>
+              <div className='club-detail-dancers-wrapper'>
+                {dancers.length === 0 && <Loader className='club-catalog-loader' />}
+                {dancers.length > 0 && clubDancers.length === 0 && (
+                  <h2 className='no-dancers-searched'>{language === 'en' ? 'No dancers' : 'Танцюристів немає'}</h2>
+                )}
+                {dancers.length > 0 &&
                   clubDancers.map((dancer) => (
                     <DancerCard
                       screenWidth={window.screen.availWidth}
@@ -294,20 +278,17 @@ export default function ClubInfo() {
                       clubs={clubs}
                       key={dancer.id}
                     />
-                  ))
-                ) : !loading && dancers.length > 0 ? (
-                  <h2 className="no-dancers-searched">
-                    {language === "en" ? "No dancers" : "Танцюристів немає"}
-                  </h2>
-                ) : (
-                  <Loader className="club-catalog-loader" />
-                )}
+                  ))}
               </div>
             </div>
           ) : (
-            <div className="club-catalog club-dancers">
-              <div className="club-detail-dancers-wrapper">
-                {/* {clubCoaches.length !== 0 && !loading ? (
+            <div className='club-catalog club-dancers'>
+              <div className='club-detail-dancers-wrapper'>
+                {coaches.length === 0 && <Loader className='club-catalog-loader' />}
+                {coaches.length > 0 && clubCoaches.length === 0 && (
+                  <h2 className='no-dancers-searched'>{language === 'en' ? 'No coaches' : 'Тренерів немає'}</h2>
+                )}
+                {coaches.length > 0 &&
                   clubCoaches.map((coach) => (
                     <CoachCard
                       screenWidth={window.screen.availWidth}
@@ -317,23 +298,14 @@ export default function ClubInfo() {
                       clubs={clubs}
                       key={coach.id}
                     />
-                  ))
-                ) : !loading && coaches.length > 0 ? (
-                  <h2 className="no-dancers-searched">
-                    {language === "en" ? "No coaches" : "Тренерів немає"}
-                  </h2>
-                ) : (
-                  <Loader className="club-catalog-loader" />
-                )} */}
+                  ))}
               </div>
             </div>
           )}
-        </section>
-      ) : !loading ? (
-        <Redirect to="/not-found" />
+        </>
       ) : (
         <Loader />
       )}
-    </>
+    </section>
   );
 }

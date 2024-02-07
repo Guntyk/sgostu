@@ -1,9 +1,7 @@
 .club-info {
   padding-top: 100px;
-  background: url(../../../../../../../materials/backgrounds/waves-right.svg)
-      no-repeat 100% 100%,
-    url(../../../../../../../materials/backgrounds/waves-left.svg) no-repeat 0%
-      20%;
+  background: url(../../../../../../../materials/backgrounds/waves-right.svg) no-repeat 100% 100%,
+    url(../../../../../../../materials/backgrounds/waves-left.svg) no-repeat 0% 20%;
   background-size: 40% 150%;
   background-attachment: fixed;
 }
@@ -47,6 +45,34 @@
   --coefficient: 0.9;
 }
 
+.social-btn {
+  position: relative;
+}
+.social-btn.copied {
+  background: #55b75e;
+}
+.social-btn.copied path {
+  fill: #fff;
+}
+.social-btn::before {
+  content: 'Скопійовано';
+  padding: 10px;
+  position: absolute;
+  top: -100%;
+  left: 50%;
+  color: #000;
+  border-radius: 10px;
+  border: 1px solid rgba(100, 100, 100, 0.2);
+  background: #fff;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(-50%);
+  transition: 0.15s;
+}
+.social-btn.copied::before {
+  opacity: 1;
+}
+
 /* Information */
 .club-avatar {
   width: 200px;
@@ -57,12 +83,12 @@
 }
 .club-name {
   position: relative;
-  font-family: "e-Ukraine-Head", sans-serif;
+  font-family: 'e-Ukraine-Head', sans-serif;
   font-size: 26px;
   line-height: 2;
 }
 .club-name::before {
-  content: "";
+  content: '';
   position: absolute;
   left: 0;
   bottom: 0;
@@ -77,7 +103,7 @@
   gap: 20px;
 }
 .club-details-wrapper dd {
-  font-family: "e-Ukraine-Light";
+  font-family: 'e-Ukraine-Light';
 }
 
 /* Quantity */
@@ -95,7 +121,7 @@
   margin: 30px auto;
   padding: 20px;
   width: 60%;
-  font-family: "e-Ukraine-Light", sans-serif;
+  font-family: 'e-Ukraine-Light', sans-serif;
   line-height: 1.5;
   white-space: pre-line;
   border-radius: 10px;
@@ -107,15 +133,11 @@
 .club-info .event-detail-buttons > .indicator {
   width: calc(100% / 2);
 }
-.club-info
-  .event-detail-buttons:has(.event-details-list:nth-child(2).active)
-  .indicator {
+.club-info .event-detail-buttons:has(.event-details-list:nth-child(2).active) .indicator {
   border-right: none;
   border-top-right-radius: 0;
 }
-.club-info
-  .event-detail-buttons:has(.event-details-list:nth-child(2).active)
-  .indicator::after {
+.club-info .event-detail-buttons:has(.event-details-list:nth-child(2).active) .indicator::after {
   display: none;
 }
 .club-info .event-detail-buttons {
@@ -187,7 +209,7 @@
     gap: 0;
   }
   .club-details-wrapper {
-    font-family: "e-Ukraine-Light", sans-serif;
+    font-family: 'e-Ukraine-Light', sans-serif;
     margin: 0 auto;
   }
   .club .club-name {
