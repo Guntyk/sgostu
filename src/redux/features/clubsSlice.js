@@ -24,7 +24,7 @@ export const getClubsData = createAsyncThunk('clubs/getClubs', async (_, { rejec
 });
 export const getClubData = createAsyncThunk('clubs/getClub', async (clubId, { rejectWithValue }) => {
   const { result, errors } = await AdaloDataService.getClub(clubId);
-  console.log(result);
+
   if (result) {
     return result;
   }

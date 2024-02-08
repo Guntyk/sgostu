@@ -53,15 +53,15 @@ export default function CoachInfo() {
   useEffect(() => {
     if (statuses.length !== 0) {
       if (coaches.length === 0) {
-        dispatch(coachesSlice.getCoachesData(statuses));
+        dispatch(coachesSlice.getCoachData(coachId));
       }
-      if (dancers.length === 0) {
+      if (dancers.length <= 1) {
         dispatch(dancersSlice.getDancersData(statuses));
       }
       if (dancerClasses.length === 0) {
         dispatch(dancersSlice.getDancerClassesData());
       }
-      if (clubs.length === 0) {
+      if (clubs.length <= 1) {
         dispatch(clubsSlice.getClubsData());
       }
     }
@@ -76,7 +76,18 @@ export default function CoachInfo() {
   useEffect(() => {
     if (coach === undefined) {
       replace('/not-found');
-    } else if (coach && dancers.length > 0) {
+      return;
+    } else if (coach) {
+      if (!coach['Coach Verify']) {
+        replace('/not-found');
+        return;
+      } else if (!statuses[0]['Coaches'].includes(coach.id)) {
+        replace('/not-found');
+        return;
+      }
+    }
+
+    if (coach && dancers.length > 0) {
       setCoachDancers(dancers.filter(({ id }) => coach['My Dancers ok']?.includes(id)));
     }
   }, [coach, dancers]);

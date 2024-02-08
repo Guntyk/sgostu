@@ -21,6 +21,16 @@ export const getCoachesData = createAsyncThunk('coaches/getCoaches', async (stat
   return rejectWithValue(errors || ['An error occurred while getting coaches data. Please try again later']);
 });
 
+export const getCoachData = createAsyncThunk('coaches/getCoach', async (coachId, { rejectWithValue }) => {
+  const { result, errors } = await AdaloDataService.getCoach(coachId);
+
+  if (result) {
+    return result;
+  }
+
+  return rejectWithValue(errors || ['An error occurred while getting coaches data. Please try again later']);
+});
+
 const coachesSlice = createSlice({
   name: 'coaches',
   initialState,
@@ -40,6 +50,19 @@ const coachesSlice = createSlice({
         state.errors = [];
       })
       .addCase(getCoachesData.rejected, (state, { payload }) => {
+        state.isLoading = false;
+        state.coaches = [];
+        state.errors = payload;
+      })
+      .addCase(getCoachData.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(getCoachData.fulfilled, (state, { payload }) => {
+        state.isLoading = false;
+        state.coaches = [payload];
+        state.errors = [];
+      })
+      .addCase(getCoachData.rejected, (state, { payload }) => {
         state.isLoading = false;
         state.coaches = [];
         state.errors = payload;
