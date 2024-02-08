@@ -35,8 +35,8 @@ export default function JudgeInfo() {
 
   useEffect(() => {
     if (statuses.length !== 0) {
-      if (judges.length === 0) {
-        dispatch(judgesSlice.getJudgesData(statuses));
+      if (judges.length <= 1) {
+        dispatch(judgesSlice.getJudgeData(judgeId));
       }
       if (judgeClasses.length === 0) {
         dispatch(judgesSlice.getJudgeClassesData());
@@ -51,8 +51,13 @@ export default function JudgeInfo() {
   }, [judges]);
 
   useEffect(() => {
-    if (judge === undefined && judges.length > 0) {
+    if (judge === undefined) {
       replace('/not-found');
+    } else if (judge) {
+      if (!judge['Judges Verify'] || statuses.find(({ Name }) => Name === 'Не активний')['Judges'].includes(judge.id)) {
+        replace('/not-found');
+        return;
+      }
     }
   }, [judge]);
 

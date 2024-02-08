@@ -27,6 +27,16 @@ export const getJudgesData = createAsyncThunk('judges/getJudges', async (statuse
   return rejectWithValue(errors || ['An error occurred while getting judges data. Please try again later']);
 });
 
+export const getJudgeData = createAsyncThunk('judges/getJudge', async (judgeId, { rejectWithValue }) => {
+  const { result, errors } = await AdaloDataService.getJudge(judgeId);
+
+  if (result) {
+    return result;
+  }
+
+  return rejectWithValue(errors || ['An error occurred while getting judges data. Please try again later']);
+});
+
 export const getJudgeClassesData = createAsyncThunk('judges/getJudgeClasses', async (_, { rejectWithValue }) => {
   const { result, errors } = await AdaloDataService.getJudgeClasses();
 
@@ -72,6 +82,19 @@ const judgesSlice = createSlice({
         state.errors = [];
       })
       .addCase(getJudgesData.rejected, (state, { payload }) => {
+        state.isLoading = false;
+        state.judges = [];
+        state.errors = payload;
+      })
+      .addCase(getJudgeData.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(getJudgeData.fulfilled, (state, { payload }) => {
+        state.isLoading = false;
+        state.judges = [payload];
+        state.errors = [];
+      })
+      .addCase(getJudgeData.rejected, (state, { payload }) => {
         state.isLoading = false;
         state.judges = [];
         state.errors = payload;
