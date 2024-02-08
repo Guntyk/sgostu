@@ -28,6 +28,16 @@ export const getDancersData = createAsyncThunk('dancers/getDancers', async (stat
   return rejectWithValue(errors || ['An error occurred while getting dancers data. Please try again later']);
 });
 
+export const getDancerData = createAsyncThunk('dancers/getDancer', async (dancerId, { rejectWithValue }) => {
+  const { result, errors } = await AdaloDataService.getDancer(dancerId);
+
+  if (result) {
+    return result;
+  }
+
+  return rejectWithValue(errors || ['An error occurred while getting dancer data. Please try again later']);
+});
+
 export const getDancerClassesData = createAsyncThunk('dancers/getDancerClasses', async (_, { rejectWithValue }) => {
   const { result, errors } = await AdaloDataService.getDancerClasses();
 
@@ -73,6 +83,19 @@ const dancersSlice = createSlice({
         state.errors = [];
       })
       .addCase(getDancersData.rejected, (state, { payload }) => {
+        state.isLoading = false;
+        state.dancers = [];
+        state.errors = payload;
+      })
+      .addCase(getDancerData.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(getDancerData.fulfilled, (state, { payload }) => {
+        state.isLoading = false;
+        state.dancers = [payload];
+        state.errors = [];
+      })
+      .addCase(getDancerData.rejected, (state, { payload }) => {
         state.isLoading = false;
         state.dancers = [];
         state.errors = payload;

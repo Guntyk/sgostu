@@ -47,12 +47,12 @@ export default function DancerInfo() {
   useEffect(() => {
     if (statuses.length !== 0) {
       if (dancers.length === 0) {
-        dispatch(dancersSlice.getDancersData(statuses));
+        dispatch(dancersSlice.getDancerData(dancerId));
       }
       if (dancerClasses.length === 0) {
         dispatch(dancersSlice.getDancerClassesData());
       }
-      if (clubs.length === 0) {
+      if (clubs.length <= 1) {
         dispatch(clubsSlice.getClubsData());
       }
     }
@@ -67,6 +67,14 @@ export default function DancerInfo() {
   useEffect(() => {
     if (dancer === undefined) {
       replace('/not-found');
+    } else if (dancer) {
+      if (
+        !dancer['Dancer Verify'] ||
+        statuses.find(({ Name }) => Name === 'Не активний')['Dancers'].includes(dancer.id)
+      ) {
+        replace('/not-found');
+        return;
+      }
     }
   }, [dancer]);
 

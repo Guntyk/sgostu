@@ -78,10 +78,7 @@ export default function CoachInfo() {
       replace('/not-found');
       return;
     } else if (coach) {
-      if (!coach['Coach Verify']) {
-        replace('/not-found');
-        return;
-      } else if (!statuses[0]['Coaches'].includes(coach.id)) {
+      if (!coach['Coach Verify'] || !statuses[0]['Coaches'].includes(coach.id)) {
         replace('/not-found');
         return;
       }
