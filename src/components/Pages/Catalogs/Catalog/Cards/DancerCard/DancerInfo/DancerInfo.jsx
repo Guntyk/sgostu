@@ -1,20 +1,12 @@
-import AvatarPlaceholder from '../../../../../../../common/AvatarPlaceholder/AvatarPlaceholder';
-import { dancerClassesSelector } from '../../../../../../../redux/dancerClasses/selectors';
-import { getDancerClasses } from '../../../../../../../redux/dancerClasses/thunk';
-import { socialsFormatting } from '../../../../../../../hooks/socialsFormatting';
-import { statusesSelector } from '../../../../../../../redux/statuses/selectors';
-import { dancersSelector } from '../../../../../../../redux/dancers/selectors';
-import { clubsSelector } from '../../../../../../../redux/clubs/selectors';
-import BackButton from '../../../../../../../common/BackButton/BackButton';
-import { getStatuses } from '../../../../../../../redux/statuses/thunk';
-import { getDancers } from '../../../../../../../redux/dancers/thunk';
-import Facebook from '../../../../../../../materials/icons/Facebook';
-import { getClubs } from '../../../../../../../redux/clubs/thunk';
-import Tiktok from '../../../../../../../materials/icons/Tiktok';
-import Insta from '../../../../../../../materials/icons/Insta';
-import { Link, Redirect, useParams } from 'react-router-dom';
+import AvatarPlaceholder from 'common/AvatarPlaceholder/AvatarPlaceholder';
+import { socialsFormatting } from 'helpers/socialsFormatting';
+import BackButton from 'common/BackButton/BackButton';
+import Facebook from 'materials/icons/Facebook';
+import Tiktok from 'materials/icons/Tiktok';
+import Insta from 'materials/icons/Insta';
+import { Link, useHistory, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import Loader from '../../../../../../Loader/Loader';
+import Loader from 'components/Loader/Loader';
 import { useState, useEffect } from 'react';
 import './DancerInfo.css';
 import '../Colors.css';
@@ -41,7 +33,7 @@ export default function DancerInfo() {
 
   const language = window.localStorage.getItem('language');
   const [dancer, setDancer] = useState(null);
-
+  const { replace } = useHistory();
   const { dancerId } = useParams();
   const dispatch = useDispatch();
 
@@ -71,6 +63,12 @@ export default function DancerInfo() {
       setDancer(dancers.find(({ id }) => id === Number(dancerId)));
     }
   }, [dancers]);
+
+  useEffect(() => {
+    if (dancer === undefined) {
+      replace('/not-found');
+    }
+  }, [dancer]);
 
   // Fields filling
   function dancerClub() {

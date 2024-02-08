@@ -12,11 +12,9 @@ import * as judgesSlice from 'redux/features/judgesSlice';
 import { ErrorMessage } from 'common/ErrorMessage/ErrorMessage';
 
 export default function JudgeInfo() {
-  const isStatusesRequestLoading = useSelector((state) => state.statuses.isLoading);
   const statusesRequestErrors = useSelector((state) => state.statuses.errors);
   const statuses = useSelector((state) => state.statuses.statuses);
 
-  const isJudgesRequestLoading = useSelector((state) => state.judges.isLoading);
   const judgesRequestErrors = useSelector((state) => state.judges.errors);
   const judgeClasses = useSelector((state) => state.judges.judgeClasses);
   const judges = useSelector((state) => state.judges.judges);

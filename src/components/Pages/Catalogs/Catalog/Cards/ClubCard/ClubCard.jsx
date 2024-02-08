@@ -5,7 +5,7 @@ import './ClubCard.css';
 
 export default function ClubCard({ club, dancers, coaches, screenWidth }) {
   const language = window.localStorage.getItem('language');
-  console.log(club);
+
   const { push } = useHistory();
   function handleClick() {
     if (screenWidth <= 840) {

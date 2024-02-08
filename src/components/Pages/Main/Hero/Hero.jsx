@@ -8,7 +8,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default function Hero() {
   const language = window.localStorage.getItem("language");
-  console.log(language);
+
   useEffect(() => {
     setTimeout(() => {
       // const cursor = document.querySelector(".hero-cursor");

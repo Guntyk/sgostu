@@ -1,24 +1,14 @@
-import clubPlaceholder from '../../../../../../../materials/icons/clubcard/club-placeholder.jpg';
-import { dancerClassesSelector } from '../../../../../../../redux/dancerClasses/selectors';
-import { getDancerClasses } from '../../../../../../../redux/dancerClasses/thunk';
-import { socialsFormatting } from '../../../../../../../hooks/socialsFormatting';
-import { statusesSelector } from '../../../../../../../redux/statuses/selectors';
-// import { coachesSelector } from "../../../../../../../redux/coaches/selectors";
-import { dancersSelector } from '../../../../../../../redux/dancers/selectors';
-import { clubsSelector } from '../../../../../../../redux/clubs/selectors';
-import BackButton from '../../../../../../../common/BackButton/BackButton';
-import { getStatuses } from '../../../../../../../redux/statuses/thunk';
-// import { getCoaches } from "../../../../../../../redux/coaches/thunk";
-import { getDancers } from '../../../../../../../redux/dancers/thunk';
-import Facebook from '../../../../../../../materials/icons/Facebook';
-import EmailIcon from '../../../../../../../materials/icons/Email';
-import PhoneIcon from '../../../../../../../materials/icons/Phone';
-import { getClubs } from '../../../../../../../redux/clubs/thunk';
-import Insta from '../../../../../../../materials/icons/Insta';
+import clubPlaceholder from 'materials/icons/clubcard/club-placeholder.jpg';
+import { socialsFormatting } from 'helpers/socialsFormatting';
+import BackButton from 'common/BackButton/BackButton';
+import Facebook from 'materials/icons/Facebook';
+import EmailIcon from 'materials/icons/Email';
+import PhoneIcon from 'materials/icons/Phone';
+import Insta from 'materials/icons/Insta';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams, useHistory } from 'react-router-dom';
 import DancerCard from '../../DancerCard/DancerCard';
-import Loader from '../../../../../../Loader/Loader';
+import Loader from 'components/Loader/Loader';
 import CoachCard from '../../CoachCard/CoachCard';
 import { useState, useEffect } from 'react';
 import './ClubInfo.css';
@@ -52,7 +42,6 @@ export default function ClubInfo() {
   const [clubCoaches, setClubCoaches] = useState([]);
   const [clubDancers, setClubDancers] = useState([]);
   const [info, setInfo] = useState('Танцюристи');
-  const [loading, setLoading] = useState(true);
   const [copied, setCopied] = useState(false);
   const [club, setClub] = useState(null);
   const { replace } = useHistory();
@@ -90,7 +79,6 @@ export default function ClubInfo() {
   }, [clubs]);
 
   useEffect(() => {
-    console.log(club);
     if (club === undefined) {
       replace('/not-found');
       return;
@@ -152,7 +140,6 @@ export default function ClubInfo() {
               src={club['Logo Clubs']?.url ? club['Logo Clubs']?.url : clubPlaceholder}
               alt='Логотип клубу'
             />
-
             <div className='club-inner'>
               {club['Club Name'] && <h2 className='club-name'>{club['Club Name'].split('(')[0].trim()}</h2>}
               <dl className='club-details'>
@@ -261,44 +248,49 @@ export default function ClubInfo() {
               <div className='indicator'></div>
             </ul>
           </div>
-
           {info === 'Танцюристи' || info === 'Dancers' ? (
             <div className='club-catalog club-dancers'>
               <div className='club-detail-dancers-wrapper'>
-                {dancers.length === 0 && <Loader className='club-catalog-loader' />}
-                {dancers.length > 0 && clubDancers.length === 0 && (
-                  <h2 className='no-dancers-searched'>{language === 'en' ? 'No dancers' : 'Танцюристів немає'}</h2>
+                {!isDancersRequestLoading ? (
+                  dancers.length > 0 && clubDancers.length > 0 ? (
+                    clubDancers.map((dancer) => (
+                      <DancerCard
+                        screenWidth={window.screen.availWidth}
+                        classes={dancerClasses}
+                        dancer={dancer}
+                        clubs={clubs}
+                        key={dancer.id}
+                      />
+                    ))
+                  ) : (
+                    <h2 className='no-dancers-searched'>{language === 'en' ? 'No dancers' : 'Танцюристів немає'}</h2>
+                  )
+                ) : (
+                  <Loader className='club-catalog-loader' />
                 )}
-                {dancers.length > 0 &&
-                  clubDancers.map((dancer) => (
-                    <DancerCard
-                      screenWidth={window.screen.availWidth}
-                      classes={dancerClasses}
-                      dancer={dancer}
-                      clubs={clubs}
-                      key={dancer.id}
-                    />
-                  ))}
               </div>
             </div>
           ) : (
             <div className='club-catalog club-dancers'>
               <div className='club-detail-dancers-wrapper'>
-                {coaches.length === 0 && <Loader className='club-catalog-loader' />}
-                {coaches.length > 0 && clubCoaches.length === 0 && (
-                  <h2 className='no-dancers-searched'>{language === 'en' ? 'No coaches' : 'Тренерів немає'}</h2>
+                {!isCoachesRequestLoading ? (
+                  coaches.length > 0 && clubCoaches.length > 0 ? (
+                    clubCoaches.map((coach) => (
+                      <CoachCard
+                        screenWidth={window.screen.availWidth}
+                        dancerClasses={dancerClasses}
+                        dancers={dancers}
+                        coach={coach}
+                        clubs={clubs}
+                        key={coach.id}
+                      />
+                    ))
+                  ) : (
+                    <h2 className='no-dancers-searched'>{language === 'en' ? 'No coaches' : 'Тренерів немає'}</h2>
+                  )
+                ) : (
+                  <Loader className='club-catalog-loader' />
                 )}
-                {coaches.length > 0 &&
-                  clubCoaches.map((coach) => (
-                    <CoachCard
-                      screenWidth={window.screen.availWidth}
-                      dancerClasses={dancerClasses}
-                      dancers={dancers}
-                      coach={coach}
-                      clubs={clubs}
-                      key={coach.id}
-                    />
-                  ))}
               </div>
             </div>
           )}
@@ -306,6 +298,10 @@ export default function ClubInfo() {
       ) : (
         <Loader />
       )}
+      {statusesRequestErrors.length > 0 && statusesRequestErrors.map((err) => <ErrorMessage error={err} key={v4()} />)}
+      {dancersRequestErrors.length > 0 && dancersRequestErrors.map((err) => <ErrorMessage error={err} key={v4()} />)}
+      {clubsRequestErrors.length > 0 && clubsRequestErrors.map((err) => <ErrorMessage error={err} key={v4()} />)}
+      {coachesRequestErrors.length > 0 && coachesRequestErrors.map((err) => <ErrorMessage error={err} key={v4()} />)}
     </section>
   );
 }

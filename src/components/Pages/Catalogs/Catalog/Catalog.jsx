@@ -16,6 +16,8 @@ import * as coachesSlice from 'redux/features/coachesSlice';
 import * as dancersSlice from 'redux/features/dancersSlice';
 import * as judgesSlice from 'redux/features/judgesSlice';
 import * as clubsSlice from 'redux/features/clubsSlice';
+import { ErrorMessage } from 'common/ErrorMessage/ErrorMessage';
+import { v4 } from 'uuid';
 
 import './Catalog.css';
 
@@ -238,6 +240,12 @@ export default function Catalog() {
             <Loader />
           )}
         </div>
+        {statusesRequestErrors.length > 0 &&
+          statusesRequestErrors.map((err) => <ErrorMessage error={err} key={v4()} />)}
+        {clubsRequestErrors.length > 0 && clubsRequestErrors.map((err) => <ErrorMessage error={err} key={v4()} />)}
+        {coachesRequestErrors.length > 0 && coachesRequestErrors.map((err) => <ErrorMessage error={err} key={v4()} />)}
+        {dancersRequestErrors.length > 0 && dancersRequestErrors.map((err) => <ErrorMessage error={err} key={v4()} />)}
+        {judgesRequestErrors.length > 0 && judgesRequestErrors.map((err) => <ErrorMessage error={err} key={v4()} />)}
       </div>
     </div>
   );

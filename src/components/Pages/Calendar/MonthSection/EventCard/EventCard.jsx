@@ -1,7 +1,7 @@
 import trofey from "../../../../../materials/icons/calendar-card/trofey.png";
 import master from "../../../../../materials/icons/calendar-card/master.png";
 import SpartakIcon from "../../../../../materials/icons/categories/Spartak";
-import { dateToLocalFormat } from "../../../../../hooks/dateToLocalFormat";
+import { dateToLocalFormat } from "../../../../../helpers/dateToLocalFormat";
 import crowd from "../../../../../materials/icons/calendar-card/crowd.png";
 import GlobeIcon from "../../../../../materials/icons/categories/Globe";
 import StarIcon from "../../../../../materials/icons/categories/Star";

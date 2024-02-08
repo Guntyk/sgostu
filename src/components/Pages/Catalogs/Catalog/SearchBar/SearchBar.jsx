@@ -1,4 +1,4 @@
-import { filterEntities } from '../../../../../hooks/filterEntities';
+import { filterEntities } from '../../../../../helpers/filterEntities';
 import Search from '../../../../../materials/icons/Search';
 import Button from '../../../../../common/Button/Button';
 import { useState } from 'react';

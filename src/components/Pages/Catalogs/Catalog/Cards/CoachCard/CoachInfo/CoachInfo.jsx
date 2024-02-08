@@ -1,5 +1,5 @@
 import AvatarPlaceholder from 'common/AvatarPlaceholder/AvatarPlaceholder';
-import { socialsFormatting } from 'hooks/socialsFormatting';
+import { socialsFormatting } from 'helpers/socialsFormatting';
 import BackButton from 'common/BackButton/BackButton';
 import Facebook from 'materials/icons/Facebook';
 import Tiktok from 'materials/icons/Tiktok';
@@ -74,7 +74,6 @@ export default function CoachInfo() {
   }, [coaches]);
 
   useEffect(() => {
-    console.log(coach);
     if (coach === undefined) {
       replace('/not-found');
     } else if (coach && dancers.length > 0) {
