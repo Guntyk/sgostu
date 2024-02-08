@@ -1,5 +1,5 @@
-import { getArticlesFetch } from "../../api/Strapi/articles";
-import { getArticlesAction } from "./actionCreators";
+import { getArticlesFetch } from '../../api/Strapi/articles';
+import { getArticlesAction } from './actionCreators';
 
 export function getArticles() {
   return (dispatch) => {
@@ -8,7 +8,6 @@ export function getArticles() {
         dispatch(getArticlesAction(articles.data));
       } else {
         console.log(articlesErr);
-        alert("Getting articles error");
       }
     });
   };

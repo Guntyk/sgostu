@@ -1,9 +1,8 @@
 .feedback {
   font-size: 1rem;
   padding: 129px 10px;
-  background: url(../../../../materials/backgrounds/waves-left.svg) no-repeat 0%
-      30%,
-    url(../../../../materials/backgrounds/waves-right.svg) no-repeat 100% 0%;
+  background: url(materials/backgrounds/waves-left.svg) no-repeat 0% 30%,
+    url(materials/backgrounds/waves-right.svg) no-repeat 100% 0%;
 }
 
 .feedback-wrapper {
@@ -24,15 +23,11 @@
   gap: 1.25em;
 }
 
-/* Adaptation */
 @media (max-width: 840px) {
   .feedback {
     font-size: 0.714285rem;
     background-position: 0 50%, 100% 50%;
     background-size: 50% 70%;
-  }
-  .feedback-wrapper {
-    /* max-width: 90%; */
   }
   .form-control {
     font-size: 0.8rem;
@@ -40,9 +35,7 @@
 }
 @media (max-width: 550px) {
   .feedback {
-    /* padding-bottom: 500px; */
-    background: url(../../../../materials/backgrounds/mobile/waves-left.svg),
-      url(../../../../materials/backgrounds/mobile/waves-right.svg);
+    background: url(materials/backgrounds/mobile/waves-left.svg), url(materials/backgrounds/mobile/waves-right.svg);
     background-repeat: no-repeat, no-repeat;
     background-position: 0 5%, 100% 100%;
     background-size: 70% 135%;
@@ -51,4 +44,3 @@
     max-width: 100%;
   }
 }
-

@@ -1,5 +1,11 @@
 .about-page {
   padding: 70px 0 135px;
+  min-height: 80vh;
+}
+
+.about-page .loader-sec {
+  margin-top: 200px;
+  height: auto;
 }
 
 .about-page-title {

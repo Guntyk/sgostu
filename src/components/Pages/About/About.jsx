@@ -1,15 +1,15 @@
-import BackButton from "../../../common/BackButton/BackButton";
-import aboutImg from "../../../materials/img/about.png";
-import { useEffect, useState } from "react";
-import Loader from "../../Loader/Loader";
-import "./About.css";
+import BackButton from 'common/BackButton/BackButton';
+import aboutImg from 'materials/img/about.png';
+import { useEffect, useState } from 'react';
+import Loader from 'components/Loader/Loader';
+import './About.css';
 
 export default function About() {
-  const language = window.localStorage.getItem("language");
+  const language = window.localStorage.getItem('language');
   const [history, setHistory] = useState();
   window.scrollTo(0, 0);
   useEffect(() => {
-    fetch("https://sgostu-backend.download/api/history")
+    fetch('https://sgostu-backend.download/api/history')
       .then((response) => {
         return response.json();
       })
@@ -18,32 +18,28 @@ export default function About() {
       });
   }, []);
   return (
-    <article className="about-page">
-      <div className="container">
+    <article className='about-page'>
+      <div className='container'>
         <BackButton />
-        <h2 className="about-page-title">
-          {language === "en" ? "About" : "Про нас"}
-        </h2>
-        <div className="about-page-content">
-          <div className="about-content-wrapper">
-            <div className="about-content-head">
-              <hr />
-              <h3 className="about-content-title">
-                {language === "en" ? "History" : "Історія"}
-              </h3>
-            </div>
-            {history ? (
-              language === "en" ? (
-                <p className="about-content-text">{history.text_en}</p>
+        <h2 className='about-page-title'>{language === 'en' ? 'About' : 'Про нас'}</h2>
+        {history ? (
+          <div className='about-page-content'>
+            <div className='about-content-wrapper'>
+              <div className='about-content-head'>
+                <hr />
+                <h3 className='about-content-title'>{language === 'en' ? 'History' : 'Історія'}</h3>
+              </div>
+              {language === 'en' ? (
+                <p className='about-content-text'>{history.text_en}</p>
               ) : (
-                <p className="about-content-text">{history.text}</p>
-              )
-            ) : (
-              <Loader />
-            )}
+                <p className='about-content-text'>{history.text}</p>
+              )}
+            </div>
+            <img className='about-img' src={aboutImg} alt='' />
           </div>
-          <img className="about-img" src={aboutImg} alt="" />
-        </div>
+        ) : (
+          <Loader />
+        )}
       </div>
     </article>
   );

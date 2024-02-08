@@ -1,7 +1,7 @@
 .club-info {
   padding-top: 100px;
-  background: url(../../../../../../../materials/backgrounds/waves-right.svg) no-repeat 100% 100%,
-    url(../../../../../../../materials/backgrounds/waves-left.svg) no-repeat 0% 20%;
+  background: url(materials/backgrounds/waves-right.svg) no-repeat 100% 100%,
+    url(materials/backgrounds/waves-left.svg) no-repeat 0% 20%;
   background-size: 40% 150%;
   background-attachment: fixed;
 }
@@ -197,8 +197,7 @@
 @media (max-width: 550px) {
   .club-info {
     padding-top: 30px;
-    background: url(../../../../../../../materials/backgrounds/mobile/waves-left.svg),
-      url(../../../../../../../materials/backgrounds/mobile/waves-right.svg);
+    background: url(materials/backgrounds/mobile/waves-left.svg), url(materials/backgrounds/mobile/waves-right.svg);
     background-repeat: no-repeat, no-repeat;
     background-position: 0 0, 100% 100%;
     background-size: 70% 150%;

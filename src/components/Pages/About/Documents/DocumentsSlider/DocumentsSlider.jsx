@@ -1,28 +1,27 @@
-import { documentTypesSelector } from "../../../../../redux/documentTypes/selectors";
-import { documentsSelector } from "../../../../../redux/documents/selectors";
-import { getDocumentTypes } from "../../../../../redux/documentTypes/thunk";
-import BackButton from "../../../../../common/BackButton/BackButton";
-import { getDocuments } from "../../../../../redux/documents/thunk";
-import { useDispatch, useSelector } from "react-redux";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Mousewheel, Navigation } from "swiper";
-import Loader from "../../../../Loader/Loader";
-import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
-import Card from "./Card/Card";
-import "./DocumentsSlider.css";
-import "swiper/css";
+import { documentTypesSelector } from 'redux/documentTypes/selectors';
+import { documentsSelector } from 'redux/documents/selectors';
+import { getDocumentTypes } from 'redux/documentTypes/thunk';
+import BackButton from 'common/BackButton/BackButton';
+import { getDocuments } from 'redux/documents/thunk';
+import { useDispatch, useSelector } from 'react-redux';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Mousewheel, Navigation } from 'swiper';
+import Loader from 'components/Loader/Loader';
+import { useParams } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import Card from './Card/Card';
+import './DocumentsSlider.css';
+import 'swiper/css';
 
 export default function DocumentsSlider() {
-  const language = window.localStorage.getItem("language");
+  const language = window.localStorage.getItem('language');
   const [activeSlideIdx, setActiveSlideIdx] = useState({});
   const documentTypes = useSelector(documentTypesSelector);
   const documents = useSelector(documentsSelector);
   const { documentsType } = useParams();
   const dispatch = useDispatch();
   const filteredDocs = documents.filter(
-    (document) =>
-      document.attributes.document_type.data.id === Number(documentsType)
+    (document) => document.attributes.document_type.data.id === Number(documentsType)
   );
 
   useEffect(() => {
@@ -34,38 +33,28 @@ export default function DocumentsSlider() {
   }, []);
 
   return (
-    <div className="slider-box">
-      <BackButton className="docs-back-btn" />
+    <div className='slider-box'>
+      <BackButton className='docs-back-btn' />
       {documents.length !== 0 ? (
         documents
-          .filter(
-            (document) =>
-              document.attributes.document_type.data.id ===
-              Number(documentsType)
-          )
+          .filter((document) => document.attributes.document_type.data.id === Number(documentsType))
           .map((document) => (
             <div
               key={document.id}
-              className={`document-overlay ${
-                filteredDocs.indexOf(document) === activeSlideIdx
-                  ? "active"
-                  : ""
-              }`}
+              className={`document-overlay ${filteredDocs.indexOf(document) === activeSlideIdx ? 'active' : ''}`}
             >
-              <div className="document-info-wrapper">
-                <h1 className="document-card-name">
-                  {language === "en"
-                    ? document.attributes.name_en
-                    : document.attributes.name}
+              <div className='document-info-wrapper'>
+                <h1 className='document-card-name'>
+                  {language === 'en' ? document.attributes.name_en : document.attributes.name}
                 </h1>
-                <div className="document-card-btn-wrapper">
+                <div className='document-card-btn-wrapper'>
                   <a
                     href={`https://sgostu-backend.download${document.attributes.file.data.attributes.url}`}
-                    rel="noreferrer"
-                    target="_blank"
-                    className="document-card-btn"
+                    rel='noreferrer'
+                    target='_blank'
+                    className='document-card-btn'
                   >
-                    {language === "en" ? "Open" : "Відкрити"}
+                    {language === 'en' ? 'Open' : 'Відкрити'}
                   </a>
                 </div>
               </div>
@@ -75,7 +64,7 @@ export default function DocumentsSlider() {
         <Loader />
       )}
       <Swiper
-        className="slider-doc"
+        className='slider-doc'
         modules={[Mousewheel, Navigation]}
         speed={800}
         draggable={false}
@@ -109,11 +98,7 @@ export default function DocumentsSlider() {
       >
         {documents.length !== 0 ? (
           documents
-            .filter(
-              (document) =>
-                document.attributes?.document_type.data.id ===
-                Number(documentsType)
-            )
+            .filter((document) => document.attributes?.document_type.data.id === Number(documentsType))
             .map((document) => (
               <SwiperSlide key={document.id}>
                 <Card card={document.attributes} />

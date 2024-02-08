@@ -1,1 +1,0 @@
-export const GET_STATUSES = "GET_STATUSES";

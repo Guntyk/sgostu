@@ -8,7 +8,6 @@ export function getDocuments() {
         dispatch(getDocumentsAction(documents.data));
       } else {
         console.log(documentsErr);
-        alert("Getting documents error");
       }
     });
   };

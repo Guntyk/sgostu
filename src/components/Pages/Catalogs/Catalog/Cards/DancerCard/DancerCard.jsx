@@ -1,4 +1,4 @@
-import AvatarPlaceholder from '../../../../../../common/AvatarPlaceholder/AvatarPlaceholder';
+import AvatarPlaceholder from 'common/AvatarPlaceholder/AvatarPlaceholder';
 import { Link, useHistory } from 'react-router-dom';
 import '../../Catalog.css';
 import './DancerCard.css';

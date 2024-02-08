@@ -1,8 +1,8 @@
-import AvatarPlaceholder from '../../../../../../../common/AvatarPlaceholder/AvatarPlaceholder';
-import BackButton from '../../../../../../../common/BackButton/BackButton';
+import AvatarPlaceholder from 'common/AvatarPlaceholder/AvatarPlaceholder';
+import BackButton from 'common/BackButton/BackButton';
 import { useHistory, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import Loader from '../../../../../../Loader/Loader';
+import Loader from 'components/Loader/Loader';
 import { useState, useEffect } from 'react';
 import { v4 } from 'uuid';
 import './JudgeInfo.css';

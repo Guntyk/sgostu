@@ -2,10 +2,8 @@
   height: 100vh;
   display: grid;
   place-items: center;
-  background: url(../../../../../../../materials/backgrounds/waves-right.svg)
-      no-repeat 100% 100%,
-    url(../../../../../../../materials/backgrounds/waves-left.svg) no-repeat 0%
-      20%;
+  background: url(materials/backgrounds/waves-right.svg) no-repeat 100% 100%,
+    url(materials/backgrounds/waves-left.svg) no-repeat 0% 20%;
   background-size: 40% 150%;
   background-attachment: fixed;
 }
@@ -48,7 +46,7 @@
   gap: 4px;
 }
 .judge-details-wrapper dd {
-  font-family: "e-Ukraine-Light";
+  font-family: 'e-Ukraine-Light';
 }
 
 @media (max-width: 840px) {
@@ -70,8 +68,7 @@
 @media (max-width: 550px) {
   .judge-info {
     padding-top: 70px;
-    background: url(../../../../../../../materials/backgrounds/mobile/waves-left.svg),
-      url(../../../../../../../materials/backgrounds/mobile/waves-right.svg);
+    background: url(materials/backgrounds/mobile/waves-left.svg), url(materials/backgrounds/mobile/waves-right.svg);
     background-repeat: no-repeat, no-repeat;
     background-position: 0 0, 100% 100%;
     background-size: 70% 150%;
@@ -82,7 +79,7 @@
     gap: 30px;
   }
   .judge-details-wrapper {
-    font-family: "e-Ukraine-Light", sans-serif;
+    font-family: 'e-Ukraine-Light', sans-serif;
     margin: 0 auto;
   }
   .judge .judge-name {

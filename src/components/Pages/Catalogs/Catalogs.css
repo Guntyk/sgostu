@@ -1,8 +1,7 @@
 .catalogs {
   font-size: 1rem;
-  background: url(../../../materials/backgrounds/waves-right.svg) no-repeat 100%
-      100%,
-    url(../../../materials/backgrounds/waves-left.svg) no-repeat 0% 20%;
+  background: url(materials/backgrounds/waves-right.svg) no-repeat 100% 100%,
+    url(materials/backgrounds/waves-left.svg) no-repeat 0% 20%;
   background-size: 40% 150%;
   min-height: 100vh;
 }
@@ -29,7 +28,7 @@
   padding-left: 20px;
   width: 450px;
   height: 200px;
-  font-family: "e-Ukraine-Light", sans-serif;
+  font-family: 'e-Ukraine-Light', sans-serif;
   font-size: 2em;
   line-height: 1.05;
   border-radius: 10px;
@@ -46,15 +45,15 @@
 
 /* .catalogs-card:nth-child(1) {
   background: linear-gradient(90deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0)),
-    url("../../../materials/img/catalogs/dancers.jpeg") no-repeat 150% / contain;
+    url("materials/img/catalogs/dancers.jpeg") no-repeat 150% / contain;
 }
 .catalogs-card:nth-child(1) {
   background: linear-gradient(90deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0)),
-    url("../../../materials/img/catalogs/clubs.jpg") no-repeat 50% / cover;
+    url("materials/img/catalogs/clubs.jpg") no-repeat 50% / cover;
 }
 .catalogs-card:nth-child(2) {
   background: linear-gradient(90deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0)),
-    url("../../../materials/img/catalogs/judges.jpg") no-repeat 50% / cover;
+    url("materials/img/catalogs/judges.jpg") no-repeat 50% / cover;
 } */
 
 @media (max-width: 840px) {
@@ -79,8 +78,7 @@
 @media (max-width: 550px) {
   .catalogs {
     font-size: 20px;
-    background: url(../../../materials/backgrounds/mobile/waves-left.svg),
-      url(../../../materials/backgrounds/mobile/waves-right.svg);
+    background: url(materials/backgrounds/mobile/waves-left.svg), url(materials/backgrounds/mobile/waves-right.svg);
     background-repeat: no-repeat, no-repeat;
     background-position: 0 15%, 100% 100%;
     background-size: 90% 150%;

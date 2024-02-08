@@ -5,6 +5,7 @@ export default function Folder({ type, typeId }) {
   const screenWidth = window.screen.availWidth;
   const language = window.localStorage.getItem("language");
   const { push } = useHistory();
+
   return (
     <div className="folder-wrapper">
       <div

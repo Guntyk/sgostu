@@ -1,4 +1,5 @@
 .footer {
+  padding-top: 10px;
   font-size: 1rem;
 }
 
@@ -54,8 +55,8 @@
 .footer-hr {
   width: 100%;
   border: none;
-  height: 2px;
-  background: #27250080;
+  height: 1px;
+  background: #27250050;
   margin: 0;
 }
 
@@ -68,18 +69,16 @@
 }
 
 .footer-bottom {
-  padding: 5px 15px;
-  display: grid;
-  grid-template-columns: 3fr 0.1fr 3fr;
+  padding: 15px 0;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
 }
-.footer-bottom svg {
-  width: 63px;
-}
+
 .copyright,
 .authors {
   display: inline;
-  font-family: "e-Ukraine-Light";
+  font-family: 'e-Ukraine-Light';
   font-size: 13px;
 }
 .authors {

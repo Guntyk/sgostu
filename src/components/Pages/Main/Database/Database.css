@@ -1,10 +1,9 @@
 .database {
   --step: 0em;
-  font-family: "e-Ukraine-Light", sans-serif;
+  font-family: 'e-Ukraine-Light', sans-serif;
   font-size: 1rem;
   color: #fff;
-  background: #252525 url(../../../../materials/backgrounds/wave-database.svg)
-    no-repeat 50%;
+  background: #252525 url(materials/backgrounds/wave-database.svg) no-repeat 50%;
 }
 
 .database-wrapper {
@@ -24,7 +23,7 @@
 
 .database-description {
   margin: 1.53846em 0 1.92307em 0;
-  font-family: "e-Ukraine-Thin", sans-serif;
+  font-family: 'e-Ukraine-Thin', sans-serif;
   font-size: 0.8125em;
   line-height: 1.384615;
 }
@@ -67,9 +66,7 @@
 
 @media (max-width: 550px) {
   .database {
-    background: #252525
-      url(../../../../materials/backgrounds/mobile/waves-database.svg) no-repeat
-      50%;
+    background: #252525 url(materials/backgrounds/mobile/waves-database.svg) no-repeat 50%;
     background-size: cover;
   }
   .database-wrapper {

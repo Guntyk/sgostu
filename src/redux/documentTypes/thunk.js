@@ -8,7 +8,6 @@ export function getDocumentTypes() {
         dispatch(getDocumentTypesAction(documentTypes.data));
       } else {
         console.log(documentTypesErr);
-        alert("Getting documents error");
       }
     });
   };

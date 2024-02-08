@@ -1,8 +1,7 @@
 .folders-wrapper {
   padding-bottom: 100px;
-  background: url(../../../../../materials/backgrounds/waves-right.svg)
-      no-repeat 100% 100%,
-    url(../../../../../materials/backgrounds/waves-left.svg) no-repeat 0% 20%;
+  background: url(materials/backgrounds/waves-right.svg) no-repeat 100% 100%,
+    url(materials/backgrounds/waves-left.svg) no-repeat 0% 20%;
   background-size: 40% 150%;
 }
 
@@ -19,6 +18,11 @@
   width: 100%;
   height: 70vh;
   font-size: 1rem;
+}
+
+.folders .loader-sec {
+  margin-top: 200px;
+  height: 50px;
 }
 
 @media (max-width: 1150px) {
@@ -50,7 +54,7 @@
     margin: 0;
     width: 100%;
     height: 100%;
-    font-family: "e-Ukraine-Light", sans-serif;
+    font-family: 'e-Ukraine-Light', sans-serif;
     font-size: 2.5em;
     letter-spacing: 1px;
     border: 1px solid rgba(100, 100, 100, 0.5);
@@ -64,8 +68,7 @@
     place-items: center;
     height: auto;
     width: 100vw;
-    background: url(../../../../../materials/backgrounds/mobile/waves-left.svg),
-      url(../../../../../materials/backgrounds/mobile/waves-right.svg);
+    background: url(materials/backgrounds/mobile/waves-left.svg), url(materials/backgrounds/mobile/waves-right.svg);
     background-repeat: no-repeat, no-repeat;
     background-position: 0 0, 100% 125%;
     background-size: 90% 130%;

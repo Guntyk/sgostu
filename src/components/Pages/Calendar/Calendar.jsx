@@ -1,45 +1,45 @@
-import { getOrganizations } from "../../../redux/organizations/thunk";
-import { orgsSelector } from "../../../redux/organizations/selectors";
-import { eventsSelector } from "../../../redux/events/selectors";
-import { getEvents } from "../../../redux/events/thunk";
-import MonthSection from "./MonthSection/MonthSection";
-import { useDispatch, useSelector } from "react-redux";
-import Loader from "../../Loader/Loader";
-import { useEffect } from "react";
-import "./Calendar.css";
+import { getOrganizations } from 'redux/organizations/thunk';
+import { orgsSelector } from 'redux/organizations/selectors';
+import { eventsSelector } from 'redux/events/selectors';
+import { getEvents } from 'redux/events/thunk';
+import MonthSection from './MonthSection/MonthSection';
+import { useDispatch, useSelector } from 'react-redux';
+import Loader from 'components/Loader/Loader';
+import { useEffect } from 'react';
+import './Calendar.css';
 
 export default function Calendar() {
-  const language = window.localStorage.getItem("language");
+  const language = window.localStorage.getItem('language');
   const organizations = useSelector(orgsSelector);
   const events = useSelector(eventsSelector);
   const dispatch = useDispatch();
   const monthsDataUA = [
-    "Січень",
-    "Лютий",
-    "Березень",
-    "Квітень",
-    "Травень",
-    "Червень",
-    "Липень",
-    "Серпень",
-    "Вересень",
-    "Жовтень",
-    "Листопад",
-    "Грудень",
+    'Січень',
+    'Лютий',
+    'Березень',
+    'Квітень',
+    'Травень',
+    'Червень',
+    'Липень',
+    'Серпень',
+    'Вересень',
+    'Жовтень',
+    'Листопад',
+    'Грудень',
   ];
   const monthsDataEN = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December',
   ];
 
   useEffect(() => {
@@ -52,54 +52,38 @@ export default function Calendar() {
   }, []);
 
   const months =
-    language === "en"
+    language === 'en'
       ? monthsDataEN
           .filter((month) =>
-            events
-              .map((event) => new Date(event.attributes.start).getMonth())
-              .includes(monthsDataEN.indexOf(month))
+            events.map(({ attributes: { start } }) => new Date(start).getMonth()).includes(monthsDataEN.indexOf(month))
           )
-          .filter(
-            (month) => monthsDataEN.indexOf(month) >= new Date().getMonth()
-          )
+          .filter((month) => monthsDataEN.indexOf(month) >= new Date().getMonth())
       : monthsDataUA
           .filter((month) =>
-            events
-              .map((event) => new Date(event.attributes.start).getMonth())
-              .includes(monthsDataUA.indexOf(month))
+            events.map(({ attributes: { start } }) => new Date(start).getMonth()).includes(monthsDataUA.indexOf(month))
           )
-          .filter(
-            (month) => monthsDataUA.indexOf(month) >= new Date().getMonth()
-          );
+          .filter((month) => monthsDataUA.indexOf(month) >= new Date().getMonth());
 
   return (
-    <>
+    <article className='calendar'>
+      <div className='container'>
+        <h1 className='calendar-title'>
+          {language === 'en' ? 'Calendar of events for 2023' : 'Календар заходів на 2023 рік'}
+        </h1>
+      </div>
       {events.length !== 0 && months.length !== 0 ? (
-        <article className="calendar">
-          <div className="container">
-            <h1 className="calendar-title">
-              {language === "en"
-                ? "Calendar of events for 2023"
-                : "Календар заходів на 2023 рік"}
-            </h1>
-          </div>
-          {months.map((month) => (
-            <MonthSection
-              month={month}
-              monthIdx={
-                language === "en"
-                  ? monthsDataEN.indexOf(month)
-                  : monthsDataUA.indexOf(month)
-              }
-              key={month}
-              events={events}
-              organizations={organizations}
-            />
-          ))}
-        </article>
+        months.map((month) => (
+          <MonthSection
+            month={month}
+            monthIdx={language === 'en' ? monthsDataEN.indexOf(month) : monthsDataUA.indexOf(month)}
+            key={month}
+            events={events}
+            organizations={organizations}
+          />
+        ))
       ) : (
         <Loader />
       )}
-    </>
+    </article>
   );
 }

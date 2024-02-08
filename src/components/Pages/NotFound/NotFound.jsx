@@ -1,4 +1,4 @@
-import Button from '../../../common/Button/Button';
+import Button from 'common/Button/Button';
 import { useHistory } from 'react-router-dom';
 import './NotFound.css';
 
