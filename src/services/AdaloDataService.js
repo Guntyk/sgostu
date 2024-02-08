@@ -31,6 +31,22 @@ export default class AdaloDataService {
     };
   }
 
+  static async getClub(clubId) {
+    const [errors, data] = await adaloApi.get(`/clubs/${clubId}&timestamp=${new Date().getTime()}`);
+
+    if (errors) {
+      return {
+        result: null,
+        errors: APIErrorsHandlingUtils.handleErrors(errors),
+      };
+    }
+
+    return {
+      result: data,
+      errors: [],
+    };
+  }
+
   static async getRegions() {
     const [errors, { records }] = await adaloApi.get('/regions');
 
@@ -63,6 +79,22 @@ export default class AdaloDataService {
     };
   }
 
+  static async getCoach(coachId) {
+    const [errors, data] = await adaloApi.get(`/coaches/${coachId}&timestamp=${new Date().getTime()}`);
+
+    if (errors) {
+      return {
+        result: null,
+        errors: APIErrorsHandlingUtils.handleErrors(errors),
+      };
+    }
+
+    return {
+      result: data,
+      errors: [],
+    };
+  }
+
   static async getDancers() {
     const [errors, { records }] = await adaloApi.get('/dancers');
 
@@ -75,6 +107,22 @@ export default class AdaloDataService {
 
     return {
       result: records,
+      errors: [],
+    };
+  }
+
+  static async getDancer(dancerId) {
+    const [errors, data] = await adaloApi.get(`/dancers/${dancerId}&timestamp=${new Date().getTime()}`);
+
+    if (errors) {
+      return {
+        result: null,
+        errors: APIErrorsHandlingUtils.handleErrors(errors),
+      };
+    }
+
+    return {
+      result: data,
       errors: [],
     };
   }
@@ -104,6 +152,22 @@ export default class AdaloDataService {
 
     return {
       result: records,
+      errors: [],
+    };
+  }
+
+  static async getJudge(judgeId) {
+    const [errors, data] = await adaloApi.get(`/judges/${judgeId}&timestamp=${new Date().getTime()}`);
+
+    if (errors) {
+      return {
+        result: null,
+        errors: APIErrorsHandlingUtils.handleErrors(errors),
+      };
+    }
+
+    return {
+      result: data,
       errors: [],
     };
   }

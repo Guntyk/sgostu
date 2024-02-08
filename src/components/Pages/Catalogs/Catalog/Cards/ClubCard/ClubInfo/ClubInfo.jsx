@@ -57,29 +57,32 @@ export default function ClubInfo() {
 
   useEffect(() => {
     if (statuses.length !== 0) {
-      if (coaches.length === 0) {
+      if (coaches.length <= 1) {
         dispatch(coachesSlice.getCoachesData(statuses));
       }
-      if (dancers.length === 0) {
+      if (dancers.length <= 1) {
         dispatch(dancersSlice.getDancersData(statuses));
       }
       if (dancerClasses.length === 0) {
         dispatch(dancersSlice.getDancerClassesData());
       }
       if (clubs.length === 0) {
-        dispatch(clubsSlice.getClubsData());
+        dispatch(clubsSlice.getClubData(clubId));
       }
     }
   }, [statuses]);
 
   useEffect(() => {
-    if (clubs.length !== 0) {
+    if (clubs.length > 0) {
       setClub(clubs.find(({ id }) => id === Number(clubId)));
     }
   }, [clubs]);
 
   useEffect(() => {
     if (club === undefined) {
+      replace('/not-found');
+      return;
+    } else if (club && !club['Approve Club']) {
       replace('/not-found');
       return;
     }

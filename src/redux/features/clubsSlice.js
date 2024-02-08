@@ -15,10 +15,21 @@ export const getClubsData = createAsyncThunk('clubs/getClubs', async (_, { rejec
     return result
       .slice(1)
       .filter((club) => club['Approve Club'])
-      .reverse();
+      .sort((a, b) => {
+        return -(a.id - b.id);
+      });
   }
 
   return rejectWithValue(errors || ['An error occurred while getting clubs data. Please try again later']);
+});
+export const getClubData = createAsyncThunk('clubs/getClub', async (clubId, { rejectWithValue }) => {
+  const { result, errors } = await AdaloDataService.getClub(clubId);
+  console.log(result);
+  if (result) {
+    return result;
+  }
+
+  return rejectWithValue(errors || ['An error occurred while getting club data. Please try again later']);
 });
 
 export const getRegionsData = createAsyncThunk('clubs/getRegions', async (_, { rejectWithValue }) => {
@@ -66,6 +77,19 @@ const clubsSlice = createSlice({
         state.errors = [];
       })
       .addCase(getClubsData.rejected, (state, { payload }) => {
+        state.isLoading = false;
+        state.clubs = [];
+        state.errors = payload;
+      })
+      .addCase(getClubData.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(getClubData.fulfilled, (state, { payload }) => {
+        state.isLoading = false;
+        state.clubs = [payload];
+        state.errors = [];
+      })
+      .addCase(getClubData.rejected, (state, { payload }) => {
         state.isLoading = false;
         state.clubs = [];
         state.errors = payload;

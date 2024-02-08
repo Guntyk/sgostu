@@ -88,19 +88,19 @@ export default function Catalog() {
     }
 
     if (catalogs === 'dancers' || catalogs === 'coaches' || catalogs === 'clubs') {
-      if (dancers.length === 0) {
+      if (dancers.length <= 1) {
         dispatch(dancersSlice.getDancersData(statuses));
       }
       if (dancerClasses.length === 0) {
         dispatch(dancersSlice.getDancerClassesData());
       }
-      if (clubs.length === 0) {
+      if (clubs.length <= 1) {
         dispatch(clubsSlice.getClubsData(statuses));
       }
     }
 
     if (catalogs === 'coaches' || catalogs === 'clubs') {
-      if (coaches.length === 0) {
+      if (coaches.length <= 1) {
         dispatch(coachesSlice.getCoachesData(statuses));
       }
     }
@@ -112,7 +112,7 @@ export default function Catalog() {
     }
 
     if (catalogs === 'judges') {
-      if (judges.length === 0) {
+      if (judges.length <= 1) {
         dispatch(judgesSlice.getJudgesData(statuses));
       }
       if (judgeClasses.length === 0) {
