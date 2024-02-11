@@ -1,13 +1,6 @@
-import { apiErrors } from "constants/apiErrors";
+import { apiErrors } from 'constants/apiErrors';
 
-const {
-  defaultError,
-  error401,
-  error403,
-  error404,
-  error500,
-  noResponseError,
-} = apiErrors;
+const { defaultError, error401, error403, error404, error500, noResponseError } = apiErrors;
 
 export default class APIErrorsHandlingUtils {
   static handleErrors(error) {

@@ -2,8 +2,8 @@ import { adaloApi } from 'api/requests';
 import APIErrorsHandlingUtils from 'utils/APIErrorsHandlingUtils';
 
 export default class AdaloDataService {
-  static async getStatuses() {
-    const [errors, { records }] = await adaloApi.get('/statuses');
+  static async fetchData(endpoint, params = '') {
+    const [errors, response] = await adaloApi.get(`${endpoint}${params}`);
 
     if (errors) {
       return {
@@ -12,179 +12,57 @@ export default class AdaloDataService {
       };
     }
 
-    return { result: records, errors: [] };
+    return {
+      result: response.records || response,
+      errors: [],
+    };
+  }
+
+  static async getStatuses() {
+    return this.fetchData('/statuses');
   }
 
   static async getClubs() {
-    const [errors, { records }] = await adaloApi.get('/clubs');
-
-    if (errors) {
-      return {
-        result: null,
-        errors: APIErrorsHandlingUtils.handleErrors(errors),
-      };
-    }
-
-    return {
-      result: records,
-      errors: [],
-    };
+    return this.fetchData('/clubs');
   }
 
   static async getClub(clubId) {
-    const [errors, data] = await adaloApi.get(`/clubs/${clubId}&timestamp=${new Date().getTime()}`);
-
-    if (errors) {
-      return {
-        result: null,
-        errors: APIErrorsHandlingUtils.handleErrors(errors),
-      };
-    }
-
-    return {
-      result: data,
-      errors: [],
-    };
+    return this.fetchData(`/clubs/${clubId}`, `&timestamp=${new Date().getTime()}`);
   }
 
   static async getRegions() {
-    const [errors, { records }] = await adaloApi.get('/regions');
-
-    if (errors) {
-      return {
-        result: null,
-        errors: APIErrorsHandlingUtils.handleErrors(errors),
-      };
-    }
-
-    return {
-      result: records,
-      errors: [],
-    };
+    return this.fetchData('/regions');
   }
 
   static async getCoaches() {
-    const [errors, { records }] = await adaloApi.get('/coaches');
-
-    if (errors) {
-      return {
-        result: null,
-        errors: APIErrorsHandlingUtils.handleErrors(errors),
-      };
-    }
-
-    return {
-      result: records,
-      errors: [],
-    };
+    return this.fetchData('/coaches');
   }
 
   static async getCoach(coachId) {
-    const [errors, data] = await adaloApi.get(`/coaches/${coachId}&timestamp=${new Date().getTime()}`);
-
-    if (errors) {
-      return {
-        result: null,
-        errors: APIErrorsHandlingUtils.handleErrors(errors),
-      };
-    }
-
-    return {
-      result: data,
-      errors: [],
-    };
+    return this.fetchData(`/coaches/${coachId}`, `&timestamp=${new Date().getTime()}`);
   }
 
   static async getDancers() {
-    const [errors, { records }] = await adaloApi.get('/dancers');
-
-    if (errors) {
-      return {
-        result: null,
-        errors: APIErrorsHandlingUtils.handleErrors(errors),
-      };
-    }
-
-    return {
-      result: records,
-      errors: [],
-    };
+    return this.fetchData('/dancers');
   }
 
   static async getDancer(dancerId) {
-    const [errors, data] = await adaloApi.get(`/dancers/${dancerId}&timestamp=${new Date().getTime()}`);
-
-    if (errors) {
-      return {
-        result: null,
-        errors: APIErrorsHandlingUtils.handleErrors(errors),
-      };
-    }
-
-    return {
-      result: data,
-      errors: [],
-    };
+    return this.fetchData(`/dancers/${dancerId}`, `&timestamp=${new Date().getTime()}`);
   }
 
   static async getDancerClasses() {
-    const [errors, { records }] = await adaloApi.get('/dancerClasses');
-
-    if (errors) {
-      return {
-        result: null,
-        errors: APIErrorsHandlingUtils.handleErrors(errors),
-      };
-    }
-
-    return { result: records, errors: [] };
+    return this.fetchData('/dancerClasses');
   }
 
   static async getJudges() {
-    const [errors, { records }] = await adaloApi.get('/judges');
-
-    if (errors) {
-      return {
-        result: null,
-        errors: APIErrorsHandlingUtils.handleErrors(errors),
-      };
-    }
-
-    return {
-      result: records,
-      errors: [],
-    };
+    return this.fetchData('/judges');
   }
 
   static async getJudge(judgeId) {
-    const [errors, data] = await adaloApi.get(`/judges/${judgeId}&timestamp=${new Date().getTime()}`);
-
-    if (errors) {
-      return {
-        result: null,
-        errors: APIErrorsHandlingUtils.handleErrors(errors),
-      };
-    }
-
-    return {
-      result: data,
-      errors: [],
-    };
+    return this.fetchData(`/judges/${judgeId}`, `&timestamp=${new Date().getTime()}`);
   }
 
   static async getJudgeClasses() {
-    const [errors, { records }] = await adaloApi.get('/judgeClasses');
-
-    if (errors) {
-      return {
-        result: null,
-        errors: APIErrorsHandlingUtils.handleErrors(errors),
-      };
-    }
-
-    return {
-      result: records,
-      errors: [],
-    };
+    return this.fetchData('/judgeClasses');
   }
 }

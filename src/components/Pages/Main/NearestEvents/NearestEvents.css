@@ -7,36 +7,10 @@
   padding: 5px 0;
 }
 
-/*!old marquee
-
-/* .nearest-events-title {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  font-size: 1.75em;
-  line-height: 1.15;
-  overflow: hidden;
+.nearest-events .loader-sec {
+  margin-top: 100px;
+  height: auto;
 }
-
-.marquee {
-  white-space: nowrap;
-  word-spacing: 50px;
-  animation: marquee 3s infinite linear;
-}
-
-.marquee:after {
-  content: "Найближчі заходи СГОСТУ Найближчі заходи СГОСТУ Найближчі заходи СГОСТУ Найближчі заходи СГОСТУ Найближчі заходи СГОСТУ ";
-  /* margin-left: 59px; */
-/* word-spacing: 50px; */
-
-/* @keyframes marquee {
-  0% {
-    transform: translateX(0%);
-  }
-  100% {
-    transform: translateX(-15.17%);
-  }
-} */
 
 .nearest-events-title {
   display: flex;
@@ -51,7 +25,6 @@
   white-space: nowrap;
   padding: 0 1rem;
   animation: move-rtl 3s linear infinite;
-  /* margin-left: 59px; */
 }
 
 @keyframes move-rtl {
@@ -128,7 +101,7 @@
 
 @media (max-width: 550px) {
   .nearest-events-title {
-    font-size: 1.25em !important; 
+    font-size: 1.25em !important;
   }
   .nearest-events-wrapper {
     display: none;

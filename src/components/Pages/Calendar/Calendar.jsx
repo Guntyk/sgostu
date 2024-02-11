@@ -1,53 +1,33 @@
-import { getOrganizations } from 'redux/organizations/thunk';
-import { orgsSelector } from 'redux/organizations/selectors';
-import { eventsSelector } from 'redux/events/selectors';
-import { getEvents } from 'redux/events/thunk';
-import MonthSection from './MonthSection/MonthSection';
+import { v4 } from 'uuid';
 import { useDispatch, useSelector } from 'react-redux';
-import Loader from 'components/Loader/Loader';
 import { useEffect } from 'react';
+import * as organizationsSlice from 'redux/features/organizationsSlice';
+import * as eventsSlice from 'redux/features/eventsSlice';
+import { toUniqueArray } from 'helpers/toUniqueArray';
+import { monthsDataEN, monthsDataUA } from 'constants/moths';
+import { ErrorMessage } from 'common/ErrorMessage/ErrorMessage';
+import MonthSection from './MonthSection/MonthSection';
+import Loader from 'components/Loader/Loader';
 import './Calendar.css';
 
 export default function Calendar() {
+  const isEventsRequestLoading = useSelector(({ events: { isLoading } }) => isLoading);
+  const eventsRequestErrors = useSelector(({ events: { errors } }) => errors);
+  const events = useSelector(({ events: { events } }) => events);
+
+  const isOrganizationsRequestLoading = useSelector(({ organizations: { isLoading } }) => isLoading);
+  const organizationsRequestErrors = useSelector(({ organizations: { errors } }) => errors);
+  const organizations = useSelector(({ organizations: { organizations } }) => organizations);
+
   const language = window.localStorage.getItem('language');
-  const organizations = useSelector(orgsSelector);
-  const events = useSelector(eventsSelector);
   const dispatch = useDispatch();
-  const monthsDataUA = [
-    'Січень',
-    'Лютий',
-    'Березень',
-    'Квітень',
-    'Травень',
-    'Червень',
-    'Липень',
-    'Серпень',
-    'Вересень',
-    'Жовтень',
-    'Листопад',
-    'Грудень',
-  ];
-  const monthsDataEN = [
-    'January',
-    'February',
-    'March',
-    'April',
-    'May',
-    'June',
-    'July',
-    'August',
-    'September',
-    'October',
-    'November',
-    'December',
-  ];
 
   useEffect(() => {
-    if (events.length === 0) {
-      dispatch(getEvents());
+    if (events.length <= 1) {
+      dispatch(eventsSlice.getEventsData());
     }
     if (organizations.length === 0) {
-      dispatch(getOrganizations());
+      dispatch(organizationsSlice.getOrganizationsData());
     }
   }, []);
 
@@ -71,7 +51,8 @@ export default function Calendar() {
           {language === 'en' ? 'Calendar of events for 2023' : 'Календар заходів на 2023 рік'}
         </h1>
       </div>
-      {events.length !== 0 && months.length !== 0 ? (
+      {events.length > 0 &&
+        organizations.length > 0 &&
         months.map((month) => (
           <MonthSection
             month={month}
@@ -80,10 +61,11 @@ export default function Calendar() {
             events={events}
             organizations={organizations}
           />
-        ))
-      ) : (
-        <Loader />
-      )}
+        ))}
+      {(isEventsRequestLoading || isOrganizationsRequestLoading) && <Loader />}
+      {toUniqueArray([...eventsRequestErrors, ...organizationsRequestErrors]).map((err) => (
+        <ErrorMessage error={err} key={v4()} />
+      ))}
     </article>
   );
 }

@@ -7,7 +7,7 @@ const initialState = {
   isLoading: false,
 };
 
-export const getStatusesData = createAsyncThunk('dancers/getStatuses', async (_, { rejectWithValue }) => {
+export const getStatusesData = createAsyncThunk('statuses/getStatuses', async (_, { rejectWithValue }) => {
   const { result, errors } = await AdaloDataService.getStatuses();
 
   if (result) {

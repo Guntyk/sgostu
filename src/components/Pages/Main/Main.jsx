@@ -1,9 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { articlesSelector } from 'redux/articles/selectors';
-import { eventsSelector } from 'redux/events/selectors';
 import { getArticles } from 'redux/articles/thunk';
-import { getEvents } from 'redux/events/thunk';
 import Announcements from 'components/Pages/Main/Announcements/Announcements';
 import NearestEvents from 'components/Pages/Main/NearestEvents/NearestEvents';
 import Advantages from 'components/Pages/Main/Advantages/Advantages';
@@ -15,12 +13,9 @@ import Hero from 'components/Pages/Main/Hero/Hero';
 
 export default function Main() {
   const articles = useSelector(articlesSelector);
-  const events = useSelector(eventsSelector);
   const dispatch = useDispatch();
+
   useEffect(() => {
-    if (events.length === 0) {
-      dispatch(getEvents());
-    }
     if (articles.length === 0) {
       dispatch(getArticles());
     }
@@ -31,7 +26,7 @@ export default function Main() {
       <Hero />
       <About />
       <Advantages />
-      <NearestEvents events={events} />
+      <NearestEvents />
       <LastNews articles={articles} />
       <Database />
       <Announcements articles={articles} />

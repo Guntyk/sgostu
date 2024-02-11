@@ -1,22 +1,24 @@
-import "./PartnerCard.css";
+import './PartnerCard.css';
 
 export default function PartnerCard({ partner }) {
+  const {
+    name,
+    link,
+    logo: {
+      data: {
+        attributes: { url },
+      },
+    },
+  } = partner;
+
   return (
-    <a
-      href={partner.link}
-      target="_blank"
-      rel="noreferrer"
-      className={`partner-card ${partner.link && "linked"}`}
-    >
+    <a href={link} target='_blank' rel='noreferrer' className={`partner-card ${link && 'linked'}`}>
       <img
-        className="partner-img"
-        src={
-          "https://sgostu-backend.download" +
-          partner.logo.data.attributes.url
-        }
-        alt="Логотип спонсора/партнера заходу"
+        className='partner-img'
+        src={'https://sgostu-backend.download' + url}
+        alt='Логотип спонсора/партнера заходу'
       />
-      {partner.name}
+      {name}
     </a>
   );
 }
