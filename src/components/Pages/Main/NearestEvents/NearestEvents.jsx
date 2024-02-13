@@ -41,63 +41,63 @@ export default function NearestEvents() {
     }
   }, []);
 
+  useEffect(() => {
+    console.log(nearestEvents);
+  }, [nearestEvents]);
+  useEffect(() => {
+    console.log(events);
+  }, [events]);
+
   return (
-    <article className='nearest-events'>
-      <div className='nearest-events-title'>
-        {[...Array(6)].map((_) => (
-          <p>{language === 'en' ? 'The nearest events of SGOSTU' : 'Найближчі заходи СГОСТУ'}</p>
-        ))}
-      </div>
-      {events.length > 0 && (
-        <>
-          <div className='nearest-events-wrapper'>
-            {nearestEvents.length !== 0 ? (
-              nearestEvents.map(({ id, attributes }) => (
+    events.length > 0 && (
+      <article className='nearest-events'>
+        <div className='nearest-events-title'>
+          {[...Array(6)].map((_) => (
+            <p>{language === 'en' ? 'The nearest events of SGOSTU' : 'Найближчі заходи СГОСТУ'}</p>
+          ))}
+        </div>
+        <div className='nearest-events-wrapper'>
+          {nearestEvents.length !== 0 &&
+            nearestEvents.map(({ id, attributes }) => (
+              <EventCard className='nearest-event-card' event={attributes} eventId={id} key={id} />
+            ))}
+        </div>
+        <Swiper
+          className='slider'
+          spaceBetween={-80}
+          initialSlide={1}
+          grabCursor={true}
+          slideToClickedSlide={true}
+          effect={'coverflow'}
+          pagination={true}
+          coverflowEffect={{ rotate: 0, slideShadows: false, scale: 0.8 }}
+          modules={[EffectCoverflow, Pagination]}
+        >
+          {nearestEvents.length !== 0 ? (
+            nearestEvents.map(({ id, attributes }) => (
+              <SwiperSlide key={id}>
                 <EventCard className='nearest-event-card' event={attributes} eventId={id} key={id} />
-              ))
-            ) : (
-              <span className='event-void'>
-                {language === 'en' ? 'Unfortunately, there are no events' : 'На жаль, заходів немає'}
-              </span>
-            )}
-          </div>
-          <Swiper
-            className='slider'
-            spaceBetween={-80}
-            initialSlide={1}
-            grabCursor={true}
-            slideToClickedSlide={true}
-            effect={'coverflow'}
-            pagination={true}
-            coverflowEffect={{ rotate: 0, slideShadows: false, scale: 0.8 }}
-            modules={[EffectCoverflow, Pagination]}
-          >
-            {nearestEvents.length !== 0 ? (
-              nearestEvents.map(({ id, attributes }) => (
-                <SwiperSlide key={id}>
-                  <EventCard className='nearest-event-card' event={attributes} eventId={id} key={id} />
-                </SwiperSlide>
-              ))
-            ) : (
-              <span className='event-void'>
-                {language === 'en' ? 'Unfortunately, there are no events' : 'На жаль, заходів немає'}
-              </span>
-            )}
-          </Swiper>
-        </>
-      )}
-      {nearestEvents.length !== 0 && (
-        <Button
-          buttonText='Більше'
-          onClick={() => {
-            push('/calendar');
-          }}
-        />
-      )}
-      {isEventsRequestLoading && <Loader />}
-      {eventsRequestErrors.map((err) => (
-        <ErrorMessage error={err} key={v4()} />
-      ))}
-    </article>
+              </SwiperSlide>
+            ))
+          ) : (
+            <span className='event-void'>
+              {language === 'en' ? 'Unfortunately, there are no events' : 'На жаль, заходів немає'}
+            </span>
+          )}
+        </Swiper>
+        {nearestEvents.length !== 0 && (
+          <Button
+            buttonText='Більше'
+            onClick={() => {
+              push('/calendar');
+            }}
+          />
+        )}
+        {isEventsRequestLoading && <Loader />}
+        {eventsRequestErrors.map((err) => (
+          <ErrorMessage error={err} key={v4()} />
+        ))}
+      </article>
+    )
   );
 }

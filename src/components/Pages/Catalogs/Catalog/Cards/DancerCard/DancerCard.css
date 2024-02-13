@@ -7,24 +7,6 @@
   width: 100%;
 }
 
-/* .class-birth::after,
-.class-birth::before {
-  position: absolute;
-  top: 50%;
-  color: #fff;
-  font-family: inherit;
-  gap: 30px;
-  transform: translateY(-50%);
-}
-.class-birth::before {
-  content: "F  >";
-  left: 7%;
-}
-.class-birth::after {
-  content: ">  D";
-  right: 7%;
-} */
-
 .dancer-class {
   position: relative;
   font-size: 1.5em;
@@ -32,7 +14,7 @@
 }
 
 .dancer-class::before {
-  content: "";
+  content: '';
   position: absolute;
   top: 50%;
   left: 50%;
@@ -65,7 +47,14 @@
   }
   .dancer-card {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 3fr 1fr;
+  }
+  .dancer-card .card-name {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
   .card-class {
     justify-self: center;

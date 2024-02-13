@@ -12,9 +12,7 @@ export default function DancerCard({ dancer, clubs, classes, screenWidth }) {
     .filter((danceClass) => classes.indexOf(danceClass) + 1 === Number(dancer['Dancer Class'].at(-1)))
     .at(-1)
     ['Class Name'].trim();
-  const dancerClub = String(
-    clubs.filter((club) => club.id === Number(dancer['Clubs ok*'] || dancer['Club-'])).map((club) => club['Club Name'])
-  )
+  const dancerClub = String(clubs.find(({ id }) => id === Number(dancer['Clubs ok']?.[0]))?.['Club Name'])
     .split('(')[0]
     .trim();
 
@@ -49,13 +47,11 @@ export default function DancerCard({ dancer, clubs, classes, screenWidth }) {
             </>
           )}
         </h5>
-        <span className='card-club'>
-          {screenWidth <= 1150 && screenWidth > 840
-            ? dancerClub.length > 15
-              ? dancerClub.slice(0, 15) + '...'
-              : dancerClub
-            : dancerClub}
-        </span>
+        {screenWidth > 840 && (
+          <span className='card-club'>
+            {dancerClub !== 'undefined' && (dancerClub.length > 15 ? dancerClub.slice(0, 15) + '...' : dancerClub)}
+          </span>
+        )}
       </div>
       <div className='class-birth'>
         <span className={`dancer-class ${dancerClass}`}>

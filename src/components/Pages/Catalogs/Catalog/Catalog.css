@@ -209,6 +209,9 @@
 }
 
 @media (max-width: 840px) {
+  .catalog {
+    padding-top: 120px;
+  }
   .catalog-wrapper {
     gap: 0;
     flex-wrap: nowrap;
@@ -299,7 +302,11 @@
     font-size: 12px;
   }
   .catalog-card > .img-wrapper {
-    height: 77%;
+    height: 80%;
+    width: auto;
+  }
+  .catalog-card img {
+    aspect-ratio: 1/1;
   }
   .card-name {
     font-size: 16px;

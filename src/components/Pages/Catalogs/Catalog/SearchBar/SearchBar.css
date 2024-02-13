@@ -5,13 +5,9 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  position: sticky !important;
-  top: 50px;
-  /* margin: 30px 50px !important; */
   padding: 30px 0px !important;
   height: 60px;
   font-size: 1.1rem;
-  /* box-sizing: border-box; */
   z-index: 2;
   gap: 5px;
 }
@@ -20,7 +16,7 @@
   display: flex;
   align-items: center;
   height: 100%;
-  font-family: "e-Ukraine-Light", sans-serif;
+  font-family: 'e-Ukraine-Light', sans-serif;
   justify-content: center;
 }
 
@@ -49,7 +45,7 @@
 
 .search-select {
   padding-left: var(--padding);
-  font-family: "e-Ukraine-Light", sans-serif;
+  font-family: 'e-Ukraine-Light', sans-serif;
   font-size: 1em;
   height: 60px;
   border: var(--border);
@@ -183,9 +179,6 @@
   .button-wrapper {
     width: 50%;
   }
-  .search-form {
-    top: 120px;
-  }
 }
 
 @media (max-width: 550px) {
@@ -207,10 +200,6 @@
     min-height: 255px;
   }
   .form-inner {
-    /* width: 100%;
-    flex-wrap: wrap;
-    justify-items: stretch;
-    transform-origin: bottom; */
     flex-direction: column;
   }
   .form-selectors-wrapper {
@@ -235,8 +224,6 @@
   .search-form.clubs,
   .search-form.coaches,
   .search-form.judges .form-inner {
-    /* width: unset;
-    max-width: 379px; */
     max-width: 379px;
     width: 100%;
   }
