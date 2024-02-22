@@ -1,7 +1,7 @@
 import { filterEntities } from 'helpers/filterEntities';
 import Search from 'materials/icons/Search';
 import Button from 'common/Button/Button';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './SearchBar.css';
 
 export default function SearchBar({
@@ -22,6 +22,7 @@ export default function SearchBar({
 }) {
   const language = window.localStorage.getItem('language');
   const [increase, setIncrease] = useState(false);
+  const [clubsList, setClubsList] = useState([]);
 
   const filteringArr =
     catalogs === 'dancers'
@@ -69,6 +70,13 @@ export default function SearchBar({
     setEntitiesList(filteringArr);
   }
 
+  useEffect(() => {
+    if (clubs.length > 0) {
+      const newClubsList = [...clubs];
+      setClubsList(newClubsList.sort((a, b) => (a['Club Name'] > b['Club Name'] ? 1 : -1)));
+    }
+  }, [clubs]);
+
   return (
     <div className={`container search-form ${increase ? 'increase' : ''} ${catalogs}`}>
       <form className='form' id='search' onSubmit={handleSearch}>
@@ -94,9 +102,9 @@ export default function SearchBar({
                 <option className='club-option' value='choose' disabled>
                   {language === 'en' ? 'Club' : 'Клуб'}
                 </option>
-                {clubs.map((club) => (
+                {clubsList.map((club) => (
                   <option className='club-option' value={club.id} key={club.id}>
-                    {club['Club Name'].split('(')[0].trim()}
+                    {club['Club Name'].trim()}
                   </option>
                 ))}
               </select>
