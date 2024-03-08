@@ -301,9 +301,18 @@
     grid-template-columns: 1fr 4fr 1fr;
     font-size: 12px;
   }
+  .judge-card {
+    /* display: flex !important; */
+    /* gap: 0; */
+    grid-template-columns: 2fr 4fr 1fr;
+  }
+  .judge-card .card-name {
+    margin: 0;
+  }
   .catalog-card > .img-wrapper {
-    height: 80%;
+    height: 70px;
     width: auto;
+    aspect-ratio: 1/1 !important;
   }
   .catalog-card img {
     aspect-ratio: 1/1;
