@@ -10,7 +10,8 @@
   .judge-card {
     justify-content: space-between;
     display: grid;
-    grid-template-columns: 0.75fr 2fr 1fr;
+    grid-template-columns: 0.75fr 2fr 0.5fr;
+    gap: 20px;
   }
   .judge-card .card-name {
     text-align: left;
