@@ -15,7 +15,7 @@ export default function JudgeCard({ judge, classes, screenWidth }) {
 
   function judgeCategory() {
     const judgeCategory = classes
-      .filter((judgeClass) => classes.indexOf(judgeClass) + 1 === Number(judge['Assigned Category Judge'][0]))
+      .filter(({ id }) => id === Number(judge['Assigned Category Judge'][0]))
       .at(-1)
       .Category.trim();
 
