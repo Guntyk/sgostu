@@ -1,22 +1,24 @@
 .logos-catalog {
   --coefficient: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 100vh;
+  min-height: 100vh;
   background: url(materials/backgrounds/waves-right.svg) no-repeat 100% 100%,
     url(materials/backgrounds/waves-left.svg) no-repeat 0% 20%;
   background-size: 40% 150%;
 }
 
 .logos-title {
-  margin: 150px 0 200px 0;
+  padding-top: 150px;
+  margin-bottom: 200px;
+  text-align: center;
   font-size: 2rem;
 }
 
 .logos-wrapper {
   display: flex;
-  gap: 100px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0 50px;
+  gap: 50px;
 }
 
 .logo-box {
@@ -33,7 +35,7 @@
 
 .logo-box .logo {
   width: 80%;
-  aspect-ratio: inherit;
+  height: auto;
 }
 
 .logo-box:hover .logos-download {
@@ -148,7 +150,8 @@
     --coefficient: 0.8;
   }
   .logos-title {
-    margin: 130px 0 180px 0;
+    padding-top: 130px;
+    margin-bottom: 150px;
     font-size: 2rem;
   }
   .logos-wrapper {
@@ -160,11 +163,14 @@
     padding-bottom: 100px;
   }
   .logos-title {
-    margin: 100px 0 80px;
+    padding-top: 80px;
+    margin-bottom: 80px;
     font-size: 2rem;
   }
   .logos-wrapper {
+    margin: 0 10px;
     flex-direction: column;
+    align-items: center;
   }
   .logo-box {
     border-top-right-radius: 0;
@@ -210,7 +216,8 @@
     background-size: 90% 150%;
   }
   .logos-title {
-    margin: 70px 0 50px;
+    padding-top: 70px;
+    margin-bottom: 50px;
     font-size: 1.8rem;
   }
   .logo-download-link {

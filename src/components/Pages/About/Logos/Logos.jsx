@@ -1,14 +1,25 @@
+import { useEffect } from 'react';
+import './Logos.css';
+
 import spartakSvg from 'materials/logos/spartak/spartak.svg';
 import spartakPng from 'materials/logos/spartak/spartak.png';
 import ukraineSvg from 'materials/logos/ukraine/ukraine.svg';
 import ukrainePng from 'materials/logos/ukraine/ukraine.png';
 import sgostuSvg from 'materials/logos/sgostu/sgostu.svg';
 import sgostuPng from 'materials/logos/sgostu/sgostu.png';
-import { useEffect } from 'react';
-import './Logos.css';
+import ephanPng from 'materials/logos/ephan/ephan.png';
+import DDBSvg from 'materials/logos/ddb/DDB.svg';
+import DDBPng from 'materials/logos/ddb/DDB.png';
 
 export default function Logos() {
   const language = window.localStorage.getItem('language');
+  const logos = [
+    { name: 'СГОСТУ', svg: sgostuSvg, png: sgostuPng },
+    { name: 'Ukraine', svg: ukraineSvg, png: ukrainePng },
+    { name: 'Spartak', svg: spartakSvg, png: spartakPng },
+    { name: 'DDB', svg: DDBSvg, png: DDBPng },
+    { name: 'E-phan', png: ephanPng },
+  ];
 
   useEffect(() => {
     const buttons = document.querySelectorAll('.logo-download-link');
@@ -22,45 +33,25 @@ export default function Logos() {
     <article className='logos-catalog'>
       <h1 className='logos-title'>{language === 'en' ? 'Downloadable logos' : 'Логотипи'}</h1>
       <div className='logos-wrapper'>
-        <div className='logo-box'>
-          <img src={sgostuSvg} alt='СГОСТУ' className='logo' />
-          <div className='logos-download'>
-            <a href={sgostuPng} download className={`logo-download-link`}>
-              PNG
-              <DownloadBtn />
-            </a>
-            <a href={sgostuSvg} download className={`logo-download-link`}>
-              SVG
-              <DownloadBtn />
-            </a>
+        {logos.map(({ name, png, svg }) => (
+          <div className='logo-box' key={name}>
+            <img src={svg || png} alt={name} className='logo' />
+            <div className='logos-download'>
+              {png && (
+                <a href={png} download className='logo-download-link'>
+                  PNG
+                  <DownloadBtn />
+                </a>
+              )}
+              {svg && (
+                <a href={svg} download className='logo-download-link'>
+                  SVG
+                  <DownloadBtn />
+                </a>
+              )}
+            </div>
           </div>
-        </div>
-        <div className='logo-box'>
-          <img src={ukraineSvg} alt='СГОСТУ' className='logo' />
-          <div className='logos-download'>
-            <a href={ukrainePng} download className={`logo-download-link`}>
-              PNG
-              <DownloadBtn />
-            </a>
-            <a href={ukraineSvg} download className={`logo-download-link`}>
-              SVG
-              <DownloadBtn />
-            </a>
-          </div>
-        </div>
-        <div className='logo-box'>
-          <img src={spartakSvg} alt='СГОСТУ' className='logo' />
-          <div className='logos-download'>
-            <a href={spartakPng} download className={`logo-download-link`}>
-              PNG
-              <DownloadBtn />
-            </a>
-            <a href={spartakSvg} download className={`logo-download-link`}>
-              SVG
-              <DownloadBtn />
-            </a>
-          </div>
-        </div>
+        ))}
       </div>
     </article>
   );
