@@ -1,25 +1,9 @@
 import { useEffect } from 'react';
+import { logos } from 'constants/logos';
 import './Logos.css';
-
-import spartakSvg from 'materials/logos/spartak/spartak.svg';
-import spartakPng from 'materials/logos/spartak/spartak.png';
-import ukraineSvg from 'materials/logos/ukraine/ukraine.svg';
-import ukrainePng from 'materials/logos/ukraine/ukraine.png';
-import sgostuSvg from 'materials/logos/sgostu/sgostu.svg';
-import sgostuPng from 'materials/logos/sgostu/sgostu.png';
-import ephanPng from 'materials/logos/ephan/ephan.png';
-import DDBSvg from 'materials/logos/ddb/DDB.svg';
-import DDBPng from 'materials/logos/ddb/DDB.png';
 
 export default function Logos() {
   const language = window.localStorage.getItem('language');
-  const logos = [
-    { name: 'СГОСТУ', svg: sgostuSvg, png: sgostuPng },
-    { name: 'Ukraine', svg: ukraineSvg, png: ukrainePng },
-    { name: 'Spartak', svg: spartakSvg, png: spartakPng },
-    { name: 'DDB', svg: DDBSvg, png: DDBPng },
-    { name: 'E-phan', png: ephanPng },
-  ];
 
   useEffect(() => {
     const buttons = document.querySelectorAll('.logo-download-link');
@@ -33,7 +17,7 @@ export default function Logos() {
     <article className='logos-catalog'>
       <h1 className='logos-title'>{language === 'en' ? 'Downloadable logos' : 'Логотипи'}</h1>
       <div className='logos-wrapper'>
-        {logos.map(({ name, png, svg }) => (
+        {logos.map(({ name, png, svg, pngDark, svgDark }) => (
           <div className='logo-box' key={name}>
             <img src={svg || png} alt={name} className='logo' />
             <div className='logos-download'>
@@ -46,6 +30,18 @@ export default function Logos() {
               {svg && (
                 <a href={svg} download className='logo-download-link'>
                   SVG
+                  <DownloadBtn />
+                </a>
+              )}
+              {pngDark && (
+                <a href={pngDark} download className='logo-download-link'>
+                  PNG Dark
+                  <DownloadBtn />
+                </a>
+              )}
+              {svgDark && (
+                <a href={svgDark} download className='logo-download-link'>
+                  SVG Dark
                   <DownloadBtn />
                 </a>
               )}
