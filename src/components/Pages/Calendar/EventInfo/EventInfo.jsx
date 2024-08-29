@@ -67,7 +67,7 @@ export default function EventInfo() {
     entry,
     start,
     end,
-  } = event;
+  } = event || {};
 
   return (
     <article className='event-info'>

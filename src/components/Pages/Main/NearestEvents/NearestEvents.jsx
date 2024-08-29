@@ -41,13 +41,6 @@ export default function NearestEvents() {
     }
   }, []);
 
-  useEffect(() => {
-    console.log(nearestEvents);
-  }, [nearestEvents]);
-  useEffect(() => {
-    console.log(events);
-  }, [events]);
-
   return (
     events.length > 0 && (
       <article className='nearest-events'>
@@ -73,7 +66,7 @@ export default function NearestEvents() {
           coverflowEffect={{ rotate: 0, slideShadows: false, scale: 0.8 }}
           modules={[EffectCoverflow, Pagination]}
         >
-          {nearestEvents.length !== 0 ? (
+          {/* {nearestEvents.length !== 0 ? (
             nearestEvents.map(({ id, attributes }) => (
               <SwiperSlide key={id}>
                 <EventCard className='nearest-event-card' event={attributes} eventId={id} key={id} />
@@ -83,7 +76,7 @@ export default function NearestEvents() {
             <span className='event-void'>
               {language === 'en' ? 'Unfortunately, there are no events' : 'На жаль, заходів немає'}
             </span>
-          )}
+          )} */}
         </Swiper>
         {nearestEvents.length !== 0 && (
           <Button
