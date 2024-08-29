@@ -42,6 +42,7 @@
   position: relative;
   width: 200%;
   -webkit-text-stroke: 2px #222;
+  transition: 0.3s;
   z-index: 1;
 }
 
@@ -67,7 +68,7 @@
 }
 
 .nav-link-number::before {
-  content: "";
+  content: '';
   position: absolute;
   top: 50%;
   left: 0;
@@ -101,7 +102,7 @@
 }
 
 .nav-link-drop-down::after {
-  content: "";
+  content: '';
   position: absolute;
   bottom: -10px;
   left: 0;
@@ -140,7 +141,7 @@
 }
 
 .cross::before {
-  content: "";
+  content: '';
   position: absolute;
   top: 50%;
   left: 50%;
@@ -232,7 +233,7 @@
     padding-bottom: 150px;
   }
   .nav-link {
-    font-family: "e-Ukraine-Light", sans-serif;
+    font-family: 'e-Ukraine-Light', sans-serif;
     font-size: 2.18rem;
   }
   .nav-link.opened {
@@ -265,7 +266,7 @@
   }
   .nav-link {
     width: 300%;
-    font-family: "e-Ukraine-Thin", sans-serif;
+    font-family: 'e-Ukraine-Thin', sans-serif;
     letter-spacing: 2px;
     line-height: 1.2;
   }
