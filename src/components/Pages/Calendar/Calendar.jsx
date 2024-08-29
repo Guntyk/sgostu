@@ -31,6 +31,8 @@ export default function Calendar() {
     }
   }, []);
 
+  const yearsPairString = `${new Date().getFullYear()} - ${new Date().getFullYear() + 1}`;
+
   const months =
     language === 'en'
       ? monthsDataEN
@@ -48,7 +50,9 @@ export default function Calendar() {
     <article className='calendar'>
       <div className='container'>
         <h1 className='calendar-title'>
-          {language === 'en' ? 'Calendar of events for 2023' : 'Календар заходів на 2023 рік'}
+          {language === 'en'
+            ? `Calendar of events for ${yearsPairString}`
+            : `Календар заходів на ${yearsPairString} рік`}
         </h1>
       </div>
       {events.length > 0 &&
