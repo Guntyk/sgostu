@@ -18,7 +18,7 @@ export default function Management() {
     if (management.length === 0) {
       dispatch(getManagement());
     }
-  }, []);
+  }, [dispatch, management.length]);
 
   function handleChangeType({ target: { innerText } }) {
     if (innerText === 'Рада СГОСТУ' || innerText === 'The Council of SGOSTU') {
@@ -49,6 +49,12 @@ export default function Management() {
           </div>
           <div className='management-cards'>
             {management
+              .sort((a, b) => {
+                const placeA = a.attributes.place;
+                const placeB = b.attributes.place;
+
+                return placeA && placeB ? placeA - placeB : placeA ? -1 : placeB ? 1 : 0;
+              })
               .filter(({ attributes: { council, regions } }) => (managementType === 'council' ? council : regions))
               .map(({ id, attributes }) => (
                 <PersonCard
