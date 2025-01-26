@@ -25,7 +25,7 @@ export default function LastNewsCard({ article, articleId }) {
               alt={language === 'en' ? 'News photo' : 'Фотографія новини'}
             />
           </div>
-          <span className='news-card-date'>{dateToLocalFormat(article.createdAt)}</span>
+          <span className='news-card-date'>{dateToLocalFormat(article?.publicationDate || article.createdAt)}</span>
           <span className='news-card-title'>{language === 'en' ? article.title_en : article.title}</span>
           <Button
             className='event-details-btn news-link'
