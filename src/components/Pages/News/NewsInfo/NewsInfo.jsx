@@ -67,7 +67,9 @@ export default function NewsInfo() {
                 </div>
                 <div className='article-text-wrapper'>
                   <h1 className='article-title'>{language === 'en' ? article.title_en : article.title}</h1>
-                  <span className='article-date'>{dateToLocalFormat(article.createdAt)}</span>
+                  <span className='article-date'>
+                    {dateToLocalFormat(article?.publicationDate || article.createdAt)}
+                  </span>
                   <p className='article-description'>
                     {language === 'en' ? article.description_en : article.description}
                   </p>
