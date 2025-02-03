@@ -73,7 +73,7 @@ export default function Hero() {
           <p>
             Переходячи до платежів погоджуюся з умовами{' '}
             <a
-              href='https://sgostu-backend.download/uploads/Zagalni_umovi_platformi_DDB_17afde2699.pdf?updated_at=2025-01-27T12:59:11.780Z'
+              href='https://sgostu-backend.download/uploads/Zagalni_umovi_platformi_DDB_3724c24072.pdf?updated_at=2025-02-03T09:06:35.912Z'
               target='_blank'
             >
               Договору оферти
