@@ -29,7 +29,6 @@ export default function Main() {
       <NearestEvents />
       <LastNews articles={articles} />
       <Database />
-      <Announcements articles={articles} />
       <Feedback />
     </main>
   );
