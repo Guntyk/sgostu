@@ -16,7 +16,7 @@ export const getJudgesData = createAsyncThunk('judges/getJudges', async (statuse
       .filter((judge) => judge['Judges Verify'])
       .filter(({ id }) =>
         statuses
-          .filter(({ Name }) => Name !== 'Не активний')
+          .filter(({ Name }) => Name === 'Активний')
           .map(({ Judges }) => Judges)
           .flat()
           .includes(id)
